@@ -120,5 +120,9 @@ def make_all(root, langs):
         icon(size).save(os.path.join(root, name), optimize=True)
     icon(512, maskable=True).save(os.path.join(root, "icon-512-maskable.png"), optimize=True)
     icon(64).save(os.path.join(root, "favicon.ico"), sizes=[(16, 16), (32, 32), (48, 48)])
+    # As imagens de compartilhamento (og-image.png, og-image-pt.png) são desenhadas em tools/og.html, com as fontes do site,
+    # e ficam versionadas na raiz. A função og() acima só é usada se um dos arquivos faltar.
     for code, PG, HOME in langs:
-        og(os.path.join(root, "og-image.png" if code == "en" else "og-image-pt.png"), HOME["kicker"], HOME["title"], HOME["title2"], PG["studio"])
+        path = os.path.join(root, "og-image.png" if code == "en" else "og-image-pt.png")
+        if not os.path.exists(path):
+            og(path, HOME["kicker"], HOME["title"], HOME["title2"], PG["studio"])

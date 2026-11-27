@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Imagem de compartilhamento · The Love Theory</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=DM+Sans:wght@400;600;700&family=DynaPuff:wght@700&display=swap" rel="stylesheet">
+<style>
+  body { font-family: "DM Sans", system-ui, sans-serif; background: #f7efe7; color: #2a1d2c; margin: 24px; }
+  canvas { display: block; width: min(100%, 1200px); height: auto; border: 1.5px solid #2a1d2c; margin: 12px 0 28px; }
+  button { font: inherit; font-weight: 700; padding: 8px 16px; border: 1.5px solid #2a1d2c; border-radius: 8px; background: #b8236f; color: #fff; cursor: pointer; }
+</style>
+</head>
+<body>
+<h1>Imagem de compartilhamento</h1>
+<p>As duas imagens (1200 × 630) que aparecem quando o link do site é compartilhado. São desenhadas aqui, com as fontes do site,
+e salvas na raiz como <code>og-image.png</code> (inglês) e <code>og-image-pt.png</code> (português). Para mudar o texto ou o desenho, edite este arquivo.</p>
+<div id="out"></div>
+<script>
+/* Imagem Open Graph do The Love Theory, em canvas. Os textos acompanham HOME em tools/data_en.py e tools/data_pt.py. */
+var TEXT = {
+  en: { file: "og-image.png", kicker: "The theory of love", title: "Look at who you keep close.", sub: "That's you standing there.",
+        chips: ["11 tools", "18 properties of love", "nothing leaves your device"], cap: "today's portrait", bar: "love studio" },
+  pt: { file: "og-image-pt.png", kicker: "A teoria do amor", title: "Olhe para quem você mantém por perto.", sub: "É você que está ali.",
+        chips: ["11 ferramentas", "18 propriedades do amor", "nada sai do seu aparelho"], cap: "o retrato de hoje", bar: "estúdio do amor" }
+};
+var C = { ink: "#2a1d2c", paper: "#f7efe7", dot: "#e6d9d0", pink: "#f3b4cc", pink2: "#f8d2e0", deep: "#d8408f", mag: "#b8236f", magd: "#9c1c5e",
+          lilac: "#cdb9e6", lilac2: "#e4d8f2", blue: "#9fb0d4", blue2: "#c7d2e8", cream: "#fff7ee", tape: "rgba(255,236,170,.85)" };
+function rr(x, a, b, w, h, r) { x.beginPath(); x.roundRect(a, b, w, h, r); }
+function heart(x, cx, cy, s, fill) {
+  x.beginPath();
+  for (var i = 0; i <= 240; i++) {
+    var t = i / 240 * 2 * Math.PI, px = 16 * Math.pow(Math.sin(t), 3), py = 13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t);
+    var X = cx + px * s / 16, Y = cy - py * s / 16 - s * 0.08; i ? x.lineTo(X, Y) : x.moveTo(X, Y);
+  }
+  x.closePath(); x.fillStyle = fill; x.fill();
+}
+/* quebra o título em linhas de largura parecida (sem deixar uma palavra sozinha na última linha) */
+function balanced(x, text, maxW) {
+  var words = text.split(" "), best = null;
+  for (var n = 1; n <= 3 && !best; n++) {
+    var target = x.measureText(text).width / n, lines = [], cur = "";
+    words.forEach(function (w) { var t = cur ? cur + " " + w : w; if (cur && x.measureText(t).width > Math.max(target * 1.12, 1) && lines.length < n - 1) { lines.push(cur); cur = w; } else cur = t; });
+    lines.push(cur);
+    if (lines.every(function (l) { return x.measureText(l).width <= maxW; })) best = lines;
+  }
+  return best || [text];
+}
+function tape(x, cx, cy, w, h, rot) { x.save(); x.translate(cx, cy); x.rotate(rot); x.fillStyle = C.tape; x.fillRect(-w / 2, -h / 2, w, h); x.strokeStyle = "rgba(0,0,0,.10)"; x.setLineDash([5, 4]); x.lineWidth = 1; x.strokeRect(-w / 2, -h / 2, w, h); x.restore(); }
+function draw(cv, T) {
+  var W = 1200, H = 630, S = 2; cv.width = W * S; cv.height = H * S; var x = cv.getContext("2d"); x.scale(S, S);
+  x.fillStyle = C.paper; x.fillRect(0, 0, W, H);
+  x.fillStyle = C.dot; for (var i = 12; i < W; i += 18) for (var j = 12; j < H; j += 18) { x.beginPath(); x.arc(i, j, 1.3, 0, 7); x.fill(); }
+
+  /* ---- janela principal, levemente girada ---- */
+  var wx = 44, wy = 44, ww = 730, wh = 542, bar = 54, pad = 40;
+  x.save(); x.translate(wx + ww / 2, wy + wh / 2); x.rotate(-0.012); x.translate(-(wx + ww / 2), -(wy + wh / 2));
+  rr(x, wx + 10, wy + 10, ww, wh, 22); x.fillStyle = C.ink; x.fill();
+  rr(x, wx, wy, ww, wh, 22); x.fillStyle = C.pink2; x.fill();
+  x.save(); rr(x, wx, wy, ww, wh, 22); x.clip(); x.fillStyle = C.lilac; x.fillRect(wx, wy, ww, bar); x.restore();
+  x.lineWidth = 3; x.strokeStyle = C.ink; rr(x, wx, wy, ww, wh, 22); x.stroke();
+  x.beginPath(); x.moveTo(wx, wy + bar); x.lineTo(wx + ww, wy + bar); x.stroke();
+  ["#fff", C.pink, C.blue].forEach(function (c, k) { x.beginPath(); x.arc(wx + 32 + k * 28, wy + bar / 2, 9, 0, 7); x.fillStyle = c; x.fill(); x.lineWidth = 2.5; x.stroke(); });
+  x.fillStyle = C.ink; x.font = "700 17px 'DM Sans', sans-serif"; x.textAlign = "right"; x.textBaseline = "middle";
+  x.fillText("LOVETHEORY.BIBLIOVERSE.ORG", wx + ww - 26, wy + bar / 2 + 1); x.textAlign = "left"; x.textBaseline = "alphabetic";
+  var tx = wx + pad, y = wy + bar + 62;
+  /* marca */
+  x.beginPath(); x.arc(tx + 25, y - 13, 25, 0, 7); x.fillStyle = C.deep; x.fill(); heart(x, tx + 25, y - 13, 15, "#fff");
+  x.fillStyle = C.ink; x.font = "700 40px DynaPuff, cursive"; x.fillText("The Love Theory", tx + 64, y);
+  /* chamada */
+  y += 62; x.fillStyle = C.magd; x.font = "700 38px Caveat, cursive"; x.fillText(T.kicker, tx, y);
+  x.fillStyle = C.ink; var size = 66; x.font = "700 " + size + "px DynaPuff, cursive";
+  var lines = balanced(x, T.title, ww - pad * 2);
+  while (lines.length > 2 && size > 48) { size -= 4; x.font = "700 " + size + "px DynaPuff, cursive"; lines = balanced(x, T.title, ww - pad * 2); }
+  y += 14; lines.forEach(function (l) { y += Math.round(size * 1.08); x.fillText(l, tx, y); });
+  y += 54; x.fillStyle = C.mag; x.font = "700 36px DynaPuff, cursive"; x.fillText(T.sub, tx, y);
+  /* etiquetas no pé da janela */
+  x.font = "600 21px 'DM Sans', sans-serif"; var cx = tx, cy = wy + wh - 82, ch = 44, fills = [C.lilac2, C.blue2, C.cream];
+  T.chips.forEach(function (t, k) {
+    var w = x.measureText(t).width + 34; if (cx + w > wx + ww - pad) { cx = tx; cy += ch + 10; }
+    rr(x, cx + 3, cy + 3, w, ch, 22); x.fillStyle = C.ink; x.fill();
+    rr(x, cx, cy, w, ch, 22); x.fillStyle = fills[k % 3]; x.fill(); x.lineWidth = 2.5; x.strokeStyle = C.ink; x.stroke();
+    x.fillStyle = C.ink; x.textBaseline = "middle"; x.fillText(t, cx + 17, cy + ch / 2 + 1); x.textBaseline = "alphabetic"; cx += w + 12;
+  });
+  x.restore();
+  tape(x, 150, 46, 130, 32, -0.09);
+
+  /* ---- cartão do retrato, girado para o outro lado ---- */
+  var px = 818, py = 62, pw = 330, ph = 500;
+  x.save(); x.translate(px + pw / 2, py + ph / 2); x.rotate(0.045); x.translate(-(px + pw / 2), -(py + ph / 2));
+  rr(x, px + 10, py + 10, pw, ph, 16); x.fillStyle = C.ink; x.fill();
+  rr(x, px, py, pw, ph, 16); x.fillStyle = "#fff"; x.fill(); x.lineWidth = 3; x.strokeStyle = C.ink; x.stroke();
+  var ix = px + 20, iy = py + 20, iw = pw - 40, ih = 370;
+  x.save(); rr(x, ix, iy, iw, ih, 8); x.clip(); x.fillStyle = C.blue; x.fillRect(ix, iy, iw, ih);
+  x.fillStyle = "rgba(255,255,255,.26)"; for (var a = 0; a < iw; a += 14) for (var b = 0; b < ih; b += 14) if (((a / 14) + (b / 14)) % 2 === 0) x.fillRect(ix + a, iy + b, 7, 7);
+  x.restore(); rr(x, ix, iy, iw, ih, 8); x.lineWidth = 2.5; x.stroke();
+  /* radar: o retrato de dezoito propriedades */
+  var rcx = ix + iw / 2, rcy = iy + ih / 2, R = 126, vals = [8, 6, 9, 8, 7, 6, 7, 9, 8, 7, 6, 8, 3, 2, 7, 6, 7, 2], n = vals.length;
+  var pt = function (k, v) { var an = -Math.PI / 2 + k * 2 * Math.PI / n; return [rcx + R * v / 10 * Math.cos(an), rcy + R * v / 10 * Math.sin(an)]; };
+  x.beginPath(); x.arc(rcx, rcy, R + 16, 0, 7); x.fillStyle = "#fff"; x.fill(); x.lineWidth = 3; x.stroke();
+  x.lineWidth = 1.2; x.strokeStyle = "#d9cdd3";
+  [2.5, 5, 7.5, 10].forEach(function (lv) { x.beginPath(); for (var k = 0; k < n; k++) { var p = pt(k, lv); k ? x.lineTo(p[0], p[1]) : x.moveTo(p[0], p[1]); } x.closePath(); x.stroke(); });
+  for (var k = 0; k < n; k++) { var e = pt(k, 10); x.beginPath(); x.moveTo(rcx, rcy); x.lineTo(e[0], e[1]); x.stroke(); }
+  x.beginPath(); vals.forEach(function (v, k) { var p = pt(k, v); k ? x.lineTo(p[0], p[1]) : x.moveTo(p[0], p[1]); }); x.closePath();
+  x.fillStyle = "rgba(216,64,143,.42)"; x.fill(); x.lineWidth = 3.5; x.strokeStyle = C.mag; x.lineJoin = "round"; x.stroke();
+  vals.forEach(function (v, k) { var p = pt(k, v); x.beginPath(); x.arc(p[0], p[1], 4, 0, 7); x.fillStyle = C.mag; x.fill(); });
+  heart(x, rcx, rcy + 2, 13, C.deep);
+  x.strokeStyle = C.ink; x.fillStyle = C.ink; x.font = "700 40px Caveat, cursive"; x.textAlign = "center"; x.fillText(T.cap, px + pw / 2, py + ph - 42); x.textAlign = "left";
+  x.restore();
+  tape(x, px + pw - 40, py + 6, 120, 30, 0.12);
+  /* selo de coração sobre o canto do cartão */
+  x.save(); x.translate(1136, 86); x.rotate(0.18); x.beginPath(); x.arc(0, 0, 44, 0, 7); x.fillStyle = C.ink; x.fill(); x.beginPath(); x.arc(-4, -4, 44, 0, 7); x.fillStyle = C.deep; x.fill(); x.lineWidth = 3; x.strokeStyle = C.ink; x.stroke(); heart(x, -4, -4, 24, "#fff"); x.restore();
+}
+/* canvas 2x reduzido para 1200x630 na exportação */
+function exportPNG(cv) { var o = document.createElement("canvas"); o.width = 1200; o.height = 630; var c = o.getContext("2d"); c.imageSmoothingQuality = "high"; c.drawImage(cv, 0, 0, 1200, 630); return new Promise(function (res) { o.toBlob(res, "image/png"); }); }
+window.ogReady = Promise.all([document.fonts.load("700 40px DynaPuff"), document.fonts.load("700 40px Caveat"), document.fonts.load("600 20px 'DM Sans'"), document.fonts.load("700 20px 'DM Sans'")]).then(function () {
+  var out = document.getElementById("out"); window.ogCanvas = {};
+  Object.keys(TEXT).forEach(function (k) {
+    var T = TEXT[k], h = document.createElement("h2"), cv = document.createElement("canvas"), b = document.createElement("button");
+    h.textContent = T.file; b.textContent = "Baixar " + T.file; draw(cv, T); window.ogCanvas[k] = cv;
+    b.addEventListener("click", function () { exportPNG(cv).then(function (blob) { var a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = T.file; a.click(); }); });
+    out.appendChild(h); out.appendChild(b); out.appendChild(cv);
+  });
+  return true;
+});
+/* envia as duas imagens para um receptor local (uso do gerador): ogSend("http://127.0.0.1:8857") */
+window.ogSend = function (base) { return window.ogReady.then(function () { return Promise.all(Object.keys(TEXT).map(function (k) { return exportPNG(window.ogCanvas[k]).then(function (blob) { return fetch(base + "/" + TEXT[k].file, { method: "POST", body: blob }).then(function (r) { return TEXT[k].file + " " + r.status + " " + blob.size; }); }); })); }); };
+</script>
+</body>
+</html>
