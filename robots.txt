@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://lovetheory.biblioverse.org/sitemap.xml
