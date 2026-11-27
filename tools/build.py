@@ -111,7 +111,7 @@ class Site:
         assert sorted(grouped + ["home", "theory"]) == sorted(k for k, _ in D.NAV), "NAV e NAV_GROUPS precisam cobrir as mesmas chaves"
         full = {k: v[0] for k, v in PG["tools"].items()}
         link = lambda k, t: f'<a href="{self.href(k)}"{" class=on aria-current=page" if k == active else ""}>{e(t)}</a>'
-        nav = "".join(link(k, t) for k, t in D.NAV if k not in grouped)
+        nav = "".join(link(k, t) for k, t in D.NAV if k not in grouped and k != "home")   # o início é o logo
         for label, ks in D.NAV_GROUPS:
             nav += f'<details name="nav"{" class=on" if active in ks else ""}><summary>{e(label)}</summary><div class="sub">{"".join(link(k, full[k]) for k in ks)}</div></details>'
         home = f"{SITE}/{self.prefix}"
@@ -181,7 +181,7 @@ class Site:
 <body>
 <a class="skip" href="#main">{e(PG['skip'])}</a>
 <nav id="bvbar" class="bvbar" data-current="lovetheory" data-bg="#2a1d2c" data-fg="#ffffff" data-accent="#b8236f" aria-label="BiblioVerse" style="position:fixed;top:0;left:0;right:0;height:36px;z-index:9000;background:#2a1d2c"><a href="https://biblioverse.org" style="color:#fff;line-height:36px;padding:0 14px;font-weight:700;text-decoration:none">BiblioVerse</a></nav>
-<header class="nav"><div class="wrap"><a class="logo" href="./" aria-label="{e(PG['home_aria'])}"><span class="mark">{LOGO}</span><span class="t">{D.SITE_NAME}</span></a><nav class="menu" aria-label="{e(PG['nav_aria'])}">{nav}<a class="lang" href="/{self.other_prefix}{'' if op == 'index.html' else op}" hreflang="{other_hl}" lang="{other_hl}" aria-label="{e(PG['lang_aria'])}">{e(D.SWITCH_LABEL)}</a></nav></div></header>
+<header class="nav"><div class="wrap"><a class="logo" href="./" aria-label="{e(PG['home_aria'])}"{" aria-current=page" if active == "home" else ""}><span class="mark">{LOGO}</span><span class="t">{D.SITE_NAME}</span></a><nav class="menu" aria-label="{e(PG['nav_aria'])}">{nav}<a class="lang" href="/{self.other_prefix}{'' if op == 'index.html' else op}" hreflang="{other_hl}" lang="{other_hl}" aria-label="{e(PG['lang_aria'])}">{e(D.SWITCH_LABEL)}</a></nav></div></header>
 <main id="main" tabindex="-1">
 {body}
 </main>
