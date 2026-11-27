@@ -818,7 +818,7 @@ UI = dict(
     fmt=dict(post="Portrait 4:5", square="Square 1:1", story="Story 9:16"), share_preview="Image preview", download_png="Download PNG",
     share_btn="Download image to share",
     s_who="Who is the person?", nick_note="The name stays on your device only. It can be a nickname.", name="Name", name_ph="E.g. Ana", relation="What relationship is this?",
-    version="Version", quick_opt="Quick: 18 questions, 6 min", deep_opt="Deep: about 100 questions, 20 min, with root, expectation and weight",
+    version="Version", quick_opt="Quick", deep_opt="Deep, with root, expectation and weight",
     same_ruler="The properties are the same for any relationship. It is the same ruler for friendship and for romance; what changes is only what you feel.",
     start="Start", thermo_title="First: how are you right now?",
     thermo_text="The availability thermometer. It doesn't change the values; it changes the reading. A portrait made at a closed moment, or at a needy moment, reads differently.",
@@ -1510,7 +1510,7 @@ _OPT_BUCKET = [("N", "Not for me"), ("M", "Maybe"), ("W", "Want to live it"), ("
 LISTS = dict(
     # ------------------------------------------------------------------ Keep the Spark
     spark=dict(
-        v=1, adult=True, bar="yes", pick=True,
+        v=2, adult=True, bar="yes", pick=True,
         kicker="Keep the Spark", title="What will we do to keep love good?",
         lead=("Time wears novelty out, and novelty is what feeds passion. What keeps a love good and hot is hardly ever luck: it is what the two of you do on purpose. "
               "Here are {n} ideas in three parts: things to do together, new things in bed between the two of you, and experiences that go beyond the couple. "
@@ -1627,7 +1627,7 @@ LISTS = dict(
     ),
     # ------------------------------------------------------------------ Love Bucketlist
     lovelist=dict(
-        v=1, adult=False, bar="done", pick=False,
+        v=2, adult=False, bar="done", pick=False,
         kicker="Love Bucketlist", title="The love I want to live",
         lead=("A bucket list is the list of what you want to live before life goes by. This is the one for love, in two parts: the relationship you want to have, "
               "with what you want to find in someone and offer back, and the things to live as a pair, from small gestures to big milestones. "
@@ -1706,7 +1706,7 @@ LISTS = dict(
     ),
     # ------------------------------------------------------------------ Sexual Bucketlist
     sexlist=dict(
-        v=3, adult=True, bar="done", pick=False,
+        v=4, adult=True, bar="done", pick=False,
         kicker="Sexual Bucketlist", title="What I have lived and what I want to live",
         lead=("The bucket list for sex: {n} items across practices, positions, rhythms, roles, occasions and places. Mark what you have lived, what you want to live and what is not for you. "
               "It is for knowing yourself, for having something to talk about and, as a pair, for finding out what both want without anyone having to suggest it first. "
@@ -2090,3 +2090,14 @@ GLOSSARY += [
     ("mecanismos", "Objectification", "Treating a person as a thing: seeing the body and ignoring the will, the pleasure and the feelings. Desiring someone's body is not objectifying; reducing the person to it is.", "myths"),
     ("mecanismos", "Emotional responsibility", "Being honest about what you want and caring about the effect of your choices on whoever is with you, in casual sex too.", "myths"),
 ]
+
+# ---------------------------------------------------------------------------
+# Time and versions (2026-11-28): approximate time on every test; short version on the large tests
+# ---------------------------------------------------------------------------
+UI.update(
+    time_about="about {m} min", answers_n="{n} answers",
+    ver_title="Which version do you want to take?", ver_short="Short version", ver_full="Full version", ver_to_full="Continue in the full version",
+    lm_short_text="The situations that best show where each person draws the line, across every group.", lm_full_text="All hundred situations, group by group.",
+    bl_short_text="The essential items in each group. What you answer is kept if you later want the full version.", bl_full_text="Every item in the parts you open.",
+)
+PAGES["versions_items"] = "There are two versions: the short one, with the {s} essential items (about {sm} minutes), and the full one, with all {n} (about {fm} minutes)."

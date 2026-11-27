@@ -979,7 +979,7 @@ UI = dict(
     fmt=dict(post="Retrato 4:5", square="Quadrado 1:1", story="Story 9:16"), share_preview="Pré-visualização da imagem", download_png="Baixar PNG",
     share_btn="Baixar imagem para compartilhar",
     s_who="Quem é a pessoa?", nick_note="O nome fica só no seu aparelho. Pode ser um apelido.", name="Nome", name_ph="Ex.: Ana", relation="Que relação é esta?",
-    version="Versão", quick_opt="Rápida: 18 perguntas, 6 min", deep_opt="Profunda: cerca de 100 perguntas, 20 min, com raiz, expectativa e peso",
+    version="Versão", quick_opt="Rápida", deep_opt="Profunda, com raiz, expectativa e peso",
     same_ruler="As propriedades são as mesmas para qualquer relação. É a mesma régua para a amizade e para o romance; o que muda é só o que você sente.",
     start="Começar", thermo_title="Antes: como você está agora?",
     thermo_text="O termômetro de disponibilidade. Ele não muda os valores; muda a leitura. Um retrato feito num momento fechado, ou num momento carente, se lê diferente.",
@@ -1678,7 +1678,7 @@ _OPT_BUCKET = [("N", "Não é para mim"), ("T", "Talvez"), ("Q", "Quero viver"),
 LISTS = dict(
     # ------------------------------------------------------------------ Manter a Chama
     spark=dict(
-        v=1, adult=True, bar="yes", pick=True,
+        v=2, adult=True, bar="yes", pick=True,
         kicker="Manter a Chama", title="O que vamos fazer para o amor continuar bom?",
         lead=("O tempo gasta a novidade, e é a novidade que alimenta a paixão. O que mantém um amor bom e quente quase nunca é sorte: é o que os dois fazem de propósito. "
               "Aqui estão {n} propostas em três partes: coisas para fazer juntos, novidades na cama entre vocês dois e experiências que vão além do casal. "
@@ -1795,7 +1795,7 @@ LISTS = dict(
     ),
     # ------------------------------------------------------------------ Bucket List do Amor
     lovelist=dict(
-        v=1, adult=False, bar="done", pick=False,
+        v=2, adult=False, bar="done", pick=False,
         kicker="Bucket List do Amor", title="O amor que eu quero viver",
         lead=("Uma bucket list é a lista do que se quer viver antes que a vida passe. Esta é a do amor, em duas partes: o relacionamento que você quer ter, "
               "com aquilo que você quer encontrar em alguém e oferecer de volta, e as coisas para viver a dois, dos gestos pequenos aos grandes marcos. "
@@ -1874,7 +1874,7 @@ LISTS = dict(
     ),
     # ------------------------------------------------------------------ Bucket List Sexual
     sexlist=dict(
-        v=3, adult=True, bar="done", pick=False,
+        v=4, adult=True, bar="done", pick=False,
         kicker="Bucket List Sexual", title="O que eu já vivi e o que eu quero viver",
         lead=("A bucket list do sexo: {n} itens entre práticas, posições, ritmos, papéis, ocasiões e lugares. Marque o que já viveu, o que quer viver e o que não é para você. "
               "Serve para se conhecer, para ter assunto e, a dois, para descobrir o que os dois querem sem ninguém precisar propor primeiro. "
@@ -2258,3 +2258,14 @@ GLOSSARY += [
     ("mecanismos", "Objetificação", "Tratar uma pessoa como coisa: enxergar o corpo e ignorar a vontade, o prazer e os sentimentos. Desejar o corpo de alguém não é objetificar; reduzir a pessoa a ele é.", "myths"),
     ("mecanismos", "Responsabilidade afetiva", "Ser honesto sobre o que você quer e cuidar do efeito das suas escolhas em quem está com você, também no sexo casual.", "myths"),
 ]
+
+# ---------------------------------------------------------------------------
+# Tempo e versões (2026-11-28): tempo aproximado em todos os testes; versão curta nos testes grandes
+# ---------------------------------------------------------------------------
+UI.update(
+    time_about="cerca de {m} min", answers_n="{n} respostas",
+    ver_title="Qual versão você quer fazer?", ver_short="Versão curta", ver_full="Versão completa", ver_to_full="Continuar na versão completa",
+    lm_short_text="As situações que melhor mostram onde cada um põe o limite, em todos os grupos.", lm_full_text="As cem situações, grupo por grupo.",
+    bl_short_text="Os itens essenciais de cada grupo. O que você responder fica guardado se depois quiser a versão completa.", bl_full_text="Todos os itens das partes que você abrir.",
+)
+PAGES["versions_items"] = "São duas versões: a curta, com os {s} itens essenciais (cerca de {sm} minutos), e a completa, com os {n} (cerca de {fm} minutos)."

@@ -26,7 +26,31 @@ MYTHS_SHORT = {
     "corpo": (12, [1, 3, 6]), "corpos": (13, [0, 4, 10]), "prevencao": (16, [0, 3, 4, 13]), "julgamento": (17, [0, 3, 13, 15]),
     "acordos": (13, [0, 2, 9]), "conversa": (14, [0, 4, 12]), "digital": (9, [0, 1, 5]), "outros": (13, [0, 4, 7]),
 }
-MYTH_SECS = 10   # tempo por afirmação (definido pelo Julio em 2026-11-27)
+ANSWER_SECS = 10   # tempo por resposta em todos os testes (definido pelo Julio em 2026-11-27)
+MYTH_SECS = ANSWER_SECS
+# Versão curta dos testes grandes: por grupo, (número de itens quando a escolha foi feita, índices dos essenciais).
+LIMITS_SHORT = {
+    "pensamentos": (10, [0, 6, 7]), "naomono": (10, [3, 5, 9]), "porno": (5, [0, 3, 4]), "redes": (6, [0, 2, 5]), "sinais": (3, [0, 2]),
+    "emocional": (8, [1, 5, 7]), "flerte": (7, [1, 4, 6]), "contato": (6, [1, 3, 5]), "encontros": (6, [0, 3, 5]), "sigilo": (9, [0, 3, 7]),
+    "ex": (8, [0, 2, 7]), "sexual": (12, [3, 5, 8, 11]), "paralelo": (10, [0, 3, 7]),
+}
+LISTS_SHORT = {
+    "spark": {
+        "corpo": (10, [0, 2, 5]), "viagem": (12, [0, 5, 8]), "comida": (10, [0, 1, 6]), "jogos": (10, [0, 2, 3]), "cultura": (10, [0, 3, 5]),
+        "social": (8, [1, 4, 7]), "casa": (10, [0, 4, 6]), "romance": (14, [0, 2, 8]), "conversa": (8, [0, 5, 7]),
+        "clima": (11, [0, 2, 7]), "provocacao": (10, [0, 3, 4]), "sentidos": (10, [0, 1, 4]), "jeitos": (13, [0, 2, 4]), "papeis": (11, [2, 4, 10]), "registro": (8, [0, 1, 4]),
+        "olhar": (9, [0, 3, 6]), "flerte": (7, [0, 1, 4]), "gente": (8, [0, 1, 4]), "acordos": (9, [0, 2, 8]),
+    },
+    "lovelist": {
+        "amizade": (7, [0, 1, 4]), "admiracao": (8, [0, 3, 5]), "presenca": (8, [0, 2, 4]), "confianca": (6, [0, 1, 2]), "igualdade": (6, [0, 1, 4]), "mundo": (4, [0, 1]),
+        "gestos": (10, [0, 3, 9]), "memorias": (10, [0, 3, 6]), "aventuras": (12, [0, 1, 6]), "marcos": (12, [1, 4, 6, 11]), "dia": (10, [0, 2, 3]),
+    },
+    "sexlist": {
+        "comecos": (12, [0, 4, 8]), "dar": (15, [0, 1, 2, 3]), "posicoes": (14, [0, 2, 4]), "ritmo": (18, [0, 2, 8]), "sentidos": (13, [0, 3, 5]), "papeis": (15, [2, 3, 5]),
+        "ver": (10, [0, 2, 4]), "gente": (7, [2, 3, 5]), "ocasioes": (8, [0, 3, 5]),
+        "casa": (12, [2, 5, 7]), "fora": (8, [0, 1, 6]), "transporte": (5, [0, 2]), "arlivre": (7, [0, 3, 6]), "semplateia": (4, [1, 2]), "publico": (17, [5, 6, 15]),
+    },
+}
 
 
 def prepare_myths(D):
@@ -44,6 +68,29 @@ def prepare_myths(D):
     mins = lambda n: max(1, int(n * MYTH_SECS / 60 + 0.5))
     M["versions"] = (M["t"]["versions"].replace("{s}", str(M["ns"])).replace("{sm}", str(mins(M["ns"])))
                      .replace("{n}", str(M["n"])).replace("{fm}", str(mins(M["n"]))))
+    versions = lambda s, n: (D.PAGES["versions_items"].replace("{s}", str(s)).replace("{sm}", str(mins(s))).replace("{n}", str(n)).replace("{fm}", str(mins(n))))
+    # Limites: índices das situações essenciais, na ordem da lista inteira
+    LM = D.LIMITS
+    assert set(LIMITS_SHORT) == {g for g, _ in LM["groups"]}, "LIMITS_SHORT precisa cobrir todos os grupos"
+    LM["short"] = []
+    for gid, _ in LM["groups"]:
+        pos = [i for i, it in enumerate(LM["items"]) if it[0] == gid]
+        n, idx = LIMITS_SHORT[gid]
+        assert len(pos) == n, f"Limites, grupo {gid}: {len(pos)} itens, a versão curta foi escolhida com {n}; revise LIMITS_SHORT"
+        LM["short"] += [pos[k] for k in idx]
+    LM["versions"] = versions(len(LM["short"]), len(LM["items"]))
+    # listas: índices dos itens essenciais dentro de cada grupo
+    for key, table in LISTS_SHORT.items():
+        L = D.LISTS[key]
+        gids = [g["id"] for s in L["sections"] for g in s["groups"]]
+        assert set(table) == set(gids), f"LISTS_SHORT[{key}] precisa cobrir todos os grupos"
+        for s in L["sections"]:
+            for g in s["groups"]:
+                n, idx = table[g["id"]]
+                assert len(g["items"]) == n, f'{key}, grupo {g["id"]}: {len(g["items"])} itens, a versão curta foi escolhida com {n}; revise LISTS_SHORT'
+                g["short"] = idx
+        L["ns"] = sum(len(v[1]) for v in table.values())
+        L["versions"] = versions(L["ns"], L["n"])
 
 
 LIST_KEYS = ("spark", "lovelist", "sexlist")   # as três ferramentas de lista (app.js: lists)
@@ -369,7 +416,7 @@ class Site:
         name, desc, _, _ = TL["stay"]
         self.out(P["stay"], self.page(P["stay"], name, desc, self.page_hero(D.STAY["kicker"], D.STAY["title"], D.STAY["lead"]) + self.tool_shell("stay"), "stay", ld_extra=self.app_ld("stay", name, desc)))
         name, desc, _, _ = TL["limits"]
-        self.out(P["limits"], self.page(P["limits"], name, desc, self.page_hero(D.LIMITS["kicker"], D.LIMITS["title"], D.LIMITS["lead"]) + self.tool_shell("limits"), "limits", ld_extra=self.app_ld("limits", name, desc)))
+        self.out(P["limits"], self.page(P["limits"], name, desc, self.page_hero(D.LIMITS["kicker"], D.LIMITS["title"], D.LIMITS["lead"] + " " + D.LIMITS["versions"]) + self.tool_shell("limits"), "limits", ld_extra=self.app_ld("limits", name, desc)))
         PG = D.PAGES
         M = D.MYTHS
         name, desc, seo, _ = TL["myths"]
@@ -390,7 +437,7 @@ class Site:
                 cards += (f'<div class="card"><p class="num">{e(PG["lists_items"].replace("{n}", str(n)))}{tag}</p><h3>{e(s["title"])}</h3><p class="small">{e(s["lead"])}</p>'
                           f'<p class="small muted">{e(" · ".join(g["title"] for g in s["groups"]))}</p></div>')
             notes = '<div class="card big soft" style="margin-top:18px"><ul style="margin:0">' + "".join(f"<li>{e(t)}</li>" for t in L["notes"]) + "</ul></div>"
-            body = self.page_hero(L["kicker"], L["title"], L["lead"]) + self.tool_shell(key) + how + self.section(PG["lists_inside"], f'<div class="grid g3">{cards}</div>' + notes)
+            body = self.page_hero(L["kicker"], L["title"], L["lead"] + " " + L["versions"]) + self.tool_shell(key) + how + self.section(PG["lists_inside"], f'<div class="grid g3">{cards}</div>' + notes)
             self.out(P[key], self.page(P[key], seo, desc, body, key, ld_extra=self.app_ld(key, name, desc, adult=L["adult"], features=[s["title"] for s in L["sections"]]), adult=(key == "sexlist")))
 
     def build_glossary(self):
@@ -435,7 +482,7 @@ class Site:
         data = dict(lang=D.LANG, host=HOST, paths=D.PATHS, ui=D.UI, props=props, thermo=D.THERMO, relations=D.RELATIONS, types=D.TYPES,
                     portraitFlags=D.PORTRAIT_FLAGS, rootNotes=D.ROOT_NOTES, flags=[{k: f[k] for k in ("sign", "text", "props", "kind")} for f in D.FLAGS],
                     sliders=D.SLIDERS, sliderGroups=D.SLIDER_GROUPS, sliderKeys=slider_keys, tastes=D.TASTES, expectQ=D.EXPECT_Q, expectOpts=D.EXPECT_OPTS,
-                    weightQ=D.WEIGHT_Q, stay=D.STAY, loveLangs=D.LOVE_LANGS, limits=D.LIMITS, lists=D.LISTS, myths=D.MYTHS)
+                    weightQ=D.WEIGHT_Q, stay=D.STAY, loveLangs=D.LOVE_LANGS, limits=D.LIMITS, lists=D.LISTS, myths=D.MYTHS, secs=ANSWER_SECS)
         write(f"assets/data-{self.code}.js", "window.LT=" + json.dumps(data, ensure_ascii=False, separators=(",", ":")) + ";")
 
     def pages(self):
@@ -486,7 +533,7 @@ class Site:
         L += [f"## {PG['tools_title']}", ""] + [f"- {t['name']}: {t['text']}" for t in D.TOOLS] + ["", D.STAY["lead"], "", D.LIMITS["lead"], ""]
         for key in LIST_KEYS:
             Ls = D.LISTS[key]
-            L += [f"### {Ls['kicker']}", "", Ls["lead"], ""] + [f"- {a}: {t}" for a, t in Ls["how"]] + [""] + [f"- {t}" for t in Ls["notes"]] + [""]
+            L += [f"### {Ls['kicker']}", "", Ls["lead"] + " " + Ls["versions"], ""] + [f"- {a}: {t}" for a, t in Ls["how"]] + [""] + [f"- {t}" for t in Ls["notes"]] + [""]
             for s in Ls["sections"]:
                 L += [f"#### {s['title']}", "", s["lead"], ""]
                 L += [f"- {g['title']} ({len(g['items'])})" + ("" if s["adult"] else ": " + " ".join(g["items"])) for g in s["groups"]] + [""]

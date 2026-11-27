@@ -9,6 +9,10 @@
   var esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
   var fmt = function (s, o) { return String(s).replace(/\{(\w+)\}/g, function (_, k) { return o && o[k] != null ? o[k] : "{" + k + "}"; }); };
   var fill = function (t, nome) { return esc(t).replace(/\{nome\}/g, "<b>" + esc(nome || T.default_person) + "</b>"); };
+  /* tempo aproximado: D.secs segundos por resposta (definido no build) */
+  var mins = function (n) { return Math.max(1, Math.round(n * (D.secs || 10) / 60)); };
+  var timeTxt = function (n) { return fmt(T.time_about, { m: mins(n) }); };
+  var sizeTxt = function (n) { return fmt(T.answers_n, { n: n }) + " · " + timeTxt(n); };
   var store = {
     get: function (k, d) { try { var v = localStorage.getItem("lt:" + k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
     set: function (k, v) { try { localStorage.setItem("lt:" + k, JSON.stringify(v)); } catch (e) { } }
@@ -195,8 +199,8 @@
           '<div class="field"><label>' + esc(T.name) + '</label><input type="text" name="nome" required placeholder="' + esc(T.name_ph) + '" value="' + esc(st.nome) + '"></div>' +
           '<div class="field"><label>' + esc(T.relation) + '</label><select name="rel">' + D.relations.map(function (r) { return '<option value="' + r[0] + '"' + (r[0] === st.rel ? " selected" : "") + '>' + esc(r[1]) + '</option>'; }).join("") + '</select></div>' +
           '<div class="field"><label>' + esc(T.version) + '</label><div class="opts">' +
-          '<label class="opt"><input type="radio" name="mode" value="quick" checked> ' + esc(T.quick_opt) + '</label>' +
-          '<label class="opt"><input type="radio" name="mode" value="deep"> ' + esc(T.deep_opt) + '</label></div></div>' +
+          '<label class="opt"><input type="radio" name="mode" value="quick" checked> ' + esc(T.quick_opt) + ' <span class="muted">· ' + esc(sizeTxt(D.thermo.length + PROPS.length + PROPS.filter(function (p) { return p.quick_root; }).length)) + '</span></label>' +
+          '<label class="opt"><input type="radio" name="mode" value="deep"> ' + esc(T.deep_opt) + ' <span class="muted">· ' + esc(sizeTxt(D.thermo.length + PROPS.reduce(function (n, p) { return n + p.deep.length; }, 0) + PROPS.length * 3)) + '</span></label></div></div>' +
           '<p class="muted">' + esc(T.same_ruler) + '</p><div class="actions"><button class="btn" type="submit">' + esc(T.start) + '</button></div></form>';
       } else if (st.step === 1) {
         h = '<form class="step" id="f1"><h2>' + esc(T.thermo_title) + '</h2><p class="muted">' + esc(T.thermo_text) + '</p>' +
@@ -324,7 +328,7 @@
   function selfLove(root) {
     var saved = store.get("selflove");
     function form() {
-      root.innerHTML = '<form class="step"><h2>' + esc(T.sl_title) + '</h2><p class="muted">' + esc(T.sl_text) + '</p>' +
+      root.innerHTML = '<form class="step"><h2>' + esc(T.sl_title) + '</h2><p class="muted">' + esc(T.sl_text) + '</p><p class="muted">' + esc(sizeTxt(PROPS.length)) + '</p>' +
         PROPS.map(function (p, i) { return '<div class="item"><p class="q">' + esc(p.selflove) + '</p>' + rangeInput("s" + i, 5, p.key === K("sombras") ? [T.nothing, T.much] : null) + '</div>'; }).join("") +
         '<div class="actions"><button class="btn" type="submit">' + esc(T.see_portrait) + '</button></div></form>';
       root.querySelector("form").addEventListener("submit", function (e) {
@@ -398,7 +402,7 @@
       if (p1 && p2) { root.innerHTML = results(p1, p2); wireShare(p1, p2); return; }
       if (st.step === 0) {
         h = '<form class="step"><h2>' + (p1 ? fmt(esc(T.c_answered), { me: esc(p1.me) }) : esc(T.c_who)) + '</h2>' +
-          '<p class="muted">' + (p1 ? fmt(esc(T.c_alone_p2), { me: esc(p1.me) }) : esc(T.c_alone_p1)) + '</p>' +
+          '<p class="muted">' + (p1 ? fmt(esc(T.c_alone_p2), { me: esc(p1.me) }) : esc(T.c_alone_p1)) + '</p><p class="muted">' + esc(sizeTxt(PROPS.length * LAYERS.length)) + '</p>' +
           '<div class="field"><label>' + esc(T.your_name) + '</label><input type="text" name="me" required value="' + esc(st.me) + '"></div>' +
           '<div class="field"><label>' + esc(T.other_name) + '</label><input type="text" name="you" required value="' + esc(st.you) + '"' + (p1 ? " readonly" : "") + '></div>' +
           '<div class="field"><label>' + esc(T.relation) + '</label><select name="rel"' + (p1 ? " disabled" : "") + '>' + D.relations.filter(function (r) { return r[0] !== "animal" && r[0] !== "fa"; }).map(function (r) { return '<option value="' + r[0] + '"' + (r[0] === st.rel ? " selected" : "") + '>' + esc(r[1]) + '</option>'; }).join("") + '</select></div>' +
@@ -511,14 +515,14 @@
         '<details><summary>' + esc(T.sheet) + '</summary><dl class="sheet"><dt>' + esc(T.sheet_why0) + '</dt><dd>' + esc(s.why0) + '</dd><dt>' + esc(T.sheet_not) + '</dt><dd>' + esc(s.not_) + '</dd><dt>' + esc(T.sheet_links) + '</dt><dd>' + esc(s.links) + '</dd><dt>' + esc(T.sheet_pos) + '</dt><dd>' + s.pos.map(function (p, i) { return "<b>" + esc(p) + "</b>: " + esc(s.pos_text[i]); }).join("<br>") + '</dd></dl></details></div>';
     };
     var chips = function (attr, key, list, on) { return '<div class="chips" data-' + attr + '="' + key + '">' + list.map(function (t, i) { return '<button type="button" class="chip' + (on.indexOf(i) >= 0 ? " on" : "") + '" data-i="' + i + '">' + esc(t) + '</button>'; }).join("") + '</div>'; };
-    var h = '<form class="step"><h2>' + esc(T.sd_title) + '</h2><p class="muted">' + esc(T.sd_text1) + '</p><p class="muted">' + esc(T.sd_text2) + '</p>';
+    var h = '<form class="step"><h2>' + esc(T.sd_title) + '</h2><p class="muted">' + esc(T.sd_text1) + '</p><p class="muted">' + esc(T.sd_text2) + '</p><p class="muted">' + esc(sizeTxt(sl.filter(function (s) { return !s.more; }).length)) + '</p>';
     D.sliderGroups.forEach(function (g) {
       var list = sl.filter(function (s) { return s.group === g[0] && !s.more; });
       if (!list.length) return;
       h += '<h3 style="margin-top:28px">' + esc(g[1]) + '</h3>' + list.map(card).join("");
     });
     var more = sl.filter(function (s) { return s.more; });
-    if (more.length) h += '<details class="more" style="margin-top:28px"' + (more.some(function (s) { return saved.values[s.key] != null; }) ? " open" : "") + '><summary>' + esc(T.more_sliders) + '</summary><p class="muted">' + esc(T.more_text) + '</p>' + more.map(card).join("") + '</details>';
+    if (more.length) h += '<details class="more" style="margin-top:28px"' + (more.some(function (s) { return saved.values[s.key] != null; }) ? " open" : "") + '><summary>' + esc(T.more_sliders) + ' <span class="muted">· ' + esc(timeTxt(more.length)) + '</span></summary><p class="muted">' + esc(T.more_text) + '</p>' + more.map(card).join("") + '</details>';
     var LL = D.loveLangs.map(function (l) { return l[1]; });
     h += '<h3 style="margin-top:28px">' + esc(T.langs_title) + '</h3><p class="muted">' + esc(T.langs_text) + '</p>' +
       '<div class="slider-card"><h4>' + esc(T.langs_give) + '</h4>' + chips("lang", "give", LL, saved.langs.give || []) + '<h4 style="margin-top:14px">' + esc(T.langs_receive) + '</h4>' + chips("lang", "receive", LL, saved.langs.receive || []) + '</div>';
@@ -584,7 +588,7 @@
         h = '<form class="step"><h2>' + esc(T.st_who) + '</h2><p class="muted">' + esc(T.nick_note) + '</p>' +
           '<div class="field"><label>' + esc(T.name) + '</label><input type="text" name="nome" required value="' + esc(st.nome) + '"></div>' +
           '<div class="field"><label>' + esc(T.relation) + '</label><select name="rel">' + S.relations.map(function (r) { return '<option value="' + r[0] + '"' + (r[0] === st.rel ? " selected" : "") + '>' + esc(r[1]) + '</option>'; }).join("") + '</select></div>' +
-          '<div class="note"><ol>' + T.st_steps.map(function (t) { return "<li>" + esc(t) + "</li>"; }).join("") + '</ol></div>' +
+          '<p class="muted">' + esc(sizeTxt(S.redlines.length + S.pros.length + S.cons.length + 1)) + '</p><div class="note"><ol>' + T.st_steps.map(function (t) { return "<li>" + esc(t) + "</li>"; }).join("") + '</ol></div>' +
           '<div class="actions"><button class="btn" type="submit">' + esc(T.start) + '</button></div></form>';
       } else if (st.step === 1) {
         h = '<form class="step"><p class="eyebrow">' + fmt(T.step_of, { i: 1, n: 4 }) + '</p><h2>' + esc(T.st_red_title) + '</h2><p class="muted">' + esc(T.st_red_text) + '</p>' +
@@ -593,7 +597,7 @@
       } else if (st.step === 2 || st.step === 3) {
         var base = st.step === 2 ? S.pros : S.cons, extra = st.step === 2 ? (S.pros_more || []) : (S.cons_more || []), bag = st.step === 2 ? st.pros : st.cons;
         h = '<form class="step"><p class="eyebrow">' + fmt(T.step_of, { i: st.step, n: 4 }) + '</p><h2>' + esc(st.step === 2 ? T.st_pros : T.st_cons) + '</h2><p class="muted">' + fmt(esc(T.st_hint), { nome: esc(st.nome) }) + '</p>' + items(base, bag) +
-          (extra.length ? '<details class="more" style="margin-top:18px"' + (st.more ? " open" : "") + '><summary>' + esc(T.st_more) + '</summary><p class="muted">' + esc(T.st_more_text) + '</p><label class="opt"><input type="checkbox" name="more"' + (st.more ? " checked" : "") + '> ' + esc(T.st_more) + '</label>' + items(extra, bag) + '</details>' : "") +
+          (extra.length ? '<details class="more" style="margin-top:18px"' + (st.more ? " open" : "") + '><summary>' + esc(T.st_more) + ' <span class="muted">· ' + esc(timeTxt(extra.length)) + '</span></summary><p class="muted">' + esc(T.st_more_text) + '</p><label class="opt"><input type="checkbox" name="more"' + (st.more ? " checked" : "") + '> ' + esc(T.st_more) + '</label>' + items(extra, bag) + '</details>' : "") +
           '<div class="actions"><button class="btn ghost" type="button" data-back>' + esc(T.back) + '</button><button class="btn" type="submit">' + esc(T.continue_) + '</button></div></form>';
       } else if (st.step === 4) {
         h = '<form class="step"><p class="eyebrow">' + fmt(T.step_of, { i: 4, n: 4 }) + '</p><h2>' + esc(T.st_why) + '</h2><p class="muted">' + esc(T.st_why_text) + '</p><div class="opts">' +
@@ -703,9 +707,14 @@
   function limits(root) {
     var L = D.limits, hp = hashParams(), p1 = hp.l1 ? lb64.dec(hp.l1) : null, p2 = hp.l2 ? lb64.dec(hp.l2) : null;
     var G = L.groups, N = L.items.length, saved = store.get("limits");
-    var st = { step: 0, me: "", you: "", ans: [] }; for (var i = 0; i < N; i++) st.ans.push(-1);
+    var st = { step: 0, mode: "short", me: "", you: "", ans: [] }; for (var i = 0; i < N; i++) st.ans.push(-1);
+    var SH = {}; (L.short || []).forEach(function (i) { SH[i] = 1; });
+    /* quem responde por um link responde o que o outro respondeu; sozinho, a versão escolhida */
+    var use = function (i) { return p1 && !p2 ? p1.ans[i] >= 0 : (st.mode === "short" ? !!SH[i] : true); };
     if (p1 && !p2) { st.me = p1.you || ""; st.you = p1.me; }
     var gItems = function (gid) { var out = []; L.items.forEach(function (it, i) { if (it[0] === gid) out.push(i); }); return out; };
+    var gShow = function (gid) { return gItems(gid).filter(use); };
+    var GS = function () { return G.filter(function (g) { return gShow(g[0]).length; }); };
     var gAvg = function (ans, gid) { var xs = gItems(gid).map(function (i) { return ans[i]; }).filter(function (v) { return v >= 0; }); return xs.length ? mean(xs) : null; };
     var posOf = function (avg) { return T.lm_pos[Math.min(4, Math.max(0, Math.round(avg)))]; };
     function render() {
@@ -715,26 +724,28 @@
         h = '<form class="step"><h2>' + (p1 ? fmt(esc(T.lm_p2_title), { me: esc(p1.me) }) : esc(T.lm_who)) + '</h2><p class="muted">' + (p1 ? fmt(esc(T.lm_p2_text), { me: esc(p1.me) }) : esc(T.lm_text)) + '</p>' +
           '<div class="field"><label>' + esc(T.name) + '</label><input type="text" name="me" required value="' + esc(st.me) + '"></div>' +
           (p1 ? "" : '<div class="field"><label>' + esc(T.lm_partner) + '</label><input type="text" name="you" value="' + esc(st.you) + '"></div>') +
+          (p1 ? '<p class="muted">' + esc(sizeTxt(p1.ans.filter(function (v) { return v >= 0; }).length)) + '</p>' : '<h3>' + esc(T.ver_title) + '</h3><div class="bl-parts">' +
+            [["short", T.ver_short, (L.short || []).length, T.lm_short_text], ["full", T.ver_full, N, T.lm_full_text]].map(function (m) { return '<div class="bl-part"><label class="opt"><input type="radio" name="mode" value="' + m[0] + '"' + (st.mode === m[0] ? " checked" : "") + '> ' + esc(m[1]) + ' <span class="muted">· ' + esc(sizeTxt(m[2])) + '</span></label><p class="small muted">' + esc(m[3]) + '</p></div>'; }).join("") + '</div>') +
           '<div class="note"><b>' + esc(T.lm_legend) + '</b><ul>' + L.options.map(function (o) { return "<li><b>" + esc(o[0]) + "</b> · " + esc(o[1]) + "</li>"; }).join("") + '</ul></div>' +
           '<div class="actions"><button class="btn" type="submit">' + esc(T.start) + '</button></div></form>';
-      } else if (st.step <= G.length) {
-        var g = G[st.step - 1], idx = gItems(g[0]);
-        h = '<div class="progress"><i style="width:' + Math.round((st.step - 1) / G.length * 100) + '%"></i></div><form class="step"><p class="eyebrow">' + fmt(T.lm_group_of, { i: st.step, n: G.length }) + '</p><h2>' + esc(g[1]) + '</h2>' +
+      } else if (st.step <= GS().length) {
+        var gs = GS(), g = gs[st.step - 1], idx = gShow(g[0]);
+        h = '<div class="progress"><i style="width:' + Math.round((st.step - 1) / gs.length * 100) + '%"></i></div><form class="step"><p class="eyebrow">' + fmt(T.lm_group_of, { i: st.step, n: gs.length }) + '</p><h2>' + esc(g[1]) + '</h2>' +
           idx.map(function (i) { return '<div class="item lm-item"><p class="q">' + esc(L.items[i][1]) + '</p><div class="opts">' + L.options.map(function (o, k) { return '<label class="opt"><input type="radio" name="q' + i + '" value="' + k + '"' + (st.ans[i] === k ? " checked" : "") + '> ' + esc(o[1]) + '</label>'; }).join("") + '</div></div>'; }).join("") +
-          '<div class="actions"><button class="btn ghost" type="button" data-back>' + esc(T.back) + '</button><button class="btn" type="submit">' + esc(st.step === G.length ? (p1 ? T.finish : T.lm_see) : T.next) + '</button></div></form>';
+          '<div class="actions"><button class="btn ghost" type="button" data-back>' + esc(T.back) + '</button><button class="btn" type="submit">' + esc(st.step === gs.length ? (p1 ? T.finish : T.lm_see) : T.next) + '</button></div></form>';
       } else h = p1 ? pair(p1, { me: st.me, you: st.you, ans: st.ans }, true) : solo();
       root.innerHTML = h;
       var f = root.querySelector("form");
-      if (f && st.step <= G.length) {
+      if (f && st.step <= GS().length) {
         f.addEventListener("submit", function (e) {
           e.preventDefault();
-          if (st.step === 0) { st.me = f.me.value.trim() || T.default_person; if (f.you) st.you = f.you.value.trim(); }
-          else gItems(G[st.step - 1][0]).forEach(function (i) { var v = readRadio(f, "q" + i); st.ans[i] = v == null ? -1 : +v; });
+          if (st.step === 0) { st.me = f.me.value.trim() || T.default_person; if (f.you) st.you = f.you.value.trim(); var mr = readRadio(f, "mode"); if (mr) st.mode = mr; }
+          else gShow(GS()[st.step - 1][0]).forEach(function (i) { var v = readRadio(f, "q" + i); st.ans[i] = v == null ? -1 : +v; });
           st.step++; render();
         });
         var b = f.querySelector("[data-back]"); if (b) b.addEventListener("click", function () { st.step--; render(); });
       }
-      if (st.step > G.length) wire();
+      if (st.step > GS().length) wire();
       window.scrollTo({ top: root.offsetTop - 90, behavior: "smooth" });
     }
     function summary(ans) {
@@ -754,7 +765,7 @@
         '<div class="spacer"></div><p>' + fmt(esc(T.lm_strict), { list: "<b>" + esc(s.strict.map(function (r) { return r.g[1]; }).join(", ")) + "</b>" }) + ' ' + fmt(esc(T.lm_lenient), { list: "<b>" + esc(s.lenient.map(function (r) { return r.g[1]; }).join(", ")) + "</b>" }) + '</p>' +
         '<p>' + esc(s.dc.length ? fmt(T.lm_context, { n: s.dc.length }) : T.lm_context_none) + '</p>' + (s.dc.length ? lis(s.dc.slice(0, 12).map(function (i) { return L.items[i][1]; })) : "") +
         (s.tg.length ? '<p>' + fmt(esc(T.lm_grave), { n: s.tg.length, list: esc(s.tg.slice(0, 5).map(function (i) { return L.items[i][1].replace(/\.$/, "").toLowerCase(); }).join("; ")) }) + '</p>' : "") + '</div>';
-      h += '<div class="step"><h3>' + esc(T.lm_link_title) + '</h3><p>' + esc(T.lm_unspoken) + '</p><p class="muted">' + esc(T.lm_link_text) + '</p><p class="code" id="lm-url">' + esc(url) + '</p><div class="actions"><button class="btn" type="button" data-copy>' + esc(T.lm_copy) + '</button>' + shareBtn(T.lm_share_btn) + '<button class="btn ghost" type="button" data-again>' + esc(T.lm_redo) + '</button></div><p class="muted">' + esc(T.lm_warn) + '</p></div>';
+      h += '<div class="step"><h3>' + esc(T.lm_link_title) + '</h3><p>' + esc(T.lm_unspoken) + '</p><p class="muted">' + esc(T.lm_link_text) + '</p><p class="code" id="lm-url">' + esc(url) + '</p><div class="actions"><button class="btn" type="button" data-copy>' + esc(T.lm_copy) + '</button>' + shareBtn(T.lm_share_btn) + (st.mode === "short" ? '<button class="btn ghost" type="button" data-full>' + esc(T.ver_to_full) + '</button>' : "") + '<button class="btn ghost" type="button" data-again>' + esc(T.lm_redo) + '</button></div><p class="muted">' + esc(T.lm_warn) + '</p></div>';
       return h;
     }
     function pair(x, y, withLink) {
@@ -782,7 +793,8 @@
     var pairCache = null;
     function wire() {
       var c = root.querySelector("[data-copy]"), u = root.querySelector("#lm-url"); if (c && u) c.addEventListener("click", function () { navigator.clipboard && navigator.clipboard.writeText(u.textContent); c.textContent = T.copied; });
-      var a = root.querySelector("[data-again]"); if (a) a.addEventListener("click", function () { st = { step: 0, me: st.me, you: st.you, ans: st.ans.map(function () { return -1; }) }; render(); });
+      var a = root.querySelector("[data-again]"); if (a) a.addEventListener("click", function () { st = { step: 0, mode: st.mode, me: st.me, you: st.you, ans: st.ans.map(function () { return -1; }) }; render(); });
+      var fu = root.querySelector("[data-full]"); if (fu) fu.addEventListener("click", function () { st.mode = "full"; st.step = 1; render(); });
       var s = root.querySelector("[data-share]"); if (!s) return;
       s.addEventListener("click", function () {
         if (pairCache && (p2 || p1)) {
@@ -800,16 +812,17 @@
 
   /* ---------- Listas: Manter a Chama, Bucket List do Amor, Bucket List Sexual ----------
      Respostas por item: 0 não, 1 talvez, 2 quero, 3 já faço / já vivi; -1 sem resposta.
-     No cruzamento, qualquer item com um "não" fica de fora e nunca é mostrado. */
+     No cruzamento, qualquer item com um "não" fica de fora e nunca é mostrado.
+     Duas versões: curta (g.short, índices dos itens essenciais de cada grupo, definidos no build) e completa. */
   function lists(root, key) {
     var L = D.lists[key], X = L.t, hp = hashParams(), flat = [], G = [];
-    L.sections.forEach(function (s, si) { s.groups.forEach(function (g) { var idx = g.items.map(function (t) { flat.push(t); return flat.length - 1; }); G.push({ si: si, g: g, idx: idx }); }); });
+    L.sections.forEach(function (s, si) { s.groups.forEach(function (g) { var idx = g.items.map(function (t) { flat.push(t); return flat.length - 1; }); G.push({ si: si, g: g, idx: idx, sidx: (g.short || []).map(function (k) { return idx[k]; }) }); }); });
     var N = flat.length, NS = L.sections.length, base = location.href.split("#")[0];
     var secOf = []; G.forEach(function (x) { x.idx.forEach(function (i) { secOf[i] = x.si; }); });
     var codec = {
       enc: function (o) {
         var s = o.ans.map(function (v, i) { return v < 0 || !o.parts[secOf[i]] ? "-" : String(v); }).join("");
-        var raw = unescape(encodeURIComponent(JSON.stringify({ v: L.v, me: o.me, you: o.you || "", p: o.parts.map(function (b) { return b ? 1 : 0; }).join(""), s: s })));
+        var raw = unescape(encodeURIComponent(JSON.stringify({ v: L.v, me: o.me, you: o.you || "", m: o.mode === "short" ? "s" : "f", p: o.parts.map(function (b) { return b ? 1 : 0; }).join(""), s: s })));
         return btoa(raw).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
       },
       dec: function (str) {
@@ -817,21 +830,25 @@
           str = str.replace(/-/g, "+").replace(/_/g, "/"); while (str.length % 4) str += "=";
           var o = JSON.parse(decodeURIComponent(escape(atob(str))));
           if (!o || o.v !== L.v || typeof o.s !== "string" || o.s.length !== N || typeof o.p !== "string" || o.p.length !== NS) return null;
-          return { me: String(o.me || T.default_person).slice(0, 40), you: String(o.you || "").slice(0, 40), parts: o.p.split("").map(function (c) { return c === "1"; }),
+          return { me: String(o.me || T.default_person).slice(0, 40), you: String(o.you || "").slice(0, 40), mode: o.m === "s" ? "short" : "full", parts: o.p.split("").map(function (c) { return c === "1"; }),
             ans: o.s.split("").map(function (c) { return c === "-" ? -1 : Math.min(3, Math.max(0, +c || 0)); }) };
         } catch (e) { return null; }
       }
     };
     var p1 = hp.l1 ? codec.dec(hp.l1) : null, p2 = p1 && hp.l2 ? codec.dec(hp.l2) : null;
-    var saved = store.get(key); if (saved && (saved.v !== L.v || !saved.ans || saved.ans.length !== N || !saved.parts || saved.parts.length !== NS)) saved = null;
+    var saved = store.get(key); if (saved && (saved.v !== L.v || !saved.ans || saved.ans.length !== N || !saved.parts || saved.parts.length !== NS || (saved.mode !== "short" && saved.mode !== "full"))) saved = null;
     var blank = function () { var a = []; for (var i = 0; i < N; i++) a.push(-1); return a; };
-    var st = { step: 0, me: saved ? saved.me : "", you: saved ? saved.you || "" : "", ans: saved ? saved.ans.slice() : blank(), parts: saved ? saved.parts.slice() : L.sections.map(function (s) { return !!s["default"]; }), dirty: false };
-    if (p1 && !p2) { st.parts = p1.parts.slice(); if (!st.me) st.me = p1.you || ""; st.you = p1.me; }
+    var st = { step: 0, mode: saved ? saved.mode : "short", me: saved ? saved.me : "", you: saved ? saved.you || "" : "", ans: saved ? saved.ans.slice() : blank(), parts: saved ? saved.parts.slice() : L.sections.map(function (s) { return !!s["default"]; }), dirty: false };
+    if (p1 && !p2) { st.parts = p1.parts.slice(); st.mode = p1.mode; if (!st.me) st.me = p1.you || ""; st.you = p1.me; }
     var first = true, pickPool = [], pairCache = null;
-    var active = function (parts) { return G.filter(function (x) { return parts[x.si]; }); };
+    var ids = function (x, mode) { return (mode || st.mode) === "short" ? x.sidx : x.idx; };
+    var active = function (parts) { return G.filter(function (x) { return parts[x.si] && ids(x).length; }); };
+    var nIn = function (si, mode) { return G.reduce(function (a, x) { return a + (x.si === si ? ids(x, mode).length : 0); }, 0); };
+    var sizeOf = function (n) { return fmt(esc(T.bl_count), { n: n }) + ' · ' + esc(timeTxt(n)); };
     var needAdult = function (parts) { return L.sections.some(function (s, i) { return parts[i] && s.adult; }); };
-    var save = function () { saved = { v: L.v, date: new Date().toISOString(), me: st.me, you: st.you, ans: st.ans, parts: st.parts }; store.set(key, saved); st.dirty = false; };
+    var save = function () { saved = { v: L.v, date: new Date().toISOString(), mode: st.mode, me: st.me, you: st.you, ans: st.ans, parts: st.parts }; store.set(key, saved); st.dirty = false; };
     var adultTag = function (s) { return s.adult ? ' <span class="tag adult">' + esc(T.bl_adult_tag) + '</span>' : ""; };
+    var mine = function () { return { me: st.me, you: st.you, parts: st.parts, ans: st.ans, mode: st.mode }; };
 
     function render() {
       var h = "", ag = active(st.parts);
@@ -841,11 +858,13 @@
           '<h2>' + (p1 ? fmt(esc(T.bl_p2_title), { me: esc(p1.me) }) : esc(T.bl_who)) + '</h2>' + (p1 ? '<p class="muted">' + fmt(esc(T.bl_p2_text), { me: esc(p1.me) }) + '</p>' : "") +
           '<div class="field"><label>' + esc(T.name) + '</label><input type="text" name="me" required value="' + esc(st.me) + '"></div>' +
           (p1 ? "" : '<div class="field"><label>' + esc(T.bl_partner) + '</label><input type="text" name="you" value="' + esc(st.you) + '"></div>');
+        if (!p1) h += '<h3>' + esc(T.ver_title) + '</h3><div class="bl-parts">' + [["short", T.ver_short, T.bl_short_text], ["full", T.ver_full, T.bl_full_text]].map(function (m) {
+          return '<div class="bl-part"><label class="opt"><input type="radio" name="mode" value="' + m[0] + '"' + (st.mode === m[0] ? " checked" : "") + '> ' + esc(m[1]) + ' <span class="muted" data-total="' + m[0] + '"></span></label><p class="small muted">' + esc(m[2]) + '</p></div>';
+        }).join("") + '</div>';
         if (NS > 1 || L.adult) {
           h += '<h3>' + (p1 ? fmt(esc(T.bl_p2_parts), { me: esc(p1.me) }) : esc(T.bl_parts)) + '</h3><div class="bl-parts">' + L.sections.map(function (s, i) {
             if (p1 && !st.parts[i]) return "";
-            var n = s.groups.reduce(function (a, g) { return a + g.items.length; }, 0);
-            return '<div class="bl-part"><label class="opt"><input type="checkbox" name="part" value="' + i + '"' + (st.parts[i] ? " checked" : "") + (p1 || NS === 1 ? " disabled" : "") + '> ' + esc(s.title) + ' <span class="muted">· ' + fmt(esc(T.bl_count), { n: n }) + '</span>' + adultTag(s) + '</label><p class="small muted">' + esc(s.lead) + '</p></div>';
+            return '<div class="bl-part"><label class="opt"><input type="checkbox" name="part" value="' + i + '"' + (st.parts[i] ? " checked" : "") + (p1 || NS === 1 ? " disabled" : "") + '> ' + esc(s.title) + ' <span class="muted" data-size="' + i + '"></span>' + adultTag(s) + '</label><p class="small muted">' + esc(s.lead) + '</p></div>';
           }).join("") + '</div>';
         }
         h += '<div class="note"><ul>' + L.notes.map(function (t) { return "<li>" + esc(t) + "</li>"; }).join("") + '</ul></div>' +
@@ -856,26 +875,35 @@
         var x = ag[st.step - 1], sec = L.sections[x.si], firstOfSec = st.step === 1 || ag[st.step - 2].si !== x.si;
         h = '<div class="progress"><i style="width:' + Math.round((st.step - 1) / ag.length * 100) + '%"></i></div><form class="step"><p class="eyebrow">' + esc(sec.title) + ' · ' + fmt(esc(T.bl_group_of), { i: st.step, n: ag.length }) + '</p><h2>' + esc(x.g.title) + '</h2>' +
           (firstOfSec ? '<p>' + esc(sec.lead) + '</p>' : "") + (x.g.note ? '<div class="note">' + esc(x.g.note) + '</div>' : "") +
-          x.idx.map(function (i) { return '<div class="item lm-item"><p class="q">' + esc(flat[i]) + '</p><div class="opts">' + L.options.map(function (o, k) { return '<label class="opt"><input type="radio" name="q' + i + '" value="' + k + '"' + (st.ans[i] === k ? " checked" : "") + '> ' + esc(o[1]) + '</label>'; }).join("") + '</div></div>'; }).join("") +
+          ids(x).map(function (i) { return '<div class="item lm-item"><p class="q">' + esc(flat[i]) + '</p><div class="opts">' + L.options.map(function (o, k) { return '<label class="opt"><input type="radio" name="q' + i + '" value="' + k + '"' + (st.ans[i] === k ? " checked" : "") + '> ' + esc(o[1]) + '</label>'; }).join("") + '</div></div>'; }).join("") +
           '<div class="actions"><button class="btn ghost" type="button" data-back>' + esc(T.back) + '</button><button class="btn" type="submit">' + esc(st.step === ag.length ? (p1 ? T.finish : X.see) : T.next) + '</button></div></form>';
-      } else h = p1 ? pair(p1, { me: st.me, you: st.you, parts: st.parts, ans: st.ans }, true) : solo();
+      } else h = p1 ? pair(p1, mine(), true) : solo();
       root.innerHTML = h;
       var f = root.querySelector("form");
       if (f && st.step === 0) {
         var boxes = Array.prototype.slice.call(f.querySelectorAll("[name=part]")), ad = f.querySelector("[name=adult]");
         var cur = function () { var p = st.parts.slice(); boxes.forEach(function (b) { p[+b.value] = b.checked; }); return p; };
-        var sync = function () { if (ad) { var need = needAdult(cur()); ad.required = need; ad.closest(".bl-adult").classList.toggle("hidden", !need); } if (boxes[0]) boxes[0].setCustomValidity(""); };
-        boxes.forEach(function (b) { b.addEventListener("change", sync); }); sync();
+        var modeNow = function () { return (!p1 && readRadio(f, "mode")) || st.mode; };
+        var sync = function () {
+          var p = cur(), m = modeNow();
+          if (ad) { var need = needAdult(p); ad.required = need; ad.closest(".bl-adult").classList.toggle("hidden", !need); }
+          if (boxes[0]) boxes[0].setCustomValidity("");
+          Array.prototype.forEach.call(f.querySelectorAll("[data-size]"), function (el) { el.innerHTML = '· ' + sizeOf(nIn(+el.getAttribute("data-size"), m)); });
+          Array.prototype.forEach.call(f.querySelectorAll("[data-total]"), function (el) { var mm = el.getAttribute("data-total"); el.innerHTML = '· ' + sizeOf(L.sections.reduce(function (a, s, i) { return a + (p[i] ? nIn(i, mm) : 0); }, 0)); });
+        };
+        boxes.forEach(function (b) { b.addEventListener("change", sync); });
+        Array.prototype.forEach.call(f.querySelectorAll("[name=mode]"), function (r) { r.addEventListener("change", sync); });
+        sync();
         f.addEventListener("submit", function (e) {
           e.preventDefault();
           var p = cur(); if (!p.some(Boolean)) { boxes[0].setCustomValidity(T.bl_parts); boxes[0].reportValidity(); return; }
-          st.me = f.me.value.trim() || T.default_person; if (f.you) st.you = f.you.value.trim(); st.parts = p; st.dirty = true; st.step = 1; render();
+          st.mode = modeNow(); st.me = f.me.value.trim() || T.default_person; if (f.you) st.you = f.you.value.trim(); st.parts = p; st.dirty = true; st.step = 1; render();
         });
         var v = f.querySelector("[data-view]"); if (v) v.addEventListener("click", function () { st.step = ag.length + 1; render(); });
       } else if (f) {
         f.addEventListener("submit", function (e) {
           e.preventDefault();
-          ag[st.step - 1].idx.forEach(function (i) { var val = readRadio(f, "q" + i); st.ans[i] = val == null ? -1 : +val; });
+          ids(ag[st.step - 1]).forEach(function (i) { var val = readRadio(f, "q" + i); st.ans[i] = val == null ? -1 : +val; });
           save(); st.dirty = true; st.step++; render();
         });
         f.querySelector("[data-back]").addEventListener("click", function () { st.step--; render(); });
@@ -888,8 +916,8 @@
       if (!idxs.length) return '<p class="muted">' + esc(T.bl_empty_group) + '</p>';
       var set = {}; idxs.forEach(function (i) { set[i] = 1; });
       return G.map(function (x) {
-        var mine = x.idx.filter(function (i) { return set[i]; }); if (!mine.length) return "";
-        return '<h4>' + esc(x.g.title) + '</h4><ul>' + mine.map(function (i) { var tg = tagOf ? tagOf(i) : ""; return '<li>' + esc(flat[i]) + (tg ? ' <span class="muted">· ' + esc(tg) + '</span>' : "") + '</li>'; }).join("") + '</ul>';
+        var own = x.idx.filter(function (i) { return set[i]; }); if (!own.length) return "";
+        return '<h4>' + esc(x.g.title) + '</h4><ul>' + own.map(function (i) { var tg = tagOf ? tagOf(i) : ""; return '<li>' + esc(flat[i]) + (tg ? ' <span class="muted">· ' + esc(tg) + '</span>' : "") + '</li>'; }).join("") + '</ul>';
       }).join("");
     }
     function block(title, text, idxs, open, tagOf) {
@@ -905,8 +933,8 @@
     function summary(ans, parts) {
       var c = [0, 0, 0, 0], by = [[], [], [], []], rows = [], total = 0;
       active(parts).forEach(function (x) {
-        total += x.idx.length;
-        var a = x.idx.filter(function (i) { return ans[i] >= 0; }); if (!a.length) return;
+        var list = ids(x); total += list.length;
+        var a = list.filter(function (i) { return ans[i] >= 0; }); if (!a.length) return;
         a.forEach(function (i) { c[ans[i]]++; by[ans[i]].push(i); });
         var pct = Math.round(a.filter(function (i) { return L.bar === "yes" ? ans[i] >= 2 : ans[i] === 3; }).length / a.length * 100);
         rows.push({ name: x.g.title, pct: pct, label: fmt(T.bl_yes_pct, { p: pct }) });
@@ -919,13 +947,14 @@
     }
     function solo() {
       if (st.dirty || !saved) save();
-      var s = summary(st.ans, st.parts), url = base + "#l1=" + codec.enc({ me: st.me, you: st.you, parts: st.parts, ans: st.ans });
+      var s = summary(st.ans, st.parts), url = base + "#l1=" + codec.enc(mine());
       pairCache = null;
-      var h = '<div class="step result"><p class="eyebrow">' + esc(L.kicker) + ' · ' + esc(st.me) + ' · ' + esc(fmtDate(saved.date)) + '</p><h2>' + esc(X.solo_title) + '</h2><p class="muted">' + fmt(esc(T.bl_answered), { n: s.answered, N: s.total }) + '</p>' +
+      var h = '<div class="step result"><p class="eyebrow">' + esc(L.kicker) + ' · ' + esc(st.mode === "short" ? T.ver_short : T.ver_full) + ' · ' + esc(st.me) + ' · ' + esc(fmtDate(saved.date)) + '</p><h2>' + esc(X.solo_title) + '</h2><p class="muted">' + fmt(esc(T.bl_answered), { n: s.answered, N: s.total }) + '</p>' +
         '<p class="bl-counts">' + [3, 2, 1, 0].map(function (k) { return '<span class="stat"><b>' + s.c[k] + '</b> ' + esc(L.options[k][1]) + '</span>'; }).join("") + '</p>' +
         (s.rows.length ? '<h4>' + esc(X.bar_title) + '</h4>' + barsOf(s.rows) : '<div class="note">' + esc(T.bl_none) + '</div>') + '</div>';
       h += '<div class="step">' + (s.answered && !s.by[2].length ? '<div class="note">' + esc(X.want_empty) + '</div>' : "") + block(X.want_title, null, s.by[2], true) + block(X.maybe_title, null, s.by[1], false) + block(X.done_title, null, s.by[3], false) + pickBox(s.by[2].concat(s.by[3])) + '</div>';
       h += '<div class="step"><h3>' + esc(X.link_title) + '</h3><p class="muted">' + esc(X.link_text) + '</p><p class="code" id="bl-url">' + esc(url) + '</p><div class="actions"><button class="btn" type="button" data-copy>' + esc(T.bl_copy) + '</button>' + shareBtn(X.share_btn) +
+        (st.mode === "short" ? '<button class="btn ghost" type="button" data-full>' + esc(T.ver_to_full) + '</button>' : "") +
         '<button class="btn ghost" type="button" data-update>' + esc(T.bl_update) + '</button><button class="btn ghost" type="button" data-redo>' + esc(T.bl_redo) + '</button></div><p class="muted">' + esc(T.bl_warn) + '</p></div>';
       return h;
     }
@@ -954,7 +983,8 @@
     function wire() {
       var c = root.querySelector("[data-copy]"), u = root.querySelector("#bl-url"); if (c && u) c.addEventListener("click", function () { navigator.clipboard && navigator.clipboard.writeText(u.textContent); c.textContent = T.copied; });
       var up = root.querySelector("[data-update]"); if (up) up.addEventListener("click", function () { st.step = 0; render(); });
-      var rd = root.querySelector("[data-redo]"); if (rd) rd.addEventListener("click", function () { store.set(key, null); saved = null; st = { step: 0, me: st.me, you: st.you, ans: blank(), parts: L.sections.map(function (s) { return !!s["default"]; }), dirty: false }; render(); });
+      var fu = root.querySelector("[data-full]"); if (fu) fu.addEventListener("click", function () { st.mode = "full"; st.step = 1; st.dirty = true; render(); });
+      var rd = root.querySelector("[data-redo]"); if (rd) rd.addEventListener("click", function () { store.set(key, null); saved = null; st = { step: 0, mode: st.mode, me: st.me, you: st.you, ans: blank(), parts: L.sections.map(function (s) { return !!s["default"]; }), dirty: false }; render(); });
       var pk = root.querySelector("[data-pick]"), box = root.querySelector("#bl-pick");
       if (pk && box) pk.addEventListener("click", function () { var i = pickPool[Math.floor(Math.random() * pickPool.length)]; box.innerHTML = '<b>' + esc(X.pick_title) + '</b><p style="margin:6px 0 0">' + esc(flat[i]) + '</p>'; box.classList.remove("hidden"); pk.textContent = T.bl_again; });
       var s = root.querySelector("[data-share]"); if (!s) return;
