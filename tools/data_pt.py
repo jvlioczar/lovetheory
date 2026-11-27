@@ -2012,6 +2012,7 @@ TOOLS.insert(7, dict(key="myths", name="Mitologia Sexual", kicker="Mito ou verda
 # Menu em três grupos (2026-11-27): Início e Teoria ficam soltos; o resto abre por categoria, com o nome completo de cada ferramenta
 NAV_GROUPS = [("Para mim", ["selflove", "selfdiscover", "myths", "lovelist", "sexlist"]), ("Sobre alguém", ["scale", "stay", "portraits"]), ("A dois", ["couple", "limits", "spark"])]
 PAGES["theory_group"] = "A teoria"
+PAGES["tools_menu"] = "Ferramentas"
 PAGES["tools_title"] = "Onze ferramentas"
 PAGES["tools"]["myths"] = ("Mitologia Sexual", "Teste de educação sexual: mito ou verdade sobre consentimento, assédio, pressão, prazer, corpo, prevenção e traição. Cada resposta vem com a explicação.", "Mitologia Sexual: teste de educação sexual", None)
 

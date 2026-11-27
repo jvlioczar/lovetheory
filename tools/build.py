@@ -112,8 +112,10 @@ class Site:
         full = {k: v[0] for k, v in PG["tools"].items()}
         link = lambda k, t: f'<a href="{self.href(k)}"{" class=on aria-current=page" if k == active else ""}>{e(t)}</a>'
         nav = "".join(link(k, t) for k, t in D.NAV if k not in grouped and k != "home")   # o início é o logo
-        for label, ks in D.NAV_GROUPS:
-            nav += f'<details name="nav"{" class=on" if active in ks else ""}><summary>{e(label)}</summary><div class="sub">{"".join(link(k, full[k]) for k in ks)}</div></details>'
+        # um botão só; dentro do painel, cada grupo é uma coluna com título (texto, não link)
+        cols = "".join(f'<div class="sub-g" role="group" aria-labelledby="mg{i}"><p class="sub-h" id="mg{i}">{e(label)}</p>{"".join(link(k, full[k]) for k in ks)}</div>'
+                       for i, (label, ks) in enumerate(D.NAV_GROUPS))
+        nav += f'<details name="nav"{" class=on" if active in grouped else ""}><summary>{e(PG["tools_menu"])}</summary><div class="sub">{cols}</div></details>'
         home = f"{SITE}/{self.prefix}"
         crumbs = [(dict(D.NAV)["home"], home)]
         if active == "theory" and path != P["theory"]:

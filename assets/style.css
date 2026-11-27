@@ -51,13 +51,14 @@ img, svg { max-width: 100%; }
 .menu summary { display: block; list-style: none; cursor: pointer; font-family: var(--sans); color: var(--ink); margin: 0; padding: 6px 10px 8px; border: 1.5px solid var(--ink); border-bottom: 0; border-radius: 9px 9px 0 0; font-weight: 600; font-size: 13px; white-space: nowrap; background: var(--pink-2); }
 .menu summary::-webkit-details-marker { display: none; }
 .menu summary::after { content: "\25BE"; margin-left: 5px; font-size: 11px; }
-.menu details:nth-of-type(2) summary { background: var(--blue-2); } .menu details:nth-of-type(3) summary { background: var(--lilac-2); }
 .menu details.on summary, .menu details[open] summary { background: var(--ink); color: #fff; }
-.menu .sub { position: absolute; top: 100%; right: 0; z-index: 60; min-width: 230px; display: grid; gap: 4px; padding: 8px; background: var(--paper-2); border: 1.5px solid var(--ink); border-radius: 10px 0 10px 10px; box-shadow: var(--shadow); }
+.menu .sub { position: absolute; top: 100%; right: 0; z-index: 60; display: grid; grid-template-columns: repeat(3, max-content); gap: 6px 22px; padding: 16px 16px 12px; background: var(--paper-2); border: 1.5px solid var(--ink); border-radius: 10px 0 10px 10px; box-shadow: var(--shadow); }
+.menu .sub-g { display: grid; gap: 2px; align-content: start; min-width: 176px; }
+.menu .sub-h { font-family: var(--script); font-weight: 700; font-size: 25px; line-height: 1.1; color: var(--magenta-d); margin: 0 0 6px; padding: 0 12px 5px; border-bottom: 1.5px dashed var(--ink); white-space: nowrap; }
 .menu .sub a { border: 0; border-radius: 8px; background: none; margin: 0; padding: 9px 12px; font-size: 14px; }
 .menu .sub a:hover { background: var(--pink-2); } .menu .sub a.on { background: var(--ink); color: #fff; }
 .menu a.lang { background: #fff; font-family: var(--script); font-size: 16px; padding: 5px 10px 7px; }
-@media (max-width: 760px) { .menu { margin-left: 0; width: 100%; justify-content: flex-start; } .logo { padding-bottom: 4px; font-size: 20px; } .nav { position: static; } .menu { position: relative; } .menu details { position: static; } .menu .sub { left: 0; right: 0; border-radius: 0 0 10px 10px; } .menu .sub a { padding: 11px 12px; font-size: 15px; } }
+@media (max-width: 760px) { .menu { margin-left: 0; width: 100%; justify-content: flex-start; } .logo { padding-bottom: 4px; font-size: 20px; } .nav { position: static; } .menu { position: relative; } .menu details { position: static; } .menu .sub { left: 0; right: 0; grid-template-columns: 1fr; gap: 14px; border-radius: 0 0 10px 10px; } .menu .sub-g { min-width: 0; } .menu .sub a { padding: 10px 12px; font-size: 15px; } }
 
 /* colagem da home */
 .collage { display: grid; grid-template-columns: 1.35fr 1fr; grid-template-rows: auto auto; gap: 18px; padding: 26px var(--gut) 0; max-width: var(--max); margin: 0 auto; }

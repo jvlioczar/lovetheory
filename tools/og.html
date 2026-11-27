@@ -112,7 +112,7 @@ function draw(cv, T) {
   x.restore();
   tape(x, px + pw - 40, py + 6, 120, 30, 0.12);
   /* selo de coração sobre o canto do cartão */
-  x.save(); x.translate(1136, 86); x.rotate(0.18); x.beginPath(); x.arc(0, 0, 44, 0, 7); x.fillStyle = C.ink; x.fill(); x.beginPath(); x.arc(-4, -4, 44, 0, 7); x.fillStyle = C.deep; x.fill(); x.lineWidth = 3; x.strokeStyle = C.ink; x.stroke(); heart(x, -4, -4, 24, "#fff"); x.restore();
+  x.save(); x.translate(826, 84); x.rotate(-0.18); x.beginPath(); x.arc(0, 0, 44, 0, 7); x.fillStyle = C.ink; x.fill(); x.beginPath(); x.arc(-4, -4, 44, 0, 7); x.fillStyle = C.deep; x.fill(); x.lineWidth = 3; x.strokeStyle = C.ink; x.stroke(); heart(x, -4, -4, 24, "#fff"); x.restore();
 }
 /* canvas 2x reduzido para 1200x630 na exportação */
 function exportPNG(cv) { var o = document.createElement("canvas"); o.width = 1200; o.height = 630; var c = o.getContext("2d"); c.imageSmoothingQuality = "high"; c.drawImage(cv, 0, 0, 1200, 630); return new Promise(function (res) { o.toBlob(res, "image/png"); }); }

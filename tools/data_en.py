@@ -1844,6 +1844,7 @@ TOOLS.insert(7, dict(key="myths", name="Sexual Mythology", kicker="Myth or truth
 # Menu in three groups (2026-11-27): Home and Theory stay loose; the rest opens by category, with each tool's full name
 NAV_GROUPS = [("For me", ["selflove", "selfdiscover", "myths", "lovelist", "sexlist"]), ("About someone", ["scale", "stay", "portraits"]), ("For two", ["couple", "limits", "spark"])]
 PAGES["theory_group"] = "The theory"
+PAGES["tools_menu"] = "Tools"
 PAGES["tools_title"] = "Eleven tools"
 PAGES["tools"]["myths"] = ("Sexual Mythology", "A sex education test: myth or truth about consent, harassment, pressure, pleasure, the body, prevention and cheating. Every answer comes with the explanation.", "Sexual Mythology: a sex education test", None)
 
