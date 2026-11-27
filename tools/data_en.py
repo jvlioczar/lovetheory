@@ -915,7 +915,7 @@ PAGES = dict(
     footer="A BiblioVerse project.", about="About", privacy="Privacy", nav_aria="Sections", loading="Loading…",
     noscript="The tools need JavaScript. The theory content works without it.",
     home_title="The Love Theory · How we love", open="Open →", do_scale="Take the Love Scale", read_theory="Read the theory",
-    studio="love studio · v1", oval_caption="portraits of the ones you love", thesis_title="We say who we are through the people we keep close",
+    studio="love studio", oval_caption="portraits of the ones you love", thesis_title="We say who we are through the people we keep close",
     tools_title="Seven tools",
     theory=dict(kicker="The theory", title="Everything that makes up a love",
                 lead="Love is one word for a mixture of different things. Here the mixture is opened into eighteen properties, each with its parts, its roots and its way of showing.",
@@ -1498,7 +1498,7 @@ TOOLS.insert(6, dict(key="sexlist", name="Sexual Bucketlist", kicker="Adults onl
 PAGES["tools_title"] = "Ten tools"
 PAGES["tools"]["spark"] = ("Keep the Spark", "A test for couples to keep love good and hot: activities, new things in bed and beyond the couple. Each answers alone, and only what both want shows up.", "Keep the Spark: a test for couples", None)
 PAGES["tools"]["lovelist"] = ("Love Bucketlist", "The list of the love you want to live: the relationship you are looking for and the experiences for two, from small gestures to big milestones.", "Love Bucketlist: 93 things to live", None)
-PAGES["tools"]["sexlist"] = ("Sexual Bucketlist", "A sexual bucket list for adults: practices, positions, occasions and places. Mark what you have lived, what you want and what is not for you.", "Sexual Bucketlist: 158 items (18+)", None)
+PAGES["tools"]["sexlist"] = ("Sexual Bucketlist", "A sexual bucket list for adults: practices, positions, occasions and places. Mark what you have lived, what you want and what is not for you.", "Sexual Bucketlist: 150 items (18+)", None)
 PAGES["lists_how"] = "How it works"
 PAGES["lists_inside"] = "What is inside"
 PAGES["lists_items"] = "{n} items"
@@ -1550,7 +1550,7 @@ LISTS = dict(
                     "Make new friends together (a group, a club, a community).", "Volunteer together.", "A light family get-together, with no obligation.",
                     "A night each with your own friends, and tell everything afterwards."]),
                 dict(id="casa", title="Home, shopping and projects", items=[
-                    "Redecorate a room.", "Buy together something you both want for the home.", "Look after plants or a vegetable garden.", "Adopt or care for an animal together.",
+                    "Redecorate a room.", "Buy together something you both want for the home.", "Look after plants or a vegetable garden.", "Care for an animal together, or adopt responsibly, for the whole of its life.",
                     "Run a shared project (a channel, a business, a renovation, a collection).", "Cleaning day with loud music.", "Plan your finances and a shared goal.",
                     "Choose and buy clothes for each other.", "Put together an album of your best photos.", "Make a vision board for the two of you."]),
                 dict(id="romance", title="Romance and rituals", items=[
@@ -1580,11 +1580,11 @@ LISTS = dict(
                     "A night of foreplay only, no penetration.", "Long oral sex, one at a time.", "Mutual masturbation, or one watching the other.", "Anal sex.",
                     "Role reversal in penetration (pegging).", "Sixty-nine.", "Hold back the orgasm and start again several times (edging).", "Sex outside the bed: standing, on a chair, on the floor, on the sofa.",
                     "Tantric sex: breathing, slowness, no goal."]),
-                dict(id="papeis", title="Roles and fantasy", items=[
+                dict(id="papeis", title="Roles and fantasy", note="Everything here is agreed beforehand, with a safe word, and stops the moment either of you asks.", items=[
                     "Do a striptease for the other.", "Give a lap dance.", "Wear costumes and play characters.", "Pretend to be strangers meeting in a bar.",
                     "For one night, one commands and the other obeys, with a safe word.", "Handcuffs, or tying with a scarf.", "Agreed spanking.", "Hair pulling, a firmer grip.",
                     "Light dominance and submission.", "A day when one decides everything, from the menu to the sex.", "Act out a fantasy one of you has told."]),
-                dict(id="registro", title="Keepsakes and places", items=[
+                dict(id="registro", title="Keepsakes and places", note="Photos and videos only with a yes from both, kept with care and deleted when either asks. Away from home, only where nobody who did not consent can see or hear: exposing other people is a crime in many countries.", items=[
                     "Take sensual photos of each other, kept only between you.", "Record a video just for the two of you.", "Do a boudoir photo shoot.",
                     "Sex in the car, somewhere secluded.", "Sex outdoors, somewhere nobody will see.", "Sex on the balcony, at night, with no audience.",
                     "Sex in the pool or in the sea, alone.", "Sex in a camping tent."]),
@@ -1595,15 +1595,15 @@ LISTS = dict(
                     "Go to a strip club together.", "Go to an erotic or burlesque show.", "Go to a nude beach or a naturist venue.",
                     "Go to a swingers club just to see and watch.", "Go to a sex-positive or fetish party just to see.", "Have sex at a swingers club, just the two of you, with people around.",
                     "Watch another couple, with everyone's consent.", "Let another couple or another person watch you.", "A tantric massage with a professional, for two."]),
-                dict(id="flerte", title="Flirting and fantasy with others", items=[
-                    "Tell each other who you feel attracted to.", "Fantasise out loud about a third person, without acting on it.", "Flirt with other people in front of your partner, as a game.",
-                    "Dance with other people at a party.", "Kiss someone else in front of your partner.", "Create a couple profile on an app together, just to look.",
+                dict(id="flerte", title="Flirting and fantasy with others", note="Whoever enters the story is a person, not a prop: they need to know there is a couple and an agreement, and to want to take part.", items=[
+                    "Tell each other who you feel attracted to.", "Fantasise out loud about a third person, without acting on it.", "Flirt with other people in front of your partner, deceiving no one.",
+                    "Dance with other people at a party.", "Kiss someone else in front of your partner.", "Create a couple profile on an app together, telling the truth about what you are looking for.",
                     "Chat together, by message, with another couple or another person."]),
-                dict(id="gente", title="With more people", items=[
+                dict(id="gente", title="With more people", note="Everyone's consent counts, including whoever joins: condoms, up-to-date tests and limits agreed beforehand. Anyone can stop at any moment.", items=[
                     "A threesome with another woman.", "A threesome with another man.", "Sex in the same room as another couple, with no swapping.",
                     "Partner swap with kissing and touching only (soft swap).", "Full partner swap.", "Group sex.", "One watches while the other is with someone else.",
                     "Do it again with someone it already went well with."]),
-                dict(id="acordos", title="Open agreements", items=[
+                dict(id="acordos", title="Open agreements", note="An open agreement does not do away with care: protection with other people, up-to-date tests and honesty with whoever joins. Your partner's health is never kept secret.", items=[
                     "An agreed hall pass, one single time.", "A hall pass while travelling.", "Open the relationship for sexual encounters only, with rules.",
                     "Only together: with other people only when both are present.", "Each can be with other people and tells afterwards.",
                     "Each can, and nobody asks or tells.", "Near-monogamy: exclusivity with agreed exceptions (monogamish).",
@@ -1663,7 +1663,7 @@ LISTS = dict(
                     "To put the other's wish first, sometimes, as an act of love.", "To give way when needed and get the same back.",
                     "To respect the wish to be alone, on both sides.", "To offer a lot and receive a lot: will and reciprocity."]),
                 dict(id="mundo", title="Us and the world", items=[
-                    "To build ties with friends and family that respect and strengthen the relationship.", "To be the two of us against whoever judges us or wishes us harm.",
+                    "To build ties with friends and family that respect and strengthen the relationship.", "To stand by each other before whoever judges us or wishes us harm, without pulling away from those who wish us well.",
                     "To defend each other from taboos and ill will.", "To be proud to introduce each other to the world."]),
             ]),
             dict(id="viver", title="Things to live as a pair", lead="Gestures, memories, adventures, milestones and everyday life.", adult=False, default=True, groups=[
@@ -1681,7 +1681,7 @@ LISTS = dict(
                     "Sleep under the stars.", "See the favourite band of one of us live, together.", "Swim in the sea at night.", "Ride a Ferris wheel or a hot-air balloon.",
                     "Do something wonderfully crazy on impulse, like travelling the next day."]),
                 dict(id="marcos", title="Milestones", items=[
-                    "Introduce each other to our families.", "Move in together.", "Adopt an animal together.", "Propose or be proposed to.",
+                    "Introduce each other to our families.", "Move in together.", "Adopt an animal together, for the whole of its life.", "Propose or be proposed to.",
                     "Marry, or celebrate the union our own way.", "Have a honeymoon.", "Have or raise children.", "Buy or set up a home.",
                     "Start a project or a business together.", "Celebrate one year, ten years, twenty-five years.", "Renew our vows.", "Grow old together."]),
                 dict(id="dia", title="Everyday life", items=[
@@ -1706,7 +1706,7 @@ LISTS = dict(
     ),
     # ------------------------------------------------------------------ Sexual Bucketlist
     sexlist=dict(
-        v=1, adult=True, bar="done", pick=False,
+        v=2, adult=True, bar="done", pick=False,
         kicker="Sexual Bucketlist", title="What I have lived and what I want to live",
         lead=("The bucket list for sex: {n} items across practices, positions, rhythms, roles, occasions and places. Mark what you have lived, what you want to live and what is not for you. "
               "It is for knowing yourself, for having something to talk about and, as a pair, for finding out what both want without anyone having to suggest it first. "
@@ -1717,12 +1717,12 @@ LISTS = dict(
              ("As a pair, with no awkwardness", "Send the link to your partner. The match shows only what both want; what one declined is shown to nobody.")],
         notes=["Everything here is between adults and with the consent of everyone involved, given beforehand and withdrawable at any moment.",
                "Quantity measures nothing. A short list is not being behind, and not for me is a complete answer.",
-               "Sex in a public place is a crime in many countries and involves people who did not consent to see it. Marking a place here records a wish or a story; it is not a recommendation.",
+               "Sex in sight of other people is a crime in many countries and is violence against whoever did not choose to see it. That is why the places on the list are always private: the thrill can be the adrenaline, never the audience.",
                "Intimate photos and videos exist only with the consent of whoever appears in them, and sharing them without consent is a crime."],
         sections=[
             dict(id="praticas", title="Practices", lead="What is done: from a kiss to what involves more people.", adult=True, default=True, groups=[
                 dict(id="comecos", title="Beginnings and encounters", items=[
-                    "French kiss someone.", "Have an erotic dream.", "Send nudes.", "Receive nudes.", "Sex by message, phone or video.", "A long make-out session, going no further.",
+                    "French kiss someone.", "Have an erotic dream.", "Send nudes to someone who wants to receive them.", "Receive nudes from someone who wanted to send them.", "Sex by message, phone or video.", "A long make-out session, going no further.",
                     "Have sex with someone I love.", "Have sex on the first date.", "Casual sex, no strings attached.", "Sex with a friend.", "Make-up sex.",
                     "Have sex with someone from another country."]),
                 dict(id="dar", title="Giving and receiving", items=[
@@ -1737,39 +1737,40 @@ LISTS = dict(
                     "Come from oral sex.", "Come from penetration.", "Come at the same time.", "Have multiple orgasms.", "Make someone come with my hands.", "Make someone come with oral sex.",
                     "Make someone come with penetration.", "Make someone have multiple orgasms.", "Come in the mouth, agreed beforehand.", "Come on the face or the body, agreed beforehand.",
                     "Squirting: having it or causing it.", "Hold back the orgasm several times before coming (edging).", "Tantric sex."]),
-                dict(id="sentidos", title="Senses and toys", items=[
+                dict(id="sentidos", title="Senses and toys", note="Blindfolding and tying up call for agreement beforehand and a safe word.", items=[
                     "Use a vibrator on someone.", "Have a vibrator used on me.", "Temperature lubricant.", "Blindfold someone.", "Be blindfolded.", "Tie up or handcuff someone.",
                     "Be tied up or handcuffed.", "Ice or a massage candle.", "Food in play.", "Sex in front of a mirror.", "Lingerie or a costume.", "A plug, a ring or another toy.",
                     "A remote-controlled toy."]),
                 dict(id="papeis", title="Roles and power", note="Always agreed beforehand, with a safe word, and stopping the moment anyone asks.", items=[
                     "Give agreed spanking.", "Receive agreed spanking.", "Dominate.", "Be dominated.", "Play characters.", "Do a striptease.", "Receive a striptease.",
-                    "Give a lap dance.", "Receive a lap dance.", "Hair pulling and a firm grip.", "Talk dirty.", "Wake my partner with caresses, agreed beforehand.",
-                    "Be woken with caresses, agreed beforehand."]),
+                    "Give a lap dance.", "Receive a lap dance.", "Hair pulling and a firm grip.", "Talk dirty.", "Act out a fantasy my partner told me.",
+                    "Have a fantasy of mine acted out by my partner."]),
                 dict(id="ver", title="Watching and being watched", items=[
-                    "Watch someone having sex, with consent (voyeurism).", "Let someone watch me having sex.", "Watch porn with someone.", "Take photos during sex.",
-                    "Record a video just for us.", "Publish adult content with no identification, with the consent of everyone who appears.", "Go to a strip club.",
+                    "Watch someone having sex, with consent (voyeurism).", "Let someone watch me having sex, with everyone's agreement.", "Watch porn with someone.", "Take photos during sex, with a yes from whoever appears.",
+                    "Record a video just for us.", "Publish adult content on an adults-only platform, with no identification and with the consent of everyone who appears.", "Go to a strip club.",
                     "Go to a swingers club.", "Go to a nude beach.", "Go to a sex-positive or fetish party."]),
-                dict(id="gente", title="With more people", items=[
+                dict(id="gente", title="With more people", note="Always with the consent of everyone involved, protection and up-to-date tests.", items=[
                     "A threesome with two women.", "A threesome with two men.", "A threesome with a woman and a man.", "Partner swap.", "Sex in pairs, in the same room as another couple.",
                     "Group sex.", "Be with someone of a gender I have never been with."]),
                 dict(id="ocasioes", title="Occasions", items=[
                     "Spend New Year's Eve midnight having sex.", "Sex on my birthday.", "Sex on the honeymoon.", "Morning sex, on waking up.", "After a few drinks, both still clear-headed.",
                     "A whole weekend barely leaving the bed.", "Sex while travelling.", "In silence, with people in the house."]),
             ]),
-            dict(id="lugares", title="Places", lead="Where: from your own bed to the places where the risk lives.", adult=True, default=True, groups=[
+            dict(id="lugares", title="Places", lead="Where: from your own bed to the places that give you butterflies, always with no audience.", adult=True, default=True, groups=[
                 dict(id="casa", title="At home", items=[
-                    "In my bed.", "In my partner's bed.", "In the kitchen.", "In the living room, on the sofa.", "In the bathroom.", "In the shower.", "In the bathtub.", "On the balcony.",
-                    "On the stairs.", "On the floor.", "On the table.", "In the yard or the garden."]),
+                    "In my bed.", "In my partner's bed.", "In the kitchen.", "In the living room, on the sofa.", "In the bathroom.", "In the shower.", "In the bathtub.", "On the balcony, with nobody watching.",
+                    "On the stairs.", "On the floor.", "On the table.", "In the yard or the garden, out of the neighbours' sight."]),
                 dict(id="fora", title="Away from home", items=[
                     "In a love hotel.", "In a hotel.", "In a holiday rental.", "At a friend's place, in the guest room.", "At someone's parents' house.",
                     "At the home of someone I have just met.", "In a camping tent.", "In another country."]),
                 dict(id="transporte", title="Car and travel", items=[
-                    "Inside the car.", "On the bonnet of the car, somewhere secluded.", "On a boat.", "In a train or ship cabin.", "On a plane.", "On a long-distance bus."]),
-                dict(id="arlivre", title="Outdoors", items=[
-                    "On a deserted beach.", "In the pool.", "In the sea.", "In the rain.", "In the forest or on a trail.", "At a waterfall.", "Under the stars."]),
-                dict(id="risco", title="Risky places", note="In many countries this is a crime, and whoever passes by did not consent to see it. Marking here records a wish or a story, not a plan.", items=[
-                    "In a shop fitting room.", "On the stairs of a building.", "In the emergency corridor of a shopping centre.", "In a car park.", "In a lift.", "In the toilet of a bar.",
-                    "At the cinema.", "At the theatre.", "At a nightclub.", "At a birthday party.", "On a Ferris wheel.", "In a library.", "At university.", "At work.", "In the street."]),
+                    "Inside the car, with nobody around.", "On the bonnet of the car, somewhere secluded.", "On a boat.", "In a train or ship cabin.", "In a camper van."]),
+                dict(id="arlivre", title="Outdoors", note="Only where nobody who did not consent can see or hear.", items=[
+                    "On a deserted beach.", "In a pool of our own.", "In the sea, far from everyone.", "In the rain.", "In the forest or on a trail.", "At a waterfall.", "Under the stars."]),
+                dict(id="risco", title="Adrenaline, with no audience", note="The thrill here is the adrenaline, not the audience: it only counts where nobody who did not consent can see or hear. Sex in sight of other people is a crime in many countries and is violence against whoever did not choose to watch.", items=[
+                    "At work, after everyone has left.", "At university, in an empty, locked room.", "In a car park, inside the car, with nobody around.",
+                    "In the bathroom at a party, with the door locked.", "In a private booth at an adults-only venue.", "In a private box or room, just ours.",
+                    "In a hotel, facing the window, with the lights off.", "Somewhere you can hear people nearby, with nobody able to see or hear you."]),
             ]),
         ],
         t=dict(
@@ -1797,7 +1798,7 @@ UI.update(
     bl_group_of="Group {i} of {n}", bl_saved="You have answers saved on this device, from {date}.", bl_view="See my list", bl_update="Update my answers",
     bl_answered="{n} of {N} items answered.", bl_p2_title="{me} has already answered. Now it is your turn.", bl_p2_text="You answer without seeing {me}'s answers. The match appears at the end, and shows only what coincides.",
     bl_p2_parts="You answer the same parts that {me} opened.", bl_kicker_pair="{k} · {x} and {y}", bl_empty_group="Nothing here.", bl_copy="Copy link", bl_redo="Erase and start over",
-    bl_warn="Whoever has the link has your answers. Send it only to your partner.", bl_done_p2="Done. Send this link back so the result shows on the other side too.",
+    bl_warn="Whoever has the link has your answers: they travel encoded, but with no password. Send it only to your partner.", bl_done_p2="Done. Send this link back so the result shows on the other side too.",
     bl_none="Nothing answered yet.", bl_count="{n} items", bl_again="Draw another", bl_yes_pct="{p}%",
 )
 
@@ -1883,7 +1884,7 @@ MYTHS = dict(
             ("A boss or teacher who makes a job, a grade or a promotion depend on sexual favours commits sexual harassment.", 1, "It is the use of power to obtain sex, and it is unlawful in most legal systems."),
             ("Continuing to pursue someone after they said they are not interested is persistence, and persistence wins.", 0, "After a no, insisting is disrespect. Repeated, it can become stalking, which is a crime in many countries."),
             ("Comments about colleagues' bodies at work, even meant as compliments, can be harassment.", 1, "At work nobody chose to be assessed by their body. What counts is the effect on whoever hears it, not the intention of whoever says it."),
-            ("Showing interest respectfully, once, and accepting the answer is not harassment.", 1, "Flirting is legitimate. The difference lies in asking instead of imposing, and in accepting a no the first time."),
+            ("Showing interest respectfully, once, and accepting the answer is not harassment.", 1, "Flirting is legitimate. The difference lies in asking instead of imposing, and in accepting a no the first time. Where there is hierarchy, as between boss and employee, more care is needed."),
             ("If the person laughed or looked awkward, they liked it.", 0, "Laughing and looking awkward are common ways of protecting yourself in an uncomfortable situation. They are not a yes."),
             ("Exposing your genitals or masturbating in front of someone who did not consent is violence, even without touching.", 1, "Sexual violence does not require touch. Imposing a sexual act on someone's sight is a crime in many countries."),
         ]),
@@ -1925,7 +1926,7 @@ MYTHS = dict(
             ("Looking closely at your own genitals, with a mirror if needed, is a healthy way of knowing yourself.", 1, "Many people have never looked. Knowing your own anatomy helps with pleasure and with noticing early when something changes."),
             ("There is one normal shape for genitals, and anyone outside it has a problem.", 0, "Vulvas, penises and nipples vary a great deal in size, colour and shape. What appears in porn is a selected sample, not the standard."),
             ("You can tell whether a woman is a virgin by examining the hymen.", 0, "You cannot. The World Health Organization states that so-called virginity testing has no scientific basis and violates human rights."),
-            ("The vagina becomes permanently loose in someone who has had many partners.", 0, "The vagina is an elastic muscle that returns to its resting state. The number of partners changes nobody's anatomy."),
+            ("The vagina becomes permanently loose in someone who has had many partners.", 0, "The vagina is an elastic muscular canal that returns to its resting state. The number of partners changes nobody's anatomy."),
             ("Men always have more desire than women.", 0, "On average, studies find more desire reported by men, but the variation between people is huge. In many couples it is the woman who wants more."),
             ("Desire can appear out of nowhere or only after stimulation, and both ways are normal.", 1, "These are spontaneous desire and responsive desire. Someone who only feels like it once the touching starts has no defect at all."),
             ("A natural smell, discharge and hair on the vulva are signs of poor hygiene.", 0, "They are features of a healthy body. The vagina cleans itself, and douching raises the risk of infection."),
@@ -2009,7 +2010,7 @@ MYTHS = dict(
             ("Asking insistently for nudes after a no is harassment.", 1, "The same rule as in the physical world applies: after a no, insisting is pressure."),
             ("Sexual montages and deepfakes with the faces of real people are a form of violence, even though they are fake.", 1, "The harm to the person is real: exposure, humiliation and blackmail. Several countries already treat it as a crime."),
             ("Using an artificial intelligence app to undress someone in a photo is harmless, as long as the image stays with you.", 0, "It is creating a sexual image of a real person without their consent, and the violation lies in making it, not only in sharing it. Some countries already punish the creation itself."),
-            ("Keeping or sharing a sexual image of someone under 18 is a crime, even if the teenager sent it themselves.", 1, "It is a crime in the vast majority of countries. Whoever receives one should delete it, not pass it on, and report it."),
+            ("Keeping or sharing a sexual image of someone under 18 is a crime, even if the teenager sent it themselves.", 1, "It is a crime in the vast majority of countries. Whoever receives one must not pass it on: the right thing is to report it and delete it."),
             ("Matching on a dating app means consenting to sex on the date.", 0, "A match is interest in talking. Consent is given in person, at the time, and it may not come."),
             ("Threatening to release intimate images to get something is a crime, and the way forward is to keep the evidence and report it.", 1, "It is known as sextortion. Giving in tends to increase the demands; keeping the messages and going to the police is what protects you."),
         ]),
@@ -2021,7 +2022,7 @@ MYTHS = dict(
             ("When someone shows an intimate photo of another person, the right thing is not to look, not to pass it on and to say that this is not done.", 1, "Whoever looks and laughs becomes the audience, and the audience is what gives a leak its value. Refusing is what breaks the chain."),
             ("Laughing when a leaked nude arrives in the group chat harms nobody: the one in the wrong is whoever leaked it.", 0, "Whoever leaked it was wrong first, but every laugh and every forward adds to the harm done to the person exposed."),
             ("Telling someone that an intimate photo of them is circulating is helping, even though it is a hard conversation.", 1, "The sooner the person knows, the sooner they can ask for removal, keep the evidence and report it. Tell them with care and without passing the image on."),
-            ("Seeing a friend insisting with someone who has drunk too much and doing nothing is respecting his life.", 0, "It is letting violence happen. You can step in without confrontation: take the friend aside, ask the person whether they are all right, walk them to their friends."),
+            ("Seeing a friend insisting with someone who has drunk too much and doing nothing is respecting his life.", 0, "It is letting violence happen. You can step in without confrontation: take the friend aside, ask the person whether they are all right, walk them to their friends or ask the venue staff for help."),
             ("Calling out a friend who crossed the line with someone is betraying the friendship.", 0, "It is the opposite: a friend is the one who says what others will not. Keeping quiet protects the wrong, not the friend."),
             ("When someone tells you they suffered sexual violence, it helps to ask what they were wearing or why they went there.", 0, "Those questions put the blame on the person who suffered. What helps is believing, listening without hurry and asking what they need."),
             ("Spreading that someone is easy, has been around or is a virgin is harmless gossip.", 0, "It is exposing someone's intimacy in order to diminish them. A person's sex life is not a public matter, whether it is a lot, a little or none."),

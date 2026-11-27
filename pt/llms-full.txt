@@ -454,7 +454,7 @@ Atividades, viagens, comida, jogos, projetos, rituais. O que tira a relação do
 - Jogos e diversão (10): Noite de jogos de tabuleiro ou de cartas. Jogar videogame juntos. Jogo de perguntas para casais. Karaokê. Parque de diversões. Boliche, sinuca ou fliperama. Sala de escape. Maratonar uma série escolhida pelos dois. Competição boba com aposta: quem perde paga o jantar. Montar um quebra-cabeça ou um Lego grande.
 - Cultura e aprender (10): Ir a um show ou a um festival. Ir ao cinema, ao teatro ou a um stand-up. Visitar um museu ou uma exposição. Ler o mesmo livro e conversar sobre ele. Aprender um idioma juntos. Fazer um curso juntos (cerâmica, fotografia, mixologia). Aprender um instrumento, ou tocar e cantar juntos. Ver um documentário e discutir depois. Ir a um jogo ou evento esportivo. Trocar playlists e ouvir a do outro inteira.
 - Vida social (8): Receber amigos em casa. Sair com outros casais. Ir a uma festa e dançar a noite toda. Conhecer melhor os amigos um do outro. Fazer novos amigos juntos (grupo, clube, comunidade). Fazer trabalho voluntário juntos. Um encontro de família leve, sem obrigação. Uma noite cada um com os seus amigos, e contar tudo depois.
-- Casa, compras e projetos (10): Redecorar um cômodo. Comprar juntos algo que os dois querem para a casa. Cuidar de plantas ou de uma horta. Adotar ou cuidar de um animal juntos. Tocar um projeto em comum (canal, negócio, obra, coleção). Dia de faxina com música alta. Planejar as finanças e um objetivo em comum. Escolher e comprar roupa um para o outro. Montar um álbum com as melhores fotos. Fazer um quadro de sonhos do casal.
+- Casa, compras e projetos (10): Redecorar um cômodo. Comprar juntos algo que os dois querem para a casa. Cuidar de plantas ou de uma horta. Cuidar juntos de um animal, ou adotar com responsabilidade, para a vida toda dele. Tocar um projeto em comum (canal, negócio, obra, coleção). Dia de faxina com música alta. Planejar as finanças e um objetivo em comum. Escolher e comprar roupa um para o outro. Montar um álbum com as melhores fotos. Fazer um quadro de sonhos do casal.
 - Romance e rituais (14): Ter um encontro marcado toda semana. Escrever uma carta à mão. Fazer uma surpresa sem data especial. Dançar na sala. Tomar banho juntos. Fazer massagem um no outro. Ver o pôr do sol. Refazer o primeiro encontro. Passar um dia inteiro sem celular. Uma tarde na cama sem fazer nada. Elogiar em voz alta, todo dia, por uma semana. Fazer um ensaio fotográfico juntos. Comemorar datas que são só de vocês. Dia de spa a dois.
 - Conversa e futuro (8): Conversa mensal sobre a relação: o que está bom, o que mudar. Fazer juntos outro teste deste site e comparar. Responder juntos uma lista de perguntas profundas. Planejar os próximos cinco anos. Escrever a lista de sonhos do casal. Contar um ao outro uma coisa que nunca contou. Terapia de casal como manutenção, não só como emergência. Rever os combinados da relação e dizer em voz alta os que nunca foram ditos.
 
@@ -498,7 +498,7 @@ O que você quer encontrar em alguém e ser para essa pessoa.
 - Presença e cuidado (8): Passar tempo de qualidade sempre que der, com carinho todos os dias. Estar junto nos momentos importantes e comemorar as vitórias um do outro. Ser porto seguro nos momentos difíceis, e ter um. Ajudar e ser ajudado nas decisões importantes. Não abandonar na doença, e não ser abandonado. Dar valor enquanto estamos juntos, não só depois de perder. Tratar sempre com carinho, educação e respeito. Criar experiências e sair da rotina, com o esforço que manter a chama pede.
 - Confiança e acordos (6): Confiar e ser digno de confiança. Prometer só o que vou cumprir, e receber o mesmo. Nunca quebrar os nossos combinados. Ter valores alinhados no que importa para nós. Olhar o caráter, não a fama, o dinheiro ou a influência. Enxergar a essência além da aparência, e ser visto assim.
 - Igualdade e liberdade (6): Ver e ser visto como igual. Dividir decisões e responsabilidades com equilíbrio, e com equidade quando for preciso. Priorizar a vontade do outro, às vezes, como ato de amor. Ceder quando for preciso e receber o mesmo de volta. Respeitar a vontade de ficar sozinho, dos dois lados. Oferecer muito e receber muito: vontade e reciprocidade.
-- Nós e o mundo (4): Construir laços com amigos e família que respeitem e fortaleçam a relação. Ser nós dois contra quem nos julga ou quer o nosso mal. Defender um ao outro dos tabus e dos maus olhados. Ter orgulho de apresentar um ao outro ao mundo.
+- Nós e o mundo (4): Construir laços com amigos e família que respeitem e fortaleçam a relação. Ficar do lado um do outro diante de quem nos julga ou quer o nosso mal, sem nos afastar de quem nos quer bem. Defender um ao outro dos tabus e dos maus olhados. Ter orgulho de apresentar um ao outro ao mundo.
 
 #### Coisas para viver a dois
 
@@ -507,12 +507,12 @@ Gestos, memórias, aventuras, marcos e o dia a dia.
 - Gestos (10): Escrever uma carta de amor à mão. Escrever uma poesia ou uma música para quem eu amo. Receber uma carta, uma poesia ou uma música. Fazer uma grande surpresa (festa, viagem, visita inesperada). Fazer uma declaração em público. Dar um presente feito por mim. Preparar um jantar completo, da entrada à sobremesa. Levar café da manhã na cama. Dançar uma música lenta na sala. Dizer eu te amo primeiro.
 - Memórias (10): Fazer um álbum com as nossas melhores fotos. Fazer um ensaio fotográfico juntos. Montar uma cápsula do tempo para abrir daqui a dez anos. Ter uma música que é nossa. Ter um lugar que é nosso. Manter um caderno do casal. Fazer uma tatuagem que só nós dois entendemos. Plantar uma árvore juntos. Guardar ingressos e lembranças numa caixa. Gravar um vídeo para nós dois no futuro.
 - Aventuras (12): Viajar juntos pela primeira vez. Conhecer outro país juntos. Ver juntos algo que nenhum dos dois viu (a neve, uma aurora, o deserto). Fazer uma viagem de carro sem destino fechado. Beijar na chuva. Beijar à meia-noite na virada do ano. Passar a noite em claro conversando e ver o sol nascer. Dormir sob as estrelas. Ver juntos o show da banda preferida de um dos dois. Tomar banho de mar à noite. Andar de roda-gigante ou de balão. Fazer uma loucura boa de improviso, como viajar no dia seguinte.
-- Marcos (12): Apresentar à família e conhecer a família. Morar juntos. Adotar um animal juntos. Pedir ou ser pedido em casamento. Casar, ou celebrar a união do nosso jeito. Viver uma lua de mel. Ter ou criar filhos. Comprar ou montar uma casa. Abrir um projeto ou um negócio juntos. Comemorar um ano, dez anos, vinte e cinco anos. Renovar os votos. Envelhecer juntos.
+- Marcos (12): Apresentar à família e conhecer a família. Morar juntos. Adotar um animal juntos, para a vida toda dele. Pedir ou ser pedido em casamento. Casar, ou celebrar a união do nosso jeito. Viver uma lua de mel. Ter ou criar filhos. Comprar ou montar uma casa. Abrir um projeto ou um negócio juntos. Comemorar um ano, dez anos, vinte e cinco anos. Renovar os votos. Envelhecer juntos.
 - Dia a dia (10): Ter rituais só nossos, como o café de domingo. Cuidar de quem eu amo na doença, e ser cuidado. Atravessar uma crise juntos e sair mais fortes. Pedir desculpa de verdade e perdoar de verdade. Passar um dia inteiro na cama. Cozinhar juntos como hábito. Ter apelidos e piadas internas. Viver um silêncio confortável. Aprender algo novo juntos. Ficar amigo dos amigos um do outro.
 
 ### Bucket List Sexual
 
-A bucket list do sexo: 158 itens entre práticas, posições, ritmos, papéis, ocasiões e lugares. Marque o que já viveu, o que quer viver e o que não é para você. Serve para se conhecer, para ter assunto e, a dois, para descobrir o que os dois querem sem ninguém precisar propor primeiro. Tudo aqui pressupõe adultos e o consentimento de todos os envolvidos.
+A bucket list do sexo: 150 itens entre práticas, posições, ritmos, papéis, ocasiões e lugares. Marque o que já viveu, o que quer viver e o que não é para você. Serve para se conhecer, para ter assunto e, a dois, para descobrir o que os dois querem sem ninguém precisar propor primeiro. Tudo aqui pressupõe adultos e o consentimento de todos os envolvidos.
 
 - Você marca item por item: Não é para mim, talvez, quero viver, ou já vivi. Não é competição: a lista serve para se conhecer, não para pontuar.
 - Fica só no seu aparelho: As respostas ficam guardadas no seu navegador, sem conta e sem servidor. Volte para atualizar quando quiser.
@@ -520,7 +520,7 @@ A bucket list do sexo: 158 itens entre práticas, posições, ritmos, papéis, o
 
 - Tudo aqui vale entre adultos e com o consentimento de todos os envolvidos, dado antes e que pode ser retirado a qualquer momento.
 - Quantidade não mede nada. Uma lista curta não é atraso, e não é para mim é uma resposta completa.
-- Sexo em lugar público é crime em muitos países e envolve gente que não consentiu em ver. Marcar um lugar aqui registra uma vontade ou uma história; não é recomendação.
+- Sexo à vista de outras pessoas é crime em muitos países e é uma violência contra quem não escolheu ver. Por isso os lugares da lista são sempre a sós: a graça pode ser a adrenalina, nunca a plateia.
 - Foto e vídeo íntimos só existem com o consentimento de quem aparece, e divulgar sem consentimento é crime.
 
 #### Práticas
@@ -539,13 +539,13 @@ O que se faz: do beijo ao que envolve mais gente.
 
 #### Lugares
 
-Onde: da própria cama aos lugares em que mora o risco.
+Onde: da própria cama aos lugares que dão frio na barriga, sempre sem plateia.
 
 - Em casa (12)
 - Fora de casa (8)
-- Carro e viagem (6)
+- Carro e viagem (5)
 - Ao ar livre (7)
-- Lugares de risco (15)
+- Adrenalina, sem plateia (8)
 
 ## Mitologia Sexual
 
@@ -588,7 +588,7 @@ O que se faz com o corpo e o espaço de quem não pediu.
 - Chefe ou professor que condiciona emprego, nota ou promoção a favores sexuais comete assédio sexual. É verdade. É o uso do poder para obter sexo. No Brasil, é o crime de assédio sexual.
 - Continuar procurando a pessoa depois de ela dizer que não tem interesse é persistência, e persistência conquista. É mito. Depois do não, insistir é desrespeito. Repetido, pode virar perseguição, que é crime no Brasil desde 2021.
 - Comentários sobre o corpo de colegas de trabalho, mesmo em tom de elogio, podem ser assédio. É verdade. No trabalho ninguém escolheu ser avaliado pelo corpo. O que conta é o efeito sobre quem ouve, não a intenção de quem fala.
-- Demonstrar interesse com respeito, uma vez, e aceitar a resposta não é assédio. É verdade. Flertar é legítimo. A diferença está em perguntar em vez de impor, e em aceitar o não na primeira vez.
+- Demonstrar interesse com respeito, uma vez, e aceitar a resposta não é assédio. É verdade. Flertar é legítimo. A diferença está em perguntar em vez de impor, e em aceitar o não na primeira vez. Onde há hierarquia, como entre chefe e subordinado, o cuidado precisa ser maior.
 - Se a pessoa riu ou ficou sem graça, é porque gostou. É mito. Rir e ficar sem graça são formas comuns de se proteger numa situação desconfortável. Não são um sim.
 - Mostrar os genitais ou se masturbar na frente de quem não consentiu é violência, mesmo sem encostar. É verdade. Violência sexual não exige toque. Impor um ato sexual à vista de alguém é crime em muitos países.
 
@@ -639,7 +639,7 @@ Como o corpo funciona, sem as lendas, e por que vale conhecer o seu.
 - Olhar os próprios genitais com atenção, com um espelho se for preciso, é uma forma saudável de se conhecer. É verdade. Muita gente nunca olhou. Conhecer a própria anatomia ajuda no prazer e a notar cedo quando algo muda.
 - Existe um formato normal para os genitais, e quem foge dele tem um problema. É mito. Vulvas, pênis e mamilos variam muito em tamanho, cor e formato. O que aparece no pornô é uma amostra escolhida, não o padrão.
 - Dá para saber se uma mulher é virgem examinando o hímen. É mito. Não dá. A Organização Mundial da Saúde afirma que o chamado teste de virgindade não tem base científica e viola direitos humanos.
-- A vagina alarga de forma permanente em quem teve muitos parceiros. É mito. A vagina é um músculo elástico que volta ao estado de repouso. O número de parceiros não muda a anatomia de ninguém.
+- A vagina alarga de forma permanente em quem teve muitos parceiros. É mito. A vagina é um canal muscular elástico, que volta ao estado de repouso. O número de parceiros não muda a anatomia de ninguém.
 - Homens têm sempre mais desejo do que mulheres. É mito. Na média, os estudos encontram mais desejo relatado por homens, mas a variação entre pessoas é enorme. Em muitos casais é a mulher quem deseja mais.
 - O desejo pode aparecer do nada ou só depois do estímulo, e os dois jeitos são normais. É verdade. São o desejo espontâneo e o desejo responsivo. Quem só sente vontade depois que o carinho começa não tem defeito nenhum.
 - Cheiro próprio, corrimento e pelos na vulva são sinais de falta de higiene. É mito. São características de um corpo saudável. A vagina se limpa sozinha, e as duchas internas aumentam o risco de infecção.
@@ -738,7 +738,7 @@ O que muda quando o sexo passa pelo celular.
 - Pedir nudes com insistência depois de um não é assédio. É verdade. Vale a mesma regra do mundo físico: depois do não, insistir é pressão.
 - Montagens e deepfakes sexuais com o rosto de pessoas reais são uma forma de violência, mesmo sendo falsos. É verdade. O dano à pessoa é real: exposição, humilhação e chantagem. Vários países já tratam isso como crime.
 - Usar um aplicativo de inteligência artificial para tirar a roupa de alguém numa foto é inofensivo, desde que a imagem fique só com você. É mito. É criar uma imagem sexual de uma pessoa real sem o consentimento dela, e a violação está em fazer, não só em divulgar. No Brasil, a montagem que põe alguém em cena de nudez é crime desde 2018.
-- Guardar ou compartilhar imagem sexual de menor de 18 anos é crime, mesmo que o próprio adolescente tenha enviado. É verdade. É crime no Brasil e na grande maioria dos países. Quem recebe deve apagar, não repassar, e denunciar.
+- Guardar ou compartilhar imagem sexual de menor de 18 anos é crime, mesmo que o próprio adolescente tenha enviado. É verdade. É crime no Brasil e na grande maioria dos países. Quem recebe não deve repassar: o certo é denunciar e apagar.
 - Dar match num aplicativo de namoro é consentir com sexo no encontro. É mito. Match é interesse em conversar. O consentimento se dá pessoalmente, na hora, e pode não vir.
 - Ameaçar divulgar imagens íntimas para conseguir algo é crime, e o caminho é guardar as provas e denunciar. É verdade. É a chamada sextorsão. Ceder costuma aumentar as exigências; guardar as mensagens e procurar a polícia é o que protege.
 
@@ -753,7 +753,7 @@ O que você faz quando não é com você: falam mal do seu par, expõem alguém,
 - Quando alguém mostra a foto íntima de outra pessoa, o certo é não olhar, não repassar e dizer que aquilo não se faz. É verdade. Quem olha e ri vira plateia, e é a plateia que dá valor ao vazamento. Recusar é o que interrompe a corrente.
 - Rir quando chega um nude vazado no grupo não faz mal a ninguém: quem errou foi quem vazou. É mito. Quem vazou errou primeiro, mas cada risada e cada repasse aumentam o dano à pessoa exposta.
 - Avisar alguém de que uma foto íntima dessa pessoa está circulando é ajudar, mesmo sendo uma conversa difícil. É verdade. Quanto antes a pessoa sabe, antes consegue pedir a remoção, guardar as provas e denunciar. Avise com cuidado e sem repassar a imagem.
-- Ver um amigo insistindo com alguém que bebeu demais e não fazer nada é respeitar a vida dele. É mito. É deixar uma violência acontecer. Dá para intervir sem confronto: chamar o amigo de lado, perguntar à pessoa se está tudo bem, levá-la até os amigos dela.
+- Ver um amigo insistindo com alguém que bebeu demais e não fazer nada é respeitar a vida dele. É mito. É deixar uma violência acontecer. Dá para intervir sem confronto: chamar o amigo de lado, perguntar à pessoa se está tudo bem, levá-la até os amigos dela ou pedir ajuda a quem trabalha no lugar.
 - Chamar a atenção de um amigo que passou do limite com alguém é trair a amizade. É mito. É o contrário: amigo é quem diz o que os outros não vão dizer. Quem cala protege o erro, não o amigo.
 - Quando alguém conta que sofreu violência sexual, ajuda perguntar que roupa usava ou por que foi até lá. É mito. Essas perguntas põem a culpa em quem sofreu. O que ajuda é acreditar, ouvir sem pressa e perguntar do que a pessoa precisa.
 - Espalhar que alguém é fácil, rodado ou virgem é uma fofoca inofensiva. É mito. É expor a intimidade de alguém para diminuir essa pessoa. A vida sexual de cada um não é assunto público, seja ela muita, pouca ou nenhuma.
