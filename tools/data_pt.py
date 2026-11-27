@@ -2016,7 +2016,7 @@ PAGES["tools_title"] = "Onze ferramentas"
 PAGES["tools"]["myths"] = ("Mitologia Sexual", "Teste de educação sexual: mito ou verdade sobre consentimento, assédio, pressão, prazer, corpo, prevenção e traição. Cada resposta vem com a explicação.", "Mitologia Sexual: teste de educação sexual", None)
 
 MYTHS = dict(
-    v=4, kicker="Mitologia Sexual", title="O que você sabe mesmo sobre sexo?",
+    v=5, kicker="Mitologia Sexual", title="O que você sabe mesmo sobre sexo?",
     lead=("Quase ninguém teve educação sexual de verdade. Aprendemos com amigos, com o pornô e com o improviso, e o que sobra é uma mitologia: ideias que todo mundo repete e que estão erradas. "
           "Aqui estão {n} afirmações em onze temas. Para cada uma, você diz se é mito ou verdade, e a explicação aparece na hora. "
           "O ponto de vista é declarado: liberdade sexual, sim, e com responsabilidade. Sem consentimento, sem conversa e sem cuidar de quem está com você, não é liberdade."),
@@ -2078,6 +2078,8 @@ MYTHS = dict(
         ]),
         dict(id="prazer", title="Prazer e o roteiro do pornô", lead="O que a tela ensinou e o que o corpo de verdade pede.", items=[
             ("O sexo do pornô mostra como o sexo costuma ser.", 0, "Pornô é encenação: atores, cortes, ângulos e roteiro. Não mostra a conversa, o lubrificante, a camisinha, a pausa nem o que deu errado."),
+            ("Assistir pornô de forma compulsiva, sem conseguir parar mesmo quando atrapalha a vida, é um problema de saúde que merece ajuda.", 1, "A Organização Mundial da Saúde reconhece o transtorno do comportamento sexual compulsivo, diagnóstico usado também para o uso descontrolado de pornografia: meses de perda de controle, com sofrimento ou prejuízo na vida. Os especialistas ainda discutem se vício é a palavra certa, e a OMS não o classificou assim; que faz mal e tem tratamento, ninguém discute."),
+            ("Quem assiste pornô de vez em quando já está viciado.", 0, "O que define o problema é a perda de controle e o prejuízo na vida, não a frequência. Sentir culpa por desaprovar o pornô não é, sozinho, sinal de transtorno."),
             ("A maioria das mulheres chega ao orgasmo só com a penetração.", 0, "Numa pesquisa americana com mais de mil mulheres, publicada em 2018, cerca de uma em cada cinco disse que só a penetração bastava. Para quase três em cada quatro, o estímulo no clitóris é necessário ou torna o orgasmo melhor."),
             ("O clitóris é muito maior do que a parte que se vê.", 1, "A parte visível é só a ponta. O órgão continua por dentro, com vários centímetros, ao redor da entrada da vagina."),
             ("O sexo termina quando o homem goza.", 0, "Isso é o roteiro do pornô, não uma regra. O sexo termina quando os dois quiserem, e o prazer de um não encerra o do outro."),

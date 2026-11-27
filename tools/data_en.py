@@ -1848,7 +1848,7 @@ PAGES["tools_title"] = "Eleven tools"
 PAGES["tools"]["myths"] = ("Sexual Mythology", "A sex education test: myth or truth about consent, harassment, pressure, pleasure, the body, prevention and cheating. Every answer comes with the explanation.", "Sexual Mythology: a sex education test", None)
 
 MYTHS = dict(
-    v=4, kicker="Sexual Mythology", title="What do you actually know about sex?",
+    v=5, kicker="Sexual Mythology", title="What do you actually know about sex?",
     lead=("Hardly anyone had real sex education. We learned from friends, from porn and by improvising, and what is left is a mythology: ideas everyone repeats and that are wrong. "
           "Here are {n} statements across eleven themes. For each one, you say whether it is a myth or the truth, and the explanation appears right away. "
           "The point of view is declared: sexual freedom, yes, and with responsibility. Without consent, without talking and without caring for whoever is with you, it is not freedom."),
@@ -1910,6 +1910,8 @@ MYTHS = dict(
         ]),
         dict(id="prazer", title="Pleasure and the porn script", lead="What the screen taught and what a real body asks for.", items=[
             ("Sex in porn shows what sex is usually like.", 0, "Porn is staged: actors, cuts, angles and a script. It does not show the talking, the lubricant, the condom, the pause or what went wrong."),
+            ("Watching porn compulsively, unable to stop even when it gets in the way of life, is a health problem that deserves help.", 1, "The World Health Organization recognises compulsive sexual behaviour disorder, a diagnosis also used for out-of-control pornography use: months of lost control, with distress or impairment in life. Specialists still debate whether addiction is the right word, and the WHO did not classify it that way; that it does harm and can be treated, nobody disputes."),
+            ("Someone who watches porn now and then is already addicted.", 0, "What defines the problem is loss of control and impairment in life, not frequency. Feeling guilty because you disapprove of porn is not, on its own, a sign of a disorder."),
             ("Most women reach orgasm from penetration alone.", 0, "In an American survey of more than a thousand women, published in 2018, about one in five said penetration alone was enough. For nearly three in four, clitoral stimulation is necessary or makes orgasm better."),
             ("The clitoris is much bigger than the part you can see.", 1, "The visible part is only the tip. The organ continues inside, for several centimetres, around the vaginal opening."),
             ("Sex ends when the man comes.", 0, "That is the porn script, not a rule. Sex ends when both want it to, and one person's pleasure does not close the other's."),
