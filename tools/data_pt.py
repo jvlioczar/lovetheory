@@ -1630,3 +1630,17 @@ PRIVACY = dict(
     updated="Atualizada em 27 de novembro de 2026.",
     desc="O que acontece com cada dado no The Love Theory: as respostas ficam no seu aparelho, sem conta, sem servidor e sem cookies.",
 )
+
+# ---------------------------------------------------------------------------
+# Introdução da página da Teoria (2026-11-27)
+# ---------------------------------------------------------------------------
+PAGES["theory"]["intro_title"] = "O que é a teoria do amor"
+PAGES["theory"]["method_title"] = "O método em quatro passos"
+PAGES["theory"]["intro"] = [
+    "Pense no que você sente por um amigo de infância, por alguém que você deseja, pela sua mãe, por um ídolo, pelo seu cachorro. Tudo isso recebe o mesmo nome, amor, e nada disso é a mesma coisa. A palavra esconde a mistura, e é por isso que tanta conversa sobre amor anda em círculos.",
+    "Em vez de perguntar se você ama alguém, a teoria pergunta o que você sente por essa pessoa, parte por parte. Ela abre o amor em dezoito propriedades, como admiração, afeto, atração, confiança, posse, abertura e liberdade, e mede cada uma de 0 a 10. O resultado é um retrato: o desenho do que você sente por alguém, naquele momento.",
+    "Três ideias sustentam o resto. A primeira: as propriedades são independentes. Dá para amar sem admirar, confiar sem desejar, investir muito em quem retribui pouco, e nenhuma dessas combinações é um amor incompleto. A segunda: tudo muda. O retrato é datado, e comparar retratos no tempo faz parte do método. A terceira: o mesmo valor pode ter raízes diferentes. Ciúme por medo de perder e ciúme por se sentir dono marcam igual numa escala, mas pedem conversas opostas; por isso a teoria olha também de onde cada valor vem e como ele aparece para o outro.",
+    "Daí vem a tese que dá nome ao site: dizemos quem somos pelas pessoas que mantemos por perto. Quando você compara os retratos de várias pessoas, o que se repete diz menos sobre elas e mais sobre você: o que você busca, o que você aceita, o que você não suporta.",
+    "A teoria conversa com o que já foi pensado sobre o amor, da teoria triangular de Sternberg ao apego de Bowlby e aos estudos de Gottman com casais, e amplia esses modelos em vez de substituí-los. Onde a evidência é fraca, o site diz. Ela não é diagnóstico nem terapia: é uma linguagem para você entender o jeito como ama, e para conversar sobre ele.",
+    "Por onde ler: comece pelo modelo, que apresenta o vocabulário; siga pelas dezoito propriedades, uma a uma; os mecanismos e os moduladores explicam de onde os valores vêm; o tempo, as flags e os tipos de amor mostram o que acontece com eles na vida real.",
+]

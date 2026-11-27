@@ -1462,3 +1462,17 @@ PRIVACY = dict(
     updated="Updated on 27 November 2026.",
     desc="What happens to each piece of data on The Love Theory: answers stay on your device, with no account, no server and no cookies.",
 )
+
+# ---------------------------------------------------------------------------
+# Theory page introduction (2026-11-27)
+# ---------------------------------------------------------------------------
+PAGES["theory"]["intro_title"] = "What the theory of love is"
+PAGES["theory"]["method_title"] = "The method in four steps"
+PAGES["theory"]["intro"] = [
+    "Think of what you feel for a childhood friend, for someone you desire, for your mother, for an idol, for your dog. All of it gets the same name, love, and none of it is the same thing. The word hides the mixture, which is why so many conversations about love go round in circles.",
+    "Instead of asking whether you love someone, the theory asks what you feel for that person, part by part. It opens love into eighteen properties, such as admiration, affection, attraction, trust, possession, openness and freedom, and measures each one from 0 to 10. The result is a portrait: the shape of what you feel for someone, at that moment.",
+    "Three ideas hold up the rest. First: the properties are independent. You can love without admiring, trust without desiring, invest heavily in someone who gives little back, and none of these combinations is an incomplete love. Second: everything changes. The portrait is dated, and comparing portraits over time is part of the method. Third: the same value can have different roots. Jealousy from fear of loss and jealousy from feeling like an owner score the same on a scale but call for opposite conversations; so the theory also looks at where each value comes from and how it shows to the other person.",
+    "From there comes the thesis behind the site: we say who we are through the people we keep close. When you compare the portraits of several people, what repeats says less about them and more about you: what you look for, what you accept, what you cannot stand.",
+    "The theory converses with what has already been thought about love, from Sternberg's triangular theory to Bowlby's attachment and Gottman's studies of couples, and expands those models rather than replacing them. Where the evidence is weak, the site says so. It is not diagnosis or therapy: it is a language for understanding the way you love, and for talking about it.",
+    "Where to read: start with the model, which sets out the vocabulary; go through the eighteen properties, one by one; the mechanisms and modulators explain where the values come from; time, the flags and the types of love show what happens to them in real life.",
+]
