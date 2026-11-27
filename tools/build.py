@@ -26,7 +26,7 @@ MYTHS_SHORT = {
     "corpo": (12, [1, 3, 6]), "corpos": (13, [0, 4, 10]), "prevencao": (16, [0, 3, 4, 13]), "julgamento": (17, [0, 3, 13, 15]),
     "acordos": (13, [0, 2, 9]), "conversa": (14, [0, 4, 12]), "digital": (9, [0, 1, 5]), "outros": (13, [0, 4, 7]),
 }
-MYTH_SECS = 20   # tempo médio por afirmação: ler, responder e ler a explicação
+MYTH_SECS = 10   # tempo por afirmação (definido pelo Julio em 2026-11-27)
 
 
 def prepare_myths(D):
