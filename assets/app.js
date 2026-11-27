@@ -798,6 +798,179 @@
     render();
   }
 
+  /* ---------- Listas: Manter a Chama, Bucket List do Amor, Bucket List Sexual ----------
+     Respostas por item: 0 não, 1 talvez, 2 quero, 3 já faço / já vivi; -1 sem resposta.
+     No cruzamento, qualquer item com um "não" fica de fora e nunca é mostrado. */
+  function lists(root, key) {
+    var L = D.lists[key], X = L.t, hp = hashParams(), flat = [], G = [];
+    L.sections.forEach(function (s, si) { s.groups.forEach(function (g) { var idx = g.items.map(function (t) { flat.push(t); return flat.length - 1; }); G.push({ si: si, g: g, idx: idx }); }); });
+    var N = flat.length, NS = L.sections.length, base = location.href.split("#")[0];
+    var secOf = []; G.forEach(function (x) { x.idx.forEach(function (i) { secOf[i] = x.si; }); });
+    var codec = {
+      enc: function (o) {
+        var s = o.ans.map(function (v, i) { return v < 0 || !o.parts[secOf[i]] ? "-" : String(v); }).join("");
+        var raw = unescape(encodeURIComponent(JSON.stringify({ v: L.v, me: o.me, you: o.you || "", p: o.parts.map(function (b) { return b ? 1 : 0; }).join(""), s: s })));
+        return btoa(raw).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+      },
+      dec: function (str) {
+        try {
+          str = str.replace(/-/g, "+").replace(/_/g, "/"); while (str.length % 4) str += "=";
+          var o = JSON.parse(decodeURIComponent(escape(atob(str))));
+          if (!o || o.v !== L.v || typeof o.s !== "string" || o.s.length !== N || typeof o.p !== "string" || o.p.length !== NS) return null;
+          return { me: String(o.me || T.default_person).slice(0, 40), you: String(o.you || "").slice(0, 40), parts: o.p.split("").map(function (c) { return c === "1"; }),
+            ans: o.s.split("").map(function (c) { return c === "-" ? -1 : Math.min(3, Math.max(0, +c || 0)); }) };
+        } catch (e) { return null; }
+      }
+    };
+    var p1 = hp.l1 ? codec.dec(hp.l1) : null, p2 = p1 && hp.l2 ? codec.dec(hp.l2) : null;
+    var saved = store.get(key); if (saved && (saved.v !== L.v || !saved.ans || saved.ans.length !== N || !saved.parts || saved.parts.length !== NS)) saved = null;
+    var blank = function () { var a = []; for (var i = 0; i < N; i++) a.push(-1); return a; };
+    var st = { step: 0, me: saved ? saved.me : "", you: saved ? saved.you || "" : "", ans: saved ? saved.ans.slice() : blank(), parts: saved ? saved.parts.slice() : L.sections.map(function (s) { return !!s["default"]; }), dirty: false };
+    if (p1 && !p2) { st.parts = p1.parts.slice(); if (!st.me) st.me = p1.you || ""; st.you = p1.me; }
+    var first = true, pickPool = [], pairCache = null;
+    var active = function (parts) { return G.filter(function (x) { return parts[x.si]; }); };
+    var needAdult = function (parts) { return L.sections.some(function (s, i) { return parts[i] && s.adult; }); };
+    var save = function () { saved = { v: L.v, date: new Date().toISOString(), me: st.me, you: st.you, ans: st.ans, parts: st.parts }; store.set(key, saved); st.dirty = false; };
+    var adultTag = function (s) { return s.adult ? ' <span class="tag adult">' + esc(T.bl_adult_tag) + '</span>' : ""; };
+
+    function render() {
+      var h = "", ag = active(st.parts);
+      if (p1 && p2) { root.innerHTML = pair(p1, p2, false); wire(); return; }
+      if (st.step === 0) {
+        h = '<form class="step">' + (saved && !p1 ? '<div class="note"><p>' + fmt(esc(T.bl_saved), { date: esc(fmtDate(saved.date)) }) + '</p><div class="actions"><button class="btn ghost" type="button" data-view>' + esc(T.bl_view) + '</button></div></div>' : "") +
+          '<h2>' + (p1 ? fmt(esc(T.bl_p2_title), { me: esc(p1.me) }) : esc(T.bl_who)) + '</h2>' + (p1 ? '<p class="muted">' + fmt(esc(T.bl_p2_text), { me: esc(p1.me) }) + '</p>' : "") +
+          '<div class="field"><label>' + esc(T.name) + '</label><input type="text" name="me" required value="' + esc(st.me) + '"></div>' +
+          (p1 ? "" : '<div class="field"><label>' + esc(T.bl_partner) + '</label><input type="text" name="you" value="' + esc(st.you) + '"></div>');
+        if (NS > 1 || L.adult) {
+          h += '<h3>' + (p1 ? fmt(esc(T.bl_p2_parts), { me: esc(p1.me) }) : esc(T.bl_parts)) + '</h3><div class="bl-parts">' + L.sections.map(function (s, i) {
+            if (p1 && !st.parts[i]) return "";
+            var n = s.groups.reduce(function (a, g) { return a + g.items.length; }, 0);
+            return '<div class="bl-part"><label class="opt"><input type="checkbox" name="part" value="' + i + '"' + (st.parts[i] ? " checked" : "") + (p1 || NS === 1 ? " disabled" : "") + '> ' + esc(s.title) + ' <span class="muted">· ' + fmt(esc(T.bl_count), { n: n }) + '</span>' + adultTag(s) + '</label><p class="small muted">' + esc(s.lead) + '</p></div>';
+          }).join("") + '</div>';
+        }
+        h += '<div class="note"><ul>' + L.notes.map(function (t) { return "<li>" + esc(t) + "</li>"; }).join("") + '</ul></div>' +
+          '<div class="note"><b>' + esc(T.bl_legend) + '</b><ul>' + L.options.map(function (o) { return "<li>" + esc(o[1]) + "</li>"; }).join("") + '</ul></div>' +
+          (L.adult ? '<p class="bl-adult"><label class="opt"><input type="checkbox" name="adult"' + (needAdult(st.parts) ? " required" : "") + '> ' + esc(T.bl_adult_check) + '</label></p>' : "") +
+          '<div class="actions"><button class="btn" type="submit">' + esc(saved && !p1 ? T.bl_update : T.start) + '</button></div></form>';
+      } else if (st.step <= ag.length) {
+        var x = ag[st.step - 1], sec = L.sections[x.si], firstOfSec = st.step === 1 || ag[st.step - 2].si !== x.si;
+        h = '<div class="progress"><i style="width:' + Math.round((st.step - 1) / ag.length * 100) + '%"></i></div><form class="step"><p class="eyebrow">' + esc(sec.title) + ' · ' + fmt(esc(T.bl_group_of), { i: st.step, n: ag.length }) + '</p><h2>' + esc(x.g.title) + '</h2>' +
+          (firstOfSec ? '<p>' + esc(sec.lead) + '</p>' : "") + (x.g.note ? '<div class="note">' + esc(x.g.note) + '</div>' : "") +
+          x.idx.map(function (i) { return '<div class="item lm-item"><p class="q">' + esc(flat[i]) + '</p><div class="opts">' + L.options.map(function (o, k) { return '<label class="opt"><input type="radio" name="q' + i + '" value="' + k + '"' + (st.ans[i] === k ? " checked" : "") + '> ' + esc(o[1]) + '</label>'; }).join("") + '</div></div>'; }).join("") +
+          '<div class="actions"><button class="btn ghost" type="button" data-back>' + esc(T.back) + '</button><button class="btn" type="submit">' + esc(st.step === ag.length ? (p1 ? T.finish : X.see) : T.next) + '</button></div></form>';
+      } else h = p1 ? pair(p1, { me: st.me, you: st.you, parts: st.parts, ans: st.ans }, true) : solo();
+      root.innerHTML = h;
+      var f = root.querySelector("form");
+      if (f && st.step === 0) {
+        var boxes = Array.prototype.slice.call(f.querySelectorAll("[name=part]")), ad = f.querySelector("[name=adult]");
+        var cur = function () { var p = st.parts.slice(); boxes.forEach(function (b) { p[+b.value] = b.checked; }); return p; };
+        var sync = function () { if (ad) { var need = needAdult(cur()); ad.required = need; ad.closest(".bl-adult").classList.toggle("hidden", !need); } if (boxes[0]) boxes[0].setCustomValidity(""); };
+        boxes.forEach(function (b) { b.addEventListener("change", sync); }); sync();
+        f.addEventListener("submit", function (e) {
+          e.preventDefault();
+          var p = cur(); if (!p.some(Boolean)) { boxes[0].setCustomValidity(T.bl_parts); boxes[0].reportValidity(); return; }
+          st.me = f.me.value.trim() || T.default_person; if (f.you) st.you = f.you.value.trim(); st.parts = p; st.dirty = true; st.step = 1; render();
+        });
+        var v = f.querySelector("[data-view]"); if (v) v.addEventListener("click", function () { st.step = ag.length + 1; render(); });
+      } else if (f) {
+        f.addEventListener("submit", function (e) {
+          e.preventDefault();
+          ag[st.step - 1].idx.forEach(function (i) { var val = readRadio(f, "q" + i); st.ans[i] = val == null ? -1 : +val; });
+          save(); st.dirty = true; st.step++; render();
+        });
+        f.querySelector("[data-back]").addEventListener("click", function () { st.step--; render(); });
+      }
+      if (st.step > ag.length) wire();
+      if (!first) window.scrollTo({ top: root.offsetTop - 90, behavior: "smooth" });
+      first = false;
+    }
+    function listing(idxs, tagOf) {
+      if (!idxs.length) return '<p class="muted">' + esc(T.bl_empty_group) + '</p>';
+      var set = {}; idxs.forEach(function (i) { set[i] = 1; });
+      return G.map(function (x) {
+        var mine = x.idx.filter(function (i) { return set[i]; }); if (!mine.length) return "";
+        return '<h4>' + esc(x.g.title) + '</h4><ul>' + mine.map(function (i) { var tg = tagOf ? tagOf(i) : ""; return '<li>' + esc(flat[i]) + (tg ? ' <span class="muted">· ' + esc(tg) + '</span>' : "") + '</li>'; }).join("") + '</ul>';
+      }).join("");
+    }
+    function block(title, text, idxs, open, tagOf) {
+      return '<details class="bl-block"' + (open ? " open" : "") + '><summary>' + esc(title) + ' <span class="muted">· ' + idxs.length + '</span></summary>' + (text ? '<p class="muted">' + esc(text) + '</p>' : "") + listing(idxs, tagOf) + '</details>';
+    }
+    function barsOf(rows) {
+      return '<div class="bars">' + rows.map(function (r) { return '<div class="bar"><span>' + esc(r.name) + '</span><i><b style="width:' + r.pct + '%"></b></i><span class="v">' + esc(r.label) + '</span></div>'; }).join("") + '</div>';
+    }
+    function imgRows(rows) {
+      var keep = rows.slice().sort(function (a, b) { return b.pct - a.pct; }).slice(0, 14);
+      return rows.filter(function (r) { return keep.indexOf(r) >= 0; }).map(function (r) { return { name: r.name, pos: r.label, x: r.pct / 25, presumed: null, poles: ["", ""] }; });
+    }
+    function summary(ans, parts) {
+      var c = [0, 0, 0, 0], by = [[], [], [], []], rows = [], total = 0;
+      active(parts).forEach(function (x) {
+        total += x.idx.length;
+        var a = x.idx.filter(function (i) { return ans[i] >= 0; }); if (!a.length) return;
+        a.forEach(function (i) { c[ans[i]]++; by[ans[i]].push(i); });
+        var pct = Math.round(a.filter(function (i) { return L.bar === "yes" ? ans[i] >= 2 : ans[i] === 3; }).length / a.length * 100);
+        rows.push({ name: x.g.title, pct: pct, label: fmt(T.bl_yes_pct, { p: pct }) });
+      });
+      return { c: c, by: by, rows: rows, total: total, answered: c[0] + c[1] + c[2] + c[3] };
+    }
+    function pickBox(pool) {
+      pickPool = pool;
+      return L.pick && pool.length ? '<div class="actions"><button class="btn ghost" type="button" data-pick>' + esc(X.pick_btn) + '</button></div><div class="note hidden" id="bl-pick" role="status" aria-live="polite"></div>' : "";
+    }
+    function solo() {
+      if (st.dirty || !saved) save();
+      var s = summary(st.ans, st.parts), url = base + "#l1=" + codec.enc({ me: st.me, you: st.you, parts: st.parts, ans: st.ans });
+      pairCache = null;
+      var h = '<div class="step result"><p class="eyebrow">' + esc(L.kicker) + ' · ' + esc(st.me) + ' · ' + esc(fmtDate(saved.date)) + '</p><h2>' + esc(X.solo_title) + '</h2><p class="muted">' + fmt(esc(T.bl_answered), { n: s.answered, N: s.total }) + '</p>' +
+        '<p class="bl-counts">' + [3, 2, 1, 0].map(function (k) { return '<span class="stat"><b>' + s.c[k] + '</b> ' + esc(L.options[k][1]) + '</span>'; }).join("") + '</p>' +
+        (s.rows.length ? '<h4>' + esc(X.bar_title) + '</h4>' + barsOf(s.rows) : '<div class="note">' + esc(T.bl_none) + '</div>') + '</div>';
+      h += '<div class="step">' + (s.answered && !s.by[2].length ? '<div class="note">' + esc(X.want_empty) + '</div>' : "") + block(X.want_title, null, s.by[2], true) + block(X.maybe_title, null, s.by[1], false) + block(X.done_title, null, s.by[3], false) + pickBox(s.by[2].concat(s.by[3])) + '</div>';
+      h += '<div class="step"><h3>' + esc(X.link_title) + '</h3><p class="muted">' + esc(X.link_text) + '</p><p class="code" id="bl-url">' + esc(url) + '</p><div class="actions"><button class="btn" type="button" data-copy>' + esc(T.bl_copy) + '</button>' + shareBtn(X.share_btn) +
+        '<button class="btn ghost" type="button" data-update>' + esc(T.bl_update) + '</button><button class="btn ghost" type="button" data-redo>' + esc(T.bl_redo) + '</button></div><p class="muted">' + esc(T.bl_warn) + '</p></div>';
+      return h;
+    }
+    function pair(x, y, withLink) {
+      var go = [], keep = [], talk = [], hidden = 0, tag = {};
+      for (var i = 0; i < N; i++) {
+        var a = x.ans[i], b = y.ans[i]; if (a < 0 || b < 0) continue;
+        if (!a || !b) hidden++;
+        else if (a === 3 && b === 3) keep.push(i);
+        else if (a >= 2 && b >= 2) { go.push(i); if (a === 3 || b === 3) tag[i] = fmt(X.tag3, { n: a === 3 ? x.me : y.me }); }
+        else talk.push(i);
+      }
+      var sum = fmt(X.pair_sum, { go: go.length, keep: keep.length, talk: talk.length }), set = {}; go.forEach(function (i) { set[i] = 1; });
+      var rows = G.map(function (g) { var n = g.idx.filter(function (i) { return set[i]; }).length; return { name: g.g.title, n: n }; }).filter(function (r) { return r.n; });
+      var max = rows.reduce(function (m, r) { return Math.max(m, r.n); }, 1); rows.forEach(function (r) { r.pct = Math.round(r.n / max * 100); r.label = String(r.n); });
+      var h = '<div class="step result"><p class="eyebrow">' + fmt(esc(T.bl_kicker_pair), { k: esc(L.kicker), x: esc(x.me), y: esc(y.me) }) + '</p><h2>' + esc(X.pair_title) + '</h2><p>' + esc(sum) + '</p>' +
+        (go.length ? "" : '<div class="note">' + esc(X.none_go) + '</div>') + block(X.go_title, X.go_text, go, true, function (i) { return tag[i]; }) + block(X.keep_title, X.keep_text, keep, false) + block(X.talk_title, X.talk_text, talk, !go.length) +
+        (hidden ? '<p class="muted">' + fmt(esc(X.hidden), { n: hidden }) + '</p>' : "") + pickBox(go.concat(keep)) + '</div>';
+      if (withLink) {
+        var url = base + "#l1=" + hp.l1 + "&l2=" + codec.enc(y);
+        h += '<div class="step"><h3>' + esc(T.bl_done_p2) + '</h3><p class="code" id="bl-url">' + esc(url) + '</p><div class="actions"><button class="btn" type="button" data-copy>' + esc(T.bl_copy) + '</button>' + shareBtn(X.share_btn) + '</div><p class="muted">' + esc(T.bl_warn) + '</p></div>';
+      } else h += '<div class="step"><div class="actions">' + shareBtn(X.share_btn) + '</div></div>';
+      pairCache = { x: x, y: y, rows: rows, sum: sum };
+      return h;
+    }
+    function wire() {
+      var c = root.querySelector("[data-copy]"), u = root.querySelector("#bl-url"); if (c && u) c.addEventListener("click", function () { navigator.clipboard && navigator.clipboard.writeText(u.textContent); c.textContent = T.copied; });
+      var up = root.querySelector("[data-update]"); if (up) up.addEventListener("click", function () { st.step = 0; render(); });
+      var rd = root.querySelector("[data-redo]"); if (rd) rd.addEventListener("click", function () { store.set(key, null); saved = null; st = { step: 0, me: st.me, you: st.you, ans: blank(), parts: L.sections.map(function (s) { return !!s["default"]; }), dirty: false }; render(); });
+      var pk = root.querySelector("[data-pick]"), box = root.querySelector("#bl-pick");
+      if (pk && box) pk.addEventListener("click", function () { var i = pickPool[Math.floor(Math.random() * pickPool.length)]; box.innerHTML = '<b>' + esc(X.pick_title) + '</b><p style="margin:6px 0 0">' + esc(flat[i]) + '</p>'; box.classList.remove("hidden"); pk.textContent = T.bl_again; });
+      var s = root.querySelector("[data-share]"); if (!s) return;
+      s.addEventListener("click", function () {
+        if (pairCache) {
+          var t = fmt(X.share_pair, { x: pairCache.x.me, y: pairCache.y.me });
+          shareDialog({ file: key, kicker: L.kicker, title: t, shortTitle: t, rows: imgRows(pairCache.rows), lines: [pairCache.sum] });
+        } else {
+          var sm = summary(st.ans, st.parts);
+          shareDialog({ file: key, kicker: L.kicker, title: X.share_solo, shortTitle: X.share_solo, rows: imgRows(sm.rows), lines: [fmt(X.line_solo, { q: sm.c[2], d: sm.c[3], t: sm.c[1], a: sm.answered })] });
+        }
+      });
+    }
+    render();
+  }
+
   /* ---------- Minhas flags ---------- */
   function myFlags(root) {
     var saved = store.get("myflags", []);
@@ -847,6 +1020,6 @@
     var app = $("#app"); if (!app) return;
     if (window.MutationObserver) new MutationObserver(function () { a11y(app); }).observe(app, { childList: true, subtree: true });
     var tool = app.getAttribute("data-tool");
-    ({ scale: scale, portraits: portraits, selflove: selfLove, couple: couple, selfdiscover: selfDiscover, myflags: myFlags, stay: stay, glossary: glossary, limits: limits }[tool] || function () { })(app);
+    ({ scale: scale, portraits: portraits, selflove: selfLove, couple: couple, selfdiscover: selfDiscover, myflags: myFlags, stay: stay, glossary: glossary, limits: limits, spark: function (r) { lists(r, "spark"); }, lovelist: function (r) { lists(r, "lovelist"); }, sexlist: function (r) { lists(r, "sexlist"); } }[tool] || function () { })(app);
   });
 })();

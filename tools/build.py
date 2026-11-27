@@ -16,6 +16,7 @@ BUILT = datetime.date.today().isoformat()
 FONTS = "https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=DynaPuff:wght@700&family=DM+Sans:wght@400;600;700&display=swap"
 ORG = {"@type": "Organization", "@id": "https://biblioverse.org/#organization", "name": "BiblioVerse", "url": "https://biblioverse.org"}
 LANGS = [("en", data_en, ""), ("pt", data_pt, "pt/")]
+LIST_KEYS = ("spark", "lovelist", "sexlist")   # as três ferramentas de lista (app.js: lists)
 
 try:
     import rcssmin, rjsmin
@@ -70,7 +71,7 @@ class Site:
         """Link interno por chave; a home aponta para a pasta, nunca para index.html."""
         return "./" if k == "home" else self.P[k]
 
-    def page(self, path, title, desc, body, active=None, noindex=False, ld_extra=None):
+    def page(self, path, title, desc, body, active=None, noindex=False, ld_extra=None, adult=False):
         D, P, PG = self.D, self.P, self.D.PAGES
         url = self.url(path)
         op = self.other_path(path)
@@ -89,7 +90,8 @@ class Site:
              "dateModified": BUILT, "isPartOf": {"@id": f"{home}#website"}, "author": {"@id": ORG["@id"]}, "publisher": {"@id": ORG["@id"]},
              "primaryImageOfPage": {"@type": "ImageObject", "url": f"{SITE}/{self.og_file()}", "width": 1200, "height": 630}},
             {"@type": "WebSite", "@id": f"{home}#website", "name": D.SITE_NAME, "url": home, "inLanguage": D.LANG,
-             "description": D.DESCRIPTION, "publisher": {"@id": ORG["@id"]}}, ORG]
+             "description": D.DESCRIPTION, "publisher": {"@id": ORG["@id"]},
+             "audience": {"@type": "PeopleAudience", "suggestedMinAge": 18}}, ORG]
         if len(crumbs) > 1:
             graph.append({"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": n, "item": u} for i, (n, u) in enumerate(crumbs)]})
         graph += ld_extra or []
@@ -97,6 +99,7 @@ class Site:
         uses_tool = 'data-tool="' in body
         scripts = (f'<script src="/assets/data-{self.code}.js?v={BUILT}" defer></script>\n<script src="/assets/app.min.js?v={BUILT}" defer></script>\n') if uses_tool else ""
         og_img = f"{SITE}/{self.og_file()}"
+        rating = '<meta name="rating" content="adult">' + chr(10) if adult else ""
         full_title = title if D.SITE_NAME in title else f"{title} · {D.SITE_NAME}"
         return f"""<!doctype html>
 <html lang="{D.LANG}">
@@ -106,7 +109,7 @@ class Site:
 <title>{e(full_title)}</title>
 <meta name="description" content="{e(desc)}">
 <meta name="robots" content="{'noindex' if noindex else 'index, follow, max-image-preview:large'}">
-<link rel="canonical" href="{url}">
+{rating}<link rel="canonical" href="{url}">
 <link rel="alternate" hreflang="en" href="{en_url}">
 <link rel="alternate" hreflang="pt-BR" href="{pt_url}">
 <link rel="alternate" hreflang="x-default" href="{en_url}">
@@ -191,7 +194,7 @@ class Site:
 <p class="kicker">{e(H["kicker"])}</p><h1>{e(H["title"])}</h1><p class="sub">{e(H["title2"])}</p><p class="lead">{e(H["lead"])}</p>
 <div class="row" style="margin-top:22px"><a class="btn" href="{P['scale']}">{e(PG["do_scale"])}</a><a class="btn ghost" href="{P['theory']}">{e(PG["read_theory"])}</a></div></div></div>
 <div class="frame-card tx-stitch tilt-r"><span class="tape r"></span><div class="oval">{FLOWER}</div><p class="cap">{e(PG["oval_caption"])}</p></div>
-<div class="lace-card tx-lace tilt-l"><span class="tape"></span><div class="in"><h2>{e(H["privacy"].split(".")[0])}</h2><p>{e(H["privacy"])} <a href="{P['privacy']}">{e(PG['privacy_link'])} →</a></p></div></div>
+<div class="lace-card tx-lace tilt-l"><span class="tape"></span><div class="in"><h2>{e(H["privacy"].split(".")[0])}</h2><p>{e(H["privacy"])} <a href="{P['privacy']}">{e(PG['privacy_link'])} →</a></p><p class="adult-note"><span class="tag adult">{e(PG['adult_tag'])}</span> {e(H['adult'])}</p></div></div>
 </section>'''
         body += self.section(PG["tools_title"], f'<div class="petals">{tools}</div>')
         body += self.section(H["independence_title"], f'<div class="card big pink"><p class="lead" style="margin:0;max-width:none">{e(H["independence"])}</p></div>')
@@ -306,8 +309,11 @@ class Site:
         body = self.page_hero(X["kicker"], X["title"], X["lead"]) + self.section(None, t) + self.section(X["differs_title"], self.cards(X["differs"], "g4"))
         self.out(P["theories"], self.page(P["theories"], X["kicker"], X["desc"], body, "theory"))
 
-    def app_ld(self, key, name, desc):
-        return [{"@type": "WebApplication", "@id": self.url(self.P[key]) + "#app", "name": name, "description": desc, "url": self.url(self.P[key]),
+    def app_ld(self, key, name, desc, adult=False, features=None):
+        extra = {"isFamilyFriendly": False, "contentRating": "18+", "audience": {"@type": "PeopleAudience", "suggestedMinAge": 18}} if adult else {}
+        if features:
+            extra["featureList"] = features
+        return [{**extra, "@type": "WebApplication", "@id": self.url(self.P[key]) + "#app", "name": name, "description": desc, "url": self.url(self.P[key]),
                  "applicationCategory": "LifestyleApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "inLanguage": self.D.LANG,
                  "isAccessibleForFree": True, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@id": ORG["@id"]}}]
 
@@ -320,6 +326,21 @@ class Site:
         self.out(P["stay"], self.page(P["stay"], name, desc, self.page_hero(D.STAY["kicker"], D.STAY["title"], D.STAY["lead"]) + self.tool_shell("stay"), "stay", ld_extra=self.app_ld("stay", name, desc)))
         name, desc, _, _ = TL["limits"]
         self.out(P["limits"], self.page(P["limits"], name, desc, self.page_hero(D.LIMITS["kicker"], D.LIMITS["title"], D.LIMITS["lead"]) + self.tool_shell("limits"), "limits", ld_extra=self.app_ld("limits", name, desc)))
+        PG = D.PAGES
+        for key in LIST_KEYS:
+            name, desc, seo, _ = TL[key]
+            L = D.LISTS[key]
+            assert key == "spark" or str(L["n"]) in seo, (key, L["n"], seo)   # o título de busca cita o número de itens
+            how = self.section(PG["lists_how"], self.cards([(f"{i+1}.", a, t) for i, (a, t) in enumerate(L["how"])], "g3"))
+            cards = ""
+            for s in L["sections"]:
+                n = sum(len(g["items"]) for g in s["groups"])
+                tag = f' <span class="tag adult">{e(PG["adult_tag"])}</span>' if s["adult"] else ""
+                cards += (f'<div class="card"><p class="num">{e(PG["lists_items"].replace("{n}", str(n)))}{tag}</p><h3>{e(s["title"])}</h3><p class="small">{e(s["lead"])}</p>'
+                          f'<p class="small muted">{e(" · ".join(g["title"] for g in s["groups"]))}</p></div>')
+            notes = '<div class="card big soft" style="margin-top:18px"><ul style="margin:0">' + "".join(f"<li>{e(t)}</li>" for t in L["notes"]) + "</ul></div>"
+            body = self.page_hero(L["kicker"], L["title"], L["lead"]) + self.tool_shell(key) + how + self.section(PG["lists_inside"], f'<div class="grid g3">{cards}</div>' + notes)
+            self.out(P[key], self.page(P[key], seo, desc, body, key, ld_extra=self.app_ld(key, name, desc, adult=L["adult"], features=[s["title"] for s in L["sections"]]), adult=(key == "sexlist")))
 
     def build_glossary(self):
         D, P, X = self.D, self.P, self.D.PAGES["glossary"]
@@ -363,7 +384,7 @@ class Site:
         data = dict(lang=D.LANG, host=HOST, paths=D.PATHS, ui=D.UI, props=props, thermo=D.THERMO, relations=D.RELATIONS, types=D.TYPES,
                     portraitFlags=D.PORTRAIT_FLAGS, rootNotes=D.ROOT_NOTES, flags=[{k: f[k] for k in ("sign", "text", "props", "kind")} for f in D.FLAGS],
                     sliders=D.SLIDERS, sliderGroups=D.SLIDER_GROUPS, sliderKeys=slider_keys, tastes=D.TASTES, expectQ=D.EXPECT_Q, expectOpts=D.EXPECT_OPTS,
-                    weightQ=D.WEIGHT_Q, stay=D.STAY, loveLangs=D.LOVE_LANGS, limits=D.LIMITS)
+                    weightQ=D.WEIGHT_Q, stay=D.STAY, loveLangs=D.LOVE_LANGS, limits=D.LIMITS, lists=D.LISTS)
         write(f"assets/data-{self.code}.js", "window.LT=" + json.dumps(data, ensure_ascii=False, separators=(",", ":")) + ";")
 
     def pages(self):
@@ -380,7 +401,7 @@ class Site:
     def llms(self):
         D, P, PG = self.D, self.P, self.D.PAGES
         home = f"{SITE}/{self.prefix}"
-        L = [f"# {D.SITE_NAME}", "", f"> {D.DESCRIPTION}", "", D.HOME["lead"], "", D.HOME["independence"], ""]
+        L = [f"# {D.SITE_NAME}", "", f"> {D.DESCRIPTION}", "", D.HOME["lead"], "", D.HOME["independence"], "", D.HOME["adult"], ""]
         L += [f"## {PG['tools_title']}", ""] + [f"- [{t['name']}]({self.url(P[t['key']])}): {t['text']}" for t in D.TOOLS] + [""]
         L += [f"## {PG['theory']['title']}", ""] + [f"- [{t}]({self.url(P[k])}): {d}" for k, t, d in PG["theory"]["pages"]] + [""]
         L += [f"## {PG['theory']['props_title']}", ""] + [f"- [{p['name']}]({self.url(self.prop_path(p))}): {p['lead']}" for p in D.PROPS] + [""]
@@ -393,7 +414,7 @@ class Site:
     def llms_full(self):
         D, PG = self.D, self.D.PAGES
         M, T, S = D.MODEL_PAGE, D.TIME_PAGE, D.SEXUALITY_PAGE
-        L = [f"# {D.SITE_NAME}", "", f"> {D.DESCRIPTION}", "", f"Source: {SITE}/{self.prefix}", "", D.HOME["lead"], "", D.HOME["independence"], ""]
+        L = [f"# {D.SITE_NAME}", "", f"> {D.DESCRIPTION}", "", f"Source: {SITE}/{self.prefix}", "", D.HOME["lead"], "", D.HOME["independence"], "", D.HOME["adult"], ""]
         L += [f"## {PG['theory']['intro_title']}", ""] + sum(([t, ""] for t in PG["theory"]["intro"]), [])
         L += [f"## {M['title']}", "", M["lead"], ""] + [f"- {a}: {b} ({c})" for a, b, c in M["terms"]] + [""] + [f"- {a} {b}" for a, b in M["rules"]] + [""]
         L += [f"### {M['sources_title']}", "", M["sources_lead"], ""] + [f"- {a}: {b}" for a, b in M["sources"]] + ["", M["sources_end"], ""]
@@ -412,6 +433,12 @@ class Site:
         L += [f"## {S['title']}", "", S["lead"], ""] + [f"- {a}: {b}" for a, b in S["items"]] + [""]
         L += [f"## {PG['theories']['title']}", ""] + [f"- {a}, {b}: {c}" for a, b, c in D.THEORIES] + [""]
         L += [f"## {PG['tools_title']}", ""] + [f"- {t['name']}: {t['text']}" for t in D.TOOLS] + ["", D.STAY["lead"], "", D.LIMITS["lead"], ""]
+        for key in LIST_KEYS:
+            Ls = D.LISTS[key]
+            L += [f"### {Ls['kicker']}", "", Ls["lead"], ""] + [f"- {a}: {t}" for a, t in Ls["how"]] + [""] + [f"- {t}" for t in Ls["notes"]] + [""]
+            for s in Ls["sections"]:
+                L += [f"#### {s['title']}", "", s["lead"], ""]
+                L += [f"- {g['title']} ({len(g['items'])})" + ("" if s["adult"] else ": " + " ".join(g["items"])) for g in s["groups"]] + [""]
         L += [f"## {PG['glossary']['title']}", ""] + [f"- {t}: {d}" for _, t, d, _ in D.GLOSSARY] + [""]
         return "\n".join(L)
 

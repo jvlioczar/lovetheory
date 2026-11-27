@@ -48,7 +48,7 @@ img, svg { max-width: 100%; }
 .menu a:nth-child(2n) { background: var(--pink-2); } .menu a:nth-child(3n) { background: var(--blue-2); }
 .menu a.on { background: var(--ink); color: #fff; }
 .menu a.lang { background: #fff; font-family: var(--script); font-size: 16px; padding: 5px 10px 7px; }
-@media (max-width: 760px) { .menu { margin-left: 0; width: 100%; justify-content: flex-start; } .logo span.t { display: none; } .logo { padding-bottom: 4px; } }
+@media (max-width: 760px) { .menu { margin-left: 0; width: 100%; justify-content: flex-start; } .logo { padding-bottom: 4px; font-size: 20px; } .nav { position: static; } }
 
 /* colagem da home */
 .collage { display: grid; grid-template-columns: 1.35fr 1fr; grid-template-rows: auto auto; gap: 18px; padding: 26px var(--gut) 0; max-width: var(--max); margin: 0 auto; }
@@ -110,6 +110,8 @@ a.card:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink
 .petal:nth-child(5) { background: var(--olive-2); color: var(--ink); transform: rotate(-1deg); }
 .petal:nth-child(6) { background: #fff; transform: rotate(.9deg); }
 .petal:nth-child(7) { background: var(--pink); transform: rotate(-1.2deg); }
+.petal:nth-child(8) { background: var(--lilac-2); transform: rotate(1.1deg); } .petal:nth-child(9) { background: var(--cream); transform: rotate(-.9deg); }
+.petal:nth-child(10) { background: var(--blue-2); transform: rotate(1deg); }
 .lm-item .opts .opt { padding: 5px 9px; font-size: 13px; }
 .lm-item .q { font-weight: 600; }
 .redbox { background: #fff0f0; border: 2px solid #b11d1d; border-radius: 10px; padding: 16px 18px; margin: 14px 0; box-shadow: 4px 4px 0 #b11d1d; }
@@ -142,6 +144,13 @@ table.balance select { padding: 6px 8px; font-size: 13px; width: auto; box-shado
 .tag.red { background: #f7c9c9; color: #7a1010; }
 .tag.green { background: #d6ebd3; color: #1f5a2a; }
 .tag.gray { background: #e8e3e6; color: #444; }
+.tag.adult { background: var(--ink); color: #fff; font-size: 12px; padding: 2px 8px; }
+.bl-part { margin: 12px 0; } .bl-part p { margin: 6px 0 0 4px; }
+.bl-counts { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0; }
+.bl-counts .stat { display: inline-flex; gap: 6px; align-items: baseline; padding: 6px 12px; border: 1.5px solid var(--ink); border-radius: 999px; background: #fff; font-size: 14px; font-weight: 600; }
+.bl-counts .stat b { font-family: var(--serif); font-size: 18px; color: var(--magenta-d); }
+details.bl-block > summary { font-weight: 700; cursor: pointer; } details.bl-block h4 { margin: 14px 0 4px; } details.bl-block ul { margin: 0 0 8px; }
+.lace-card .in p.adult-note { margin-top: 10px; font-size: 14px; }
 .note { background: var(--cream); border: 1.5px dashed var(--ink); padding: 14px 18px; border-radius: 10px; margin: 18px 0; }
 .muted { color: var(--ink-3); font-size: 14px; }
 .eyebrow { font-family: var(--script); font-weight: 700; color: var(--magenta); font-size: 22px; margin-bottom: 2px; }

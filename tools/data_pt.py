@@ -844,13 +844,13 @@ ABOUT = dict(
         "The Love Theory é um mapa de como amamos. Parte de uma ideia simples: 'amor' é uma palavra só para uma mistura de coisas diferentes, e cada pessoa mistura de um jeito.",
         "O site não é diagnóstico, não é terapia e não substitui conversa. Os testes são um começo de conversa, consigo mesmo e com o outro; nunca um veredito.",
         "As teorias de referência estão citadas na página de teorias. Onde a evidência é fraca ou contestada, o site diz.",
-        "Por onde começar: a Escala do Amor para uma pessoa de cada vez; a Autodescoberta para você; o Teste de Casal e os Limites a dois; o Ficar ou ir? quando a dúvida é essa. Refaça depois de alguns meses: a comparação no tempo é parte do método.",
+        "Por onde começar: a Escala do Amor para uma pessoa de cada vez; a Autodescoberta para você; o Teste de Casal, os Limites e o Manter a Chama a dois; as duas bucket lists, do amor e sexual, para o que você quer viver; o Ficar ou ir? quando a dúvida é essa. Refaça depois de alguns meses: a comparação no tempo é parte do método.",
     ],
     privacy_title="Privacidade",
     privacy=[
         "Nada do que você responde sai do seu aparelho. Não há conta, não há servidor que receba respostas, não há envio.",
         "Os retratos, o mapa de si e as respostas do Teste de Casal ficam guardados no armazenamento local do seu navegador. Limpar os dados do navegador apaga tudo.",
-        "No Teste de Casal, as respostas viajam dentro do link que você manda para a outra pessoa. Quem tem o link tem as respostas; mande só para quem deve ver.",
+        "No Teste de Casal, nos Limites, no Manter a Chama e nas bucket lists, as respostas viajam dentro do link que você manda para a outra pessoa. Quem tem o link tem as respostas; mande só para quem deve ver.",
         "O site usa a Cloudflare Web Analytics, que conta visitas sem cookies e sem identificar pessoas.",
     ],
 )
@@ -1288,7 +1288,7 @@ LOVE_LANGS = [("palavras", "Palavras"), ("tempo", "Tempo de qualidade"), ("prese
 TASTES.append(("ambiente", "Ambiente", ["calor", "frio", "praia", "montanha", "campo", "cidade", "silêncio", "movimento", "luz", "penumbra"]))
 
 UI.update(
-    more_sliders="Mais réguas", more_text="Dezesseis réguas a mais, para quem quer um mapa mais fino. Todas entram no mapa de si.",
+    more_sliders="Mais réguas", more_text="Dezoito réguas a mais, para quem quer um mapa mais fino. Todas entram no mapa de si.",
     langs_title="Linguagens de afeto", langs_text="Como você prefere dar e como prefere receber. Evidência fraca como teoria; útil como preferência, e o Teste de Casal mostra a lacuna.",
     langs_give="Como prefiro dar", langs_receive="Como prefiro receber",
     c_langs_title="Linguagens de afeto", c_langs_line="{x} dá por {give}; {y} prefere receber por {receive}.", c_langs_match="Encaixa em: {list}.", c_langs_none="Nenhum encaixe entre o que um dá e o que o outro prefere receber. É a lacuna mais barata de fechar: basta saber.",
@@ -1610,7 +1610,7 @@ PRIVACY = dict(
     kicker="Privacidade", title="Política de privacidade",
     lead="The Love Theory não coleta, não guarda e não recebe as suas respostas. Esta página diz, com precisão, o que acontece com cada dado.",
     sections=[
-        ("O que você responde", ["Tudo o que você responde nas ferramentas (Escala do Amor, retratos, Teste de Casal, Limites, Autoamor, Autodescoberta, Ficar ou ir?, Minhas flags) é processado no seu navegador e guardado no armazenamento local do seu aparelho. Nada disso é enviado a um servidor nosso, porque não temos servidor que receba respostas.",
+        ("O que você responde", ["Tudo o que você responde nas ferramentas (Escala do Amor, retratos, Teste de Casal, Limites, Manter a Chama, Bucket List do Amor, Bucket List Sexual, Autoamor, Autodescoberta, Ficar ou ir?, Minhas flags) é processado no seu navegador e guardado no armazenamento local do seu aparelho. Nada disso é enviado a um servidor nosso, porque não temos servidor que receba respostas.",
                                  "Essas respostas podem incluir dados sensíveis, como orientação sexual, vida sexual e detalhes de relacionamentos. Justamente por isso, o site foi construído para nunca recebê-los."], []),
         ("Os links do Teste de Casal e dos Limites", ["Para comparar respostas a dois, o site coloca as respostas dentro do próprio link, depois do sinal #. Essa parte do endereço não é enviada ao servidor quando a página abre.",
                                                      "Quem tem o link tem as respostas. Mande só para a pessoa certa, e lembre que aplicativos de mensagem guardam os links enviados."], []),
@@ -1643,4 +1643,355 @@ PAGES["theory"]["intro"] = [
     "Daí vem a tese que dá nome ao site: dizemos quem somos pelas pessoas que mantemos por perto. Quando você compara os retratos de várias pessoas, o que se repete diz menos sobre elas e mais sobre você: o que você busca, o que você aceita, o que você não suporta.",
     "A teoria conversa com o que já foi pensado sobre o amor, da teoria triangular de Sternberg ao apego de Bowlby e aos estudos de Gottman com casais, e amplia esses modelos em vez de substituí-los. Onde a evidência é fraca, o site diz. Ela não é diagnóstico nem terapia: é uma linguagem para você entender o jeito como ama, e para conversar sobre ele.",
     "Por onde ler: comece pelo modelo, que apresenta o vocabulário; siga pelas dezoito propriedades, uma a uma; os mecanismos e os moduladores explicam de onde os valores vêm; o tempo, as flags e os tipos de amor mostram o que acontece com eles na vida real.",
+]
+
+# ---------------------------------------------------------------------------
+# Listas (2026-11-27): Manter a Chama, Bucket List do Amor, Bucket List Sexual.
+# Três ferramentas com o mesmo motor (app.js: lists). A ORDEM dos itens é o formato do link e do que fica salvo:
+# item novo entra no FIM do grupo... e mesmo assim muda o comprimento, então subir "v" ao mexer nos itens.
+# Respostas: índice 0 = não, 1 = talvez, 2 = quero, 3 = já faço / já vivi.
+# ---------------------------------------------------------------------------
+PATHS["spark"] = "manter-a-chama.html"
+PATHS["lovelist"] = "bucket-list-do-amor.html"
+PATHS["sexlist"] = "bucket-list-sexual.html"
+NAV = [("home", "Início"), ("theory", "Teoria"), ("scale", "Escala"), ("couple", "Casal"), ("limits", "Limites"), ("spark", "Chama"),
+       ("lovelist", "Lista do Amor"), ("sexlist", "Lista Sexual"), ("selflove", "Autoamor"), ("selfdiscover", "Descoberta"),
+       ("stay", "Ficar ou ir?"), ("portraits", "Retratos")]
+TOOLS.insert(4, dict(key="spark", name="Manter a Chama", kicker="Keep the Spark",
+                     text="Propostas para o amor continuar bom e quente: coisas para fazer juntos, novidades na cama e experiências além do casal. O cruzamento mostra só o que os dois querem."))
+TOOLS.insert(5, dict(key="lovelist", name="Bucket List do Amor", kicker="Love Bucketlist",
+                     text="O amor que você quer viver e as coisas para viver a dois: o que já viveu, o que quer, o que não é para você."))
+TOOLS.insert(6, dict(key="sexlist", name="Bucket List Sexual", kicker="Sexual Bucketlist · 18+",
+                     text="Práticas, posições, ocasiões e lugares: o que você já viveu, o que quer viver e o que não é para você. Sozinho ou cruzado com o par."))
+PAGES["tools_title"] = "Dez ferramentas"
+PAGES["tools"]["spark"] = ("Manter a Chama", "Teste para casais manterem o amor bom e quente: atividades, novidades na cama e além do casal. Cada um responde sozinho e só aparece o que os dois querem.", "Manter a Chama: teste para casais", None)
+PAGES["tools"]["lovelist"] = ("Bucket List do Amor", "A lista do amor que você quer viver: o relacionamento que busca e as experiências a dois, dos gestos aos grandes marcos. Marque o que já viveu e o que quer viver.", "Bucket List do Amor: 93 coisas para viver", None)
+PAGES["tools"]["sexlist"] = ("Bucket List Sexual", "Bucket list sexual para adultos: práticas, posições, ocasiões e lugares. Marque o que já viveu, o que quer viver e o que não é para você, sozinho ou com o par.", "Bucket List Sexual: 158 itens (18+)", None)
+PAGES["lists_how"] = "Como funciona"
+PAGES["lists_inside"] = "O que tem dentro"
+PAGES["lists_items"] = "{n} itens"
+PAGES["adult_tag"] = "18+"
+HOME["adult"] = "Site para adultos: fala de relacionamento e de sexo, e não é recomendado para menores de 18 anos."
+
+_OPT_BUCKET = [("N", "Não é para mim"), ("T", "Talvez"), ("Q", "Quero viver"), ("V", "Já vivi")]
+
+LISTS = dict(
+    # ------------------------------------------------------------------ Manter a Chama
+    spark=dict(
+        v=1, adult=True, bar="yes", pick=True,
+        kicker="Manter a Chama", title="O que vamos fazer para o amor continuar bom?",
+        lead=("O tempo gasta a novidade, e é a novidade que alimenta a paixão. O que mantém um amor bom e quente quase nunca é sorte: é o que os dois fazem de propósito. "
+              "Aqui estão {n} propostas em três partes: coisas para fazer juntos, novidades na cama entre vocês dois e experiências que vão além do casal. "
+              "Cada um responde sozinho, sem ver a resposta do outro, e o cruzamento mostra só o que os dois querem. O que um não quer não aparece para ninguém."),
+        options=[("N", "Não é para mim"), ("T", "Talvez, quero conversar"), ("Q", "Quero"), ("J", "Já fazemos e quero manter")],
+        how=[("Cada um responde sozinho", "Você escolhe as partes que quer abrir e marca, proposta por proposta: não é para mim, talvez, quero, ou já fazemos e quero manter. Dá para pular o que quiser."),
+             ("O link vai para o par", "As suas respostas viajam dentro do link, sem servidor e sem conta. O par abre, responde sem ver as suas e manda o link de volta."),
+             ("Só aparece o que coincide", "O resultado mostra o que os dois querem, o que já é de vocês e o que vale uma conversa. O que um dos dois recusou fica de fora, e ninguém precisa se explicar.")],
+        notes=["Não há resposta certa, e nenhuma proposta é etapa obrigatória de um amor bom. Responda pelo que você quer, não pelo que acha que o par espera.",
+               "Um sim dado para agradar é um não. Talvez quer dizer conversa, não promessa.",
+               "A parte além do casal só faz sentido se os dois quiserem de verdade. Insistir depois de um não é pressão, e pressão é bandeira vermelha."],
+        sections=[
+            dict(id="juntos", title="Coisas para fazer juntos", lead="Atividades, viagens, comida, jogos, projetos, rituais. O que tira a relação do piloto automático.", adult=False, default=True, groups=[
+                dict(id="corpo", title="Corpo e movimento", items=[
+                    "Treinar juntos na academia.", "Correr ou caminhar juntos de manhã.", "Fazer aula de dança a dois.", "Praticar um esporte juntos (tênis, vôlei de praia, escalada).",
+                    "Fazer yoga ou alongamento a dois.", "Fazer uma trilha.", "Pedalar juntos.", "Aprender uma luta ou defesa pessoal juntos.",
+                    "Treinar para uma prova juntos (corrida, travessia, caminhada longa).", "Nadar, surfar ou remar juntos."]),
+                dict(id="viagem", title="Viagens e aventura", items=[
+                    "Viajar um fim de semana sem roteiro.", "Conhecer um país em que nenhum dos dois esteve.", "Fazer uma viagem de carro, parando onde der vontade.", "Acampar.",
+                    "Passar um dia de turista na própria cidade.", "Viagem surpresa: um planeja, o outro só descobre o destino no dia.", "Ver o nascer do sol num lugar bonito.",
+                    "Fazer algo que dá frio na barriga (parapente, mergulho, tirolesa).", "Passar uma noite num hotel da própria cidade.", "Voltar ao lugar do primeiro encontro.",
+                    "Viajar com amigos ou com outro casal.", "Fazer uma viagem longa, de um mês ou mais."]),
+                dict(id="comida", title="Comida e bebida", items=[
+                    "Cozinhar juntos uma receita nova.", "Jantar num restaurante de uma culinária que nunca provaram.", "Fazer um curso de culinária juntos.", "Fazer um piquenique.",
+                    "Fazer uma degustação (vinho, café, cerveja, chocolate).", "Café da manhã na cama.", "Jantar à luz de velas em casa, com o celular longe.",
+                    "Um cozinha para o outro o prato preferido.", "Eleger um restaurante que é só de vocês.", "Ir à feira ou ao mercado juntos, sem pressa."]),
+                dict(id="jogos", title="Jogos e diversão", items=[
+                    "Noite de jogos de tabuleiro ou de cartas.", "Jogar videogame juntos.", "Jogo de perguntas para casais.", "Karaokê.", "Parque de diversões.",
+                    "Boliche, sinuca ou fliperama.", "Sala de escape.", "Maratonar uma série escolhida pelos dois.", "Competição boba com aposta: quem perde paga o jantar.",
+                    "Montar um quebra-cabeça ou um Lego grande."]),
+                dict(id="cultura", title="Cultura e aprender", items=[
+                    "Ir a um show ou a um festival.", "Ir ao cinema, ao teatro ou a um stand-up.", "Visitar um museu ou uma exposição.", "Ler o mesmo livro e conversar sobre ele.",
+                    "Aprender um idioma juntos.", "Fazer um curso juntos (cerâmica, fotografia, mixologia).", "Aprender um instrumento, ou tocar e cantar juntos.",
+                    "Ver um documentário e discutir depois.", "Ir a um jogo ou evento esportivo.", "Trocar playlists e ouvir a do outro inteira."]),
+                dict(id="social", title="Vida social", items=[
+                    "Receber amigos em casa.", "Sair com outros casais.", "Ir a uma festa e dançar a noite toda.", "Conhecer melhor os amigos um do outro.",
+                    "Fazer novos amigos juntos (grupo, clube, comunidade).", "Fazer trabalho voluntário juntos.", "Um encontro de família leve, sem obrigação.",
+                    "Uma noite cada um com os seus amigos, e contar tudo depois."]),
+                dict(id="casa", title="Casa, compras e projetos", items=[
+                    "Redecorar um cômodo.", "Comprar juntos algo que os dois querem para a casa.", "Cuidar de plantas ou de uma horta.", "Adotar ou cuidar de um animal juntos.",
+                    "Tocar um projeto em comum (canal, negócio, obra, coleção).", "Dia de faxina com música alta.", "Planejar as finanças e um objetivo em comum.",
+                    "Escolher e comprar roupa um para o outro.", "Montar um álbum com as melhores fotos.", "Fazer um quadro de sonhos do casal."]),
+                dict(id="romance", title="Romance e rituais", items=[
+                    "Ter um encontro marcado toda semana.", "Escrever uma carta à mão.", "Fazer uma surpresa sem data especial.", "Dançar na sala.", "Tomar banho juntos.",
+                    "Fazer massagem um no outro.", "Ver o pôr do sol.", "Refazer o primeiro encontro.", "Passar um dia inteiro sem celular.", "Uma tarde na cama sem fazer nada.",
+                    "Elogiar em voz alta, todo dia, por uma semana.", "Fazer um ensaio fotográfico juntos.", "Comemorar datas que são só de vocês.", "Dia de spa a dois."]),
+                dict(id="conversa", title="Conversa e futuro", items=[
+                    "Conversa mensal sobre a relação: o que está bom, o que mudar.", "Fazer juntos outro teste deste site e comparar.", "Responder juntos uma lista de perguntas profundas.",
+                    "Planejar os próximos cinco anos.", "Escrever a lista de sonhos do casal.", "Contar um ao outro uma coisa que nunca contou.",
+                    "Terapia de casal como manutenção, não só como emergência.", "Rever os combinados da relação e dizer em voz alta os que nunca foram ditos."]),
+            ]),
+            dict(id="cama", title="Novidades na cama, entre vocês dois", lead="Experiências sexuais novas só do casal: clima, conversa, sentidos, jeitos, papéis. Tudo combinado, tudo reversível.", adult=True, default=True, groups=[
+                dict(id="clima", title="Clima e cenário", items=[
+                    "Marcar um encontro para o sexo, com hora e sem pressa.", "Sexo em outro cômodo da casa.", "Uma noite de motel ou de hotel.", "Banho ou banheira a dois.",
+                    "Luz baixa, velas e uma playlist escolhida.", "Sexo de manhã, ou num horário fora do hábito.", "Uma rapidinha sem planejamento.", "Uma noite inteira sem pressa.",
+                    "Lingerie ou roupa escolhida para a ocasião.", "Um fim de semana fora só para isso.", "Ir juntos a um sex shop."]),
+                dict(id="provocacao", title="Provocação e conversa", items=[
+                    "Mandar mensagens provocantes durante o dia.", "Trocar nudes entre vocês.", "Sexo por telefone ou por vídeo quando estão longe.", "Contar uma fantasia ao outro.",
+                    "Dizer em voz alta do que gosta e do que não gosta.", "Falar sacanagem durante o sexo.", "Ler um conto erótico juntos.", "Assistir juntos a um filme erótico ou pornô.",
+                    "Jogar um jogo erótico de dados ou de cartas.", "Mostrar um ao outro como gosta de ser tocado."]),
+                dict(id="sentidos", title="Sentidos e brinquedos", items=[
+                    "Massagem sensual com óleo.", "Venda nos olhos.", "Gelo, calor ou lubrificante de temperatura.", "Usar um vibrador a dois.", "Comprar um brinquedo novo para os dois.",
+                    "Anel peniano, plug ou outro brinquedo.", "Comida na brincadeira (chantilly, chocolate, frutas).", "Sexo em frente ao espelho.", "Lubrificante com sabor.",
+                    "Brinquedo com controle remoto, usado fora de casa, só vocês sabendo."]),
+                dict(id="jeitos", title="Jeitos novos", items=[
+                    "Experimentar uma posição nova.", "Uma posição nova por semana, durante um mês.", "Trocar quem toma a iniciativa.", "Sexo bem devagar, de olhos nos olhos.",
+                    "Uma noite só de preliminares, sem penetração.", "Sexo oral demorado, um de cada vez.", "Masturbação mútua, ou um assistindo o outro.", "Sexo anal.",
+                    "Inversão de papéis na penetração (pegging).", "Meia nove.", "Segurar o orgasmo e recomeçar várias vezes (edging).", "Sexo fora da cama: em pé, na cadeira, no chão, no sofá.",
+                    "Sexo tântrico: respiração, lentidão, sem meta."]),
+                dict(id="papeis", title="Papéis e fantasia", items=[
+                    "Fazer um striptease para o outro.", "Fazer um lap dance.", "Usar fantasias e encenar personagens.", "Fingir que são desconhecidos se conhecendo num bar.",
+                    "Por uma noite, um manda e o outro obedece, com palavra de segurança.", "Algemas ou amarrar com lenço.", "Tapas combinados.", "Puxar o cabelo, pegada mais forte.",
+                    "Dominação e submissão leve.", "Um dia em que um decide tudo, do cardápio ao sexo.", "Realizar uma fantasia que um dos dois contou."]),
+                dict(id="registro", title="Registro e lugares", items=[
+                    "Tirar fotos sensuais um do outro, guardadas só com vocês.", "Gravar um vídeo só para vocês.", "Fazer um ensaio fotográfico sensual.",
+                    "Sexo no carro, num lugar isolado.", "Sexo ao ar livre, num lugar onde ninguém vai ver.", "Sexo na varanda, à noite, sem plateia.",
+                    "Sexo na piscina ou no mar, sozinhos.", "Sexo numa barraca de acampar."]),
+            ]),
+            dict(id="alem", title="Além do casal", lead=("Experiências que envolvem outras pessoas ou outros ambientes. Para alguns casais é combustível; para outros, é o fim. "
+                                                        "Nada aqui é recomendação. Só abra esta parte se os dois toparem olhar, e combine antes o que cada resposta significa."), adult=True, default=False, groups=[
+                dict(id="olhar", title="Olhar e ser olhado", items=[
+                    "Ir juntos a uma casa de striptease.", "Ir a um show erótico ou burlesco.", "Ir a uma praia de nudismo ou a um espaço naturista.",
+                    "Ir a uma casa de swing só para conhecer e olhar.", "Ir a uma festa liberal ou fetichista só para conhecer.", "Transar numa casa de swing, só os dois, com gente por perto.",
+                    "Assistir a outro casal, com o consentimento de todos.", "Deixar outro casal ou outra pessoa assistir vocês.", "Uma massagem tântrica com profissional, a dois."]),
+                dict(id="flerte", title="Flerte e fantasia com terceiros", items=[
+                    "Contar um ao outro por quem sente atração.", "Fantasiar em voz alta com uma terceira pessoa, sem realizar.", "Flertar com outras pessoas na frente do par, como jogo.",
+                    "Dançar com outras pessoas numa festa.", "Beijar outra pessoa na frente do par.", "Criar juntos um perfil de casal num aplicativo, só para olhar.",
+                    "Conversar juntos, por mensagem, com outro casal ou outra pessoa."]),
+                dict(id="gente", title="Com mais gente", items=[
+                    "Ménage com mais uma mulher.", "Ménage com mais um homem.", "Sexo no mesmo ambiente que outro casal, sem troca.",
+                    "Troca de casais só com beijos e toques (soft swing).", "Troca de casais completa.", "Sexo em grupo.", "Um assiste enquanto o outro fica com outra pessoa.",
+                    "Repetir com alguém com quem já deu certo."]),
+                dict(id="acordos", title="Acordos abertos", items=[
+                    "Um passe livre combinado, uma única vez.", "Passe livre em viagens.", "Abrir a relação só para encontros sexuais, com regras.",
+                    "Só juntos: com outras pessoas apenas quando os dois estão presentes.", "Cada um pode ficar com outras pessoas e conta depois.",
+                    "Cada um pode, e ninguém pergunta nem conta.", "Quase monogamia: exclusividade com exceções combinadas (monogamish).",
+                    "Vínculos afetivos com mais de uma pessoa (poliamor).", "Combinar que qualquer um dos dois pode pedir para fechar de novo, sem discussão."]),
+            ]),
+        ],
+        t=dict(
+            see="Ver as minhas vontades", solo_title="As suas vontades", bar_title="Quanto você topa, por grupo",
+            want_title="O que você quer experimentar", maybe_title="Os seus talvez", done_title="O que já fazem e você quer manter",
+            want_empty="Você não marcou nenhum quero. Olhe os talvez: é ali que a conversa começa.",
+            link_title="Mande este link para o par", link_text="Quem abrir responde sem ver as suas respostas. No fim, o cruzamento aparece no aparelho dele, e ele manda o link de volta para você.",
+            pair_title="O que os dois querem", pair_sum="{go} propostas que os dois querem, {keep} que já são de vocês e {talk} para conversar.",
+            go_title="Os dois querem", go_text="Novidades em que os dois marcaram quero. Falta só marcar a data.",
+            keep_title="Já é de vocês", keep_text="Os dois marcaram que já fazem e querem manter. Não deixem sumir.",
+            talk_title="Para conversar", talk_text="Pelo menos um marcou talvez, e ninguém recusou. Talvez não é sim: conversem sem pressa e sem pressão.",
+            hidden="{n} propostas ficaram de fora porque pelo menos um dos dois não quer. Elas não aparecem, e ninguém precisa se explicar.",
+            none_go="Nenhum quero coincidiu ainda. Olhem a lista para conversar: costuma ser por ali que começa.",
+            tag3="{n} marcou que já fazem", pick_btn="Sortear uma ideia", pick_title="A ideia sorteada",
+            share_btn="Baixar imagem", share_solo="Minhas vontades para manter a chama", share_pair="{x} e {y}: o que os dois querem", line_solo="Quero: {q}. Já fazemos: {d}. Talvez: {t}.",
+        ),
+    ),
+    # ------------------------------------------------------------------ Bucket List do Amor
+    lovelist=dict(
+        v=1, adult=False, bar="done", pick=False,
+        kicker="Bucket List do Amor", title="O amor que eu quero viver",
+        lead=("Uma bucket list é a lista do que se quer viver antes que a vida passe. Esta é a do amor, em duas partes: o relacionamento que você quer ter, "
+              "com aquilo que você quer encontrar em alguém e oferecer de volta, e as coisas para viver a dois, dos gestos pequenos aos grandes marcos. "
+              "São {n} itens. Marque o que já viveu, o que quer viver e o que não é para você. O que sobra marcado como quero é a sua lista."),
+        options=[("N", "Não é para mim"), ("T", "Talvez"), ("Q", "Quero viver"), ("V", "Já vivo ou já vivi")],
+        how=[("Você marca item por item", "Não é para mim, talvez, quero viver, ou já vivo ou já vivi. Não existe resposta certa, e a lista de ninguém precisa ser igual à sua."),
+             ("A sua lista fica guardada", "As respostas ficam só no seu aparelho. Volte quando quiser para riscar o que viveu e acrescentar o que passou a querer."),
+             ("A dois, se você quiser", "Mande o link para o par. O cruzamento mostra o que os dois querem viver; o que um não quer fica de fora.")],
+        notes=["Cada frase da primeira parte vale nos dois sentidos: é o que você quer encontrar em alguém e o que se dispõe a ser para essa pessoa.",
+               "Uma lista de desejos não é uma lista de exigências. Ninguém cumpre todos os itens, e um amor bom não precisa de todos."],
+        sections=[
+            dict(id="relacao", title="O relacionamento que eu quero", lead="O que você quer encontrar em alguém e ser para essa pessoa.", adult=False, default=True, groups=[
+                dict(id="amizade", title="Amizade e abertura", items=[
+                    "Ter no meu amor também a minha melhor amizade.", "Poder falar de tudo: sentimento, bobagem e filosofia.", "Ser eu mesmo sem medo de ser julgado.",
+                    "Ter um confidente, com diálogo sempre aberto para melhorarmos como par.", "Resolver as divergências de forma construtiva, sem guerra.",
+                    "Ter liberdade para discordar e respeitar as diferenças que são toleráveis.", "Rir juntos todos os dias."]),
+                dict(id="admiracao", title="Admiração e crescimento", items=[
+                    "Admirar a pessoa como pessoa, não só como par.", "Sentir admiração, atração e paixão, e despertar o mesmo.", "Viver com alguém a minha melhor versão, madura e cheia de amor.",
+                    "Crescer juntos: ter grandes planos, um apoiando o sonho do outro.", "Apoiar o trabalho um do outro e incentivar o crescimento.",
+                    "Ter mente aberta para viver experiências novas que sejam boas para os dois.", "Cuidar da saúde física e mental, e incentivar um ao outro a cuidar.",
+                    "Não desperdiçar o nosso potencial juntos: não deixar de lado, não deixar para depois."]),
+                dict(id="presenca", title="Presença e cuidado", items=[
+                    "Passar tempo de qualidade sempre que der, com carinho todos os dias.", "Estar junto nos momentos importantes e comemorar as vitórias um do outro.",
+                    "Ser porto seguro nos momentos difíceis, e ter um.", "Ajudar e ser ajudado nas decisões importantes.", "Não abandonar na doença, e não ser abandonado.",
+                    "Dar valor enquanto estamos juntos, não só depois de perder.", "Tratar sempre com carinho, educação e respeito.",
+                    "Criar experiências e sair da rotina, com o esforço que manter a chama pede."]),
+                dict(id="confianca", title="Confiança e acordos", items=[
+                    "Confiar e ser digno de confiança.", "Prometer só o que vou cumprir, e receber o mesmo.", "Nunca quebrar os nossos combinados.",
+                    "Ter valores alinhados no que importa para nós.", "Olhar o caráter, não a fama, o dinheiro ou a influência.",
+                    "Enxergar a essência além da aparência, e ser visto assim."]),
+                dict(id="igualdade", title="Igualdade e liberdade", items=[
+                    "Ver e ser visto como igual.", "Dividir decisões e responsabilidades com equilíbrio, e com equidade quando for preciso.",
+                    "Priorizar a vontade do outro, às vezes, como ato de amor.", "Ceder quando for preciso e receber o mesmo de volta.",
+                    "Respeitar a vontade de ficar sozinho, dos dois lados.", "Oferecer muito e receber muito: vontade e reciprocidade."]),
+                dict(id="mundo", title="Nós e o mundo", items=[
+                    "Construir laços com amigos e família que respeitem e fortaleçam a relação.", "Ser nós dois contra quem nos julga ou quer o nosso mal.",
+                    "Defender um ao outro dos tabus e dos maus olhados.", "Ter orgulho de apresentar um ao outro ao mundo."]),
+            ]),
+            dict(id="viver", title="Coisas para viver a dois", lead="Gestos, memórias, aventuras, marcos e o dia a dia.", adult=False, default=True, groups=[
+                dict(id="gestos", title="Gestos", items=[
+                    "Escrever uma carta de amor à mão.", "Escrever uma poesia ou uma música para quem eu amo.", "Receber uma carta, uma poesia ou uma música.",
+                    "Fazer uma grande surpresa (festa, viagem, visita inesperada).", "Fazer uma declaração em público.", "Dar um presente feito por mim.",
+                    "Preparar um jantar completo, da entrada à sobremesa.", "Levar café da manhã na cama.", "Dançar uma música lenta na sala.", "Dizer eu te amo primeiro."]),
+                dict(id="memorias", title="Memórias", items=[
+                    "Fazer um álbum com as nossas melhores fotos.", "Fazer um ensaio fotográfico juntos.", "Montar uma cápsula do tempo para abrir daqui a dez anos.",
+                    "Ter uma música que é nossa.", "Ter um lugar que é nosso.", "Manter um caderno do casal.", "Fazer uma tatuagem que só nós dois entendemos.",
+                    "Plantar uma árvore juntos.", "Guardar ingressos e lembranças numa caixa.", "Gravar um vídeo para nós dois no futuro."]),
+                dict(id="aventuras", title="Aventuras", items=[
+                    "Viajar juntos pela primeira vez.", "Conhecer outro país juntos.", "Ver juntos algo que nenhum dos dois viu (a neve, uma aurora, o deserto).",
+                    "Fazer uma viagem de carro sem destino fechado.", "Beijar na chuva.", "Beijar à meia-noite na virada do ano.", "Passar a noite em claro conversando e ver o sol nascer.",
+                    "Dormir sob as estrelas.", "Ver juntos o show da banda preferida de um dos dois.", "Tomar banho de mar à noite.", "Andar de roda-gigante ou de balão.",
+                    "Fazer uma loucura boa de improviso, como viajar no dia seguinte."]),
+                dict(id="marcos", title="Marcos", items=[
+                    "Apresentar à família e conhecer a família.", "Morar juntos.", "Adotar um animal juntos.", "Pedir ou ser pedido em casamento.",
+                    "Casar, ou celebrar a união do nosso jeito.", "Viver uma lua de mel.", "Ter ou criar filhos.", "Comprar ou montar uma casa.",
+                    "Abrir um projeto ou um negócio juntos.", "Comemorar um ano, dez anos, vinte e cinco anos.", "Renovar os votos.", "Envelhecer juntos."]),
+                dict(id="dia", title="Dia a dia", items=[
+                    "Ter rituais só nossos, como o café de domingo.", "Cuidar de quem eu amo na doença, e ser cuidado.", "Atravessar uma crise juntos e sair mais fortes.",
+                    "Pedir desculpa de verdade e perdoar de verdade.", "Passar um dia inteiro na cama.", "Cozinhar juntos como hábito.", "Ter apelidos e piadas internas.",
+                    "Viver um silêncio confortável.", "Aprender algo novo juntos.", "Ficar amigo dos amigos um do outro."]),
+            ]),
+        ],
+        t=dict(
+            see="Ver a minha lista", solo_title="A sua bucket list do amor", bar_title="Quanto você já viveu, por grupo",
+            want_title="O que você quer viver", maybe_title="Os seus talvez", done_title="O que você já vive ou já viveu",
+            want_empty="Você não marcou nenhum quero viver. Ou já viveu muito, ou vale olhar os talvez.",
+            link_title="Compare com o par", link_text="Mande este link. Quem abrir responde sem ver as suas respostas, e o cruzamento mostra o que os dois querem viver.",
+            pair_title="A lista de vocês dois", pair_sum="{go} coisas que os dois querem viver, {keep} que os dois já viveram e {talk} para conversar.",
+            go_title="Os dois querem viver", go_text="A bucket list do casal. Quando um já viveu, pode mostrar o caminho.",
+            keep_title="Os dois já viveram", keep_text="O que os dois já viveram, juntos ou cada um na sua história.",
+            talk_title="Para conversar", talk_text="Pelo menos um marcou talvez, e ninguém recusou.",
+            hidden="{n} itens ficaram de fora porque pelo menos um dos dois marcou que não é para si.",
+            none_go="Nenhum quero viver coincidiu ainda. Olhem os itens para conversar.",
+            tag3="{n} já viveu", share_btn="Baixar imagem", share_solo="Minha bucket list do amor", share_pair="{x} e {y}: a bucket list do casal", line_solo="Já vivi {d} de {a}. Quero viver {q}.",
+        ),
+    ),
+    # ------------------------------------------------------------------ Bucket List Sexual
+    sexlist=dict(
+        v=1, adult=True, bar="done", pick=False,
+        kicker="Bucket List Sexual", title="O que eu já vivi e o que eu quero viver",
+        lead=("A bucket list do sexo: {n} itens entre práticas, posições, ritmos, papéis, ocasiões e lugares. Marque o que já viveu, o que quer viver e o que não é para você. "
+              "Serve para se conhecer, para ter assunto e, a dois, para descobrir o que os dois querem sem ninguém precisar propor primeiro. "
+              "Tudo aqui pressupõe adultos e o consentimento de todos os envolvidos."),
+        options=_OPT_BUCKET,
+        how=[("Você marca item por item", "Não é para mim, talvez, quero viver, ou já vivi. Não é competição: a lista serve para se conhecer, não para pontuar."),
+             ("Fica só no seu aparelho", "As respostas ficam guardadas no seu navegador, sem conta e sem servidor. Volte para atualizar quando quiser."),
+             ("A dois, sem constrangimento", "Mande o link para o par. O cruzamento mostra só o que os dois querem; o que um recusou não aparece para ninguém.")],
+        notes=["Tudo aqui vale entre adultos e com o consentimento de todos os envolvidos, dado antes e que pode ser retirado a qualquer momento.",
+               "Quantidade não mede nada. Uma lista curta não é atraso, e não é para mim é uma resposta completa.",
+               "Sexo em lugar público é crime em muitos países e envolve gente que não consentiu em ver. Marcar um lugar aqui registra uma vontade ou uma história; não é recomendação.",
+               "Foto e vídeo íntimos só existem com o consentimento de quem aparece, e divulgar sem consentimento é crime."],
+        sections=[
+            dict(id="praticas", title="Práticas", lead="O que se faz: do beijo ao que envolve mais gente.", adult=True, default=True, groups=[
+                dict(id="comecos", title="Começos e encontros", items=[
+                    "Dar um beijo de língua.", "Ter um sonho erótico.", "Mandar nudes.", "Receber nudes.", "Sexo por mensagem, telefone ou vídeo.", "Um amasso longo, sem ir além.",
+                    "Transar com alguém que eu amo.", "Transar no primeiro encontro.", "Sexo casual, sem compromisso.", "Sexo com um amigo ou uma amiga.", "Sexo de reconciliação.",
+                    "Transar com alguém de outro país."]),
+                dict(id="dar", title="Dar e receber", items=[
+                    "Fazer sexo oral.", "Receber sexo oral.", "Sexo vaginal.", "Sexo anal, penetrando.", "Sexo anal, sendo penetrado.", "Masturbar alguém.", "Ser masturbado por alguém.",
+                    "Masturbação mútua.", "Espanhola.", "Beijo grego, fazendo.", "Beijo grego, recebendo.", "Sentar no rosto, ou ter alguém sentado no meu (facesitting).",
+                    "Inversão de papéis na penetração (pegging).", "Dupla penetração, com brinquedo ou com mais gente.", "Fazer ou receber uma massagem erótica."]),
+                dict(id="posicoes", title="Posições", items=[
+                    "Papai e mamãe.", "De ladinho.", "De quatro.", "Meia nove.", "Por cima (cowgirl).", "Por cima, de costas (cowgirl invertido).", "Sentados na cadeira.", "Tesoura.",
+                    "Em pé.", "No colo, contra a parede.", "Posição em T.", "Flor de lótus: sentados de frente, abraçados.", "Pernas nos ombros.", "Na beira da cama ou da mesa."]),
+                dict(id="ritmo", title="Ritmo e orgasmo", items=[
+                    "Transar bem devagar.", "Transar bem rápido.", "Fazer sexo por mais de uma hora.", "Transar várias vezes na mesma noite.", "Gozar sendo masturbado.",
+                    "Gozar com sexo oral.", "Gozar com penetração.", "Gozar ao mesmo tempo.", "Ter orgasmos múltiplos.", "Fazer alguém gozar com as mãos.", "Fazer alguém gozar com sexo oral.",
+                    "Fazer alguém gozar com penetração.", "Fazer alguém ter orgasmos múltiplos.", "Gozar na boca, combinado antes.", "Gozar no rosto ou no corpo, combinado antes.",
+                    "Squirt: ter ou provocar.", "Segurar o orgasmo várias vezes antes de gozar (edging).", "Sexo tântrico."]),
+                dict(id="sentidos", title="Sentidos e brinquedos", items=[
+                    "Usar um vibrador em alguém.", "Deixar usarem um vibrador em mim.", "Lubrificante de temperatura.", "Vendar alguém.", "Ser vendado.", "Prender ou algemar alguém.",
+                    "Ser preso ou algemado.", "Gelo ou vela de massagem.", "Comida na brincadeira.", "Sexo em frente ao espelho.", "Lingerie ou fantasia.", "Plug, anel ou outro brinquedo.",
+                    "Brinquedo com controle remoto."]),
+                dict(id="papeis", title="Papéis e poder", note="Sempre combinado antes, com palavra de segurança, e parando na hora em que alguém pedir.", items=[
+                    "Dar tapas combinados.", "Levar tapas combinados.", "Dominar.", "Ser dominado.", "Encenar personagens.", "Fazer um striptease.", "Receber um striptease.",
+                    "Fazer um lap dance.", "Receber um lap dance.", "Puxão de cabelo e pegada forte.", "Falar sacanagem.", "Acordar o par com carícias, combinado antes.",
+                    "Ser acordado com carícias, combinado antes."]),
+                dict(id="ver", title="Ver e ser visto", items=[
+                    "Assistir a alguém transando, com consentimento (voyeurismo).", "Deixar alguém me assistir transando.", "Ver pornô acompanhado.", "Tirar fotos durante o sexo.",
+                    "Gravar um vídeo só para nós.", "Publicar conteúdo adulto sem identificação, com o consentimento de todos que aparecem.", "Ir a uma casa de striptease.",
+                    "Ir a uma casa de swing.", "Ir a uma praia de nudismo.", "Ir a uma festa liberal ou fetichista."]),
+                dict(id="gente", title="Com mais gente", items=[
+                    "Ménage com duas mulheres.", "Ménage com dois homens.", "Ménage com uma mulher e um homem.", "Troca de casais.", "Sexo em duplas, no mesmo ambiente que outro casal.",
+                    "Sexo em grupo.", "Ficar com alguém de um gênero com que nunca fiquei."]),
+                dict(id="ocasioes", title="Ocasiões", items=[
+                    "Passar a virada do ano transando.", "Sexo no meu aniversário.", "Sexo na lua de mel.", "Sexo de manhã, ao acordar.", "Depois de uns drinques, os dois ainda lúcidos.",
+                    "Um fim de semana inteiro quase sem sair da cama.", "Sexo em viagem.", "Em silêncio, com gente em casa."]),
+            ]),
+            dict(id="lugares", title="Lugares", lead="Onde: da própria cama aos lugares em que mora o risco.", adult=True, default=True, groups=[
+                dict(id="casa", title="Em casa", items=[
+                    "Na minha cama.", "Na cama do par.", "Na cozinha.", "Na sala, no sofá.", "No banheiro.", "No chuveiro.", "Na banheira.", "Na sacada ou na varanda.",
+                    "Na escada.", "No chão.", "Em cima da mesa.", "No quintal ou no jardim."]),
+                dict(id="fora", title="Fora de casa", items=[
+                    "No motel.", "Num hotel.", "Numa casa alugada para as férias.", "Na casa de um amigo, no quarto de hóspedes.", "Na casa dos pais de alguém.",
+                    "Na casa de alguém que acabei de conhecer.", "Numa barraca de acampar.", "Em outro país."]),
+                dict(id="transporte", title="Carro e viagem", items=[
+                    "Dentro do carro.", "No capô do carro, num lugar isolado.", "Num barco.", "Na cabine de um trem ou de um navio.", "No avião.", "No ônibus de viagem."]),
+                dict(id="arlivre", title="Ao ar livre", items=[
+                    "Numa praia deserta.", "Na piscina.", "No mar.", "Na chuva.", "Na floresta ou numa trilha.", "Numa cachoeira.", "Sob as estrelas."]),
+                dict(id="risco", title="Lugares de risco", note="Em muitos países é crime, e quem passa por ali não consentiu em ver. Marcar aqui registra uma vontade ou uma história, não um plano.", items=[
+                    "No provador de uma loja.", "Na escada de um prédio.", "No corredor de emergência de um shopping.", "No estacionamento.", "No elevador.", "No banheiro de um bar.",
+                    "No cinema.", "No teatro.", "Na balada.", "Numa festa de aniversário.", "Na roda-gigante.", "Numa biblioteca.", "Na faculdade.", "No trabalho.", "Na rua."]),
+            ]),
+        ],
+        t=dict(
+            see="Ver a minha lista", solo_title="A sua bucket list sexual", bar_title="Quanto você já viveu, por grupo",
+            want_title="O que você quer viver", maybe_title="Os seus talvez", done_title="O que você já viveu",
+            want_empty="Você não marcou nenhum quero viver. Tudo bem: a lista serve para se conhecer, não para se cobrar.",
+            link_title="Compare com o par", link_text="Mande este link. Quem abrir responde sem ver as suas respostas, e o cruzamento mostra só o que os dois querem.",
+            pair_title="O que os dois querem viver", pair_sum="{go} coisas que os dois querem viver, {keep} que os dois já viveram e {talk} para conversar.",
+            go_title="Os dois querem viver", go_text="Ninguém precisou propor primeiro. Quando um já viveu, pode conduzir.",
+            keep_title="Os dois já viveram", keep_text="O que já está na história dos dois, juntos ou não.",
+            talk_title="Para conversar", talk_text="Pelo menos um marcou talvez, e ninguém recusou. Talvez não é sim: conversem sem pressão.",
+            hidden="{n} itens ficaram de fora porque pelo menos um dos dois marcou que não é para si. Eles não aparecem, e ninguém precisa se explicar.",
+            none_go="Nenhum quero viver coincidiu ainda. Olhem os itens para conversar.",
+            tag3="{n} já viveu", share_btn="Baixar imagem", share_solo="Minha bucket list sexual", share_pair="{x} e {y}: o que os dois querem viver", line_solo="Já vivi {d} de {a}. Quero viver {q}.",
+        ),
+    ),
+)
+for _L in LISTS.values():
+    _L["n"] = sum(len(g["items"]) for s in _L["sections"] for g in s["groups"])
+    _L["lead"] = _L["lead"].replace("{n}", str(_L["n"]))
+
+UI.update(
+    bl_who="Quem responde?", bl_partner="Nome do par (opcional, para o cruzamento)", bl_parts="Quais partes você quer abrir?",
+    bl_adult_check="Tenho 18 anos ou mais e quero ver conteúdo sexual adulto.", bl_adult_tag="18+", bl_legend="As respostas valem para todos os itens. Pode pular o que quiser.",
+    bl_group_of="Grupo {i} de {n}", bl_saved="Você tem respostas guardadas neste aparelho, de {date}.", bl_view="Ver a minha lista", bl_update="Atualizar as respostas",
+    bl_answered="{n} de {N} itens respondidos.", bl_p2_title="{me} já respondeu. Agora é a sua vez.", bl_p2_text="Você responde sem ver as respostas de {me}. O cruzamento aparece no fim, e só mostra o que coincide.",
+    bl_p2_parts="Você responde as mesmas partes que {me} abriu.", bl_kicker_pair="{k} · {x} e {y}", bl_empty_group="Nada aqui.", bl_copy="Copiar link", bl_redo="Apagar e recomeçar",
+    bl_warn="Quem tem o link tem as suas respostas. Mande só para o par.", bl_done_p2="Pronto. Mande este link de volta para o resultado aparecer do outro lado também.",
+    bl_none="Nada respondido ainda.", bl_count="{n} itens", bl_again="Sortear outra", bl_yes_pct="{p}%",
+)
+
+# Régua de educação sexual (2026-11-27): quanto a pessoa sabe sobre corpo, prazer, consentimento e prevenção
+SLIDERS.append(
+    dict(key="educacao-sexual", slug="educacao-sexual", group="sexualidade", more=True, name="Educação sexual", poles=("aprendi por conta", "bem informado"),
+         pos=["quase nenhuma", "com lacunas", "o básico", "boa", "ampla"], presumed=2,
+         measures="Quanto você sabe, de fonte confiável, sobre o corpo, o prazer, o consentimento, a contracepção e as infecções sexualmente transmissíveis, e o quanto consegue conversar sobre isso.",
+         pos_text=["Quase tudo o que sei veio de pornô, de amigos ou do improviso.", "Sei algumas coisas, mas tenho lacunas e vergonha de perguntar.", "Sei o básico de prevenção e de consentimento; sobre prazer, aprendi na prática.",
+                   "Sei bem como o meu corpo e o do outro funcionam, e falo disso sem travar.", "Estudo o assunto, faço exames em dia e converso sobre sexo com naturalidade."],
+         why0="Presume-se que todo adulto sabe o básico, mas poucos tiveram educação sexual de verdade: a maioria aprendeu sozinha, e o pornô ensinou um roteiro que não é o do prazer real.",
+         not_="Não mede experiência nem quantidade de parceiros: dá para ter vivido muito e saber pouco, e saber muito tendo vivido pouco. Também não mede desejo.",
+         links="Com Abertura de diálogo, com os Limites e com o Manter a Chama: quem sabe nomear o que quer e o que não quer combina melhor. Distâncias grandes entre o par nesta régua pedem paciência de quem sabe mais, não pressa."))
+assert len(SLIDERS) == 36
+
+GLOSSARY += [
+    ("sexualidade", "Educação sexual", "O que se sabe, de fonte confiável, sobre corpo, prazer, consentimento, contracepção e infecções sexualmente transmissíveis. Régua extra da Autodescoberta: não mede experiência.", "selfdiscover"),
+    ("sexualidade", "Consentimento", "O sim livre, informado e específico, dado antes e que pode ser retirado a qualquer momento. Um sim para agradar ou por insistência não é consentimento.", "sexlist"),
+    ("sexualidade", "Palavra de segurança", "A palavra combinada antes que interrompe na hora qualquer prática, sem discussão. Indispensável em jogos de poder.", "spark"),
+    ("sexualidade", "Lista de sim, não e talvez", "Cada um marca sozinho o que quer, o que não quer e o que talvez queira; o cruzamento mostra só as coincidências. É o formato do Manter a Chama e da Bucket List Sexual.", "spark"),
+    ("sexualidade", "Bucket list", "A lista do que se quer viver. No site há duas: a do amor e a sexual.", "lovelist"),
+    ("sexualidade", "Swing", "Troca de casais. No soft swing a troca fica em beijos e toques; na troca completa inclui sexo. Sempre com o acordo dos quatro.", "spark"),
+    ("sexualidade", "Ménage", "Sexo a três. Só funciona quando os três querem e o casal combinou antes o que pode e o que não pode.", "spark"),
+    ("sexualidade", "Passe livre", "A permissão combinada para ficar com outra pessoa numa ocasião definida, sem que a relação deixe de ser exclusiva no resto do tempo.", "spark"),
+    ("sexualidade", "Voyeurismo e exibicionismo", "O prazer de assistir e o prazer de ser assistido. Entre adultos que consentem é uma preferência; com quem não consentiu é violação.", "sexlist"),
+    ("sexualidade", "Pegging", "Inversão de papéis na penetração: quem costuma ser penetrado penetra o par, com cinta ou brinquedo.", "sexlist"),
+    ("sexualidade", "Edging", "Chegar perto do orgasmo e recuar, várias vezes, para prolongar e intensificar.", "sexlist"),
+    ("mecanismos", "Novidade compartilhada", "O que a rotina gasta e a Paixão pede. No modelo de autoexpansão de Aron, fazer juntos coisas novas e desafiadoras sustenta a Paixão ao longo do tempo.", "spark"),
 ]
