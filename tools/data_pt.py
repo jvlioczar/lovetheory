@@ -2004,7 +2004,7 @@ GLOSSARY += [
 PATHS["myths"] = "mitologia-sexual.html"
 NAV.insert(8, ("myths", "Mitos"))
 TOOLS.insert(7, dict(key="myths", name="Mitologia Sexual", kicker="Mito ou verdade",
-                     text="O quanto você sabe sobre sexo: consentimento, assédio, pressão, prazer, corpo, prevenção, julgamento e acordos. Cada resposta vem com a explicação."))
+                     text="O quanto você sabe sobre sexo: consentimento, assédio, pressão, prazer, corpo, prevenção, julgamento, acordos e o que fazer quando é com os outros. Cada resposta vem com a explicação."))
 # Menu em três grupos (2026-11-27): Início e Teoria ficam soltos; o resto abre por categoria, com o nome completo de cada ferramenta
 NAV_GROUPS = [("Para mim", ["selflove", "selfdiscover", "myths", "lovelist", "sexlist"]), ("Sobre alguém", ["scale", "stay", "portraits"]), ("A dois", ["couple", "limits", "spark"])]
 PAGES["theory_group"] = "A teoria"
@@ -2012,9 +2012,9 @@ PAGES["tools_title"] = "Onze ferramentas"
 PAGES["tools"]["myths"] = ("Mitologia Sexual", "Teste de educação sexual: mito ou verdade sobre consentimento, assédio, pressão, prazer, corpo, prevenção e traição. Cada resposta vem com a explicação.", "Mitologia Sexual: teste de educação sexual", None)
 
 MYTHS = dict(
-    v=1, kicker="Mitologia Sexual", title="O que você sabe mesmo sobre sexo?",
+    v=2, kicker="Mitologia Sexual", title="O que você sabe mesmo sobre sexo?",
     lead=("Quase ninguém teve educação sexual de verdade. Aprendemos com amigos, com o pornô e com o improviso, e o que sobra é uma mitologia: ideias que todo mundo repete e que estão erradas. "
-          "Aqui estão {n} afirmações em dez temas. Para cada uma, você diz se é mito ou verdade, e a explicação aparece na hora. "
+          "Aqui estão {n} afirmações em onze temas. Para cada uma, você diz se é mito ou verdade, e a explicação aparece na hora. "
           "O ponto de vista é declarado: liberdade sexual, sim, e com responsabilidade. Sem consentimento, sem conversa e sem cuidar de quem está com você, não é liberdade."),
     options=["Mito", "Verdade", "Não sei"],
     how=[("Mito ou verdade", "Você lê a afirmação e responde: verdade, mito ou não sei. Não sei é uma resposta honesta, e vale mais do que chutar."),
@@ -2181,6 +2181,21 @@ MYTHS = dict(
             ("Dar match num aplicativo de namoro é consentir com sexo no encontro.", 0, "Match é interesse em conversar. O consentimento se dá pessoalmente, na hora, e pode não vir."),
             ("Ameaçar divulgar imagens íntimas para conseguir algo é crime, e o caminho é guardar as provas e denunciar.", 1, "É a chamada sextorsão. Ceder costuma aumentar as exigências; guardar as mensagens e procurar a polícia é o que protege."),
         ]),
+        dict(id="outros", title="Quando é com os outros", lead="O que você faz quando não é com você: falam mal do seu par, expõem alguém, um amigo passa do limite.", items=[
+            ("Quando um amigo fala mal do corpo ou da vida sexual do seu par e você fica calado para não criar clima, você ficou neutro.", 0, "O silêncio costuma ser lido como concordância. Dá para discordar sem brigar: uma frase simples, como não fala assim dela, ou dele, já muda a conversa."),
+            ("Quando alguém fala mal do seu par, só existem duas saídas: concordar ou brigar.", 0, "Existe o diálogo: perguntar o que a pessoa viu, discordar com calma e separar a fofoca do alerta. Lealdade não exige briga, e não combina com aprovar."),
+            ("Quando alguém de confiança avisa que o seu par te trata mal, vale ouvir antes de sair em defesa.", 1, "Quem está de fora às vezes enxerga o que a paixão esconde. Ouvir não é concordar: é conferir. O Ficar ou ir? ajuda a pesar."),
+            ("Mostrar aos amigos o nude que o seu par te mandou é sinal de confiança entre amigos.", 0, "A foto foi confiada a você, não ao grupo. Mostrar quebra essa confiança e, em muitos países, é crime."),
+            ("Quando alguém mostra a foto íntima de outra pessoa, o certo é não olhar, não repassar e dizer que aquilo não se faz.", 1, "Quem olha e ri vira plateia, e é a plateia que dá valor ao vazamento. Recusar é o que interrompe a corrente."),
+            ("Rir quando chega um nude vazado no grupo não faz mal a ninguém: quem errou foi quem vazou.", 0, "Quem vazou errou primeiro, mas cada risada e cada repasse aumentam o dano à pessoa exposta."),
+            ("Avisar alguém de que uma foto íntima dessa pessoa está circulando é ajudar, mesmo sendo uma conversa difícil.", 1, "Quanto antes a pessoa sabe, antes consegue pedir a remoção, guardar as provas e denunciar. Avise com cuidado e sem repassar a imagem."),
+            ("Ver um amigo insistindo com alguém que bebeu demais e não fazer nada é respeitar a vida dele.", 0, "É deixar uma violência acontecer. Dá para intervir sem confronto: chamar o amigo de lado, perguntar à pessoa se está tudo bem, levá-la até os amigos dela."),
+            ("Chamar a atenção de um amigo que passou do limite com alguém é trair a amizade.", 0, "É o contrário: amigo é quem diz o que os outros não vão dizer. Quem cala protege o erro, não o amigo."),
+            ("Quando alguém conta que sofreu violência sexual, ajuda perguntar que roupa usava ou por que foi até lá.", 0, "Essas perguntas põem a culpa em quem sofreu. O que ajuda é acreditar, ouvir sem pressa e perguntar do que a pessoa precisa."),
+            ("Espalhar que alguém é fácil, rodado ou virgem é uma fofoca inofensiva.", 0, "É expor a intimidade de alguém para diminuir essa pessoa. A vida sexual de cada um não é assunto público, seja ela muita, pouca ou nenhuma."),
+            ("Depois do término, a intimidade do ex continua sendo dele: contar segredos ou mostrar fotos segue sendo errado.", 1, "O fim da relação não cancela a confiança com que aquilo foi dividido. Expor um ex por raiva é uma das formas mais comuns de vazamento."),
+            ("Piada sobre forçar alguém é só humor e não muda nada.", 0, "Piadas assim tratam a violência como coisa pequena. Pesquisas sobre humor sexista indicam que ele aumenta a tolerância ao preconceito em quem já o tem."),
+        ]),
     ],
     t=dict(
         start_title="Antes de começar", parts="Quais temas você quer abrir?", count="{n} afirmações", start="Começar", group_of="Tema {i} de {n}",
@@ -2200,7 +2215,7 @@ MYTHS = dict(
 )
 MYTHS["n"] = sum(len(t["items"]) for t in MYTHS["themes"])
 MYTHS["lead"] = MYTHS["lead"].replace("{n}", str(MYTHS["n"]))
-assert len(MYTHS["themes"]) == 10
+assert len(MYTHS["themes"]) == 11
 
 GLOSSARY += [
     ("sexualidade", "Importunação sexual", "Praticar ato libidinoso contra alguém sem o consentimento da pessoa, como passar a mão ou se esfregar. No Brasil é crime desde 2018.", "myths"),

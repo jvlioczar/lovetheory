@@ -1836,7 +1836,7 @@ GLOSSARY += [
 PATHS["myths"] = "sexual-mythology.html"
 NAV.insert(8, ("myths", "Myths"))
 TOOLS.insert(7, dict(key="myths", name="Sexual Mythology", kicker="Myth or truth",
-                     text="How much you know about sex: consent, harassment, pressure, pleasure, the body, prevention, judgement and agreements. Every answer comes with the explanation."))
+                     text="How much you know about sex: consent, harassment, pressure, pleasure, the body, prevention, judgement, agreements and what to do when it is about others. Every answer comes with the explanation."))
 # Menu in three groups (2026-11-27): Home and Theory stay loose; the rest opens by category, with each tool's full name
 NAV_GROUPS = [("For me", ["selflove", "selfdiscover", "myths", "lovelist", "sexlist"]), ("About someone", ["scale", "stay", "portraits"]), ("For two", ["couple", "limits", "spark"])]
 PAGES["theory_group"] = "The theory"
@@ -1844,9 +1844,9 @@ PAGES["tools_title"] = "Eleven tools"
 PAGES["tools"]["myths"] = ("Sexual Mythology", "A sex education test: myth or truth about consent, harassment, pressure, pleasure, the body, prevention and cheating. Every answer comes with the explanation.", "Sexual Mythology: a sex education test", None)
 
 MYTHS = dict(
-    v=1, kicker="Sexual Mythology", title="What do you actually know about sex?",
+    v=2, kicker="Sexual Mythology", title="What do you actually know about sex?",
     lead=("Hardly anyone had real sex education. We learned from friends, from porn and by improvising, and what is left is a mythology: ideas everyone repeats and that are wrong. "
-          "Here are {n} statements across ten themes. For each one, you say whether it is a myth or the truth, and the explanation appears right away. "
+          "Here are {n} statements across eleven themes. For each one, you say whether it is a myth or the truth, and the explanation appears right away. "
           "The point of view is declared: sexual freedom, yes, and with responsibility. Without consent, without talking and without caring for whoever is with you, it is not freedom."),
     options=["Myth", "Truth", "I don't know"],
     how=[("Myth or truth", "You read the statement and answer: truth, myth or I don't know. I don't know is an honest answer, and it is worth more than guessing."),
@@ -2013,6 +2013,21 @@ MYTHS = dict(
             ("Matching on a dating app means consenting to sex on the date.", 0, "A match is interest in talking. Consent is given in person, at the time, and it may not come."),
             ("Threatening to release intimate images to get something is a crime, and the way forward is to keep the evidence and report it.", 1, "It is known as sextortion. Giving in tends to increase the demands; keeping the messages and going to the police is what protects you."),
         ]),
+        dict(id="outros", title="When it is about other people", lead="What you do when it is not about you: someone runs down your partner, someone is exposed, a friend crosses the line.", items=[
+            ("When a friend runs down your partner's body or sex life and you keep quiet so as not to spoil the mood, you stayed neutral.", 0, "Silence is usually read as agreement. You can disagree without a fight: a simple line, such as don't talk about her, or him, like that, already changes the conversation."),
+            ("When someone speaks badly of your partner, there are only two ways out: agree or fight.", 0, "There is dialogue: asking what the person saw, disagreeing calmly and telling gossip from a warning. Loyalty does not require a fight, and it does not go with approving."),
+            ("When someone you trust warns you that your partner treats you badly, it is worth listening before jumping to their defence.", 1, "People outside sometimes see what passion hides. Listening is not agreeing: it is checking. Stay or Go helps you weigh it."),
+            ("Showing friends the nude your partner sent you is a sign of trust between friends.", 0, "The photo was entrusted to you, not to the group. Showing it breaks that trust and, in many countries, is a crime."),
+            ("When someone shows an intimate photo of another person, the right thing is not to look, not to pass it on and to say that this is not done.", 1, "Whoever looks and laughs becomes the audience, and the audience is what gives a leak its value. Refusing is what breaks the chain."),
+            ("Laughing when a leaked nude arrives in the group chat harms nobody: the one in the wrong is whoever leaked it.", 0, "Whoever leaked it was wrong first, but every laugh and every forward adds to the harm done to the person exposed."),
+            ("Telling someone that an intimate photo of them is circulating is helping, even though it is a hard conversation.", 1, "The sooner the person knows, the sooner they can ask for removal, keep the evidence and report it. Tell them with care and without passing the image on."),
+            ("Seeing a friend insisting with someone who has drunk too much and doing nothing is respecting his life.", 0, "It is letting violence happen. You can step in without confrontation: take the friend aside, ask the person whether they are all right, walk them to their friends."),
+            ("Calling out a friend who crossed the line with someone is betraying the friendship.", 0, "It is the opposite: a friend is the one who says what others will not. Keeping quiet protects the wrong, not the friend."),
+            ("When someone tells you they suffered sexual violence, it helps to ask what they were wearing or why they went there.", 0, "Those questions put the blame on the person who suffered. What helps is believing, listening without hurry and asking what they need."),
+            ("Spreading that someone is easy, has been around or is a virgin is harmless gossip.", 0, "It is exposing someone's intimacy in order to diminish them. A person's sex life is not a public matter, whether it is a lot, a little or none."),
+            ("After a breakup, an ex's intimacy is still theirs: telling secrets or showing photos is still wrong.", 1, "The end of the relationship does not cancel the trust with which those things were shared. Exposing an ex out of anger is one of the most common forms of leak."),
+            ("A joke about forcing someone is just humour and changes nothing.", 0, "Jokes like that treat violence as a small thing. Research on sexist humour indicates that it raises tolerance of prejudice in those who already hold it."),
+        ]),
     ],
     t=dict(
         start_title="Before you start", parts="Which themes do you want to open?", count="{n} statements", start="Start", group_of="Theme {i} of {n}",
@@ -2032,7 +2047,7 @@ MYTHS = dict(
 )
 MYTHS["n"] = sum(len(t["items"]) for t in MYTHS["themes"])
 MYTHS["lead"] = MYTHS["lead"].replace("{n}", str(MYTHS["n"]))
-assert len(MYTHS["themes"]) == 10
+assert len(MYTHS["themes"]) == 11
 
 GLOSSARY += [
     ("sexualidade", "Unwanted sexual touching", "Performing a sexual act on someone without their consent, such as groping or rubbing against them. A crime in many countries.", "myths"),
