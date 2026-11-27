@@ -1009,7 +1009,7 @@ UI = dict(
     saved_title="Retratos guardados", portraits_pl="retratos", portrait_sg="retrato", deep_label="profunda", quick_label="rápida",
     changed="Mudou desde o retrato anterior: {d}", unchanged="Quase nada mudou desde o retrato anterior.", delete_="Apagar este retrato",
     confirm_delete="Apagar este retrato? Não dá para desfazer.",
-    sl_title="A mesma régua, apontada para dentro", sl_text="Dezoito afirmações. Responda sobre como você se trata hoje, não sobre como gostaria.",
+    sl_title="A mesma régua, apontada para dentro", sl_text="Dezoito afirmações, cada uma com nota de 1 (nada) a 5 (totalmente). Responda sobre como você se trata hoje, não sobre como gostaria.",
     sl_deficit="Déficit de amor-próprio: Afeto, Suporte, Proteção, Confiança, Liberdade e Investimento em você ficam baixos. Você cuida dos outros melhor do que de si.",
     sl_inflation="Inflação: Admiração, Atração e Paixão por si mesmo altas com Afeto e Abertura baixas. Amor-próprio não é narcisismo; a diferença está em conseguir olhar para o que é feio em si com gentileza, e aqui a gentileza está baixa.",
     sl_shadows="Sombras altas: vergonha, autocrítica ou autodesprezo pesam. A autocompaixão de Neff começa aqui: tratar-se como trataria um amigo no mesmo erro.",
@@ -2269,3 +2269,4 @@ UI.update(
     bl_short_text="Os itens essenciais de cada grupo. O que você responder fica guardado se depois quiser a versão completa.", bl_full_text="Todos os itens das partes que você abrir.",
 )
 PAGES["versions_items"] = "São duas versões: a curta, com os {s} itens essenciais (cerca de {sm} minutos), e a completa, com os {n} (cerca de {fm} minutos)."
+UI.update(chart_radar="Gráfico circular", chart_bars="Gráfico em barras", sl_levels="Cada propriedade vai de 1 a 5. No gráfico circular, cada anel é um nível.")

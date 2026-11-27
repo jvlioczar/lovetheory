@@ -30,16 +30,17 @@
   /* ---------- radar ---------- */
   function radar(values, values2, opts) {
     opts = opts || {};
-    var W = 560, C = W / 2, R = 160, n = ORDER.length, labelsR = R + 28;
-    var pt = function (i, v) { var a = -Math.PI / 2 + i * 2 * Math.PI / n; var rr = R * v / 10; return [C + rr * Math.cos(a), C + rr * Math.sin(a)]; };
+    var W = 560, C = W / 2, R = 160, n = ORDER.length, labelsR = R + 28, MX = opts.max || 10, rings = [1, 2, 3, 4, 5].map(function (k) { return k * MX / 5; });
+    var pt = function (i, v) { var a = -Math.PI / 2 + i * 2 * Math.PI / n; var rr = R * v / MX; return [C + rr * Math.cos(a), C + rr * Math.sin(a)]; };
     var s = '<svg class="radar" viewBox="0 0 ' + W + ' ' + W + '" role="img" aria-label="' + esc(T.radar_aria) + '">';
-    [2.5, 5, 7.5, 10].forEach(function (lv) { s += '<polygon class="grid-l" points="' + ORDER.map(function (_, i) { return pt(i, lv).join(","); }).join(" ") + '"/>'; });
-    ORDER.forEach(function (_, i) { var p = pt(i, 10); s += '<line class="axis" x1="' + C + '" y1="' + C + '" x2="' + p[0] + '" y2="' + p[1] + '"/>'; });
+    rings.forEach(function (lv) { s += '<polygon class="grid-l" points="' + ORDER.map(function (_, i) { return pt(i, lv).join(","); }).join(" ") + '"/>'; });
+    ORDER.forEach(function (_, i) { var p = pt(i, MX); s += '<line class="axis" x1="' + C + '" y1="' + C + '" x2="' + p[0] + '" y2="' + p[1] + '"/>'; });
     var poly = function (vals, cls) { return '<polygon class="' + cls + '" points="' + ORDER.map(function (k, i) { return pt(i, k === K("sombras") ? 0 : (vals[k] || 0)).join(","); }).join(" ") + '"/>'; };
-    var sh = values[K("sombras")] || 0;
-    if (sh > 0 && !opts.noShadow) s += '<circle class="shadow" cx="' + C + '" cy="' + C + '" r="' + (R * sh / 10) + '"/>';
+    var sh = values[K("sombras")] || 0; if (MX === 5) sh = Math.max(0, sh - 1) * 1.25;   /* em 5 níveis, o nível 1 é nada */
+    if (sh > 0 && !opts.noShadow) s += '<circle class="shadow" cx="' + C + '" cy="' + C + '" r="' + (R * sh / MX) + '"/>';
     if (values2) s += poly(values2, "poly2");
     s += poly(values, "poly");
+    rings.forEach(function (lv) { s += '<text class="ring-n" x="' + (C + 5) + '" y="' + (C - R * lv / MX + 12).toFixed(1) + '">' + lv + '</text>'; });
     ORDER.forEach(function (k, i) {
       var a = -Math.PI / 2 + i * 2 * Math.PI / n, x = C + labelsR * Math.cos(a), y = C + labelsR * Math.sin(a);
       var anchor = Math.abs(Math.cos(a)) < .2 ? "middle" : (Math.cos(a) > 0 ? "start" : "end");
@@ -47,14 +48,14 @@
     });
     return s + "</svg>";
   }
-  function bars(values, values2) {
+  function bars(values, values2, max) {
     return '<div class="bars">' + ORDER.map(function (k) {
       var v = values[k] || 0, cls = k === K("sombras") ? " gray" : "";
-      return '<div class="bar"><span>' + esc(BY[k].name) + '</span><i><b class="' + cls + '" style="width:' + (v * 10) + '%"></b></i><span class="v">' + r1(v) + (values2 ? ' <small class="muted">(' + r1(values2[k] || 0) + ')</small>' : "") + '</span></div>';
+      return '<div class="bar"><span>' + esc(BY[k].name) + '</span><i><b class="' + cls + '" style="width:' + (v / (max || 10) * 100) + '%"></b></i><span class="v">' + r1(v) + (values2 ? ' <small class="muted">(' + r1(values2[k] || 0) + ')</small>' : "") + '</span></div>';
     }).join("") + "</div>";
   }
-  function rangeInput(name, val, labels) {
-    return '<div class="range"><input type="range" min="0" max="10" step="1" name="' + name + '" value="' + val + '" oninput="this.nextElementSibling.value=this.value"><output>' + val + '</output></div>' +
+  function rangeInput(name, val, labels, max) {
+    return '<div class="range"><input type="range" min="' + (max ? 1 : 0) + '" max="' + (max || 10) + '" step="1" name="' + name + '" value="' + val + '" oninput="this.nextElementSibling.value=this.value"><output>' + val + '</output></div>' +
       '<div class="range-labels"><span>' + esc(labels ? labels[0] : T.nothing) + '</span><span>' + esc(labels ? labels[1] : T.totally) + '</span></div>';
   }
   function readRange(form, name) { var el = form.querySelector('[name="' + name + '"]'); return el ? +el.value : 0; }
@@ -88,18 +89,21 @@
     return lines;
   }
   function rr(x, a, b, w, h, r) { if (x.roundRect) { x.beginPath(); x.roundRect(a, b, w, h, r); } else { x.beginPath(); x.rect(a, b, w, h); } }
-  function canvasRadar(x, cx, cy, R, values, values2) {
-    var n = ORDER.length, pt = function (i, v) { var a = -Math.PI / 2 + i * 2 * Math.PI / n; return [cx + R * v / 10 * Math.cos(a), cy + R * v / 10 * Math.sin(a)]; };
+  function canvasRadar(x, cx, cy, R, values, values2, max) {
+    var MX = max || 10, rings = [1, 2, 3, 4, 5].map(function (k) { return k * MX / 5; });
+    var n = ORDER.length, pt = function (i, v) { var a = -Math.PI / 2 + i * 2 * Math.PI / n; return [cx + R * v / MX * Math.cos(a), cy + R * v / MX * Math.sin(a)]; };
     x.save(); x.beginPath(); x.arc(cx, cy, R + 4, 0, Math.PI * 2); x.fillStyle = "#fff"; x.fill(); x.lineWidth = 3; x.strokeStyle = "#2a1d2c"; x.stroke();
     x.lineWidth = 1.5; x.strokeStyle = "#d9cdd3";
-    [2.5, 5, 7.5, 10].forEach(function (lv) { x.beginPath(); ORDER.forEach(function (_, i) { var p = pt(i, lv); i ? x.lineTo(p[0], p[1]) : x.moveTo(p[0], p[1]); }); x.closePath(); x.stroke(); });
-    var sh = values[K("sombras")] || 0; if (sh) { x.beginPath(); x.arc(cx, cy, R * sh / 10, 0, Math.PI * 2); x.fillStyle = "rgba(60,50,55,.22)"; x.fill(); }
+    rings.forEach(function (lv) { x.beginPath(); ORDER.forEach(function (_, i) { var p = pt(i, lv); i ? x.lineTo(p[0], p[1]) : x.moveTo(p[0], p[1]); }); x.closePath(); x.stroke(); });
+    var sh = values[K("sombras")] || 0; if (MX === 5) sh = Math.max(0, sh - 1) * 1.25; if (sh) { x.beginPath(); x.arc(cx, cy, R * sh / MX, 0, Math.PI * 2); x.fillStyle = "rgba(60,50,55,.22)"; x.fill(); }
     var poly = function (vals, fill, stroke, dash) {
       x.beginPath(); ORDER.forEach(function (k, i) { var p = pt(i, k === K("sombras") ? 0 : (vals[k] || 0)); i ? x.lineTo(p[0], p[1]) : x.moveTo(p[0], p[1]); }); x.closePath();
       x.fillStyle = fill; x.fill(); x.setLineDash(dash || []); x.lineWidth = 4; x.strokeStyle = stroke; x.stroke(); x.setLineDash([]);
     };
     if (values2) poly(values2, "rgba(42,29,44,.16)", "#2a1d2c", [8, 6]);
     poly(values, "rgba(216,64,143,.38)", "#b8236f");
+    x.fillStyle = "#8c7a8f"; x.font = "700 " + Math.round(R * .075) + "px 'DM Sans', sans-serif"; x.textAlign = "left";
+    rings.forEach(function (lv) { x.fillText(String(lv), cx + R * .03, cy - R * lv / MX + R * .085); });
     x.fillStyle = "#5b4a5e"; x.font = "600 " + Math.round(R * .105) + "px 'DM Sans', sans-serif";
     ORDER.forEach(function (k, i) { var a = -Math.PI / 2 + i * 2 * Math.PI / n, lx = cx + (R + R * .17) * Math.cos(a), ly = cy + (R + R * .17) * Math.sin(a); x.textAlign = Math.abs(Math.cos(a)) < .2 ? "center" : (Math.cos(a) > 0 ? "left" : "right"); x.fillText(BY[k].short || BY[k].name, lx, ly + R * .035); });
     x.restore();
@@ -109,10 +113,12 @@
     if (!dlg) { dlg = document.createElement("dialog"); dlg.className = "share"; document.body.appendChild(dlg); dlg.addEventListener("click", function (ev) { if (ev.target === dlg) dlg.close(); }); }
     dlg.innerHTML = '<div class="share-in"><button type="button" class="share-x" aria-label="' + esc(T.close) + '">×</button><h3>' + esc(T.share_title) + '</h3><p class="muted">' + esc(T.share_text) + '</p><div class="opts">' +
       FMTS.map(function (f, i) { return '<label class="opt"><input type="radio" name="fmt" value="' + f.k + '"' + (i === 0 ? " checked" : "") + '> ' + esc(T.fmt[f.k]) + '</label>'; }).join("") +
-      '</div><canvas width="1080" height="1350" aria-label="' + esc(T.share_preview) + '"></canvas><div class="actions"><button type="button" class="btn" data-dl>' + esc(T.download_png) + '</button></div></div>';
-    var cv = $("canvas", dlg), fmtc = FMTS[0];
+      '</div>' + (spec.values && spec.rows ? '<div class="opts">' + [["radar", T.chart_radar], ["bars", T.chart_bars]].map(function (c, i) { return '<label class="opt"><input type="radio" name="chart" value="' + c[0] + '"' + (i === 0 ? " checked" : "") + '> ' + esc(c[1]) + '</label>'; }).join("") + '</div>' : "") + '<canvas width="1080" height="1350" aria-label="' + esc(T.share_preview) + '"></canvas><div class="actions"><button type="button" class="btn" data-dl>' + esc(T.download_png) + '</button></div></div>';
+    var cv = $("canvas", dlg), fmtc = FMTS[0], chart = "radar";
     function draw() {
       var W = fmtc.w, H = fmtc.h, sq = fmtc.k === "square"; cv.width = W; cv.height = H; var x = cv.getContext("2d");
+      /* quando a ferramenta manda os dois gráficos, a pessoa escolhe um */
+      var both = spec.values && spec.rows, vals = both && chart === "bars" ? null : spec.values, rows = both && chart === "radar" ? null : spec.rows;
       x.fillStyle = "#f7efe7"; x.fillRect(0, 0, W, H);
       x.fillStyle = "#e6d9d0"; for (var i = 20; i < W; i += 24) for (var j = 20; j < H; j += 24) { x.beginPath(); x.arc(i, j, 1.6, 0, 7); x.fill(); }
       var m = Math.round(W * .06), bar = Math.round(W * .05), pad = Math.round(W * .05);
@@ -126,25 +132,28 @@
       x.fillStyle = "#2a1d2c"; x.font = "600 " + Math.round(W * .02) + "px 'DM Sans', sans-serif"; x.textAlign = "right"; x.fillText("THE LOVE THEORY", W - m - bar * .5, m + bar * .64); x.textAlign = "left";
       var y = m + bar + Math.round(W * (sq ? .045 : .06));
       var kSize = Math.round(W * (sq ? .042 : .05)), tSize = Math.round(W * (sq ? .044 : .056)), tLH = Math.round(tSize * 1.12);
-      var titleTxt = spec.rows && H < 1600 && spec.shortTitle ? spec.shortTitle : spec.title;
+      var titleTxt = rows && H < 1600 && spec.shortTitle ? spec.shortTitle : spec.title;
       x.font = "700 " + tSize + "px DynaPuff, cursive"; var tLines = wrapText(x, titleTxt, tw, 2);
       x.fillStyle = "#b8236f"; x.font = "700 " + kSize + "px Caveat, cursive"; x.fillText(spec.kicker, px, y); y += Math.round(kSize * .55);
       x.fillStyle = "#2a1d2c"; x.font = "700 " + tSize + "px DynaPuff, cursive"; tLines.forEach(function (l) { y += tLH; x.fillText(l, px, y); });
       y += Math.round(W * .035);
       var lSize = Math.round(W * (sq ? .025 : .029)), lLH = Math.round(lSize * 1.4), fSize = Math.round(W * .036);
       x.font = "400 " + lSize + "px 'DM Sans', sans-serif";
-      var maxItems = spec.rows ? (sq ? 0 : (H < 1600 ? 1 : 2)) : (sq ? 2 : 3);
+      var maxItems = rows ? (sq ? 0 : (H < 1600 ? 1 : 2)) : (sq ? 2 : 3);
       var items = (spec.lines || []).slice(0, maxItems).map(function (l) { return wrapText(x, l, tw, 2); });
       var linesH = items.reduce(function (acc, ls) { return acc + ls.length * lLH + Math.round(lLH * .35); }, 0);
       var footH = linesH + Math.round(fSize * 1.3) + Math.round(W * .03);
       var avail = bottom - footH - y;
-      if (spec.values) {
+      if (vals) {
         var labelM = Math.round(W * .085), R = Math.min(Math.round(W * .3), Math.round(avail / 2) - labelM);
-        if (R > 60) { canvasRadar(x, W / 2, y + labelM + R, R, spec.values, spec.values2); y += R * 2 + labelM * 2; }
-      } else if (spec.rows) {
-        var cols = H < 1600 ? 2 : 1, gapC = Math.round(W * .05), cw = Math.round((tw - gapC * (cols - 1)) / cols), perCol = Math.ceil(spec.rows.length / cols);
+        /* o raio diminui até os nomes das propriedades caberem dos dois lados, dentro do cartão */
+        var fitR = function (r) { x.font = "600 " + Math.round(r * .105) + "px 'DM Sans', sans-serif"; var mw = 0; ORDER.forEach(function (k) { mw = Math.max(mw, x.measureText(BY[k].short || BY[k].name).width); }); return r * 1.17 + mw <= tw / 2; };
+        while (R > 60 && !fitR(R)) R -= 6;
+        if (R > 60) { canvasRadar(x, W / 2, y + labelM + R, R, vals, spec.values2, spec.max); y += R * 2 + labelM * 2; }
+      } else if (rows) {
+        var cols = H < 1600 ? 2 : 1, gapC = Math.round(W * .05), cw = Math.round((tw - gapC * (cols - 1)) / cols), perCol = Math.ceil(rows.length / cols);
         var rowH = Math.min(Math.round(W * (cols === 2 ? .085 : .072)), Math.floor(avail / perCol)), y0 = y;
-        spec.rows.forEach(function (r, i) {
+        rows.forEach(function (r, i) {
           var c = Math.floor(i / perCol), cx0 = px + c * (cw + gapC), ry = y0 + (i - c * perCol) * rowH;
           x.textAlign = "right"; x.fillStyle = "#b8236f"; x.font = "700 " + Math.round(rowH * .32) + "px Caveat, cursive"; x.fillText(r.pos, cx0 + cw, ry + rowH * .3);
           var posW = x.measureText(r.pos).width, nm = r.name;
@@ -180,10 +189,11 @@
     }
     var ready = document.fonts && document.fonts.load ? Promise.all([document.fonts.load("700 40px Caveat"), document.fonts.load("700 40px DynaPuff"), document.fonts.load("600 20px 'DM Sans'")]) : Promise.resolve();
     ready.then(draw, draw);
+    dlg.querySelectorAll("[name=chart]").forEach(function (r) { r.addEventListener("change", function () { chart = r.value; draw(); }); });
     dlg.querySelectorAll("[name=fmt]").forEach(function (r) { r.addEventListener("change", function () { fmtc = FMTS.filter(function (f) { return f.k === r.value; })[0]; draw(); }); });
     $(".share-x", dlg).addEventListener("click", function () { dlg.close(); });
     $("[data-dl]", dlg).addEventListener("click", function () {
-      cv.toBlob(function (blob) { var a = document.createElement("a"), u = URL.createObjectURL(blob); a.href = u; a.download = spec.file + "-" + fmtc.k + ".png"; document.body.appendChild(a); a.click(); setTimeout(function () { URL.revokeObjectURL(u); a.remove(); }, 1000); }, "image/png");
+      cv.toBlob(function (blob) { var a = document.createElement("a"), u = URL.createObjectURL(blob); a.href = u; a.download = spec.file + (spec.values && spec.rows ? "-" + chart : "") + "-" + fmtc.k + ".png"; document.body.appendChild(a); a.click(); setTimeout(function () { URL.revokeObjectURL(u); a.remove(); }, 1000); }, "image/png");
     });
     if (dlg.showModal) dlg.showModal(); else dlg.setAttribute("open", "");
   }
@@ -326,18 +336,23 @@
 
   /* ---------- Self Love ---------- */
   function selfLove(root) {
+    /* Notas em cinco níveis, de 1 a 5. Por dentro, as leituras continuam na régua de 0 a 10 dos retratos
+       (nível 1 = 0, 3 = 5, 5 = 10), e é esse valor que fica em saved.values para a constelação. */
     var saved = store.get("selflove");
+    var to10 = function (lv) { return (lv - 1) * 2.5; }, to5 = function (v) { return Math.min(5, Math.max(1, Math.round(v / 2.5) + 1)); };
+    if (saved && !saved.levels && saved.values) { saved.levels = {}; ORDER.forEach(function (k) { saved.levels[k] = to5(saved.values[k] || 0); }); }
     function form() {
       root.innerHTML = '<form class="step"><h2>' + esc(T.sl_title) + '</h2><p class="muted">' + esc(T.sl_text) + '</p><p class="muted">' + esc(sizeTxt(PROPS.length)) + '</p>' +
-        PROPS.map(function (p, i) { return '<div class="item"><p class="q">' + esc(p.selflove) + '</p>' + rangeInput("s" + i, 5, p.key === K("sombras") ? [T.nothing, T.much] : null) + '</div>'; }).join("") +
+        PROPS.map(function (p, i) { return '<div class="item"><p class="q">' + esc(p.selflove) + '</p>' + rangeInput("s" + i, 3, p.key === K("sombras") ? [T.nothing, T.much] : null, 5) + '</div>'; }).join("") +
         '<div class="actions"><button class="btn" type="submit">' + esc(T.see_portrait) + '</button></div></form>';
       root.querySelector("form").addEventListener("submit", function (e) {
-        e.preventDefault(); var v = {}; PROPS.forEach(function (p, i) { v[p.key] = readRange(e.target, "s" + i); });
-        saved = { date: new Date().toISOString(), values: v }; store.set("selflove", saved); show();
+        e.preventDefault(); var lv = {}, v = {}; PROPS.forEach(function (p, i) { lv[p.key] = readRange(e.target, "s" + i); v[p.key] = to10(lv[p.key]); });
+        saved = { date: new Date().toISOString(), levels: lv, values: v }; store.set("selflove", saved); show();
       });
     }
     function show() {
-      var v = saved.values, g = function (k) { return v[K(k)]; };
+      var lv = saved.levels, v = {}; ORDER.forEach(function (k) { v[k] = to10(lv[k] || 1); });
+      var g = function (k) { return v[K(k)]; };
       var care = mean([g("afeto"), g("suporte"), g("protecao"), g("confianca"), g("liberdade"), g("investimento")]), infl = mean([g("admiracao"), g("atracao"), g("paixao")]), open = mean([g("abertura"), g("afeto")]);
       var notes = [];
       if (care < 4) notes.push(T.sl_deficit);
@@ -346,7 +361,7 @@
       if (g("dependencia") >= 7) notes.push(T.sl_dependence);
       if (g("liberdade") <= 3) notes.push(T.sl_freedom);
       if (!notes.length) notes.push(T.sl_balanced);
-      var h = '<div class="step result"><p class="eyebrow">' + esc(T.selflove_name) + ' · ' + esc(fmtDate(saved.date)) + '</p><h2>' + esc(T.sl_result) + '</h2><div class="radar-wrap">' + radar(v) + bars(v) + '</div></div>' +
+      var h = '<div class="step result"><p class="eyebrow">' + esc(T.selflove_name) + ' · ' + esc(fmtDate(saved.date)) + '</p><h2>' + esc(T.sl_result) + '</h2><p class="muted">' + esc(T.sl_levels) + '</p><div class="radar-wrap">' + radar(lv, null, { max: 5 }) + bars(lv, null, 5) + '</div></div>' +
         '<div class="step"><h3>' + esc(T.readings) + '</h3>' + lis(notes);
       var all = store.get("portraits", []);
       if (all.length) {
@@ -359,7 +374,9 @@
       root.innerHTML = h;
       root.querySelector("[data-redo]").addEventListener("click", form);
       root.querySelector("[data-share]").addEventListener("click", function () {
-        shareDialog({ file: "self-love", kicker: T.selflove_name, title: T.sl_share_title, values: v, lines: notes.slice(0, 2).map(function (t) { return t.split(":")[0] + "."; }) });
+        shareDialog({ file: "self-love", kicker: T.selflove_name, title: T.sl_share_title, shortTitle: T.sl_share_title, values: lv, max: 5,
+          rows: PROPS.map(function (p) { return { name: p.name, pos: String(lv[p.key] || 1), x: (lv[p.key] || 1) - 1, presumed: null, poles: p.key === K("sombras") ? [T.nothing, T.much] : [T.nothing, T.totally] }; }),
+          lines: notes.slice(0, 2).map(function (t) { return t.split(":")[0] + "."; }) });
       });
     }
     if (saved) show(); else form();

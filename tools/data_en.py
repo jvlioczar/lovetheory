@@ -848,7 +848,7 @@ UI = dict(
     saved_title="Stored portraits", portraits_pl="portraits", portrait_sg="portrait", deep_label="deep", quick_label="quick",
     changed="Changed since the previous portrait: {d}", unchanged="Almost nothing changed since the previous portrait.", delete_="Delete this portrait",
     confirm_delete="Delete this portrait? This can't be undone.",
-    sl_title="The same ruler, pointed inward", sl_text="Eighteen statements. Answer about how you treat yourself today, not how you would like to.",
+    sl_title="The same ruler, pointed inward", sl_text="Eighteen statements, each scored from 1 (nothing) to 5 (totally). Answer about how you treat yourself today, not how you would like to.",
     sl_deficit="Self-love deficit: Affection, Support, Protection, Trust, Freedom and Investment in yourself are low. You take better care of others than of yourself.",
     sl_inflation="Inflation: Admiration, Attraction and Passion for yourself high with Affection and Openness low. Self-love is not narcissism; the difference lies in being able to look at what is ugly in oneself with kindness, and here kindness is low.",
     sl_shadows="High Shadows: shame, self-criticism or self-contempt weigh. Neff's self-compassion starts here: treating yourself as you would treat a friend in the same mistake.",
@@ -2101,3 +2101,4 @@ UI.update(
     bl_short_text="The essential items in each group. What you answer is kept if you later want the full version.", bl_full_text="Every item in the parts you open.",
 )
 PAGES["versions_items"] = "There are two versions: the short one, with the {s} essential items (about {sm} minutes), and the full one, with all {n} (about {fm} minutes)."
+UI.update(chart_radar="Circular chart", chart_bars="Bar chart", sl_levels="Each property goes from 1 to 5. In the circular chart, each ring is one level.")

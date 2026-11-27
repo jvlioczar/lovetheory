@@ -235,6 +235,7 @@ input[type=range]::-moz-range-thumb { width: 26px; height: 18px; border-radius: 
 .radar .poly { fill: rgba(216, 64, 143, .38); stroke: var(--magenta); stroke-width: 2.5; }
 .radar .poly2 { fill: rgba(42, 29, 44, .16); stroke: var(--ink); stroke-width: 2; stroke-dasharray: 4 3; }
 .radar .shadow { fill: rgba(60, 50, 55, .25); }
+.radar .ring-n { font-size: 10px; font-family: var(--sans); font-weight: 700; fill: #8c7a8f; }
 .radar .lbl { font-size: 12px; font-family: var(--sans); font-weight: 600; fill: var(--ink-2); }
 .bars { display: grid; gap: 6px; }
 .bar { display: grid; grid-template-columns: 130px 1fr 40px; gap: 10px; align-items: center; font-size: 14px; }
