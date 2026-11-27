@@ -1498,7 +1498,7 @@ TOOLS.insert(6, dict(key="sexlist", name="Sexual Bucketlist", kicker="Adults onl
 PAGES["tools_title"] = "Ten tools"
 PAGES["tools"]["spark"] = ("Keep the Spark", "A test for couples to keep love good and hot: activities, new things in bed and beyond the couple. Each answers alone, and only what both want shows up.", "Keep the Spark: a test for couples", None)
 PAGES["tools"]["lovelist"] = ("Love Bucketlist", "The list of the love you want to live: the relationship you are looking for and the experiences for two, from small gestures to big milestones.", "Love Bucketlist: 93 things to live", None)
-PAGES["tools"]["sexlist"] = ("Sexual Bucketlist", "A sexual bucket list for adults: practices, positions, occasions and places. Mark what you have lived, what you want and what is not for you.", "Sexual Bucketlist: 150 items (18+)", None)
+PAGES["tools"]["sexlist"] = ("Sexual Bucketlist", "A sexual bucket list for adults: practices, positions, occasions and places. Mark what you have lived, what you want and what is not for you.", "Sexual Bucketlist: 165 items (18+)", None)
 PAGES["lists_how"] = "How it works"
 PAGES["lists_inside"] = "What is inside"
 PAGES["lists_items"] = "{n} items"
@@ -1706,7 +1706,7 @@ LISTS = dict(
     ),
     # ------------------------------------------------------------------ Sexual Bucketlist
     sexlist=dict(
-        v=2, adult=True, bar="done", pick=False,
+        v=3, adult=True, bar="done", pick=False,
         kicker="Sexual Bucketlist", title="What I have lived and what I want to live",
         lead=("The bucket list for sex: {n} items across practices, positions, rhythms, roles, occasions and places. Mark what you have lived, what you want to live and what is not for you. "
               "It is for knowing yourself, for having something to talk about and, as a pair, for finding out what both want without anyone having to suggest it first. "
@@ -1717,7 +1717,7 @@ LISTS = dict(
              ("As a pair, with no awkwardness", "Send the link to your partner. The match shows only what both want; what one declined is shown to nobody.")],
         notes=["Everything here is between adults and with the consent of everyone involved, given beforehand and withdrawable at any moment.",
                "Quantity measures nothing. A short list is not being behind, and not for me is a complete answer.",
-               "Sex in sight of other people is a crime in many countries and is violence against whoever did not choose to see it. That is why the places on the list are always private: the thrill can be the adrenaline, never the audience.",
+               "Sex in a public place can be a crime and exposes people who did not choose to see it; if a child witnesses it, it is violence against that child. Public places sit in a group of their own, with that warning: marking there records a wish or a story, it is not a recommendation. The alternative is in the group Adrenaline, with no audience.",
                "Intimate photos and videos exist only with the consent of whoever appears in them, and sharing them without consent is a crime."],
         sections=[
             dict(id="praticas", title="Practices", lead="What is done: from a kiss to what involves more people.", adult=True, default=True, groups=[
@@ -1741,10 +1741,10 @@ LISTS = dict(
                     "Use a vibrator on someone.", "Have a vibrator used on me.", "Temperature lubricant.", "Blindfold someone.", "Be blindfolded.", "Tie up or handcuff someone.",
                     "Be tied up or handcuffed.", "Ice or a massage candle.", "Food in play.", "Sex in front of a mirror.", "Lingerie or a costume.", "A plug, a ring or another toy.",
                     "A remote-controlled toy."]),
-                dict(id="papeis", title="Roles and power", note="Always agreed beforehand, with a safe word, and stopping the moment anyone asks.", items=[
+                dict(id="papeis", title="Roles and power", note="Always agreed beforehand, with a safe word, and stopping the moment anyone asks. Waking with caresses only counts when the person said beforehand, while awake, that they want it: it is caresses that wake, not sex with someone asleep. Someone asleep does not consent, and the person, once awake, decides whether to go on.", items=[
                     "Give agreed spanking.", "Receive agreed spanking.", "Dominate.", "Be dominated.", "Play characters.", "Do a striptease.", "Receive a striptease.",
                     "Give a lap dance.", "Receive a lap dance.", "Hair pulling and a firm grip.", "Talk dirty.", "Act out a fantasy my partner told me.",
-                    "Have a fantasy of mine acted out by my partner."]),
+                    "Have a fantasy of mine acted out by my partner.", "Wake my partner with caresses, because they asked for it beforehand.", "Be woken with caresses, having asked for it beforehand."]),
                 dict(id="ver", title="Watching and being watched", items=[
                     "Watch someone having sex, with consent (voyeurism).", "Let someone watch me having sex, with everyone's agreement.", "Watch porn with someone.", "Take photos during sex, with a yes from whoever appears.",
                     "Record a video just for us.", "Publish adult content on an adults-only platform, with no identification and with the consent of everyone who appears.", "Go to a strip club.",
@@ -1756,7 +1756,7 @@ LISTS = dict(
                     "Spend New Year's Eve midnight having sex.", "Sex on my birthday.", "Sex on the honeymoon.", "Morning sex, on waking up.", "After a few drinks, both still clear-headed.",
                     "A whole weekend barely leaving the bed.", "Sex while travelling.", "In silence, with people in the house."]),
             ]),
-            dict(id="lugares", title="Places", lead="Where: from your own bed to the places that give you butterflies, always with no audience.", adult=True, default=True, groups=[
+            dict(id="lugares", title="Places", lead="Where: from your own bed to the places that give you butterflies.", adult=True, default=True, groups=[
                 dict(id="casa", title="At home", items=[
                     "In my bed.", "In my partner's bed.", "In the kitchen.", "In the living room, on the sofa.", "In the bathroom.", "In the shower.", "In the bathtub.", "On the balcony, with nobody watching.",
                     "On the stairs.", "On the floor.", "On the table.", "In the yard or the garden, out of the neighbours' sight."]),
@@ -1767,10 +1767,13 @@ LISTS = dict(
                     "Inside the car, with nobody around.", "On the bonnet of the car, somewhere secluded.", "On a boat.", "In a train or ship cabin.", "In a camper van."]),
                 dict(id="arlivre", title="Outdoors", note="Only where nobody who did not consent can see or hear.", items=[
                     "On a deserted beach.", "In a pool of our own.", "In the sea, far from everyone.", "In the rain.", "In the forest or on a trail.", "At a waterfall.", "Under the stars."]),
-                dict(id="risco", title="Adrenaline, with no audience", note="The thrill here is the adrenaline, not the audience: it only counts where nobody who did not consent can see or hear. Sex in sight of other people is a crime in many countries and is violence against whoever did not choose to watch.", items=[
-                    "At work, after everyone has left.", "At university, in an empty, locked room.", "In a car park, inside the car, with nobody around.",
-                    "In the bathroom at a party, with the door locked.", "In a private booth at an adults-only venue.", "In a private box or room, just ours.",
+                dict(id="semplateia", title="Adrenaline, with no audience", note="The same adrenaline, exposing nobody: only where those who did not consent can neither see nor hear.", items=[
+                    "In a private booth at an adults-only venue.", "In a private box or room, just ours.",
                     "In a hotel, facing the window, with the lights off.", "Somewhere you can hear people nearby, with nobody able to see or hear you."]),
+                dict(id="publico", title="Public places", note="Sex in a public place can be a crime: public indecency or indecent exposure, under one name or another, in almost every country. And there is a risk that does not depend on you: someone may turn up. If it is a child, what was an adventure becomes violence against that child, and the law punishes it far more severely. Marking an item here records a wish or a story; it is not a recommendation. The version with no audience is in the previous group.", items=[
+                    "In a shop fitting room.", "On the stairs of a building.", "In the emergency corridor of a shopping centre.", "In a car park.", "In a lift.", "In the toilet of a bar.",
+                    "At the cinema.", "At the theatre.", "At a nightclub.", "At a birthday party.", "On a Ferris wheel.", "In a library.", "At university.", "At work.", "In the street.",
+                    "On a plane.", "On a long-distance bus."]),
             ]),
         ],
         t=dict(
@@ -1845,7 +1848,7 @@ PAGES["tools_title"] = "Eleven tools"
 PAGES["tools"]["myths"] = ("Sexual Mythology", "A sex education test: myth or truth about consent, harassment, pressure, pleasure, the body, prevention and cheating. Every answer comes with the explanation.", "Sexual Mythology: a sex education test", None)
 
 MYTHS = dict(
-    v=3, kicker="Sexual Mythology", title="What do you actually know about sex?",
+    v=4, kicker="Sexual Mythology", title="What do you actually know about sex?",
     lead=("Hardly anyone had real sex education. We learned from friends, from porn and by improvising, and what is left is a mythology: ideas everyone repeats and that are wrong. "
           "Here are {n} statements across eleven themes. For each one, you say whether it is a myth or the truth, and the explanation appears right away. "
           "The point of view is declared: sexual freedom, yes, and with responsibility. Without consent, without talking and without caring for whoever is with you, it is not freedom."),
@@ -1862,6 +1865,9 @@ MYTHS = dict(
         dict(id="consentimento", title="Consent", lead="What a yes is, and everything that is not.", items=[
             ("If the person did not say no, they consented.", 0, "Silence is not a yes. Freezing and staying still are common reactions to fear. Consent is a clear yes, freely given."),
             ("Someone who consented at the start can change their mind midway, and the other person has to stop.", 1, "Consent can be withdrawn at any moment, and carrying on after that is violence."),
+            ("Someone who seduced, flirted all night or invited the other home and then changed their mind owes the other person something.", 0, "Changing your mind is a right at any stage, and it creates no debt. The frustration of whoever heard the no is understandable; demanding, insisting or punishing is not."),
+            ("Starting foreplay and not wanting to go on to sex is a right.", 1, "Each stage asks for its own yes. A kiss, a caress and undressing are not a promise of what comes next."),
+            ("When someone asks to stop in the middle of sex, it means the sex went wrong.", 0, "It is consent working. Stopping at once, with no drama and no demands, is what lets the person feel safe to say yes again another day."),
             ("Someone who is asleep, unconscious or too drunk to understand what is happening cannot consent.", 1, "Without the ability to understand and decide there is no consent, even if the person does not resist."),
             ("In a relationship or a marriage, sex is an obligation: there is no such thing as rape between partners.", 0, "A relationship is not permanent consent. Sex forced by a partner is sexual violence, and the law of many countries recognises it."),
             ("Agreeing to one thing (a kiss, going to someone's place, undressing) means agreeing to everything that follows.", 0, "Consent is specific: it covers what was agreed to, and each new step asks for a new yes."),

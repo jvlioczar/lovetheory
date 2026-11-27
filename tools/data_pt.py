@@ -1666,7 +1666,7 @@ TOOLS.insert(6, dict(key="sexlist", name="Bucket List Sexual", kicker="Sexual Bu
 PAGES["tools_title"] = "Dez ferramentas"
 PAGES["tools"]["spark"] = ("Manter a Chama", "Teste para casais manterem o amor bom e quente: atividades, novidades na cama e além do casal. Cada um responde sozinho e só aparece o que os dois querem.", "Manter a Chama: teste para casais", None)
 PAGES["tools"]["lovelist"] = ("Bucket List do Amor", "A lista do amor que você quer viver: o relacionamento que busca e as experiências a dois, dos gestos aos grandes marcos. Marque o que já viveu e o que quer viver.", "Bucket List do Amor: 93 coisas para viver", None)
-PAGES["tools"]["sexlist"] = ("Bucket List Sexual", "Bucket list sexual para adultos: práticas, posições, ocasiões e lugares. Marque o que já viveu, o que quer viver e o que não é para você, sozinho ou com o par.", "Bucket List Sexual: 150 itens (18+)", None)
+PAGES["tools"]["sexlist"] = ("Bucket List Sexual", "Bucket list sexual para adultos: práticas, posições, ocasiões e lugares. Marque o que já viveu, o que quer viver e o que não é para você, sozinho ou com o par.", "Bucket List Sexual: 165 itens (18+)", None)
 PAGES["lists_how"] = "Como funciona"
 PAGES["lists_inside"] = "O que tem dentro"
 PAGES["lists_items"] = "{n} itens"
@@ -1874,7 +1874,7 @@ LISTS = dict(
     ),
     # ------------------------------------------------------------------ Bucket List Sexual
     sexlist=dict(
-        v=2, adult=True, bar="done", pick=False,
+        v=3, adult=True, bar="done", pick=False,
         kicker="Bucket List Sexual", title="O que eu já vivi e o que eu quero viver",
         lead=("A bucket list do sexo: {n} itens entre práticas, posições, ritmos, papéis, ocasiões e lugares. Marque o que já viveu, o que quer viver e o que não é para você. "
               "Serve para se conhecer, para ter assunto e, a dois, para descobrir o que os dois querem sem ninguém precisar propor primeiro. "
@@ -1885,7 +1885,7 @@ LISTS = dict(
              ("A dois, sem constrangimento", "Mande o link para o par. O cruzamento mostra só o que os dois querem; o que um recusou não aparece para ninguém.")],
         notes=["Tudo aqui vale entre adultos e com o consentimento de todos os envolvidos, dado antes e que pode ser retirado a qualquer momento.",
                "Quantidade não mede nada. Uma lista curta não é atraso, e não é para mim é uma resposta completa.",
-               "Sexo à vista de outras pessoas é crime em muitos países e é uma violência contra quem não escolheu ver. Por isso os lugares da lista são sempre a sós: a graça pode ser a adrenalina, nunca a plateia.",
+               "Sexo em lugar público pode ser crime e expõe quem não escolheu ver; se uma criança presenciar, é violência contra ela. Os lugares públicos ficam num grupo à parte, com esse aviso: marcar ali registra uma vontade ou uma história, não é recomendação. A alternativa está no grupo Adrenalina, sem plateia.",
                "Foto e vídeo íntimos só existem com o consentimento de quem aparece, e divulgar sem consentimento é crime."],
         sections=[
             dict(id="praticas", title="Práticas", lead="O que se faz: do beijo ao que envolve mais gente.", adult=True, default=True, groups=[
@@ -1909,10 +1909,10 @@ LISTS = dict(
                     "Usar um vibrador em alguém.", "Deixar usarem um vibrador em mim.", "Lubrificante de temperatura.", "Vendar alguém.", "Ser vendado.", "Prender ou algemar alguém.",
                     "Ser preso ou algemado.", "Gelo ou vela de massagem.", "Comida na brincadeira.", "Sexo em frente ao espelho.", "Lingerie ou fantasia.", "Plug, anel ou outro brinquedo.",
                     "Brinquedo com controle remoto."]),
-                dict(id="papeis", title="Papéis e poder", note="Sempre combinado antes, com palavra de segurança, e parando na hora em que alguém pedir.", items=[
+                dict(id="papeis", title="Papéis e poder", note="Sempre combinado antes, com palavra de segurança, e parando na hora em que alguém pedir. Acordar com carícias só vale quando a pessoa disse antes, acordada, que quer isso: são carícias que acordam, não sexo com quem dorme. Quem está dormindo não consente, e a pessoa, depois de acordar, decide se quer continuar.", items=[
                     "Dar tapas combinados.", "Levar tapas combinados.", "Dominar.", "Ser dominado.", "Encenar personagens.", "Fazer um striptease.", "Receber um striptease.",
                     "Fazer um lap dance.", "Receber um lap dance.", "Puxão de cabelo e pegada forte.", "Falar sacanagem.", "Realizar uma fantasia contada pelo par.",
-                    "Ter uma fantasia minha realizada pelo par."]),
+                    "Ter uma fantasia minha realizada pelo par.", "Acordar o par com carícias, porque ele pediu isso antes.", "Ser acordado com carícias, tendo pedido isso antes."]),
                 dict(id="ver", title="Ver e ser visto", items=[
                     "Assistir a alguém transando, com consentimento (voyeurismo).", "Deixar alguém me assistir transando, com o acordo de todos.", "Ver pornô acompanhado.", "Tirar fotos durante o sexo, com o sim de quem aparece.",
                     "Gravar um vídeo só para nós.", "Publicar conteúdo adulto numa plataforma para maiores, sem identificação e com o consentimento de todos que aparecem.", "Ir a uma casa de striptease.",
@@ -1924,7 +1924,7 @@ LISTS = dict(
                     "Passar a virada do ano transando.", "Sexo no meu aniversário.", "Sexo na lua de mel.", "Sexo de manhã, ao acordar.", "Depois de uns drinques, os dois ainda lúcidos.",
                     "Um fim de semana inteiro quase sem sair da cama.", "Sexo em viagem.", "Em silêncio, com gente em casa."]),
             ]),
-            dict(id="lugares", title="Lugares", lead="Onde: da própria cama aos lugares que dão frio na barriga, sempre sem plateia.", adult=True, default=True, groups=[
+            dict(id="lugares", title="Lugares", lead="Onde: da própria cama aos lugares que dão frio na barriga.", adult=True, default=True, groups=[
                 dict(id="casa", title="Em casa", items=[
                     "Na minha cama.", "Na cama do par.", "Na cozinha.", "Na sala, no sofá.", "No banheiro.", "No chuveiro.", "Na banheira.", "Na sacada ou na varanda, sem ninguém vendo.",
                     "Na escada.", "No chão.", "Em cima da mesa.", "No quintal ou no jardim, sem vizinhos à vista."]),
@@ -1935,10 +1935,13 @@ LISTS = dict(
                     "Dentro do carro, sem ninguém por perto.", "No capô do carro, num lugar isolado.", "Num barco.", "Na cabine de um trem ou de um navio.", "Numa van ou num motorhome de viagem."]),
                 dict(id="arlivre", title="Ao ar livre", note="Só onde ninguém que não consentiu possa ver ou ouvir.", items=[
                     "Numa praia deserta.", "Numa piscina só nossa.", "No mar, longe de todo mundo.", "Na chuva.", "Na floresta ou numa trilha.", "Numa cachoeira.", "Sob as estrelas."]),
-                dict(id="risco", title="Adrenalina, sem plateia", note="A graça aqui é a adrenalina, não a plateia: só vale onde ninguém que não consentiu possa ver ou ouvir. Sexo à vista de outras pessoas é crime em muitos países e é uma violência contra quem não escolheu assistir.", items=[
-                    "No trabalho, depois que todo mundo foi embora.", "Na faculdade, numa sala vazia e trancada.", "No estacionamento, dentro do carro, sem ninguém por perto.",
-                    "No banheiro de uma festa, com a porta trancada.", "Numa cabine reservada de uma casa noturna para adultos.", "Num camarote ou numa sala privada, só nossa.",
+                dict(id="semplateia", title="Adrenalina, sem plateia", note="A mesma adrenalina, sem expor ninguém: só onde quem não consentiu não possa ver nem ouvir.", items=[
+                    "Numa cabine reservada de uma casa noturna para adultos.", "Num camarote ou numa sala privada, só nossa.",
                     "Num hotel, de frente para a janela, com a luz apagada.", "Num lugar onde dá para ouvir gente por perto, sem que ninguém veja nem ouça."]),
+                dict(id="publico", title="Lugares públicos", note="Sexo em lugar público pode ser crime: no Brasil é o ato obsceno, o popular atentado ao pudor, e quase todo país tem lei parecida. E há um risco que não depende de você: alguém pode aparecer. Se for uma criança, o que era aventura vira violência contra ela, e a lei pune com muito mais rigor. Marcar um item aqui registra uma vontade ou uma história; não é recomendação. A versão sem plateia está no grupo anterior.", items=[
+                    "No provador de uma loja.", "Na escada de um prédio.", "No corredor de emergência de um shopping.", "No estacionamento.", "No elevador.", "No banheiro de um bar.",
+                    "No cinema.", "No teatro.", "Na balada.", "Numa festa de aniversário.", "Na roda-gigante.", "Numa biblioteca.", "Na faculdade.", "No trabalho.", "Na rua.",
+                    "No avião.", "No ônibus de viagem."]),
             ]),
         ],
         t=dict(
@@ -2013,7 +2016,7 @@ PAGES["tools_title"] = "Onze ferramentas"
 PAGES["tools"]["myths"] = ("Mitologia Sexual", "Teste de educação sexual: mito ou verdade sobre consentimento, assédio, pressão, prazer, corpo, prevenção e traição. Cada resposta vem com a explicação.", "Mitologia Sexual: teste de educação sexual", None)
 
 MYTHS = dict(
-    v=3, kicker="Mitologia Sexual", title="O que você sabe mesmo sobre sexo?",
+    v=4, kicker="Mitologia Sexual", title="O que você sabe mesmo sobre sexo?",
     lead=("Quase ninguém teve educação sexual de verdade. Aprendemos com amigos, com o pornô e com o improviso, e o que sobra é uma mitologia: ideias que todo mundo repete e que estão erradas. "
           "Aqui estão {n} afirmações em onze temas. Para cada uma, você diz se é mito ou verdade, e a explicação aparece na hora. "
           "O ponto de vista é declarado: liberdade sexual, sim, e com responsabilidade. Sem consentimento, sem conversa e sem cuidar de quem está com você, não é liberdade."),
@@ -2030,6 +2033,9 @@ MYTHS = dict(
         dict(id="consentimento", title="Consentimento", lead="O que é um sim, e tudo o que não é.", items=[
             ("Se a pessoa não disse não, é porque consentiu.", 0, "Silêncio não é sim. Congelar e ficar imóvel são reações comuns ao medo. Consentimento é um sim claro, dado livremente."),
             ("Quem consentiu no começo pode desistir no meio, e a outra pessoa tem de parar.", 1, "O consentimento pode ser retirado a qualquer momento, e continuar depois disso é violência."),
+            ("Quem seduziu, flertou a noite toda ou chamou para casa e depois desistiu fica devendo alguma coisa à outra pessoa.", 0, "Mudar de ideia é um direito em qualquer etapa, e não cria dívida. A frustração de quem ouviu o não é compreensível; cobrar, insistir ou punir não é."),
+            ("Começar as preliminares e não querer ir até o sexo é um direito.", 1, "Cada etapa pede o seu próprio sim. Beijo, carícia e tirar a roupa não são promessa do que vem depois."),
+            ("Quando alguém pede para parar no meio do sexo, é porque o sexo deu errado.", 0, "É o consentimento funcionando. Parar na hora, sem drama e sem cobrança, é o que deixa a pessoa segura para dizer sim de novo outro dia."),
             ("Quem está dormindo, desacordado ou bêbado demais para entender o que acontece não pode consentir.", 1, "Sem condições de entender e de decidir, não existe consentimento, mesmo que a pessoa não resista."),
             ("Num namoro ou num casamento, sexo é obrigação: não existe estupro entre casal.", 0, "Relacionamento não é consentimento permanente. Sexo forçado pelo parceiro é violência sexual, e a lei de muitos países, entre eles o Brasil, reconhece isso."),
             ("Aceitar uma coisa (um beijo, ir para a casa de alguém, tirar a roupa) é aceitar tudo o que vem depois.", 0, "O consentimento é específico: vale para aquilo que foi aceito, e cada passo novo pede um novo sim."),
