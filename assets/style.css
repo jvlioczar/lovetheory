@@ -76,7 +76,10 @@ img, svg { max-width: 100%; }
 .kicker { font-family: var(--script); font-weight: 700; font-size: 22px; color: var(--magenta); margin-bottom: 4px; }
 .frame-card { border: 1.5px solid var(--ink); border-radius: 12px; box-shadow: var(--shadow); padding: 22px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; min-height: 260px; color: #fff; text-align: center; }
 .oval { width: min(100%, 230px); aspect-ratio: 3 / 4; border-radius: 50%; background: radial-gradient(circle at 50% 40%, #fffaf6, #f9e3ee 55%, #ead8f3 100%); border: 4px double var(--ink); display: grid; place-items: center; box-shadow: 0 0 0 8px #fff, 0 0 0 9.5px var(--ink); overflow: hidden; }
-.oval svg { width: 88%; height: auto; margin-top: 6%; }
+.oval.toc { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 0 12px; }
+.oval.toc a { font-family: var(--serif); font-weight: 700; font-size: 19px; line-height: 1.15; color: var(--ink); text-decoration: none; padding: 7px 14px; border-radius: 999px; border: 1.5px solid transparent; }
+.oval.toc a:hover, .oval.toc a:focus-visible { background: #fff; border-color: var(--ink); box-shadow: 2px 2px 0 var(--ink); }
+.petal-group { scroll-margin-top: 120px; }
 .frame-card .cap { font-family: var(--script); font-size: 26px; font-weight: 700; color: var(--ink); background: var(--paper-2); border: 1.5px solid var(--ink); border-radius: 18px; padding: 2px 16px; margin: 6px 0 0; line-height: 1.15; text-align: center; }
 .lace-card { border: 1.5px solid var(--ink); border-radius: 12px; box-shadow: var(--shadow); padding: 14px; }
 .lace-card .in { background: var(--cream); border: 1px solid var(--ink); border-radius: 8px; padding: 18px 20px; }

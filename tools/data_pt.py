@@ -1076,7 +1076,7 @@ PAGES = dict(
     footer="Um projeto da BiblioVerse.", about="Sobre", privacy="Privacidade", nav_aria="Seções", loading="Carregando…",
     noscript="As ferramentas precisam de JavaScript. O conteúdo da teoria funciona sem.",
     home_title="The Love Theory · Como amamos", open="Abrir →", do_scale="Fazer a Escala do Amor", read_theory="Ler a teoria",
-    studio="estúdio do amor", oval_caption="retratos de quem você ama", thesis_title="Dizemos quem somos pelas pessoas que mantemos por perto",
+    studio="estúdio do amor", oval_caption="por onde começar", toc_aria="Índice das ferramentas", thesis_title="Dizemos quem somos pelas pessoas que mantemos por perto",
     tools_title="Sete ferramentas",
     theory=dict(kicker="A teoria", title="Tudo o que forma um amor",
                 lead="Amor é uma palavra só para uma mistura de coisas diferentes. Aqui a mistura é aberta em dezoito propriedades, cada uma com suas partes, suas raízes e seu jeito de aparecer.",

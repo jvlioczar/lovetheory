@@ -915,7 +915,7 @@ PAGES = dict(
     footer="A BiblioVerse project.", about="About", privacy="Privacy", nav_aria="Sections", loading="Loading…",
     noscript="The tools need JavaScript. The theory content works without it.",
     home_title="The Love Theory · How we love", open="Open →", do_scale="Take the Love Scale", read_theory="Read the theory",
-    studio="love studio", oval_caption="portraits of the ones you love", thesis_title="We say who we are through the people we keep close",
+    studio="love studio", oval_caption="where to start", toc_aria="Tools index", thesis_title="We say who we are through the people we keep close",
     tools_title="Seven tools",
     theory=dict(kicker="The theory", title="Everything that makes up a love",
                 lead="Love is one word for a mixture of different things. Here the mixture is opened into eighteen properties, each with its parts, its roots and its way of showing.",
