@@ -464,7 +464,7 @@ class Site:
         M = D.MYTHS
         L += [f"## {M['kicker']}", "", M["lead"], ""] + [f"- {t}" for t in M["notes"]] + [""]
         for th in M["themes"]:
-            L += [f"### {th['title']}", "", th["lead"], ""] + [f"- {s} {M['t']['is_true'] if ok else M['t']['is_myth']} {x}" for s, ok, x in th["items"]] + [""]
+            L += [f"### {th['title']}", "", th["lead"], ""] + [f"- {it[0]} {M['t']['is_true'] if it[1] else M['t']['is_myth']} {it[2]}" + "".join(f" [{l}]({u})" for l, u in (it[3] if len(it) > 3 else [])) for it in th["items"]] + [""]
         L += [f"## {PG['glossary']['title']}", ""] + [f"- {t}: {d}" for _, t, d, _ in D.GLOSSARY] + [""]
         return "\n".join(L)
 

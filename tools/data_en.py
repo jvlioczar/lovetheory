@@ -1848,9 +1848,9 @@ PAGES["tools_title"] = "Eleven tools"
 PAGES["tools"]["myths"] = ("Sexual Mythology", "A sex education test: myth or truth about consent, harassment, pressure, pleasure, the body, prevention and cheating. Every answer comes with the explanation.", "Sexual Mythology: a sex education test", None)
 
 MYTHS = dict(
-    v=5, kicker="Sexual Mythology", title="What do you actually know about sex?",
+    v=6, kicker="Sexual Mythology", title="What do you actually know about sex?",
     lead=("Hardly anyone had real sex education. We learned from friends, from porn and by improvising, and what is left is a mythology: ideas everyone repeats and that are wrong. "
-          "Here are {n} statements across eleven themes. For each one, you say whether it is a myth or the truth, and the explanation appears right away. "
+          "Here are {n} statements across twelve themes. For each one, you say whether it is a myth or the truth, and the explanation appears right away. "
           "The point of view is declared: sexual freedom, yes, and with responsibility. Without consent, without talking and without caring for whoever is with you, it is not freedom."),
     options=["Myth", "Truth", "I don't know"],
     how=[("Myth or truth", "You read the statement and answer: truth, myth or I don't know. I don't know is an honest answer, and it is worth more than guessing."),
@@ -1932,16 +1932,30 @@ MYTHS = dict(
             ("Exploring your own body is for people who do not have a partner.", 0, "Knowing your own body is for everyone, with or without a partner. Whoever knows what they like can show the other."),
             ("Knowing your own body by yourself helps you have pleasure with someone else.", 1, "Where, how and at what rhythm your body responds is information no partner can guess."),
             ("Looking closely at your own genitals, with a mirror if needed, is a healthy way of knowing yourself.", 1, "Many people have never looked. Knowing your own anatomy helps with pleasure and with noticing early when something changes."),
-            ("There is one normal shape for genitals, and anyone outside it has a problem.", 0, "Vulvas, penises and nipples vary a great deal in size, colour and shape. What appears in porn is a selected sample, not the standard."),
             ("You can tell whether a woman is a virgin by examining the hymen.", 0, "You cannot. The World Health Organization states that so-called virginity testing has no scientific basis and violates human rights."),
             ("The vagina becomes permanently loose in someone who has had many partners.", 0, "The vagina is an elastic muscular canal that returns to its resting state. The number of partners changes nobody's anatomy."),
             ("Men always have more desire than women.", 0, "On average, studies find more desire reported by men, but the variation between people is huge. In many couples it is the woman who wants more."),
             ("Desire can appear out of nowhere or only after stimulation, and both ways are normal.", 1, "These are spontaneous desire and responsive desire. Someone who only feels like it once the touching starts has no defect at all."),
             ("A natural smell, discharge and hair on the vulva are signs of poor hygiene.", 0, "They are features of a healthy body. The vagina cleans itself, and douching is linked to more infections."),
-            ("People with disabilities do not have a sex life.", 0, "They have desire, a sex life and the right to sex education like anyone else. What is missing, nearly always, is others recognising it."),
+            ("People with disabilities do not have a sex life.", 0, "They have desire, a sex life and the right to sex education like anyone else, and disability does not, in itself, take away the capacity to consent. The rule for everyone applies: someone who is not able to understand and decide about the act cannot consent, and sex with that person is violence. This is assessed case by case, not by the diagnosis."),
             ("After a certain age, sex is over.", 0, "It changes, but it does not end. Many people keep an active sex life after 60 and after 70."),
             ("Erection difficulties and premature ejaculation are common and treatable.", 1, "They are among the most frequent sexual complaints among men. They are treatable, and the shame of talking is the biggest obstacle."),
             ("Sexual orientation can be changed with therapy.", 0, "So-called conversion therapies do not work and cause harm. They are condemned by the major health bodies, and banned in a growing number of countries."),
+        ]),
+        dict(id="corpos", title="Different bodies, perfect body", lead="Sizes, colours, shapes, hair and the pressure to fix what is not broken.", items=[
+            ("There is one normal shape for genitals, and anyone outside it has a problem.", 0, "Vulvas, clitorises, penises, breasts, nipples and anuses vary a great deal in size, colour and shape. What appears in porn is a selected sample, often surgically altered, not the standard. The Labia Library, run by an Australian women's health organisation, shows that variety in real, unretouched photos.", [("Labia Library", "https://www.labialibrary.org.au/")]),
+            ("One breast bigger than the other, inner lips that show on the outside and a slightly curved penis are common variations.", 1, "Asymmetry is the rule, not the exception. See a doctor when there is pain, a sudden change or a curve that gets in the way."),
+            ("The skin of the genitals and the anus is usually darker than the rest of the body, and that is normal.", 1, "It happens in every skin tone, as an effect of hormones. Intimate bleaching is a cosmetic procedure, not a health need."),
+            ("Penises and vulvas are body parts like any other: they call for neither worship nor shame.", 1, "Treating genitals as a trophy or as a taboo gives them a weight that gets in the way: performance anxiety on one side and shame on the other. They are ordinary parts of the body, and everyone has theirs."),
+            ("Removing pubic hair is more hygienic.", 0, "There is no medical or hygienic reason to remove the hair, and removal can irritate, cause ingrown hairs and injure the skin. Keeping it, trimming it or removing it is up to whoever owns the body."),
+            ("Someone with a preference can demand that their partner remove their body hair, or stop removing it.", 0, "A preference is stated; a demand over someone else's body is control. The decision belongs to whoever lives in that body."),
+            ("According to a review of studies published in 2015, the average erect penis is around 13 centimetres.", 1, "The review pooled measurements of up to 15,000 men, taken by professionals; the erect measurement came from a smaller group of about 700. Most men who think they are small are within the average."),
+            ("There are pills, creams and devices that are proven to enlarge the penis.", 0, "No product has demonstrated efficacy. And the American Urological Association states that cosmetic enlargement surgeries, such as fat injection and cutting the ligament, have not been shown to be safe or effective."),
+            ("The bodies in porn and on social media are ordinary bodies.", 0, "They are selected bodies, often operated on, hairless, lit and edited. Comparing yours with them is comparing real life with a shop window."),
+            ("Cosmetic surgery on the genitals carries risks, and good-quality data that it works is lacking.", 1, "Pain, bleeding, infection and scarring are among the complications. The American College of Obstetricians and Gynecologists advises that the person be told this before deciding."),
+            ("Getting implants, having intimate surgery or changing nothing is each person's decision; pressuring someone to change their body is disrespect.", 1, "It works both ways: nobody should be pushed into surgery or judged for having had it. The problem is the pressure, not the choice."),
+            ("Some people are born with sex characteristics that do not fit the typical definitions of male or female.", 1, "They are intersex people: the variation can be in the chromosomes, the hormones, the gonads or the genitals. The UN estimates that they are between 0.05% and 1.7% of the population."),
+            ("Intersex people have both sets of genitals, complete.", 0, "That does not happen in humans. This is why the term hermaphrodite, which is inaccurate, has fallen out of use, and many people consider it offensive. What exists are variations, many of them invisible from the outside."),
         ]),
         dict(id="prevencao", title="Prevention: pregnancy and STIs", lead="What protects, what does not, and what hardly anyone tells you.", items=[
             ("Pulling out before coming is a safe way to avoid pregnancy.", 0, "In typical use, about one in five people relying on it alone gets pregnant within a year. And it protects against no STI."),
@@ -2056,7 +2070,7 @@ MYTHS = dict(
 )
 MYTHS["n"] = sum(len(t["items"]) for t in MYTHS["themes"])
 MYTHS["lead"] = MYTHS["lead"].replace("{n}", str(MYTHS["n"]))
-assert len(MYTHS["themes"]) == 11
+assert len(MYTHS["themes"]) == 12
 
 GLOSSARY += [
     ("sexualidade", "Unwanted sexual touching", "Performing a sexual act on someone without their consent, such as groping or rubbing against them. A crime in many countries.", "myths"),

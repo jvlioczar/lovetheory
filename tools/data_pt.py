@@ -2016,9 +2016,9 @@ PAGES["tools_title"] = "Onze ferramentas"
 PAGES["tools"]["myths"] = ("Mitologia Sexual", "Teste de educação sexual: mito ou verdade sobre consentimento, assédio, pressão, prazer, corpo, prevenção e traição. Cada resposta vem com a explicação.", "Mitologia Sexual: teste de educação sexual", None)
 
 MYTHS = dict(
-    v=5, kicker="Mitologia Sexual", title="O que você sabe mesmo sobre sexo?",
+    v=6, kicker="Mitologia Sexual", title="O que você sabe mesmo sobre sexo?",
     lead=("Quase ninguém teve educação sexual de verdade. Aprendemos com amigos, com o pornô e com o improviso, e o que sobra é uma mitologia: ideias que todo mundo repete e que estão erradas. "
-          "Aqui estão {n} afirmações em onze temas. Para cada uma, você diz se é mito ou verdade, e a explicação aparece na hora. "
+          "Aqui estão {n} afirmações em doze temas. Para cada uma, você diz se é mito ou verdade, e a explicação aparece na hora. "
           "O ponto de vista é declarado: liberdade sexual, sim, e com responsabilidade. Sem consentimento, sem conversa e sem cuidar de quem está com você, não é liberdade."),
     options=["Mito", "Verdade", "Não sei"],
     how=[("Mito ou verdade", "Você lê a afirmação e responde: verdade, mito ou não sei. Não sei é uma resposta honesta, e vale mais do que chutar."),
@@ -2100,16 +2100,30 @@ MYTHS = dict(
             ("Explorar o próprio corpo é coisa de quem não tem parceiro.", 0, "Conhecer o próprio corpo é para todo mundo, com ou sem par. Quem sabe do que gosta consegue mostrar ao outro."),
             ("Conhecer o próprio corpo sozinho ajuda a ter prazer a dois.", 1, "Onde, como e em que ritmo o seu corpo responde é uma informação que nenhum parceiro tem como adivinhar."),
             ("Olhar os próprios genitais com atenção, com um espelho se for preciso, é uma forma saudável de se conhecer.", 1, "Muita gente nunca olhou. Conhecer a própria anatomia ajuda no prazer e a notar cedo quando algo muda."),
-            ("Existe um formato normal para os genitais, e quem foge dele tem um problema.", 0, "Vulvas, pênis e mamilos variam muito em tamanho, cor e formato. O que aparece no pornô é uma amostra escolhida, não o padrão."),
             ("Dá para saber se uma mulher é virgem examinando o hímen.", 0, "Não dá. A Organização Mundial da Saúde afirma que o chamado teste de virgindade não tem base científica e viola direitos humanos."),
             ("A vagina alarga de forma permanente em quem teve muitos parceiros.", 0, "A vagina é um canal muscular elástico, que volta ao estado de repouso. O número de parceiros não muda a anatomia de ninguém."),
             ("Homens têm sempre mais desejo do que mulheres.", 0, "Na média, os estudos encontram mais desejo relatado por homens, mas a variação entre pessoas é enorme. Em muitos casais é a mulher quem deseja mais."),
             ("O desejo pode aparecer do nada ou só depois do estímulo, e os dois jeitos são normais.", 1, "São o desejo espontâneo e o desejo responsivo. Quem só sente vontade depois que o carinho começa não tem defeito nenhum."),
             ("Cheiro próprio, corrimento e pelos na vulva são sinais de falta de higiene.", 0, "São características de um corpo saudável. A vagina se limpa sozinha, e as duchas internas estão associadas a mais infecções."),
-            ("Pessoas com deficiência não têm vida sexual.", 0, "Têm desejo, vida sexual e direito à educação sexual como qualquer pessoa. O que falta, quase sempre, é os outros reconhecerem isso."),
+            ("Pessoas com deficiência não têm vida sexual.", 0, "Têm desejo, vida sexual e direito à educação sexual como qualquer pessoa, e a deficiência, por si, não tira a capacidade de consentir. Vale a regra de todo mundo: quem não tem condições de entender e de decidir sobre o ato não pode consentir, e sexo com essa pessoa é violência. Isso se avalia caso a caso, não pelo diagnóstico."),
             ("Depois de certa idade, o sexo acaba.", 0, "Muda, mas não acaba. Muita gente segue com vida sexual ativa depois dos 60 e dos 70."),
             ("Dificuldade de ereção e ejaculação precoce são comuns e têm tratamento.", 1, "São das queixas sexuais mais frequentes entre homens. Têm tratamento, e a vergonha de falar é o maior obstáculo."),
             ("A orientação sexual pode ser mudada com terapia.", 0, "As chamadas terapias de conversão não funcionam e fazem mal. São condenadas pelas principais entidades de saúde, e desde 1999 os psicólogos brasileiros são proibidos de oferecer tratamentos de cura da homossexualidade."),
+        ]),
+        dict(id="corpos", title="Corpos diferentes, corpo perfeito", lead="Tamanhos, cores, formas, pelos e a pressão para consertar o que não está quebrado.", items=[
+            ("Existe um formato normal para os genitais, e quem foge dele tem um problema.", 0, "Vulvas, clitóris, pênis, seios, mamilos e ânus variam muito em tamanho, cor e formato. O que aparece no pornô é uma amostra escolhida, e muitas vezes operada, não o padrão. A Labia Library, de uma organização australiana de saúde da mulher, mostra essa variedade em fotos reais e sem retoque.", [("Labia Library", "https://www.labialibrary.org.au/")]),
+            ("Um seio maior que o outro, pequenos lábios que aparecem para fora e um pênis levemente curvo são variações comuns.", 1, "Assimetria é a regra, não a exceção. Vale uma consulta quando há dor, mudança repentina ou uma curvatura que atrapalha."),
+            ("A pele dos genitais e do ânus costuma ser mais escura do que a do resto do corpo, e isso é normal.", 1, "Acontece em qualquer tom de pele, por efeito dos hormônios. Clareamento íntimo é procedimento estético, não necessidade de saúde."),
+            ("Pênis e vulvas são partes do corpo como as outras: não pedem culto nem vergonha.", 1, "Tratar os genitais como troféu ou como tabu dá a eles um peso que atrapalha: vira ansiedade de desempenho de um lado e vergonha do outro. São partes comuns do corpo, e todo mundo tem as suas."),
+            ("Depilar os pelos pubianos é mais higiênico.", 0, "Não há motivo médico nem de higiene para tirar os pelos, e a depilação pode irritar, encravar e ferir a pele. Ter, aparar ou tirar é gosto de quem é dono do corpo."),
+            ("Quem tem uma preferência pode exigir que o par se depile, ou que deixe de se depilar.", 0, "Preferência se diz; exigência sobre o corpo do outro é controle. A decisão é de quem vive naquele corpo."),
+            ("Segundo uma revisão de estudos publicada em 2015, a média do pênis em ereção fica em torno de 13 centímetros.", 1, "A revisão reuniu medições de até 15 mil homens, feitas por profissionais; a medida em ereção veio de um grupo menor, de cerca de 700. A maioria dos homens que se acha pequeno está dentro da média."),
+            ("Existem pílulas, cremes e aparelhos que aumentam o pênis de forma comprovada.", 0, "Nenhum produto tem eficácia demonstrada. E a associação americana de urologia afirma que as cirurgias estéticas de aumento, como a injeção de gordura e o corte do ligamento, não se mostraram seguras nem eficazes."),
+            ("Os corpos do pornô e das redes sociais são corpos comuns.", 0, "São corpos escolhidos, muitas vezes operados, depilados, iluminados e editados. Comparar o seu com eles é comparar a vida real com uma vitrine."),
+            ("Cirurgia estética nos genitais tem riscos, e faltam dados de qualidade de que ela funciona.", 1, "Dor, sangramento, infecção e cicatriz estão entre as complicações. O colégio americano de ginecologistas orienta que a pessoa seja avisada disso antes de decidir."),
+            ("Pôr silicone, fazer uma cirurgia íntima ou não mudar nada é decisão de cada pessoa; pressionar alguém a mudar o corpo é desrespeito.", 1, "Vale nos dois sentidos: ninguém deve ser empurrado para a cirurgia nem julgado por ter feito. O problema é a pressão, não a escolha."),
+            ("Algumas pessoas nascem com características sexuais que não se encaixam nas definições típicas de masculino ou feminino.", 1, "São as pessoas intersexo: a variação pode estar nos cromossomos, nos hormônios, nas gônadas ou nos genitais. A ONU estima que sejam entre 0,05% e 1,7% da população."),
+            ("Pessoas intersexo têm os dois órgãos genitais completos.", 0, "Isso não acontece em seres humanos. Por isso o termo hermafrodita, impreciso, caiu em desuso, e muita gente o considera ofensivo. O que existe são variações, muitas delas invisíveis por fora."),
         ]),
         dict(id="prevencao", title="Prevenção: gravidez e ISTs", lead="O que protege, o que não protege e o que quase ninguém conta.", items=[
             ("Tirar antes de gozar é um método seguro para evitar a gravidez.", 0, "No uso comum, cerca de uma em cada cinco pessoas que dependem só disso engravida em um ano. E não protege de nenhuma IST."),
@@ -2224,7 +2238,7 @@ MYTHS = dict(
 )
 MYTHS["n"] = sum(len(t["items"]) for t in MYTHS["themes"])
 MYTHS["lead"] = MYTHS["lead"].replace("{n}", str(MYTHS["n"]))
-assert len(MYTHS["themes"]) == 11
+assert len(MYTHS["themes"]) == 12
 
 GLOSSARY += [
     ("sexualidade", "Importunação sexual", "Praticar ato libidinoso contra alguém sem o consentimento da pessoa, como passar a mão ou se esfregar. No Brasil é crime desde 2018.", "myths"),

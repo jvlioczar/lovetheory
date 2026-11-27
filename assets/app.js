@@ -972,7 +972,7 @@
   }
 
   /* ---------- Mitologia Sexual: mito ou verdade, com a explicação na hora ----------
-     Item = [afirmação, 1 verdade / 0 mito, explicação]. Resposta: 0 mito, 1 verdade, 2 não sei, -1 sem resposta. */
+     Item = [afirmação, 1 verdade / 0 mito, explicação, links opcionais [[rótulo, url]]]. Resposta: 0 mito, 1 verdade, 2 não sei, -1 sem resposta. */
   function myths(root) {
     var M = D.myths, X = M.t, flat = [], TH = [];
     M.themes.forEach(function (th, ti) { var idx = th.items.map(function (it) { flat.push(it); return flat.length - 1; }); TH.push({ ti: ti, th: th, idx: idx }); });
@@ -984,7 +984,7 @@
     function fb(i) {
       var a = st.ans[i], it = flat[i]; if (a < 0) return "";
       var ok = a === it[1];
-      return '<div class="fb ' + (ok ? "ok" : a === 2 ? "dk" : "no") + '"><b>' + esc(ok ? X.right : a === 2 ? X.dunno : X.wrong) + ' ' + esc(it[1] ? X.is_true : X.is_myth) + '</b> ' + esc(it[2]) + '</div>';
+      return '<div class="fb ' + (ok ? "ok" : a === 2 ? "dk" : "no") + '"><b>' + esc(ok ? X.right : a === 2 ? X.dunno : X.wrong) + ' ' + esc(it[1] ? X.is_true : X.is_myth) + '</b> ' + esc(it[2]) + (it[3] ? ' ' + it[3].map(function (l) { return '<a href="' + esc(l[1]) + '" target="_blank" rel="noopener">' + esc(l[0]) + ' ↗</a>'; }).join(" · ") : "") + '</div>';
     }
     function score(ans, parts) {
       var rows = [], c = 0, a = 0, n = 0, bel = [], dou = [], unk = [];
