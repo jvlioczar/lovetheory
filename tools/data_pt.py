@@ -1592,3 +1592,41 @@ _A["compatibilidade"]["animal"] = dict(quick="A vida com {nome} encaixa na minha
     deep=["A rotina de {nome} cabe na minha vida.", "Tenho o espaço, o tempo e os recursos de que {nome} precisa.", "Estar com {nome} é leve: não dá trabalho."])
 _A["reciprocidade"]["animal"] = dict(quick="O que sinto por {nome} volta: sinto-me querido por ela, do jeito dela.",
     deep=["Sinto que {nome} me quer bem, do jeito dela.", "O que dou a {nome} e o que recebo me parece equilibrado.", "Não sinto que {nome} me deve nada, nem que eu devo a ela."])
+
+# ---------------------------------------------------------------------------
+# Revisão técnica (2026-11-27): privacidade, acessibilidade, descrições curtas
+# ---------------------------------------------------------------------------
+PATHS["privacy"] = "privacidade.html"
+DESCRIPTION = "Um mapa de como amamos: 18 propriedades do amor, testes para medir o que você sente, a dois e por si, e um glossário. Tudo fica no seu aparelho."
+PAGES["tools"]["stay"] = (PAGES["tools"]["stay"][0], "Devo ficar com essa pessoa? Linhas vermelhas fora da balança, prós e contras com pesos que você ajusta, e razões de amor ou de prisão.", None, None)
+PAGES["time"]["desc"] = "Por que a paixão cai com o tempo, o que sobe no lugar dela e o que sustenta a vontade de estar junto."
+PAGES["about_page"]["kicker"] = "The Love Theory"
+PAGES["about_page"]["privacy_short"] = "Nada do que você responde sai do seu aparelho: não há conta, não há servidor que receba respostas, não há cookies."
+PAGES["about_page"]["privacy_more"] = "Ler a política de privacidade completa"
+PAGES.update(skip="Pular para o conteúdo", home_aria="The Love Theory, início", lang_aria="Read in English", copyright="© 2026 BiblioVerse",
+             og_alt="The Love Theory: olhe para quem você mantém por perto. É você que está ali.", theory_pages="Páginas da teoria",
+             mech_chain_title="A cadeia", sex_items_title="Termos e conceitos", nf_desc="Página não encontrada.", privacy_link="Privacidade")
+PRIVACY = dict(
+    kicker="Privacidade", title="Política de privacidade",
+    lead="The Love Theory não coleta, não guarda e não recebe as suas respostas. Esta página diz, com precisão, o que acontece com cada dado.",
+    sections=[
+        ("O que você responde", ["Tudo o que você responde nas ferramentas (Escala do Amor, retratos, Teste de Casal, Limites, Autoamor, Autodescoberta, Ficar ou ir?, Minhas flags) é processado no seu navegador e guardado no armazenamento local do seu aparelho. Nada disso é enviado a um servidor nosso, porque não temos servidor que receba respostas.",
+                                 "Essas respostas podem incluir dados sensíveis, como orientação sexual, vida sexual e detalhes de relacionamentos. Justamente por isso, o site foi construído para nunca recebê-los."], []),
+        ("Os links do Teste de Casal e dos Limites", ["Para comparar respostas a dois, o site coloca as respostas dentro do próprio link, depois do sinal #. Essa parte do endereço não é enviada ao servidor quando a página abre.",
+                                                     "Quem tem o link tem as respostas. Mande só para a pessoa certa, e lembre que aplicativos de mensagem guardam os links enviados."], []),
+        ("Como apagar", ["Use o botão de apagar em Meus retratos, ou limpe os dados deste site nas configurações do navegador. Não existe cópia do nosso lado para apagar."], []),
+        ("O que a página carrega de terceiros", ["Hospedagem: o site é servido pelo GitHub Pages, que, como qualquer servidor, registra o endereço IP de quem acessa, para segurança e operação.",
+                                               "Fontes: as fontes vêm do Google Fonts; ao abrir a página, o seu navegador pede as fontes ao Google, que recebe o seu endereço IP.",
+                                               "Barra da BiblioVerse: a barra do topo é carregada de biblioverse.org, outro site da mesma iniciativa, e não coleta dados pessoais."],
+         [("Privacidade do GitHub", "https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement"), ("Privacidade do Google Fonts", "https://developers.google.com/fonts/faq/privacy")]),
+        ("Estatísticas", ["@analytics"], []),
+        ("Cookies", ["O site não usa cookies."], []),
+        ("Para quem é", ["O conteúdo trata de relacionamentos e sexualidade e foi pensado para adultos.",
+                         "O site não é diagnóstico, terapia nem aconselhamento profissional. Em situação de violência ou risco, procure os canais de ajuda indicados no Ficar ou ir? ou os serviços de emergência do seu país."], []),
+        ("Quem somos e mudanças", ["The Love Theory é um projeto da BiblioVerse. Se esta política mudar, a data abaixo muda junto."], [("BiblioVerse", "https://biblioverse.org")]),
+    ],
+    analytics_on="O site usa a Cloudflare Web Analytics, que conta visitas sem cookies, sem identificar pessoas e sem rastrear você entre sites.",
+    analytics_off="O site não usa ferramenta de análise de visitas.",
+    updated="Atualizada em 27 de novembro de 2026.",
+    desc="O que acontece com cada dado no The Love Theory: as respostas ficam no seu aparelho, sem conta, sem servidor e sem cookies.",
+)

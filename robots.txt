@@ -1,3 +1,8 @@
 User-agent: *
 Allow: /
+
+# Conteúdo em texto para modelos de linguagem / plain-text content for language models
+# https://lovetheory.biblioverse.org/llms.txt
+# https://lovetheory.biblioverse.org/pt/llms.txt
+
 Sitemap: https://lovetheory.biblioverse.org/sitemap.xml

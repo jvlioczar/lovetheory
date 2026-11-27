@@ -1,0 +1,59 @@
+# The Love Theory
+
+> A map of how we love: 18 properties of love, tests to measure what you feel, as a pair and for yourself, and a glossary. Everything stays on your device.
+
+We say who we are through the people we keep close. Each one is there because something in us is fed by them, and we almost never know how to name what. The Love Theory opens the word love into parts, measures each part, and returns a portrait of what you feel for someone today.
+
+You can love someone without admiring them. You can admire a person's character but not their competence, or their talent but not their values. You can trust without attraction, feel attraction without trust, invest heavily in someone who gives little back. None of these combinations is wrong: each is a way of loving, and almost nobody can name their own. The properties are independent, and the site never adds the values into a total.
+
+## Seven tools
+
+- [The Love Theory](https://lovetheory.biblioverse.org/theory.html): The content: what makes up a love, where each part comes from, what time does, the types of love and attraction, the shortcuts we use.
+- [Love Scale](https://lovetheory.biblioverse.org/love-scale.html): What I feel for this person, today. The same ruler for friendship, romance, family and fandom. With several portraits, the constellation shows what repeats.
+- [Couple Test](https://lovetheory.biblioverse.org/couple-test.html): What each of us feels, thinks the other feels, has agreed on, and assumes was agreed. And where those four layers don't match.
+- [Limits](https://lovetheory.biblioverse.org/limits.html): A hundred situations, thirteen groups, five answers. Find your limits and, with your partner, where the unspoken rules diverge.
+- [Self Love](https://lovetheory.biblioverse.org/self-love.html): The same ruler pointed at myself. Without confusing self-love with narcissism.
+- [Self Discover](https://lovetheory.biblioverse.org/self-discover.html): Who I am as a person who loves and desires, in sliders, each marked with the position society presumes.
+- [Stay or Go](https://lovetheory.biblioverse.org/stay-or-go.html): Should I stay with this person? Red lines outside the balance; pros and cons with weights you set; the reasons for staying, of love or of prison.
+
+## Everything that makes up a love
+
+- [The model](https://lovetheory.biblioverse.org/model.html): Property, value, portrait, variability, and where the image we form of someone comes from.
+- [Mechanisms](https://lovetheory.biblioverse.org/mechanisms.html): Where each property comes from and how it shows: root, expression trait, behavior. Jealousy as the model case.
+- [Modulators](https://lovetheory.biblioverse.org/modulators.html): Who feels: attachment, personality, trauma, moment, neediness, gender role.
+- [What time does](https://lovetheory.biblioverse.org/time.html): Why passion falls, what rises, and what sustains the wish to be together.
+- [Red flags and green flags](https://lovetheory.biblioverse.org/flags.html): The heuristics of love: the shortcuts we use, tied to the properties they predict, and when they fail.
+- [Types of love](https://lovetheory.biblioverse.org/types.html): Greek, Sternberg, Lee; by relationship, by structure, by phase.
+- [Sexuality and attraction](https://lovetheory.biblioverse.org/sexuality.html): Sexual and romantic orientation, types of attraction, gender role, libido, Fisher's three systems.
+- [Reference theories](https://lovetheory.biblioverse.org/theories.html): What has already been said, where the Love Theory agrees and where it expands.
+- [Glossary](https://lovetheory.biblioverse.org/glossary.html): All the site's terms and the related ones, one line each.
+
+## The eighteen properties
+
+- [Attraction](https://lovetheory.biblioverse.org/property-attraction.html): What pulls me toward the person.
+- [Passion](https://lovetheory.biblioverse.org/property-passion.html): How much the person occupies my mental space.
+- [Admiration](https://lovetheory.biblioverse.org/property-admiration.html): What elevates me in the person.
+- [Affection](https://lovetheory.biblioverse.org/property-affection.html): The warmth.
+- [Intimacy](https://lovetheory.biblioverse.org/property-intimacy.html): How well we know each other.
+- [Openness](https://lovetheory.biblioverse.org/property-openness.html): The channel between us, in both directions.
+- [Compatibility](https://lovetheory.biblioverse.org/property-compatibility.html): How well our lives fit together.
+- [Trust](https://lovetheory.biblioverse.org/property-trust.html): How safe I feel.
+- [Support](https://lovetheory.biblioverse.org/property-support.html): What they do for me and I for them.
+- [Protection](https://lovetheory.biblioverse.org/property-protection.html): I place myself between them and what threatens them.
+- [Investment](https://lovetheory.biblioverse.org/property-investment.html): What I spend on them.
+- [Commitment](https://lovetheory.biblioverse.org/property-commitment.html): The decision to stay.
+- [Possession](https://lovetheory.biblioverse.org/property-possession.html): How much I want them to be mine.
+- [Dependence](https://lovetheory.biblioverse.org/property-dependence.html): How much I need them.
+- [Freedom](https://lovetheory.biblioverse.org/property-freedom.html): How much I remain myself inside the bond.
+- [Time](https://lovetheory.biblioverse.org/property-time.html): The shape of the bond over time.
+- [Reciprocity](https://lovetheory.biblioverse.org/property-reciprocity.html): What I think comes back.
+- [Shadows](https://lovetheory.biblioverse.org/property-shadows.html): What makes up the bond with a negative sign.
+
+## Português
+
+- [The Love Theory (pt-BR)](https://lovetheory.biblioverse.org/pt/llms.txt): Um mapa de como amamos: 18 propriedades do amor, testes para medir o que você sente, a dois e por si, e um glossário. Tudo fica no seu aparelho.
+
+## Optional
+
+- [Full text](https://lovetheory.biblioverse.org/llms-full.txt): every page of the theory and the glossary as plain text
+- [Privacy](https://lovetheory.biblioverse.org/privacy.html): What happens to each piece of data on The Love Theory: answers stay on your device, with no account, no server and no cookies.

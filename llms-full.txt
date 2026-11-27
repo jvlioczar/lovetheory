@@ -1,0 +1,582 @@
+# The Love Theory
+
+> A map of how we love: 18 properties of love, tests to measure what you feel, as a pair and for yourself, and a glossary. Everything stays on your device.
+
+Source: https://lovetheory.biblioverse.org/
+
+We say who we are through the people we keep close. Each one is there because something in us is fed by them, and we almost never know how to name what. The Love Theory opens the word love into parts, measures each part, and returns a portrait of what you feel for someone today.
+
+You can love someone without admiring them. You can admire a person's character but not their competence, or their talent but not their values. You can trust without attraction, feel attraction without trust, invest heavily in someone who gives little back. None of these combinations is wrong: each is a way of loving, and almost nobody can name their own. The properties are independent, and the site never adds the values into a total.
+
+## The model: property and value
+
+A property is what is felt. A value is the measure of what is felt, at that moment. The rest of the site follows from that.
+
+- Property: What is felt. A dimension of the bond. (Trust)
+- Sub-property: A nameable component of a property. (Trust: loyalty, honesty, predictability)
+- Item: The concrete question that measures a sub-property. (If they knew a secret of mine, I would sleep soundly.)
+- Value: The measure of what is felt, from 0 to 10, at that moment. (Trust = 8)
+- Variability: How much the value swings. Some values are fixed; others change from week to week. (Wanting to go out: high in some phases, zero in others)
+- Portrait: A dated profile. The test always produces a portrait, never a truth. (Ana, 27 November 2026)
+- Love type: A region of the portrait space. A recognizable pattern. (Friendship: high Affection, Trust and Openness; low Attraction and Possession)
+- Modulator: What, in the one who feels, distorts the value. (Abandonment trauma raises Possession)
+- Shadow: A negative-sign property that is also part of the bond. (Hurt, rivalry, fear)
+- Root: Where the value comes from. The same value can have different roots. (Possession 7 from fear of loss; Possession 7 from feeling like an owner)
+- Expression trait: How the value shows on the outside. (Aggressive: forbids. Peaceful: goes quiet and stores hurt)
+- Heuristic: The shortcut we use to predict whether it will work out: red flag, green flag. (Speaks badly of every ex)
+
+- Everything changes. The value is the perception of that moment. That is why the portrait is dated, and why it is worth redoing later: three months, a year.
+- The properties are independent. Each is its own axis; the value of one does not pull another. Admiration 9 with Affection 2 and Affection 9 with Admiration 2 are two different loves, not a right one and a wrong one. The site never adds the values into a total.
+- Zero is a legitimate value. Friendship has Attraction 0 and is still love. There is no complete love as a goal.
+- Every value has a variability. Some people are always at the same point; others swing. The word is variability, not inconsistency: inconsistency judges, variability describes.
+- Shadows count. A profile without shadows is a greeting card, not a portrait.
+- Value and weight. In the deep scale, besides how much you feel, there is how much it matters to you. The difference between the two is one of the most revealing results: you feel little admiration and that matters a lot to you is a diagnosis in one line.
+
+### Where the image comes from
+
+The value you mark is not born only of what you feel; it is born of the image you have formed of the person, and that image has sources with different reliability.
+
+- Direct perception: What you saw and lived with them. The main source and the slowest to form.
+- Expectation: What you expected to feel or find before you knew them. High expectation is the raw material of idealization.
+- Positive discoveries: What raised the value over time: I didn't expect them to be so loyal.
+- Negative discoveries: What lowered it: I found out they lie.
+- Reputation: What people say about them. Weighs on Trust and Admiration before any evidence; the biggest source of borrowed flags.
+- Approval of the circle: What people say about the two of you. Predicts duration better than common sense admits: the Romeo and Juliet effect did not hold up; network approval predicts stability.
+
+A high value made only of expectation and reputation is a borrowed value; a high value made of perception and discoveries is one's own. The deep scale asks, in each family, whether the person was better or worse than you expected.
+
+## The eighteen properties
+
+Grouped by what they do in the bond. Each is an independent axis: the value of one does not pull another, and zero is a legitimate value.
+
+### 1. Attraction
+
+What pulls me toward the person.
+
+Physical, beauty standard; Charm, charisma, presence; Sexual, desire; Fetish and specific preferences; Intellectual (their mind attracts me); Chemistry (voice, smell, manner, timing; the inexplicable); Status, power, what they represent socially; Aesthetic (I like looking, without desire), distinct from sexual.
+
+The asexual community separates sexual, romantic, sensual, aesthetic, platonic and intellectual attraction. That cut is better than common sense and fits directly as sub-properties. The status sub-property deserves a distinction: admiring what the person is (Admiration) is not the same as wanting what they give you socially (social capital). The two come mixed, and many people are attracted by the second without knowing it; the Weight of status slider, in Self Discover, measures that.
+
+Where it comes from: Real attraction, of body and chemistry; Novelty (the person is new, and novelty pulls); Status they lend me; Prohibition (what I can't have attracts me more); Resemblance to someone from the past.
+Aggressive expression: Says it, shows it, moves forward. Peaceful expression: Keeps it, watches from afar, waits to be noticed.
+
+### 2. Passion
+
+How much the person occupies my mental space.
+
+Frequency of thought; Euphoria in their presence, withdrawal in their absence; Idealization (I see more than there is); Urgency (I need to see them soon); Curiosity, fascination (I want to know everything); Obsession (limerence).
+
+Passion is the property time knocks down hardest: the intense phase lasts 12 to 30 months in most studies. That isn't love ending; it's passion giving way to the rest. See the page on time.
+
+Where it comes from: Attraction plus novelty; Limerence (a void of mine filled by the person); Intermittence (the person vanishes and returns, and that is addictive); Prohibition; Neediness (hunger for a bond pointed at someone).
+Aggressive expression: Declares, insists, shows up unannounced. Peaceful expression: Thinks about it all the time and says nothing; follows from afar.
+
+### 3. Admiration
+
+What elevates me in the person.
+
+Character and values; Talent, competence, intelligence; Achievements, trajectory; Aesthetics, style, taste; Courage, attitude; Respect (I recognize their autonomy, limits, equality); Pride (in them; and in being seen with them); Inspiration (they make me want to be better).
+
+Admiration is the property most often confused with love as a whole and the one that splits most on the inside: you can admire the character and not the competence, the talent and not the values. And you can love without admiring anything: much family love and much long love work that way. That's why the deep scale measures the parts separately.
+
+Where it comes from: Real merit; Idealization (Passion disguised as admiration); Status the person lends me; Compensation (I admire in them what I lack); Reputation (what people say, before I saw for myself).
+Aggressive expression: Praises in public, defends, imitates. Peaceful expression: Admires in silence; sometimes doesn't even say.
+
+### 4. Affection
+
+The warmth.
+
+Tenderness, fondness; Wanting to care; Missing them, longing; Comfort in their presence (I rest near them); Non-sexual touch; Compassion, empathy (I suffer with them).
+
+Affection is the property that rises over time when the bond survives the fall of passion. It's what stays.
+
+Where it comes from: Real, built affection; Habit and familiarity (the comfort of the known); Pity (downward compassion); Gratitude; Duty (I care because I must).
+Aggressive expression: Hugs, cares in front of everyone, solves things. Peaceful expression: Cares in silence, in the details, without announcing.
+
+### 5. Intimacy
+
+How well we know each other.
+
+Mutual knowledge (I know how they work); Shared secrets; Identification, mirror (I see myself in them); Shared history; Non-sexual physical intimacy (sleeping together, comfortable silence).
+
+Intimacy is the stock of what is already known; Openness is the channel open now. You can have old intimacy with a closed channel (long marriages, siblings) and an open channel with no intimacy (a stranger on a plane).
+
+Where it comes from: Years of living together; A crisis gone through together (accelerated intimacy); Identification (the person is like me); Imagined intimacy (I know them by what they show, not by what they are).
+Aggressive expression: Tells everything, asks everything. Peaceful expression: Knows through daily life and silence.
+
+### 6. Openness
+
+The channel between us, in both directions.
+
+Outbound, emotional openness: I say what I feel; I show myself vulnerable; I can talk about anything, including conflict; what I hide; Inbound, emotional receptivity: I listen without defending myself; I accept what they feel for me; I don't minimize what they bring; I let it change me; Repair: after a fight, the channel reopens.
+
+The two directions run separately. There are people who say everything and receive nothing (monologue) and people who receive everything and say nothing (confessional). In the Couple Test, the gap between what I feel and what you think I feel is almost always born of low outbound; the gap between what you say and what I register is born of low inbound.
+
+Where it comes from: A genuinely open channel; Avoidant attachment (I close by default); Shame; I was punished before for opening up; Culture (men don't talk); Accumulated contempt that closed the channel.
+Aggressive expression: Direct conflict, sometimes too much. Peaceful expression: Avoids conflict; the channel closes to keep the peace.
+
+### 7. Compatibility
+
+How well our lives fit together.
+
+Of values: moral and ethical, religious and spiritual, political; Of practical life: hygiene (cleanliness, order, care of body and home), money, rhythm and energy, lifestyle (food, alcohol, children, where to live); Intimate: sexual (desire, frequency, repertoire; the fit, not the attraction); Of daily life together: humor, interests, lightness, communication and conflict style; Of project: the future each one wants.
+
+Compatibility is not Admiration. To admire is to look up; compatibility is fit, and it depends on both. You can admire someone's faith without sharing it. Some sub-properties are binary, not scales: children, religion, what one eats. We call those cut-off lines.
+
+Where it comes from: Real fit; Similarity (we are alike); Complementarity (we are different and it fits); Adaptation (one of us molded to the other); Denial (we pretend it fits).
+Aggressive expression: Negotiates, discusses the differences. Peaceful expression: Yields in silence; the differences turn into hurt.
+
+### 8. Trust
+
+How safe I feel.
+
+Honesty (they don't lie to me); Loyalty, fidelity (they don't trade me in); Competence (I trust what they do); Predictability (I know what to expect); Emotional safety (I can be myself without punishment); Physical safety.
+
+Trust is the property that depends most on reputation before evidence: what people say about the person weighs before any fact. The deep scale asks where the value comes from.
+
+Where it comes from: Their actual behavior; Past betrayal by someone else (I distrust in advance); Generalized distrust (I distrust everyone); Projection of my own disloyalty.
+Aggressive expression: Demands proof, interrogates. Peaceful expression: Watches in silence, checks in secret.
+
+### 9. Support
+
+What they do for me and I for them.
+
+Emotional; Practical (they show up when I need them); Financial, material; Availability (they have time for me).
+
+Every Support item has two directions: I give and I receive. The difference between the two feeds Reciprocity.
+
+Where it comes from: Affection; Duty; Bargaining chip (I give to collect later); Guilt; Fear of being dispensable.
+Aggressive expression: Solves it for them, takes control. Peaceful expression: Stays close, accompanies, waits to be asked.
+
+### 10. Protection
+
+I place myself between them and what threatens them.
+
+Physical defense (I step in front); Public alliance (I defend them when people talk, even when they're not there); Defense of their reputation, their name, their story; Watchfulness (I keep an eye on what could hurt them before it happens); Removing risks (I get them out of situations, people, places); Receiving protection (they do this for me).
+
+Support is giving them something; Protection is standing between them and a threat. The shadow of Protection is overprotection, which turns into control and becomes Possession: the line between I protect you and I decide for you is the point where the protected person stops being consulted.
+
+Where it comes from: Real care; Property (I defend what's mine); Projection of my own vulnerability; Need to be needed; Control disguised as watchfulness.
+Aggressive expression: Attacks the third party, fights for them. Peaceful expression: Mediates, shields, removes them from the scene without conflict.
+
+### 11. Investment
+
+What I spend on them.
+
+Time; Money; Emotional energy; Priority (who do they come before?); Opportunity cost (what I stop living for them); Sacrifice (what I gave up).
+
+High Investment with low Reciprocity is one of the combinations the scale highlights: giving a lot to someone who gives little back.
+
+Where it comes from: Love; Sunk cost (I've invested too much to leave); Guilt and duty; Fear of being alone; Pride in not giving up.
+Aggressive expression: Gives and announces it, demands a return. Peaceful expression: Gives in silence and keeps score inside.
+
+### 12. Commitment
+
+The decision to stay.
+
+Intention to remain; Plans for a future together; Agreed exclusivity (not desired: agreed); Resistance to alternatives; Obligation, duty (I stay because I must); Habit, inertia (I stay because I always have).
+
+High Commitment with low Compatibility is the portrait of someone who stays out of habit. The scale highlights that combination.
+
+Where it comes from: Decision; Inertia and habit; Obligation; Lack of alternatives; Sunk cost; Fear of the judgment of those who will find out.
+Aggressive expression: Fights to stay. Peaceful expression: Goes quiet and leaves on the inside.
+
+### 13. Possession
+
+How much I want them to be mine.
+
+Jealousy; Desired exclusivity (I want to be the only one); Control (I want to know where, with whom); Fear of loss; Comparison with others; Territoriality (my place, my group, my person).
+
+Jealousy is one name for at least seven mechanisms: property, fear of loss, comparison, scarcity, betrayal trauma, projection and cultural script. The mechanisms page opens each one.
+
+Where it comes from: Property (they're mine); Fear of loss; Comparison (low self-worth); Scarcity (fear of sharing time and attention); Betrayal trauma; Projection (my own wish to stray); Cultural script (jealousy proves love).
+Aggressive expression: Confrontation, prohibition, scenes. Peaceful expression: Withdrawal, stored hurt, unspoken rules.
+
+### 14. Dependence
+
+How much I need them.
+
+Emotional (I can't regulate myself without them); Practical, financial; Social (my circle is theirs); Identity (who am I without them?); Fusion (the two of us became one).
+
+Possession and Dependence are sisters, not twins: possession is I want to have you; dependence is I can't manage without you. High possession with low dependence is control; high dependence with low possession is abandonment of oneself.
+
+Where it comes from: Neediness (hunger to be cared for); Anxious attachment; No network of one's own; Fused identity; Material dependence; Learned helplessness (I can't cope without them).
+Aggressive expression: Demands presence, pressures. Peaceful expression: Clings, erases itself, waits.
+
+### 15. Freedom
+
+How much I remain myself inside the bond.
+
+To be myself (my humor, my manner, my personality, without shrinking); Social (I can talk to and see other people); Sexual and affective (I can have other people, when that is what I want and what was agreed); Of life choices (work, place, time, money); Of opinion (I can disagree without punishment); To leave (I could go without catastrophe; staying is a choice).
+
+Freedom is the received side of Possession: what the other's Possession feels like from the inside. Low Freedom is I feel trapped, and feeling trapped can be several things at once: trapped as a person, trapped socially, trapped sexually, trapped in life, trapped by not being able to leave. Not all of it comes from the other: one can trap oneself with guilt, duty or dependence. In the Couple Test, my Freedom crosses directly with the other's Possession.
+
+Where it comes from: Real freedom; Control by the other (their Possession); My own guilt or duty (I trap myself); Dependence (I can't leave, so I feel trapped); Cultural script (that's what a relationship is); Fear of being alone.
+Aggressive expression: Complains, fights for space, threatens to leave. Peaceful expression: Shrinks, pretends everything is fine, leaves on the inside.
+
+### 16. Time
+
+The shape of the bond over time.
+
+Duration (how long); Frequency of contact; Rhythm (intense-short vs. slow-long); Phase (beginning, peak, plateau, decline, return); Projection into the future (do I see myself with them in 10 years?); Nostalgia (I love who they were); Novelty (how much is still new between us); Monotony (the routine that erases).
+
+Time is not only a family; it is a force acting on all the others, and it acts hardest on Passion. The page on time shows what it does and what sustains.
+
+Where it comes from: Real duration; Nostalgia (I love who the person was, not who they are); Projection (I love who they will be); Habit.
+Aggressive expression: Marks dates, demands a future. Peaceful expression: Lets time pass without naming the phase.
+
+### 17. Reciprocity
+
+What I think comes back.
+
+Perception of being loved; Balance of effort (who chases more); Gratitude; Debt, guilt (I feel I owe them); Known asymmetry (I know they feel less; or more).
+
+Reciprocity is perception, not measurement: the Couple Test is where it is compared with what the other actually feels.
+
+Where it comes from: Real balance; Low self-esteem (they can't possibly like me); Expectation too high; Bookkeeping (I count what I give).
+Aggressive expression: Demands a return. Peaceful expression: Keeps score in silence.
+
+### 18. Shadows
+
+What makes up the bond with a negative sign.
+
+Hurt, accumulated resentment; Rivalry, competition; Fear (of rejection, of intimacy, of losing); Anger; Contempt (the most corrosive of Gottman's four horsemen); Boredom; Pity; Shame (of being with them; or of who I am near them).
+
+A profile without shadows is a greeting card, not a portrait. A real bond has hurt, fear and rivalry mixed in, and often that is what explains the rest. On the radar, Shadows are not one more point: they are the gray layer that darkens the others.
+
+Where it comes from: Unrepaired hurt; Rivalry (we compete); Fear (of losing, of rejection, of intimacy); Contempt; Boredom; Shame.
+Aggressive expression: Explosion, criticism. Peaceful expression: Coldness, silent contempt, shutting down.
+
+## From trait to behavior
+
+The scale answers how much. It still has to answer why and how. Two people with Possession 7 may be living opposite things, and each one's partner sees different behaviors.
+
+root → property → expression trait → behavior
+
+The root is where the value comes from (attachment, trauma, culture, belief, scarcity, projection). The expression trait is the personality filter that decides the form (aggressive or peaceful). The behavior is what the other sees. It is the only thing the other sees.
+
+- Equifinality: Different roots, same value. Possession 7 from fear and Possession 7 from feeling like an owner score the same on the scale.
+- Multifinality: Same root, different behaviors. The same fear of loss becomes a scene in an aggressive person and silent clinging in a peaceful one.
+- Cross-cutting roots: The moment and neediness. A closed person marks everything low for everyone; a needy person marks everything high. Neither is their pattern.
+
+### Model case: Possession and jealousy
+
+Does jealousy come from the idea of property or from the fear of losing and sharing? From both, and from five more roots, and each one produces a different jealousy. Jealousy is one name for at least seven mechanisms.
+
+- Property: Indignation, anger; Their autonomy: they did something without asking me. No rival needed; Obedience, rules; Forbid, fight, punish / Agreed rules, coldness, silent blackmail
+- Fear of loss: Panic, anticipated sadness; Absence, delay, any third party, even a hobby; Reassurance (tell me you won't leave); Demands, scenes, ultimatums / Clinging, messages, checking if they're online, erasing oneself
+- Comparison: Inferiority, shame; A specific rival with a quality I lack; Being chosen; eliminating the rival; Disdaining the rival, provoking, competing / Belittling oneself, testing (you'd rather have him, right?)
+- Scarcity: Resentment, lack; Time spent with friends, family, work, screens; More time and priority; Competing with the friends, demanding / Accumulated hurt, indirect demands, an it's fine that isn't
+- Betrayal trauma: Hypervigilance, alertness; The exact trigger from the past (same hour, same excuse); Proof it won't happen again; Interrogation / Searching in secret
+- Projection: Inverted guilt; One's own impulse; Relief from guilt by accusing; Accusation / Accusation phrased as a question
+- Cultural script: Performance; sometimes nothing; The other's lack of jealousy (don't you care?); Feeling loved; Staged scene / Hurt at not receiving jealousy
+
+Anger points to property; fear to loss; shame to comparison; resentment to scarcity. Property fires without a rival: the other's autonomy is enough. Fear of loss needs a threat, even an imagined one. Comparison needs a concrete rival. Scarcity needs divided time. What the person asks for after the crisis gives away the root: a rule, reassurance, praise, time, proof.
+
+## Who feels
+
+Every value passes through the filter of the person answering. The site explains the modulators here, measures the main ones in Self Discover and measures the state-based one in the thermometer before each scale.
+
+- Attachment style: Anxious raises Possession, Dependence and Passion; avoidant lowers Openness, Intimacy and declared Dependence; secure reads values closest to real.
+- Personality: Neuroticism raises Possession and Shadows; extraversion raises Compatibility and the need for contact; openness to experience raises tolerance for novelty and lowers tolerance for monotony. The basal sliders of Self Discover measure this.
+- Gender role: The script assigned to each gender decides who should provide, care, initiate, yield, protect and show emotion. It inflates or lowers Support, Protection and emotional Openness; men in the expected role mark lower outbound Openness.
+- Aggressiveness and peacefulness: Does not change how much is felt, changes how it comes out: the aggressive confronts, forbids, attacks the third party; the peaceful goes quiet, avoids conflict, stores hurt. It is the main expression trait.
+- Experiences and trauma: Past betrayal lowers Trust and raises Possession; abandonment raises Dependence; abuse confuses Affection with Fear.
+- Life moment: Grief, stress, moving, hormonal phase alter everything temporarily. That is why the portrait is dated.
+- Availability for connection: The state, not the trait: how traumatized or open the person is right now. Closed, it lowers Openness, Trust and Passion for everyone measured. The thermometer before each scale measures this.
+- Neediness: Hunger for a bond: not lack of contact (that is loneliness), lack of being cared for. Inflates Dependence, Passion, Investment and Possession; lowers standards. It is the opposite pole to closedness on the thermometer.
+- Culture and religion: Define what can be called love, what one is allowed to feel, what is shameful.
+- Reference models: How the parents loved (or didn't) becomes the mold of normal.
+- Self-esteem and self-love: Low self-love inflates Dependence and negative Reciprocity (they can't possibly like me). It is the bridge to Self Love.
+- Orientation and sexuality: Defines which sub-properties of Attraction exist for the person.
+- Relational values: Monogamy and non-monogamy change the reading of Possession and Exclusivity.
+- Neurodivergence: Changes the reading of signals, the need for predictability, the form of intimacy.
+
+## What time does
+
+Time is not only a property; it is a force acting on all the others, and it acts hardest on Passion. It is the part of love most people mistake for it's over.
+
+- Passion falls. The intense passion phase lasts 12 to 30 months in most studies. The brain habituates to the predictable; what fires dopamine is novelty.
+- Affection, Intimacy, Trust and Commitment rise, if the bond survives the fall. It is the passage from passionate to companionate love.
+- The wish to be together is a sum: Passion, Affection (comfort) and Compatibility of daily life. Monotony erodes all three in different ways: it takes the novelty out of Passion, turns comfort into boredom and reduces daily life to logistics: bills, children, schedules.
+- Possession and Dependence can rise out of habit even while Passion falls: that is staying together by inertia.
+
+- Shared novelty. Doing new things together. Couples who do new and exciting activities together report more satisfaction and more attraction than those who do pleasant but familiar ones (Aron, 2000). The ingredient is novelty, not pleasure.
+- Creativity and play. Humor, games, surprise. Inventing rituals instead of only repeating the existing ones.
+- Diversifying. Places, topics, people, roles. Learning something together, traveling, changing the scenery, swapping who decides.
+- Autonomy that feeds desire. Desire needs distance, mystery and seeing the other in their own world, shining away from you (Perel). Total fusion kills Passion; separate lives that meet keep it alive.
+- Rituals of reconnection. Small bids for attention answered, daily rituals, conversation that is not logistics (Gottman).
+- Intimate novelty. Sexual curiosity, repertoire, talking about desire.
+- What does not work: intermittence. Disappearing and coming back rekindles Passion through anxiety, not desire; it is addictive and erodes Trust. It is the toxic version of novelty.
+
+## Red flags and green flags
+
+Nobody measures eighteen properties before deciding whether to let someone in. We use shortcuts: quick signals, learned through experience, culture and biology, that predict whether a person is a threat or tends to work out. Heuristics are the fast layer of the theory; the scale is the slow one. The two fail in different ways.
+
+- [red] Speaks badly of every ex: character; when there was real abuse; then it is not a flag, it is an account
+- [green] Treats well those who can give them nothing: character; when it is a performance for an audience
+- [red] Looks at the other's phone: dynamic; when the two agreed on it
+- [green] Apologizes and changes: character; when they apologize and don't change: then it is red
+- [red] Isolates the person from their friends: dynamic; almost never false
+- [green] Celebrates the other's achievements without competing: character; rarely false
+- [red] Enormous intensity in the first week: dynamic; when both are at the same pace and say so
+- [green] Keeps long friendships: compatibility; when the friendships are of convenience
+- [red] Is never wrong: character; almost never false
+- [green] Says I don't know without shame: character; rarely false
+- [red] Promises and fails on the small things: character; in a moment of crisis or grief
+- [green] Remembers what you said in passing: dynamic; when they remember in order to use it later
+- [red] Makes you feel crazy for feeling what you feel: dynamic; almost never false
+- [green] Gives space without disappearing: dynamic; when the space is disinterest
+- [red] Decides for you to protect you: dynamic; in a real and immediate risk
+- [green] Disagrees with you without punishing or shutting down: dynamic; rarely false
+
+## Types of love
+
+A type is a region of the portrait space: a recognizable pattern of high and low properties. The site shows each type with its standard profile for you to compare with the portrait you generated. No type is a goal; Sternberg's consummate love, with everything high, is rare and unstable.
+
+- Eros (Greek): High Attraction and Passion. The love that pulls, of body and mind.
+- Philia (Greek): Friendship: high Compatibility, Trust and Openness, Attraction near zero, low Possession.
+- Storge (Greek): Family love: Affection, Commitment and long time. It needs neither admiration nor attraction.
+- Agape (Greek): High Support and Affection without expecting a return. The love that gives.
+- Ludus (Greek): Attraction and light company, zero Commitment. Love as a game.
+- Pragma (Greek): Commitment, Investment and Compatibility with low Passion. The love that chooses and builds.
+- Mania (Greek): High Passion, Possession and Dependence. The love that consumes.
+- Consummate love (Sternberg): High Intimacy, Passion and Commitment at the same time. Rare and unstable; time usually moves one of the three.
+- Companionate love (Sternberg, Hatfield): High Intimacy, Affection, Trust and Commitment with low Passion. The love of those who stayed.
+- Romantic love (Sternberg): High Intimacy and Passion with no decision about the future.
+- Infatuation (Sternberg): High Passion with no intimacy and no commitment. Limerence.
+- Empty love (Sternberg): High Commitment with the rest low. One stays by decision, by habit or by duty.
+- Fan love (parasocial): High Admiration, Passion and Investment, zero Reciprocity, imagined Intimacy.
+- Mentor and mentee (relationship): High Admiration with Support and Trust. No attraction, no possession.
+- Companion animal (relationship): Very high Affection, Support and Trust, zero Attraction. Full love by the model, without verbal reciprocity.
+- Residual love (relationship): High time and nostalgia, zero Commitment, shadows in between. What remains of an ex.
+- Liking (Sternberg): Some intimacy, little of the rest. The beginning of everything, or what never went past it.
+
+## Types of sexuality and attraction
+
+It is the most visible modulator and the worst explained. The scope here is what affects how one loves, not an identity guide.
+
+- Sexual orientation: Hetero, homo, bi, pan, asexual (a spectrum: gray-A, demisexual) and others. Defines which way sexual attraction points.
+- Romantic orientation, distinct from sexual: Aromantic, biromantic and others. Explains I love but don't desire and I desire but don't love without pathologizing.
+- Types of attraction: Sexual, romantic, sensual, aesthetic, platonic, intellectual. They are the sub-properties of the Attraction family.
+- Gender identity: Outside the scope as a guide: orientation is not identity. The Self Discover slider only measures where the person places themselves.
+- Gender role: The script society assigns to each gender within the bond: who provides, cares, initiates, yields, protects. Modulates Support, Protection and emotional Openness.
+- Libido and intensity: Vary between people and over time. Not a defect.
+- Kink, fetish, preferences: Consensual, common, a sub-property of Attraction, and not a separate chapter of the person.
+- Monogamy as orientation or as choice: Open debate. The site presents both sides and does not decide for you.
+- Fisher's three systems: Lust, romantic attraction and attachment can run separately, toward different people at the same time. It is the biological explanation for much of the confusion the Couple Test reveals.
+
+## What has already been said
+
+- Triangular Theory of Love, Sternberg (1986): The three-sided skeleton the Love Theory expands to eighteen.
+- Colors of Love, John Alan Lee (1973); Hendrick and Hendrick scale: The six styles as types.
+- Liking and Loving Scales, Zick Rubin (1970): The first psychometric love scale; separates liking from loving.
+- Passionate Love Scale, Hatfield and Sprecher (1986): Measures the Passion family.
+- Passionate and companionate love, Hatfield: Two poles of time.
+- Attachment Theory, Bowlby, Ainsworth; Hazan and Shaver (1987); ECR: The main modulator.
+- Investment Model, Rusbult (1980): Satisfaction, alternatives and investment produce commitment. Grounds Investment and Commitment.
+- Equity Theory, Walster, Hatfield: Grounds Reciprocity.
+- The three systems, Helen Fisher: Lust, attraction and attachment as separate circuits.
+- Limerence, Dorothy Tennov (1979): The shadow of Passion.
+- Evolutionary jealousy, David Buss: Why jealousy exists; the property root seen through biology. Sex differences contested.
+- Types of jealousy, White and Mullen (1989): Reactive, anxious, possessive: three roots of the model case.
+- Equifinality and multifinality, Cicchetti and Rogosch (1996): Different roots, same value; same root, different behaviors.
+- Aggression as a trait, Buss and Perry (1992): The main expression trait.
+- The Four Horsemen, John Gottman: Criticism, contempt, defensiveness, stonewalling: the Shadows of the relationship.
+- Heuristics and biases, Kahneman and Tversky: Why flags fail: halo, availability, representativeness.
+- The Art of Loving, Erich Fromm (1956): Love as action and skill: care, responsibility, respect, knowledge.
+- All About Love, bell hooks (2000): Love as a verb.
+- Self-compassion, Kristin Neff: Basis of Self Love.
+- Parasocial relationships, Horton and Wohl (1956); McCutcheon: Basis of fan love.
+- Types of friendship, Aristotle, Nicomachean Ethics: Utility, pleasure, virtue.
+- Kinsey Scale, Kinsey (1948): The orientation slider of Self Discover.
+- Klein Sexual Orientation Grid, Fritz Klein (1985): Orientation across several dimensions and over time.
+- Experiences in Close Relationships, Brennan, Clark and Shaver (1998): Anxiety and avoidance as two attachment sliders.
+- Self-expansion model, Aron et al. (2000): Shared novelty sustains Passion.
+- Hedonic adaptation, Brickman and Campbell (1971): Why Passion falls: the brain habituates.
+- Mating in Captivity, Esther Perel (2006): Desire needs distance and mystery.
+- Social network approval, Sprecher and Felmlee; Sinclair et al. (2014): What people say about us predicts duration; the Romeo and Juliet effect did not replicate.
+- Love languages, Gary Chapman: Popular; weak evidence (Impett et al., 2024).
+
+## Seven tools
+
+- The Love Theory: The content: what makes up a love, where each part comes from, what time does, the types of love and attraction, the shortcuts we use.
+- Love Scale: What I feel for this person, today. The same ruler for friendship, romance, family and fandom. With several portraits, the constellation shows what repeats.
+- Couple Test: What each of us feels, thinks the other feels, has agreed on, and assumes was agreed. And where those four layers don't match.
+- Limits: A hundred situations, thirteen groups, five answers. Find your limits and, with your partner, where the unspoken rules diverge.
+- Self Love: The same ruler pointed at myself. Without confusing self-love with narcissism.
+- Self Discover: Who I am as a person who loves and desires, in sliders, each marked with the position society presumes.
+- Stay or Go: Should I stay with this person? Red lines outside the balance; pros and cons with weights you set; the reasons for staying, of love or of prison.
+
+A test to weigh, not to decide for you. First the red lines, which do not enter the balance. Then what weighs in favor and what weighs against, each item with its score. At the end, a table where you set how much each thing weighs for you, and the reasons you stay, sorted into reasons of love and reasons of prison.
+
+Many of a relationship's rules were never said: each one assumes by default what is allowed and what isn't. And what is betrayal for one isn't for the other. Here you answer a hundred situations, alone, and find the map of your limits. Then you send the link to your partner, who answers without seeing yours; the crossing shows exactly where the limits diverge, from the least to the most controversial. That is what needs to be agreed, not deduced.
+
+## The site's terms, and the ones outside it
+
+- Property: What one feels for someone: a dimension of the bond, like Trust or Possession. The site has eighteen.
+- Sub-property: A nameable component of a property. Trust has honesty, loyalty, competence, predictability, emotional and physical safety.
+- Item: The concrete question that measures a sub-property on the scale.
+- Value: The measure of what is felt, from 0 to 10, at that moment. Zero is a legitimate value.
+- Weight: How much a property matters to you, separate from how much of it you feel. The difference between value and weight is one of the most revealing results.
+- Variability: How much a value or a position swings over time. The word is variability, not inconsistency: inconsistency judges, variability describes.
+- Profile: The set of one person's eighteen values for another.
+- Portrait: A dated profile. The test always produces a portrait, never a truth; that's why it's worth redoing.
+- Love type: A region of the portrait space: a recognizable pattern of high and low properties, like philia or storge. Never a goal.
+- Modulator: What, in the one who feels, distorts the value: attachment, personality, trauma, moment, neediness, gender role.
+- Shadow: A negative-sign property that is also part of the bond: hurt, rivalry, fear, contempt. On the radar, the gray layer.
+- Root: Where a value comes from. The same value can have different roots: Possession 7 from fear of loss or from feeling like an owner.
+- Expression trait: How a value shows on the outside. The same value comes out differently in an aggressive and in a peaceful person.
+- Mechanism: The whole chain: root, property, expression trait, behavior. Only the behavior is what the other sees.
+- Heuristic: The shortcut we use to predict whether it will work out: red flags and green flags.
+- Constellation: The overlay of three or more people's portraits: what repeats among those you keep close is a portrait of you.
+- Cut-off line: A Compatibility sub-property that is binary, not a scale: children, religion, where to live, what one eats.
+- Availability thermometer: Five items before the scale that measure how open or closed to connection the person is right now. It doesn't alter the values; it alters the reading.
+- Self map: The result of Self Discover: where you are on each slider, and where society presumes you.
+- Presumed (the left-hand rule): On every slider, the leftmost position is what society presumes of someone until proven otherwise. Not the right one nor the common one: the presumed one.
+- Equifinality: Different roots reach the same value. Possession 7 from fear and Possession 7 from property score the same.
+- Multifinality: The same root produces different behaviors. The same fear of loss becomes a scene in an aggressive person and silent clinging in a peaceful one.
+- Cross-cutting root: A root that distorts all values at once: the moment (closed to connection) and neediness (everything high).
+- Sources of value: Where the image you form of someone comes from: direct perception, expectation, positive and negative discoveries, reputation, approval of the circle.
+- Expectation (expected value): What you expected to feel or find before you knew the person. High expectation is the raw material of idealization.
+- Discovery: What raised or lowered the value over time. The distance between expected and felt is the story of the bond told in discoveries.
+- Reputation: What people say about the person. Weighs on Trust and Admiration before any evidence; the biggest source of borrowed flags.
+- Approval of the circle: What friends and family say about the bond. Predicts duration better than common sense admits; the Romeo and Juliet effect did not hold up.
+- Attraction: What pulls me toward the person: physical, charm, sexual, fetish, intellectual, chemistry, status, aesthetic.
+- Passion: How much the person occupies my mental space: frequency of thought, euphoria, idealization, urgency, fascination, obsession.
+- Admiration: What elevates me in the person: character, talent, achievements, style, courage, respect, pride, inspiration. You can love without admiring.
+- Affection: The warmth: tenderness, care, missing them, comfort in their presence, non-sexual touch, compassion.
+- Intimacy: How well we know each other: the stock of what is already known. Different from Openness, which is the channel open now.
+- Openness: The channel between us, in both directions: outbound (emotional openness, what I show) and inbound (receptivity, what I take in).
+- Emotional openness: The outbound side of the channel: how much of what I feel I say and show, including what I hide.
+- Emotional receptivity: The inbound side of the channel: how willing I am to receive what the other feels, without defending or minimizing.
+- Compatibility: How well our lives fit: values, practical life, intimate, daily life, project. Fit, not admiration.
+- Trust: How safe I feel: honesty, loyalty, competence, predictability, emotional and physical safety.
+- Support: What they do for me and I for them: emotional, practical, material, availability. Two directions, I give and I receive.
+- Protection: I place myself between them and what threatens them. The shadow is overprotection, which turns into control.
+- Investment: What I spend on them: time, money, energy, priority, opportunity cost, sacrifice.
+- Commitment: The decision to stay: intention, plans, agreed exclusivity, resistance to alternatives, duty, habit.
+- Possession: How much I want them to be mine: jealousy, desired exclusivity, control, fear of loss, comparison, territoriality.
+- Dependence: How much I need them: emotional, practical, social, identity, fusion. Possession is I want to have you; dependence is I can't manage without you.
+- Freedom: How much I remain myself inside the bond. The received side of the other's Possession; low, it is feeling trapped.
+- Time: The shape of the bond over time: duration, frequency, rhythm, phase, projection, nostalgia, novelty, monotony.
+- Reciprocity: What I think comes back: perception of being loved, balance of effort, gratitude, debt, known asymmetry.
+- Shadows: What makes up the bond with a negative sign: hurt, rivalry, fear, anger, contempt, boredom, pity, shame.
+- Novelty and monotony: How much is still new between us, and the routine that erases. It is what time does to Passion.
+- Attachment: The way someone bonds and reacts to distance and loss. A trait of the one who feels, not a value of the bond.
+- Secure attachment: Trusts, asks, lets go, comes back. Reads values closest to real.
+- Anxious attachment: Fears abandonment; raises Possession, Dependence and Passion; marks threat where there is none.
+- Avoidant attachment: Closes by default; lowers Openness, Intimacy and declared Dependence.
+- Disorganized attachment: Wants and fears at the same time; swings between anxious and avoidant. Common after abuse.
+- Big Five: The five major personality traits: openness to experience, conscientiousness, extraversion, agreeableness, neuroticism.
+- Neuroticism: The tendency to intense, swinging negative emotions. On the site, the Emotional reactivity slider.
+- Neediness: Hunger for a bond: not lack of contact, lack of being cared for. Inflates Dependence, Passion, Investment and Possession; lowers standards.
+- Loneliness: Lack of contact. Not neediness: you can be surrounded by people and needy, or alone and whole.
+- Availability for connection: The state, not the trait: how open or closed the person is right now to letting someone in.
+- Window of tolerance: The range in which a person can feel without shutting down or exploding (Siegel). Outside it, values come out distorted.
+- Gender role: The script society assigns to each gender within the bond: who provides, cares, initiates, yields, protects, shows emotion.
+- Aggressiveness and peacefulness: The main expression trait: the aggressive confronts, the peaceful goes quiet. Neither changes the value.
+- Assertiveness: The healthy point between the two: I say what I feel, without attacking and without going silent.
+- Property (root): Jealousy from feeling like an owner: fires at the other's autonomy, no rival needed; asks for obedience.
+- Fear of loss: Jealousy from anticipating abandonment: fires at absence and any third party; asks for reassurance.
+- Comparison: Jealousy from low self-worth: needs a concrete rival; asks to be chosen.
+- Scarcity: Jealousy from fear of sharing time and attention: fires at friends, work, screens; asks for priority.
+- Betrayal trauma: Hypervigilance to the exact trigger of an old betrayal, lived with someone else. Today's person pays for another.
+- Projection: Attributing one's own impulse to the other: accusing them of straying because you want to stray.
+- Cultural script: What culture teaches us to feel and to perform: jealousy as proof of love, for instance.
+- Jealousy and envy: Jealousy is triangular (me, them, a third party) and fears losing what it has. Envy is a pair (me and whoever has what I want).
+- Compersion: Feeling joy at a partner's joy with someone else. The inverse of jealousy.
+- Sunk cost: Continuing because you've invested too much to leave (Rusbult). The most common reason to stay and the one least tied to love.
+- Idealization: Seeing more than there is. Passion disguised as admiration; high expectation is the raw material.
+- Limerence: The state of obsession with someone, with euphoria, withdrawal and idealization (Tennov). The shadow of Passion; lasts 12 to 30 months.
+- Intermittence: Vanishing and coming back. Rekindles Passion through anxiety, not desire; addictive and erodes Trust. The toxic version of novelty.
+- Intermittent reinforcement: The mechanism behind intermittence: unpredictable reward holds more than constant reward.
+- Hedonic adaptation: The brain habituates to the predictable. That's why Passion falls.
+- Self-expansion: Doing new things together sustains attraction (Aron). The ingredient is novelty, not pleasure.
+- The four horsemen: Criticism, contempt, defensiveness and stonewalling: the four patterns that, for Gottman, best predict the end.
+- Stonewalling: Shutting down and no longer responding during conflict. The peaceful expression of anger.
+- Bids for attention: The small gestures that ask for a response through the day. Answering them is what, for Gottman, keeps the bond.
+- Halo effect: Reading charm, beauty, status and intensity as signs of character. The most expensive false green in love.
+- Red flag, green flag, beige flag: A sign of threat, a sign it tends to work out, and a sign that predicts nothing but is treated as if it did.
+- False red: Trauma paints neutral things red. The flag is in the reader, not in the person.
+- Love bombing: Enormous intensity in the first week: gifts, declarations, presence. High Passion with baseless Trust.
+- Gaslighting: Making someone doubt their own memory and perception. A form of manipulation; a red line in Stay or Go.
+- Emotional blackmail: Using guilt, fear or threat to get what one wants. Manipulation.
+- Ghosting: Disappearing without explanation. Intermittence taken to the end.
+- Breadcrumbing: Giving crumbs of attention to keep someone close without commitment. Intermittent reinforcement on purpose.
+- Orbiting: Leaving someone's life but keeping watch from afar, usually through social media.
+- Benching: Keeping someone on the bench: neither moving forward nor letting go, to keep the option.
+- Trauma bonding: The bond that forms with someone who alternates abuse and affection. Explains why leaving is so hard.
+- Codependency: Needing to be needed: organizing one's life around caring for someone who doesn't care for themselves. Two-way dependence.
+- Social capital: What a person is worth in the eyes of others: prestige, circle, success, recognized beauty. And how much of it they lend to whoever is with them.
+- Status: A person's place on the social ladder. A sub-property of Attraction and a root of Admiration; it weighs on almost everyone's attraction, to some degree.
+- Hypergamy: The tendency to choose someone higher on the social ladder. Described as a human trait, not as anyone's flaw.
+- Social proof: Finding someone attractive because others do. The value comes from the queue, not the person.
+- Trophy partner: The person chosen in part for what they say about the one who chose them. High Bond in public with Admiration through pride in being seen.
+- Borrowed importance: Feeling important for being with someone important. Usually comes with dependence on approval in Self Love.
+- Eros: High Attraction and Passion. The love that pulls.
+- Philia: Friendship: high Compatibility, Trust and Openness, Attraction near zero.
+- Storge: Family love: Affection, Commitment and long time, often without admiration and without choice.
+- Agape: High Support and Affection without expecting a return. The love that gives.
+- Ludus: Attraction and light company, zero Commitment. Love as a game.
+- Pragma: Commitment, Investment and Compatibility with low Passion. The love that chooses and builds.
+- Mania: High Passion, Possession and Dependence. The love that consumes.
+- Philautia: Self-love. The same ruler pointed inward: Self Love.
+- Xenia: Hospitality: affection toward the stranger.
+- Triangular theory: Intimacy, passion and commitment (Sternberg) generate eight types. The Love Theory is a higher-resolution version: eighteen properties.
+- Consummate love: High Intimacy, Passion and Commitment at the same time. Rare and unstable; time moves one of the three.
+- Companionate love: High Intimacy, Affection, Trust and Commitment with low Passion. The love of those who stayed.
+- Infatuation: High Passion with no intimacy and no commitment. Limerence.
+- Empty love: High Commitment with the rest low. One stays by decision, habit or duty.
+- Parasocial love: Fan love: high Admiration, Passion and Investment, zero Reciprocity, imagined intimacy (Horton and Wohl).
+- Platonic: Intimacy and Commitment without romantic or sexual attraction.
+- Queerplatonic: A bond stronger and more committed than ordinary friendship, without being romantic. Born in the aromantic community.
+- Residual love: What remains of an ex: high time and nostalgia, zero Commitment, shadows in between.
+- Monogamy: Agreed and, in general, desired exclusivity.
+- Monogamish: Not quite traditional monogamy: tends toward closed relationships, with some agreed flexibility. The term is Dan Savage's.
+- Ethical non-monogamy: Any structure without exclusivity where everyone knows and agrees: open relationship, polyamory, relationship anarchy.
+- Open relationship: A couple that admits other bonds, usually sexual, with agreed rules.
+- Polyamory: More than one loving bond at the same time, with everyone's knowledge.
+- Relationship anarchy: No prior hierarchy between bonds: each relationship defines its own rules.
+- Metamour: Your partner's partner, with whom you have no direct bond.
+- Polycule: The network of people linked by polyamorous bonds.
+- NRE (new relationship energy): The euphoria at the start of a bond, named by the polyamorous community. Passion before time acts.
+- Situationship: A bond with no name and no agreement: Commitment undefined by choice. The assumed layer tends to diverge.
+- Friends with benefits: Friendship with sex and no agreed romantic commitment.
+- Talking stage: The phase before the bond, when the two get to know each other with nothing agreed.
+- Companion animal love: Very high Affection, Support and Trust, zero Attraction, one-sided Openness. Full love by the model.
+- Sexual orientation: Which way sexual attraction points: hetero, homo, bi, pan, asexual and others.
+- Romantic orientation: Which way romantic attraction points, separate from the sexual one: aromantic, biromantic and others.
+- Split attraction model: The idea that sexual and romantic attraction are separate axes. Explains I love but don't desire and I desire but don't love.
+- Bisexual: Attraction to more than one gender.
+- Pansexual: Attraction in which gender is not a criterion. On the site, a marker apart from the slider, not a point on it.
+- Omnisexual: Attraction to all genders, with gender still noticed. Close to pan.
+- Asexual: Little or no sexual attraction. A spectrum, not a box.
+- Gray-A: The gray zone of the asexual spectrum: rare or weak sexual attraction.
+- Demisexual: Sexual attraction only after an emotional bond.
+- Aromantic: Little or no romantic attraction. Aromantic people love friends, family, animals.
+- Aroace: Aromantic and asexual.
+- Types of attraction: Sexual, romantic, sensual, aesthetic, platonic, intellectual. They are the sub-properties of the Attraction family.
+- Sapiosexual: Attraction above all to intelligence. The intellectual sub-property of Attraction as the main criterion.
+- Libido: How much sexual desire the person feels, in general. Varies with time, health and phase; not a defect.
+- Kink and fetish: Practices and preferences outside the common sexual script. Consensual, common, a sub-property of Attraction.
+- Vanilla: The common sexual script, without kink. The presumed standard of the sexual openness slider.
+- Gender identity: Which gender the person identifies with: cis, trans, non-binary, fluid. Not orientation and not expression.
+- Cisgender: Someone who identifies with the gender assigned at birth.
+- Transgender: Someone who identifies with a gender different from the one assigned at birth.
+- Non-binary: Someone who doesn't identify only as a man or only as a woman: outside the two, or between them.
+- Genderfluid: An identity that moves over time. On the site, the slider's variability, not a position.
+- Gender expression: How the person presents: clothes, voice, gesture. Separate from identity and role.
+- Kinsey scale: The 1948 scale from 0 (hetero) to 6 (homo). The site's orientation slider is that scale in five positions.
+- Fisher's three systems: Lust, romantic attraction and attachment as separate brain circuits, which can point to different people at the same time.
+- Love languages: Words, time, gifts, acts, touch (Chapman). Weak evidence as a theory; useful as a preference for giving and receiving.
+- Red line: What does not enter the balance: violence, threats, coercion, betrayal, compulsive lying, manipulation, control, humiliation. Reasons in themselves.
+- Balance: Pros and cons, each with a score and a weight, as a percentage on each side. Never a verdict.
+- Score and weight: The score is what you feel; the weight is how much it matters to you. The balance recalculates when the weight changes.
+- Reasons of love: Love, affection and history, growing together.
+- Reasons of prison: Habit, fear of being alone, duty, money, sunk cost, hope of change, fear of what people will say, not knowing who I would be.
+- Reasons of responsibility: Children. Legitimate, and neither love nor prison.
+- Repair: What happens after the break: naming, acknowledging, changing. A single betrayal only resolves with real repair, accepted by both.
+- Sexual coercion: Pressuring, insisting after a no, treating sex as an obligation. A red line from the first time.
+- Coercive control: Controlling money, phone, clothes, whom one talks to; isolating from friends and family. A red line.
+- Manipulation: Making the other doubt themselves, emotional blackmail, guilt as a weapon. A red line.

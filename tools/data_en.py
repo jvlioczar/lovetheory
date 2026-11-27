@@ -1425,3 +1425,40 @@ _A["compatibilidade"]["animal"] = dict(quick="Life with {nome} fits mine: rhythm
     deep=["The routine of {nome} fits my life.", "I have the space, the time and the resources {nome} needs.", "Being with {nome} is light: it takes no effort."])
 _A["reciprocidade"]["animal"] = dict(quick="What I feel for {nome} comes back: I feel cared for by them, in their own way.",
     deep=["I feel that {nome} cares for me, in their own way.", "What I give {nome} and what I receive seem balanced.", "I don't feel that {nome} owes me anything, nor that I owe them."])
+
+# ---------------------------------------------------------------------------
+# Technical review (2026-11-27): privacy, accessibility, short descriptions
+# ---------------------------------------------------------------------------
+PATHS["privacy"] = "privacy.html"
+DESCRIPTION = "A map of how we love: 18 properties of love, tests to measure what you feel, as a pair and for yourself, and a glossary. Everything stays on your device."
+PAGES["time"]["desc"] = "Why passion falls over time, what rises in its place and what sustains the wish to be together."
+PAGES["about_page"]["kicker"] = "The Love Theory"
+PAGES["about_page"]["privacy_short"] = "Nothing you answer leaves your device: there is no account, no server that receives answers, no cookies."
+PAGES["about_page"]["privacy_more"] = "Read the full privacy policy"
+PAGES.update(skip="Skip to content", home_aria="The Love Theory, home", lang_aria="Ler em português", copyright="© 2026 BiblioVerse",
+             og_alt="The Love Theory: look at who you keep close. That's you standing there.", theory_pages="Theory pages",
+             mech_chain_title="The chain", sex_items_title="Terms and concepts", nf_desc="Page not found.", privacy_link="Privacy")
+PRIVACY = dict(
+    kicker="Privacy", title="Privacy policy",
+    lead="The Love Theory does not collect, store or receive your answers. This page says, precisely, what happens to each piece of data.",
+    sections=[
+        ("What you answer", ["Everything you answer in the tools (Love Scale, portraits, Couple Test, Limits, Self Love, Self Discover, Stay or Go, My flags) is processed in your browser and stored in your device's local storage. None of it is sent to a server of ours, because we have no server that receives answers.",
+                             "These answers may include sensitive data, such as sexual orientation, sex life and relationship details. That is exactly why the site was built never to receive them."], []),
+        ("The Couple Test and Limits links", ["To compare answers as a pair, the site puts the answers inside the link itself, after the # sign. That part of the address is not sent to the server when the page opens.",
+                                              "Whoever has the link has the answers. Send it only to the right person, and remember that messaging apps keep the links you send."], []),
+        ("How to delete", ["Use the delete button in My portraits, or clear this site's data in your browser settings. There is no copy on our side to delete."], []),
+        ("What the page loads from third parties", ["Hosting: the site is served by GitHub Pages, which, like any server, logs the IP address of visitors, for security and operation.",
+                                                    "Fonts: the fonts come from Google Fonts; when the page opens, your browser requests the fonts from Google, which receives your IP address.",
+                                                    "BiblioVerse bar: the bar at the top is loaded from biblioverse.org, another site of the same initiative, and collects no personal data."],
+         [("GitHub privacy", "https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement"), ("Google Fonts privacy", "https://developers.google.com/fonts/faq/privacy")]),
+        ("Statistics", ["@analytics"], []),
+        ("Cookies", ["The site uses no cookies."], []),
+        ("Who it is for", ["The content is about relationships and sexuality and was made for adults.",
+                           "The site is not diagnosis, therapy or professional advice. In situations of violence or risk, use the help lines listed in Stay or Go or your country's emergency services."], []),
+        ("Who we are and changes", ["The Love Theory is a BiblioVerse project. If this policy changes, the date below changes with it."], [("BiblioVerse", "https://biblioverse.org")]),
+    ],
+    analytics_on="The site uses Cloudflare Web Analytics, which counts visits without cookies, without identifying people and without tracking you across sites.",
+    analytics_off="The site uses no visit analytics tool.",
+    updated="Updated on 27 November 2026.",
+    desc="What happens to each piece of data on The Love Theory: answers stay on your device, with no account, no server and no cookies.",
+)
