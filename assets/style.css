@@ -79,7 +79,7 @@ img, svg { max-width: 100%; }
 .section { padding: clamp(36px, 5vw, 64px) 0 0; }
 .section:last-of-type { padding-bottom: clamp(36px, 5vw, 64px); }
 .lead { font-size: clamp(17px, 1.5vw, 20px); color: var(--ink-2); max-width: 62ch; }
-.page-hero { padding: clamp(28px, 4vw, 48px) 0 10px; }
+.page-hero { padding-top: clamp(28px, 4vw, 48px); padding-bottom: 10px; }
 .page-hero .kicker { font-size: 26px; }
 .page-hero h1 { max-width: 20ch; }
 .grid { display: grid; gap: 18px; }

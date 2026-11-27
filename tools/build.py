@@ -9,7 +9,7 @@ import data_en, data_pt
 
 SITE = "https://lovetheory.biblioverse.org"
 HOST = "lovetheory.biblioverse.org"
-CF_TOKEN = ""  # token do Cloudflare Web Analytics; vazio = sem beacon
+CF_TOKEN = "a301fcc083604a61ab8be15f203bed7c"  # Cloudflare Web Analytics (conta 2, Gdayjulio); vazio = sem beacon
 CF_SNIPPET = ("<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' "
               "data-cf-beacon='{\"token\": \"%s\"}'></script><!-- End Cloudflare Web Analytics -->" % CF_TOKEN) if CF_TOKEN else ""
 BUILT = datetime.date.today().isoformat()
@@ -432,7 +432,7 @@ def build_root():
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>404 · The Love Theory</title>
 <meta name="description" content="{e(data_en.PAGES['nf_desc'])}"><meta name="robots" content="noindex"><link rel="icon" href="/favicon.ico" sizes="32x32"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link href="{FONTS}" rel="stylesheet"><link rel="stylesheet" href="/assets/style.min.css?v={BUILT}"></head>
 <body><main id="main" class="wrap" style="padding:80px 20px"><p class="eyebrow">404</p><h1>{e(nf_en["title"])}</h1><p class="lead">{e(nf_en["lead"])} <span lang="pt-BR">{e(nf_pt["title"])} {e(nf_pt["lead"])}</span></p>
-<p class="row"><a class="btn" href="/">{e(nf_en["cta"])}</a> <a class="btn ghost" href="/pt/" lang="pt-BR">{e(nf_pt["cta"])}</a> <a class="btn ghost" href="/glossary.html">{e(data_en.PAGES["glossary_link"])}</a> <a class="btn ghost" href="/pt/glossario.html" lang="pt-BR">{e(data_pt.PAGES["glossary_link"])}</a></p></main></body></html>
+<p class="row"><a class="btn" href="/">{e(nf_en["cta"])}</a> <a class="btn ghost" href="/pt/" lang="pt-BR">{e(nf_pt["cta"])}</a> <a class="btn ghost" href="/glossary.html">{e(data_en.PAGES["glossary_link"])}</a> <a class="btn ghost" href="/pt/glossario.html" lang="pt-BR">{e(data_pt.PAGES["glossary_link"])}</a></p></main>{CF_SNIPPET}</body></html>
 """)
     write("favicon.svg", '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#d8408f"/><path fill="#fff" d="M32 50.8l-3.5-3.2C19.4 39.4 13.3 33.9 13.3 27.2c0-5.5 4.3-9.8 9.8-9.8 3.1 0 6.1 1.4 8.9 4.3 2.8-2.9 5.8-4.3 8.9-4.3 5.5 0 9.8 4.3 9.8 9.8 0 6.7-6.1 12.2-15.2 20.4L32 50.8z"/></svg>')
     write("CNAME", HOST + "\n")
