@@ -16,6 +16,9 @@ BUILT = datetime.date.today().isoformat()
 FONTS = "https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=DynaPuff:wght@700&family=DM+Sans:wght@400;600;700&display=swap"
 ORG = {"@type": "Organization", "@id": "https://biblioverse.org/#organization", "name": "BiblioVerse", "url": "https://biblioverse.org"}
 LANGS = [("en", data_en, ""), ("pt", data_pt, "pt/")]
+# fecha o grupo aberto do menu ao clicar fora ou apertar Esc (o menu existe em todas as páginas, com ou sem app.js)
+NAV_JS = ('<script>(function(){function c(t){document.querySelectorAll(".menu details[open]").forEach(function(d){if(!t||!d.contains(t))d.open=false})}'
+          'document.addEventListener("click",function(e){c(e.target)});document.addEventListener("keydown",function(e){if(e.key==="Escape")c()})})();</script>\n')
 LIST_KEYS = ("spark", "lovelist", "sexlist")   # as três ferramentas de lista (app.js: lists)
 
 try:
@@ -78,7 +81,13 @@ class Site:
         other_url = f"{SITE}/{self.other_prefix}" + ("" if op == "index.html" else op)
         en_url, pt_url = (url, other_url) if self.code == "en" else (other_url, url)
         other_hl = "pt-BR" if self.code == "en" else "en"
-        nav = "".join(f'<a href="{self.href(k)}"{" class=on aria-current=page" if k == active else ""}>{e(t)}</a>' for k, t in D.NAV)
+        grouped = [k for _, ks in D.NAV_GROUPS for k in ks]
+        assert sorted(grouped + ["home", "theory"]) == sorted(k for k, _ in D.NAV), "NAV e NAV_GROUPS precisam cobrir as mesmas chaves"
+        full = {k: v[0] for k, v in PG["tools"].items()}
+        link = lambda k, t: f'<a href="{self.href(k)}"{" class=on aria-current=page" if k == active else ""}>{e(t)}</a>'
+        nav = "".join(link(k, t) for k, t in D.NAV if k not in grouped)
+        for label, ks in D.NAV_GROUPS:
+            nav += f'<details name="nav"{" class=on" if active in ks else ""}><summary>{e(label)}</summary><div class="sub">{"".join(link(k, full[k]) for k in ks)}</div></details>'
         home = f"{SITE}/{self.prefix}"
         crumbs = [(dict(D.NAV)["home"], home)]
         if active == "theory" and path != P["theory"]:
@@ -151,7 +160,7 @@ class Site:
 {body}
 </main>
 <footer class="foot"><div class="wrap"><p class="script">{e(PG['footer'])}</p><p><a href="{P['glossary']}">{e(PG['glossary_link'])}</a> · <a href="{P['about']}">{e(PG['about'])}</a> · <a href="{P['privacy']}">{e(PG['privacy_link'])}</a> · <a href="https://biblioverse.org">BiblioVerse</a> · <small>{e(PG['copyright'])}</small></p></div></footer>
-{CF_SNIPPET}
+{NAV_JS}{CF_SNIPPET}
 </body>
 </html>
 """
@@ -188,7 +197,11 @@ class Site:
     # ------------------------------------------------------------ pages
     def build_home(self):
         D, P, PG, H = self.D, self.P, self.D.PAGES, self.D.HOME
-        tools = "".join(f'<a class="petal" href="{P[t["key"]]}"><span class="k">{e(t["kicker"])}</span><h3>{e(t["name"])}</h3><p>{e(t["text"])}</p><span class="go">{e(PG["open"])}</span></a>' for t in D.TOOLS)
+        byk = {t["key"]: t for t in D.TOOLS}
+        petal = lambda t: f'<a class="petal" href="{P[t["key"]]}"><span class="k">{e(t["kicker"])}</span><h3>{e(t["name"])}</h3><p>{e(t["text"])}</p><span class="go">{e(PG["open"])}</span></a>'
+        tgroups = [(PG["theory_group"], ["theory"])] + [(label, [k for k in ks if k in byk]) for label, ks in D.NAV_GROUPS]
+        assert sorted(k for _, ks in tgroups for k in ks) == sorted(byk), "toda ferramenta da home precisa estar num grupo"
+        tools = "".join(f'<h3 class="petal-group">{e(label)}</h3><div class="petals">{"".join(petal(byk[k]) for k in ks)}</div>' for label, ks in tgroups)
         body = f'''<section class="collage">
 <div class="win hero-win tilt-l"><div class="win-bar"><i></i><i></i><i></i><span>{e(PG["studio"])}</span></div><div class="win-body">
 <p class="kicker">{e(H["kicker"])}</p><h1>{e(H["title"])}</h1><p class="sub">{e(H["title2"])}</p><p class="lead">{e(H["lead"])}</p>
@@ -196,7 +209,7 @@ class Site:
 <div class="frame-card tx-stitch tilt-r"><span class="tape r"></span><div class="oval">{FLOWER}</div><p class="cap">{e(PG["oval_caption"])}</p></div>
 <div class="lace-card tx-lace tilt-l"><span class="tape"></span><div class="in"><h2>{e(H["privacy"].split(".")[0])}</h2><p>{e(H["privacy"])} <a href="{P['privacy']}">{e(PG['privacy_link'])} →</a></p><p class="adult-note"><span class="tag adult">{e(PG['adult_tag'])}</span> {e(H['adult'])}</p></div></div>
 </section>'''
-        body += self.section(PG["tools_title"], f'<div class="petals">{tools}</div>')
+        body += self.section(PG["tools_title"], tools)
         body += self.section(H["independence_title"], f'<div class="card big pink"><p class="lead" style="margin:0;max-width:none">{e(H["independence"])}</p></div>')
         self.out("index.html", self.page("index.html", PG["home_title"], D.DESCRIPTION, body, "home"))
 
@@ -327,6 +340,13 @@ class Site:
         name, desc, _, _ = TL["limits"]
         self.out(P["limits"], self.page(P["limits"], name, desc, self.page_hero(D.LIMITS["kicker"], D.LIMITS["title"], D.LIMITS["lead"]) + self.tool_shell("limits"), "limits", ld_extra=self.app_ld("limits", name, desc)))
         PG = D.PAGES
+        M = D.MYTHS
+        name, desc, seo, _ = TL["myths"]
+        how = self.section(PG["lists_how"], self.cards([(f"{i+1}.", a, t) for i, (a, t) in enumerate(M["how"])], "g3"))
+        cards = "".join(f'<div class="card"><p class="num">{e(M["t"]["count"].replace("{n}", str(len(t["items"]))))}</p><h3>{e(t["title"])}</h3><p class="small">{e(t["lead"])}</p></div>' for t in M["themes"])
+        notes = '<div class="card big soft" style="margin-top:18px"><ul style="margin:0">' + "".join(f"<li>{e(t)}</li>" for t in M["notes"]) + "</ul></div>"
+        body = self.page_hero(M["kicker"], M["title"], M["lead"]) + self.tool_shell("myths") + how + self.section(PG["lists_inside"], f'<div class="grid g3">{cards}</div>' + notes)
+        self.out(P["myths"], self.page(P["myths"], seo, desc, body, "myths", ld_extra=self.app_ld("myths", name, desc, features=[t["title"] for t in M["themes"]])))
         for key in LIST_KEYS:
             name, desc, seo, _ = TL[key]
             L = D.LISTS[key]
@@ -384,7 +404,7 @@ class Site:
         data = dict(lang=D.LANG, host=HOST, paths=D.PATHS, ui=D.UI, props=props, thermo=D.THERMO, relations=D.RELATIONS, types=D.TYPES,
                     portraitFlags=D.PORTRAIT_FLAGS, rootNotes=D.ROOT_NOTES, flags=[{k: f[k] for k in ("sign", "text", "props", "kind")} for f in D.FLAGS],
                     sliders=D.SLIDERS, sliderGroups=D.SLIDER_GROUPS, sliderKeys=slider_keys, tastes=D.TASTES, expectQ=D.EXPECT_Q, expectOpts=D.EXPECT_OPTS,
-                    weightQ=D.WEIGHT_Q, stay=D.STAY, loveLangs=D.LOVE_LANGS, limits=D.LIMITS, lists=D.LISTS)
+                    weightQ=D.WEIGHT_Q, stay=D.STAY, loveLangs=D.LOVE_LANGS, limits=D.LIMITS, lists=D.LISTS, myths=D.MYTHS)
         write(f"assets/data-{self.code}.js", "window.LT=" + json.dumps(data, ensure_ascii=False, separators=(",", ":")) + ";")
 
     def pages(self):
@@ -439,6 +459,10 @@ class Site:
             for s in Ls["sections"]:
                 L += [f"#### {s['title']}", "", s["lead"], ""]
                 L += [f"- {g['title']} ({len(g['items'])})" + ("" if s["adult"] else ": " + " ".join(g["items"])) for g in s["groups"]] + [""]
+        M = D.MYTHS
+        L += [f"## {M['kicker']}", "", M["lead"], ""] + [f"- {t}" for t in M["notes"]] + [""]
+        for th in M["themes"]:
+            L += [f"### {th['title']}", "", th["lead"], ""] + [f"- {s} {M['t']['is_true'] if ok else M['t']['is_myth']} {x}" for s, ok, x in th["items"]] + [""]
         L += [f"## {PG['glossary']['title']}", ""] + [f"- {t}: {d}" for _, t, d, _ in D.GLOSSARY] + [""]
         return "\n".join(L)
 
