@@ -1,7 +1,7 @@
 /* The Love Theory — estética de scrapbook: papel, renda, ponto-cruz, tricô, janelas de app retrô, títulos manuscritos. Tudo em CSS. */
 :root {
   --paper: #f7efe7; --paper-2: #fbf6f1; --ink: #2a1d2c; --ink-2: #5b4a5e; --ink-3: #65536a;
-  --pink: #f3b4cc; --pink-2: #f8d2e0; --pink-deep: #d8408f; --magenta: #b8236f;
+  --pink: #f3b4cc; --pink-2: #f8d2e0; --pink-deep: #d8408f; --magenta: #b8236f; --magenta-d: #9c1c5e;
   --lilac: #cdb9e6; --lilac-2: #e4d8f2; --blue: #9fb0d4; --blue-2: #c7d2e8; --olive: #6d7f4c; --olive-2: #8a9a69; --cream: #fff7ee;
   --line: var(--ink); --shadow: 4px 4px 0 var(--ink);
   --r: 14px; --gut: 20px; --max: 1140px; --bvbar-h: 0px;
@@ -57,11 +57,12 @@ img, svg { max-width: 100%; }
 .win-bar { display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: var(--lilac); border-bottom: 1.5px solid var(--ink); font-family: var(--sans); font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
 .win-bar i { width: 10px; height: 10px; border-radius: 50%; border: 1.5px solid var(--ink); background: #fff; }
 .win-bar i:nth-child(2) { background: var(--pink); } .win-bar i:nth-child(3) { background: var(--blue); }
-.win-bar span { margin-left: auto; opacity: .7; }
+.win-bar span { margin-left: auto; }
 .win-body { padding: clamp(22px, 3.5vw, 40px) clamp(20px, 3.5vw, 40px); }
 .hero-win { grid-row: 1 / span 2; }
 .hero-win h1 { font-family: var(--script); font-weight: 700; font-size: clamp(46px, 6.8vw, 92px); line-height: .95; margin: 6px 0 10px; color: var(--ink); }
-.hero-win .sub { font-family: var(--serif); font-style: normal; font-size: clamp(22px, 2.6vw, 34px); color: var(--magenta); margin: 0 0 18px; }
+.hero-win .kicker { color: var(--magenta-d); }
+.hero-win .sub { font-family: var(--serif); font-style: normal; font-size: clamp(22px, 2.6vw, 34px); color: var(--magenta-d); margin: 0 0 18px; }
 .hero-win .lead { font-size: clamp(16px, 1.4vw, 18px); max-width: 56ch; color: var(--ink-2); }
 .kicker { font-family: var(--script); font-weight: 700; font-size: 22px; color: var(--magenta); margin-bottom: 4px; }
 .frame-card { border: 1.5px solid var(--ink); border-radius: 12px; box-shadow: var(--shadow); padding: 22px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; min-height: 260px; color: #fff; text-align: center; }

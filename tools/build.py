@@ -142,7 +142,7 @@ class Site:
 </head>
 <body>
 <a class="skip" href="#main">{e(PG['skip'])}</a>
-<nav id="bvbar" class="bvbar" data-current="lovetheory" data-bg="#2a1d2c" data-fg="#ffffff" data-accent="#f3b4cc" aria-label="BiblioVerse" style="position:fixed;top:0;left:0;right:0;height:36px;z-index:9000;background:#2a1d2c"><a href="https://biblioverse.org" style="color:#fff;line-height:36px;padding:0 14px;font-weight:700;text-decoration:none">BiblioVerse</a></nav>
+<nav id="bvbar" class="bvbar" data-current="lovetheory" data-bg="#2a1d2c" data-fg="#ffffff" data-accent="#b8236f" aria-label="BiblioVerse" style="position:fixed;top:0;left:0;right:0;height:36px;z-index:9000;background:#2a1d2c"><a href="https://biblioverse.org" style="color:#fff;line-height:36px;padding:0 14px;font-weight:700;text-decoration:none">BiblioVerse</a></nav>
 <header class="nav"><div class="wrap"><a class="logo" href="./" aria-label="{e(PG['home_aria'])}"><span class="mark">{LOGO}</span><span class="t">{D.SITE_NAME}</span></a><nav class="menu" aria-label="{e(PG['nav_aria'])}">{nav}<a class="lang" href="/{self.other_prefix}{'' if op == 'index.html' else op}" hreflang="{other_hl}" lang="{other_hl}" aria-label="{e(PG['lang_aria'])}">{e(D.SWITCH_LABEL)}</a></nav></div></header>
 <main id="main" tabindex="-1">
 {body}
@@ -448,7 +448,7 @@ def build_root():
                          {"src": "/icon-192.png", "sizes": "192x192", "type": "image/png"},
                          {"src": "/icon-512.png", "sizes": "512x512", "type": "image/png"},
                          {"src": "/icon-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}]},
-              open(os.path.join(ROOT, "site.webmanifest"), "w", encoding="utf-8"), indent=1, ensure_ascii=False)
+              open(os.path.join(ROOT, "site.webmanifest"), "w", encoding="utf-8", newline=chr(10)), indent=1, ensure_ascii=False)
 
 
 def build_sitemap(sites):
