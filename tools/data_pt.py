@@ -1994,7 +1994,7 @@ GLOSSARY += [
     ("sexualidade", "Voyeurismo e exibicionismo", "O prazer de assistir e o prazer de ser assistido. Entre adultos que consentem é uma preferência; com quem não consentiu é violação.", "sexlist"),
     ("sexualidade", "Pegging", "Inversão de papéis na penetração: quem costuma ser penetrado penetra o par, com cinta ou brinquedo.", "sexlist"),
     ("sexualidade", "Edging", "Chegar perto do orgasmo e recuar, várias vezes, para prolongar e intensificar.", "sexlist"),
-    ("mecanismos", "Novidade compartilhada", "O que a rotina gasta e a Paixão pede. No modelo de autoexpansão de Aron, fazer juntos coisas novas e desafiadoras sustenta a Paixão ao longo do tempo.", "spark"),
+    ("mecanismos", "Novidade compartilhada", "O que a rotina gasta e a Paixão pede. Nos experimentos de Aron (2000), casais que fizeram juntos atividades novas e empolgantes relataram melhora na qualidade da relação; o modelo de autoexpansão propõe que isso combate o tédio.", "spark"),
 ]
 
 # ---------------------------------------------------------------------------
@@ -2013,7 +2013,7 @@ PAGES["tools_title"] = "Onze ferramentas"
 PAGES["tools"]["myths"] = ("Mitologia Sexual", "Teste de educação sexual: mito ou verdade sobre consentimento, assédio, pressão, prazer, corpo, prevenção e traição. Cada resposta vem com a explicação.", "Mitologia Sexual: teste de educação sexual", None)
 
 MYTHS = dict(
-    v=2, kicker="Mitologia Sexual", title="O que você sabe mesmo sobre sexo?",
+    v=3, kicker="Mitologia Sexual", title="O que você sabe mesmo sobre sexo?",
     lead=("Quase ninguém teve educação sexual de verdade. Aprendemos com amigos, com o pornô e com o improviso, e o que sobra é uma mitologia: ideias que todo mundo repete e que estão erradas. "
           "Aqui estão {n} afirmações em onze temas. Para cada uma, você diz se é mito ou verdade, e a explicação aparece na hora. "
           "O ponto de vista é declarado: liberdade sexual, sim, e com responsabilidade. Sem consentimento, sem conversa e sem cuidar de quem está com você, não é liberdade."),
@@ -2040,7 +2040,7 @@ MYTHS = dict(
             ("Um sim dado por medo, por insistência ou só para a pessoa parar de pedir não é consentimento.", 1, "Consentimento precisa ser livre. Um sim arrancado é obediência, não vontade."),
             ("Só existe violência sexual quando há força física.", 0, "Ameaça, chantagem, abuso de autoridade e aproveitar-se de quem não tem condições de decidir também são violência sexual, mesmo sem um empurrão."),
             ("Homens também podem ser vítimas de violência sexual.", 1, "Podem, de qualquer agressor, e costumam denunciar menos por vergonha e por medo de não serem levados a sério."),
-            ("Ereção ou lubrificação provam que a pessoa quis.", 0, "São respostas automáticas do corpo, que podem acontecer sem desejo e até com medo. Os pesquisadores chamam isso de não concordância da excitação. Corpo não consente; pessoa consente."),
+            ("Ereção ou lubrificação provam que a pessoa quis.", 0, "São respostas automáticas do corpo, que podem acontecer sem desejo e até durante uma violência. Os pesquisadores chamam isso de não concordância da excitação. Corpo não consente; pessoa consente."),
         ]),
         dict(id="importunacao", title="Importunação e assédio", lead="O que se faz com o corpo e o espaço de quem não pediu.", items=[
             ("Passar a mão em alguém numa festa, sem a pessoa querer, é brincadeira.", 0, "É tocar sem consentimento. No Brasil é crime de importunação sexual desde 2018, e é crime em muitos outros países."),
@@ -2049,7 +2049,7 @@ MYTHS = dict(
             ("Segurar alguém pelo braço para a pessoa não ir embora da conversa é só insistência de quem está interessado.", 0, "Segurar à força é intimidação. Quem quer ir embora tem de poder ir, sem precisar se soltar de ninguém."),
             ("Cantada de desconhecido na rua é elogio, e quem recebe deveria agradecer.", 0, "Para quem recebe, costuma ser constrangimento ou medo, não elogio. Ninguém pediu a opinião de um estranho sobre o próprio corpo."),
             ("Mandar foto íntima para quem não pediu é uma forma de assédio.", 1, "É impor conteúdo sexual a quem não consentiu em ver. Alguns países já tratam isso como crime."),
-            ("Chefe ou professor que condiciona emprego, nota ou promoção a favores sexuais comete assédio sexual.", 1, "É o uso do poder para obter sexo. No Brasil, é o crime de assédio sexual."),
+            ("Chefe ou professor que condiciona emprego, nota ou promoção a favores sexuais comete assédio sexual.", 1, "É o uso do poder para obter sexo. No Brasil, é o crime de assédio sexual, que os tribunais já aplicaram também a professor e aluno."),
             ("Continuar procurando a pessoa depois de ela dizer que não tem interesse é persistência, e persistência conquista.", 0, "Depois do não, insistir é desrespeito. Repetido, pode virar perseguição, que é crime no Brasil desde 2021."),
             ("Comentários sobre o corpo de colegas de trabalho, mesmo em tom de elogio, podem ser assédio.", 1, "No trabalho ninguém escolheu ser avaliado pelo corpo. O que conta é o efeito sobre quem ouve, não a intenção de quem fala."),
             ("Demonstrar interesse com respeito, uma vez, e aceitar a resposta não é assédio.", 1, "Flertar é legítimo. A diferença está em perguntar em vez de impor, e em aceitar o não na primeira vez. Onde há hierarquia, como entre chefe e subordinado, o cuidado precisa ser maior."),
@@ -2072,13 +2072,13 @@ MYTHS = dict(
         ]),
         dict(id="prazer", title="Prazer e o roteiro do pornô", lead="O que a tela ensinou e o que o corpo de verdade pede.", items=[
             ("O sexo do pornô mostra como o sexo costuma ser.", 0, "Pornô é encenação: atores, cortes, ângulos e roteiro. Não mostra a conversa, o lubrificante, a camisinha, a pausa nem o que deu errado."),
-            ("A maioria das mulheres chega ao orgasmo só com a penetração.", 0, "Numa pesquisa americana de 2018 com mais de mil mulheres, cerca de uma em cada cinco disse que só a penetração bastava. A maioria precisa de estímulo no clitóris."),
+            ("A maioria das mulheres chega ao orgasmo só com a penetração.", 0, "Numa pesquisa americana com mais de mil mulheres, publicada em 2018, cerca de uma em cada cinco disse que só a penetração bastava. Para quase três em cada quatro, o estímulo no clitóris é necessário ou torna o orgasmo melhor."),
             ("O clitóris é muito maior do que a parte que se vê.", 1, "A parte visível é só a ponta. O órgão continua por dentro, com vários centímetros, ao redor da entrada da vagina."),
             ("O sexo termina quando o homem goza.", 0, "Isso é o roteiro do pornô, não uma regra. O sexo termina quando os dois quiserem, e o prazer de um não encerra o do outro."),
-            ("Em relações entre homem e mulher, elas têm orgasmo com menos frequência do que eles.", 1, "É a chamada disparidade do orgasmo, medida em grandes pesquisas. Ela diminui muito quando há sexo oral, estímulo do clitóris e conversa: a causa é o roteiro, não o corpo."),
+            ("Em relações entre homem e mulher, elas têm orgasmo com menos frequência do que eles.", 1, "É a chamada disparidade do orgasmo, medida em grandes pesquisas. Ela é bem menor quando há sexo oral, estímulo do clitóris e conversa, o que aponta para o roteiro, não para o corpo."),
             ("Fingir orgasmo ajuda a relação.", 0, "Fingir ensina o parceiro a repetir exatamente o que não funciona. Dizer o que funciona é mais difícil e resolve."),
             ("Usar lubrificante é sinal de que há algo errado.", 0, "A lubrificação varia com o ciclo, a idade, os remédios e o cansaço. Lubrificante dá conforto e prazer, e protege a camisinha de rasgar."),
-            ("Sexo bom é sexo que dura muito.", 0, "Numa pesquisa com terapeutas sexuais dos Estados Unidos e do Canadá, de 3 a 13 minutos de penetração foram considerados adequados ou desejáveis. Duração não mede prazer."),
+            ("Sexo bom é sexo que dura muito.", 0, "Numa pesquisa pequena com terapeutas sexuais dos Estados Unidos e do Canadá, de 3 a 13 minutos de penetração foram considerados adequados ou desejáveis. Duração não mede prazer."),
             ("O tamanho do pênis é o que mais conta para o prazer da outra pessoa.", 0, "Atenção, ritmo, estímulo no lugar certo e conversa contam muito mais. A preocupação com tamanho é mais um efeito do pornô."),
             ("Cuidar só do próprio prazer e ignorar o do outro é um jeito egoísta de fazer sexo, mesmo com consentimento.", 1, "Consentimento é o mínimo, não a meta. Sexo a dois em que só um importa trata o outro como instrumento."),
             ("Práticas comuns no pornô, como apertar o pescoço, dar tapa ou gozar no rosto, podem ser feitas sem perguntar, porque todo mundo espera.", 0, "Nenhuma prática dispensa acordo. E apertar o pescoço tem risco sério mesmo sem deixar marca: não existe forma garantidamente segura de fazer."),
@@ -2097,11 +2097,11 @@ MYTHS = dict(
             ("A vagina alarga de forma permanente em quem teve muitos parceiros.", 0, "A vagina é um canal muscular elástico, que volta ao estado de repouso. O número de parceiros não muda a anatomia de ninguém."),
             ("Homens têm sempre mais desejo do que mulheres.", 0, "Na média, os estudos encontram mais desejo relatado por homens, mas a variação entre pessoas é enorme. Em muitos casais é a mulher quem deseja mais."),
             ("O desejo pode aparecer do nada ou só depois do estímulo, e os dois jeitos são normais.", 1, "São o desejo espontâneo e o desejo responsivo. Quem só sente vontade depois que o carinho começa não tem defeito nenhum."),
-            ("Cheiro próprio, corrimento e pelos na vulva são sinais de falta de higiene.", 0, "São características de um corpo saudável. A vagina se limpa sozinha, e as duchas internas aumentam o risco de infecção."),
+            ("Cheiro próprio, corrimento e pelos na vulva são sinais de falta de higiene.", 0, "São características de um corpo saudável. A vagina se limpa sozinha, e as duchas internas estão associadas a mais infecções."),
             ("Pessoas com deficiência não têm vida sexual.", 0, "Têm desejo, vida sexual e direito à educação sexual como qualquer pessoa. O que falta, quase sempre, é os outros reconhecerem isso."),
             ("Depois de certa idade, o sexo acaba.", 0, "Muda, mas não acaba. Muita gente segue com vida sexual ativa depois dos 60 e dos 70."),
             ("Dificuldade de ereção e ejaculação precoce são comuns e têm tratamento.", 1, "São das queixas sexuais mais frequentes entre homens. Têm tratamento, e a vergonha de falar é o maior obstáculo."),
-            ("A orientação sexual pode ser mudada com terapia.", 0, "As chamadas terapias de conversão não funcionam e fazem mal. São condenadas pelas principais entidades de saúde, e os psicólogos brasileiros são proibidos de oferecê-las desde 1999."),
+            ("A orientação sexual pode ser mudada com terapia.", 0, "As chamadas terapias de conversão não funcionam e fazem mal. São condenadas pelas principais entidades de saúde, e desde 1999 os psicólogos brasileiros são proibidos de oferecer tratamentos de cura da homossexualidade."),
         ]),
         dict(id="prevencao", title="Prevenção: gravidez e ISTs", lead="O que protege, o que não protege e o que quase ninguém conta.", items=[
             ("Tirar antes de gozar é um método seguro para evitar a gravidez.", 0, "No uso comum, cerca de uma em cada cinco pessoas que dependem só disso engravida em um ano. E não protege de nenhuma IST."),
@@ -2111,11 +2111,11 @@ MYTHS = dict(
             ("Sexo oral não transmite ISTs.", 0, "Transmite herpes, gonorreia, sífilis e HPV, entre outras. Camisinha e barreiras também valem para o sexo oral."),
             ("A camisinha protege da gravidez e da maioria das ISTs, mas não de todas igualmente.", 1, "Ela reduz muito o risco de HIV, gonorreia e clamídia. HPV e herpes passam também pela pele que a camisinha não cobre."),
             ("A pílula anticoncepcional protege contra ISTs.", 0, "A pílula só evita a gravidez. Contra ISTs, o que protege é a camisinha."),
-            ("Usar duas camisinhas ao mesmo tempo protege mais.", 0, "O atrito entre as duas aumenta a chance de rasgar. Uma só, bem colocada, é o certo."),
+            ("Qualquer lubrificante pode ser usado com a camisinha.", 0, "Os lubrificantes à base de óleo, como vaselina e óleo de massagem, enfraquecem o látex. Com camisinha, use os à base de água ou de silicone."),
             ("Uma pessoa com HIV em tratamento e com carga viral indetectável não transmite o vírus pelo sexo.", 1, "É o consenso indetectável igual a intransmissível, sustentado por grandes estudos e adotado pela Organização Mundial da Saúde e pelo UNAIDS."),
             ("Existem remédios que previnem a infecção pelo HIV, antes e depois da exposição.", 1, "A PrEP é tomada antes; a PEP, depois, e precisa começar em até 72 horas. As duas existem na rede pública de saúde do Brasil."),
             ("A pílula do dia seguinte é abortiva.", 0, "Ela age atrasando a ovulação. Segundo a Organização Mundial da Saúde, não interrompe uma gravidez que já começou."),
-            ("Existe vacina contra o HPV, e ela vale para qualquer gênero.", 1, "A vacina previne os tipos de HPV ligados a verrugas genitais e a cânceres de colo do útero, pênis, ânus e garganta."),
+            ("Existe vacina contra o HPV, e ela vale para qualquer gênero.", 1, "A vacina previne os principais tipos de HPV ligados a verrugas genitais e a cânceres de colo do útero, pênis, ânus e garganta."),
             ("Só quem tem muitos parceiros pega IST.", 0, "Basta uma relação sem proteção com uma pessoa que tenha a infecção, muitas vezes sem saber."),
             ("Fazer exames de ISTs de tempos em tempos e contar o resultado ao parceiro é parte de transar com responsabilidade.", 1, "Exame em dia e conversa franca protegem os dois. Ter uma IST não é vergonha; esconder é que tira do outro a chance de escolher."),
             ("Pela aparência dá para saber se alguém tem uma IST.", 0, "Não dá. A maioria das infecções não aparece no corpo, e pessoas saudáveis e bonitas transmitem como quaisquer outras."),
@@ -2125,7 +2125,7 @@ MYTHS = dict(
             ("Ser virgem depois dos 25 ou dos 30 é sinal de que há algo errado com a pessoa.", 0, "Não existe idade certa. Há quem comece cedo, tarde ou nunca, por escolha, por circunstância ou por orientação, e nada disso é defeito."),
             ("Virgindade é uma ideia social, não um fato médico.", 1, "Não há exame que a comprove nem uma definição única: cada cultura decide o que conta como primeira vez."),
             ("Quem teve muitos parceiros vale menos como pessoa ou como par.", 0, "O número de parceiros não mede caráter, capacidade de amar nem de ser fiel. O que mede é como a pessoa trata quem está com ela."),
-            ("Ter um fetiche vivido com consentimento e sem prejudicar ninguém não é doença.", 1, "As classificações médicas atuais só falam em transtorno quando há sofrimento para a própria pessoa ou envolvimento de quem não consentiu."),
+            ("Ter um fetiche vivido com consentimento e sem prejudicar ninguém não é doença.", 1, "As classificações médicas atuais só falam em transtorno quando há sofrimento ou prejuízo para a própria pessoa, risco sério de lesão ou envolvimento de quem não consentiu."),
             ("Homem que gosta de ser penetrado é gay.", 0, "Prática não define orientação. Orientação é por quem a pessoa sente atração, não o que ela gosta de fazer."),
             ("Bissexuais são indecisos ou estão numa fase.", 0, "A bissexualidade é uma orientação estável, reconhecida pela pesquisa. Não é etapa a caminho de outra coisa."),
             ("Mulher que toma a iniciativa ou gosta de sexo casual não se dá ao respeito.", 0, "É o duplo padrão: o mesmo comportamento que é elogiado no homem vira motivo de julgamento na mulher."),
@@ -2157,7 +2157,7 @@ MYTHS = dict(
         ]),
         dict(id="conversa", title="Conversa e inteligência emocional", lead="O que se diz antes, durante e depois.", items=[
             ("Quando existe amor, o outro sabe do que eu gosto sem eu precisar dizer.", 0, "Ninguém lê pensamento. Esperar adivinhação é o caminho mais curto para a frustração dos dois."),
-            ("Casais que falam de sexo fora da cama costumam ter mais satisfação sexual.", 1, "É uma das associações mais repetidas nos estudos sobre casais: falar do que gosta e do que não gosta anda junto com mais satisfação."),
+            ("Casais que falam de sexo fora da cama costumam ter mais satisfação sexual.", 1, "Uma revisão de 2022, que reuniu 93 estudos, encontrou essa associação: falar do que gosta e do que não gosta anda junto com mais satisfação sexual e com a relação."),
             ("Dizer isso eu não gosto durante o sexo ofende e deve ser evitado.", 0, "É a informação mais útil que alguém pode receber. Dá para dizer com carinho, e de preferência junto com o que você gosta."),
             ("Perguntar depois se foi bom e se algo incomodou é cuidado, não insegurança.", 1, "A pergunta abre espaço para o que a pessoa não teve coragem de dizer na hora."),
             ("Ver o outro só como um meio de obter prazer, sem se importar com o que ele sente, é objetificar.", 1, "Objetificar é tratar uma pessoa como coisa: usar o corpo e ignorar a vontade, o prazer e os sentimentos de quem está ali."),
@@ -2178,7 +2178,7 @@ MYTHS = dict(
             ("Pedir nudes com insistência depois de um não é assédio.", 1, "Vale a mesma regra do mundo físico: depois do não, insistir é pressão."),
             ("Montagens e deepfakes sexuais com o rosto de pessoas reais são uma forma de violência, mesmo sendo falsos.", 1, "O dano à pessoa é real: exposição, humilhação e chantagem. Vários países já tratam isso como crime."),
             ("Usar um aplicativo de inteligência artificial para tirar a roupa de alguém numa foto é inofensivo, desde que a imagem fique só com você.", 0, "É criar uma imagem sexual de uma pessoa real sem o consentimento dela, e a violação está em fazer, não só em divulgar. No Brasil, a montagem que põe alguém em cena de nudez é crime desde 2018."),
-            ("Guardar ou compartilhar imagem sexual de menor de 18 anos é crime, mesmo que o próprio adolescente tenha enviado.", 1, "É crime no Brasil e na grande maioria dos países. Quem recebe não deve repassar: o certo é denunciar e apagar."),
+            ("Guardar ou compartilhar imagem sexual de menor de 18 anos é crime, mesmo que o próprio adolescente tenha enviado.", 1, "No Brasil é crime mesmo nesse caso, e a maioria dos países pune até a simples posse. Quem recebe não deve repassar: o certo é denunciar e apagar."),
             ("Dar match num aplicativo de namoro é consentir com sexo no encontro.", 0, "Match é interesse em conversar. O consentimento se dá pessoalmente, na hora, e pode não vir."),
             ("Ameaçar divulgar imagens íntimas para conseguir algo é crime, e o caminho é guardar as provas e denunciar.", 1, "É a chamada sextorsão. Ceder costuma aumentar as exigências; guardar as mensagens e procurar a polícia é o que protege."),
         ]),
@@ -2195,7 +2195,7 @@ MYTHS = dict(
             ("Quando alguém conta que sofreu violência sexual, ajuda perguntar que roupa usava ou por que foi até lá.", 0, "Essas perguntas põem a culpa em quem sofreu. O que ajuda é acreditar, ouvir sem pressa e perguntar do que a pessoa precisa."),
             ("Espalhar que alguém é fácil, rodado ou virgem é uma fofoca inofensiva.", 0, "É expor a intimidade de alguém para diminuir essa pessoa. A vida sexual de cada um não é assunto público, seja ela muita, pouca ou nenhuma."),
             ("Depois do término, a intimidade do ex continua sendo dele: contar segredos ou mostrar fotos segue sendo errado.", 1, "O fim da relação não cancela a confiança com que aquilo foi dividido. Expor um ex por raiva é uma das formas mais comuns de vazamento."),
-            ("Piada sobre forçar alguém é só humor e não muda nada.", 0, "Piadas assim tratam a violência como coisa pequena. Pesquisas sobre humor sexista indicam que ele aumenta a tolerância ao preconceito em quem já o tem."),
+            ("Piada sobre forçar alguém é só humor e não muda nada.", 0, "Piadas assim tratam a violência como coisa pequena. Pesquisas sobre humor sexista indicam que ele aumenta a tolerância à discriminação em quem já tem preconceito."),
         ]),
     ],
     t=dict(
@@ -2223,7 +2223,7 @@ GLOSSARY += [
     ("sexualidade", "Coerção sexual", "Conseguir sexo por insistência, chantagem, ameaça ou culpa. Não há força física, e mesmo assim o sim não é livre.", "myths"),
     ("sexualidade", "Stealthing", "Tirar a camisinha escondido durante o sexo. Viola o consentimento, que valia para o sexo protegido.", "myths"),
     ("sexualidade", "Não concordância da excitação", "O corpo pode responder (ereção, lubrificação) sem que a pessoa deseje ou consinta. Resposta do corpo não é consentimento.", "myths"),
-    ("sexualidade", "Disparidade do orgasmo", "Em relações entre homem e mulher, elas têm orgasmo com menos frequência do que eles. A causa é o roteiro centrado na penetração, não o corpo.", "myths"),
+    ("sexualidade", "Disparidade do orgasmo", "Em relações entre homem e mulher, elas têm orgasmo com menos frequência do que eles. Os estudos apontam para o roteiro centrado na penetração, não para o corpo.", "myths"),
     ("sexualidade", "Desejo responsivo", "O desejo que aparece depois do estímulo, em vez de vir do nada. Tão normal quanto o desejo espontâneo.", "myths"),
     ("sexualidade", "Indetectável = intransmissível", "Quem vive com HIV, está em tratamento e mantém a carga viral indetectável não transmite o vírus pelo sexo.", "myths"),
     ("sexualidade", "PrEP e PEP", "Remédios que previnem a infecção pelo HIV: a PrEP é tomada antes da exposição; a PEP, depois, em até 72 horas.", "myths"),

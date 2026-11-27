@@ -1826,7 +1826,7 @@ GLOSSARY += [
     ("sexualidade", "Voyeurism and exhibitionism", "The pleasure of watching and the pleasure of being watched. Between consenting adults it is a preference; with someone who did not consent it is a violation.", "sexlist"),
     ("sexualidade", "Pegging", "Role reversal in penetration: the one who is usually penetrated penetrates their partner, with a strap-on or a toy.", "sexlist"),
     ("sexualidade", "Edging", "Getting close to orgasm and backing off, several times, to prolong and intensify it.", "sexlist"),
-    ("mecanismos", "Shared novelty", "What routine wears out and Passion asks for. In Aron's self-expansion model, doing new and challenging things together sustains Passion over time.", "spark"),
+    ("mecanismos", "Shared novelty", "What routine wears out and Passion asks for. In Aron's experiments (2000), couples who did new and exciting activities together reported better relationship quality; the self-expansion model proposes that this counters boredom.", "spark"),
 ]
 
 # ---------------------------------------------------------------------------
@@ -1845,7 +1845,7 @@ PAGES["tools_title"] = "Eleven tools"
 PAGES["tools"]["myths"] = ("Sexual Mythology", "A sex education test: myth or truth about consent, harassment, pressure, pleasure, the body, prevention and cheating. Every answer comes with the explanation.", "Sexual Mythology: a sex education test", None)
 
 MYTHS = dict(
-    v=2, kicker="Sexual Mythology", title="What do you actually know about sex?",
+    v=3, kicker="Sexual Mythology", title="What do you actually know about sex?",
     lead=("Hardly anyone had real sex education. We learned from friends, from porn and by improvising, and what is left is a mythology: ideas everyone repeats and that are wrong. "
           "Here are {n} statements across eleven themes. For each one, you say whether it is a myth or the truth, and the explanation appears right away. "
           "The point of view is declared: sexual freedom, yes, and with responsibility. Without consent, without talking and without caring for whoever is with you, it is not freedom."),
@@ -1872,7 +1872,7 @@ MYTHS = dict(
             ("A yes given out of fear, after insistence or just to make the person stop asking is not consent.", 1, "Consent has to be free. A yes that was extracted is obedience, not will."),
             ("Sexual violence only exists when there is physical force.", 0, "Threats, blackmail, abuse of authority and taking advantage of someone unable to decide are also sexual violence, even without a shove."),
             ("Men can also be victims of sexual violence.", 1, "They can, from any aggressor, and they tend to report less, out of shame and fear of not being taken seriously."),
-            ("An erection or lubrication proves the person wanted it.", 0, "These are automatic body responses, which can happen without desire and even with fear. Researchers call it arousal non-concordance. Bodies do not consent; people do."),
+            ("An erection or lubrication proves the person wanted it.", 0, "These are automatic body responses, which can happen without desire and even during violence. Researchers call it arousal non-concordance. Bodies do not consent; people do."),
         ]),
         dict(id="importunacao", title="Harassment and unwanted touching", lead="What is done to the body and the space of someone who did not ask.", items=[
             ("Groping someone at a party, when they do not want it, is just fooling around.", 0, "It is touching without consent, a crime in many countries, usually called sexual assault or sexual harassment."),
@@ -1904,13 +1904,13 @@ MYTHS = dict(
         ]),
         dict(id="prazer", title="Pleasure and the porn script", lead="What the screen taught and what a real body asks for.", items=[
             ("Sex in porn shows what sex is usually like.", 0, "Porn is staged: actors, cuts, angles and a script. It does not show the talking, the lubricant, the condom, the pause or what went wrong."),
-            ("Most women reach orgasm from penetration alone.", 0, "In a 2018 American survey of more than a thousand women, about one in five said penetration alone was enough. Most need clitoral stimulation."),
+            ("Most women reach orgasm from penetration alone.", 0, "In an American survey of more than a thousand women, published in 2018, about one in five said penetration alone was enough. For nearly three in four, clitoral stimulation is necessary or makes orgasm better."),
             ("The clitoris is much bigger than the part you can see.", 1, "The visible part is only the tip. The organ continues inside, for several centimetres, around the vaginal opening."),
             ("Sex ends when the man comes.", 0, "That is the porn script, not a rule. Sex ends when both want it to, and one person's pleasure does not close the other's."),
-            ("In sex between a man and a woman, women have orgasms less often than men.", 1, "It is the so-called orgasm gap, measured in large surveys. It shrinks a lot with oral sex, clitoral stimulation and talking: the cause is the script, not the body."),
+            ("In sex between a man and a woman, women have orgasms less often than men.", 1, "It is the so-called orgasm gap, measured in large surveys. It is much smaller when there is oral sex, clitoral stimulation and talking, which points to the script, not the body."),
             ("Faking orgasm helps the relationship.", 0, "Faking teaches your partner to repeat exactly what does not work. Saying what works is harder, and it solves the problem."),
             ("Using lubricant is a sign that something is wrong.", 0, "Lubrication varies with the cycle, age, medication and tiredness. Lubricant adds comfort and pleasure, and protects the condom from tearing."),
-            ("Good sex is sex that lasts a long time.", 0, "In a survey of sex therapists in the United States and Canada, 3 to 13 minutes of penetration were rated adequate or desirable. Duration does not measure pleasure."),
+            ("Good sex is sex that lasts a long time.", 0, "In a small survey of sex therapists in the United States and Canada, 3 to 13 minutes of penetration were rated adequate or desirable. Duration does not measure pleasure."),
             ("Penis size is what matters most for the other person's pleasure.", 0, "Attention, rhythm, stimulation in the right place and talking matter far more. Worrying about size is one more effect of porn."),
             ("Looking after only your own pleasure and ignoring the other's is a selfish way of having sex, even with consent.", 1, "Consent is the minimum, not the goal. Sex between two people in which only one matters treats the other as a tool."),
             ("Practices common in porn, such as choking, slapping or coming on the face, can be done without asking, because everyone expects them.", 0, "No practice does away with agreement. And pressure on the neck carries serious risk even without leaving a mark: there is no guaranteed safe way to do it."),
@@ -1929,7 +1929,7 @@ MYTHS = dict(
             ("The vagina becomes permanently loose in someone who has had many partners.", 0, "The vagina is an elastic muscular canal that returns to its resting state. The number of partners changes nobody's anatomy."),
             ("Men always have more desire than women.", 0, "On average, studies find more desire reported by men, but the variation between people is huge. In many couples it is the woman who wants more."),
             ("Desire can appear out of nowhere or only after stimulation, and both ways are normal.", 1, "These are spontaneous desire and responsive desire. Someone who only feels like it once the touching starts has no defect at all."),
-            ("A natural smell, discharge and hair on the vulva are signs of poor hygiene.", 0, "They are features of a healthy body. The vagina cleans itself, and douching raises the risk of infection."),
+            ("A natural smell, discharge and hair on the vulva are signs of poor hygiene.", 0, "They are features of a healthy body. The vagina cleans itself, and douching is linked to more infections."),
             ("People with disabilities do not have a sex life.", 0, "They have desire, a sex life and the right to sex education like anyone else. What is missing, nearly always, is others recognising it."),
             ("After a certain age, sex is over.", 0, "It changes, but it does not end. Many people keep an active sex life after 60 and after 70."),
             ("Erection difficulties and premature ejaculation are common and treatable.", 1, "They are among the most frequent sexual complaints among men. They are treatable, and the shame of talking is the biggest obstacle."),
@@ -1943,11 +1943,11 @@ MYTHS = dict(
             ("Oral sex does not transmit STIs.", 0, "It transmits herpes, gonorrhoea, syphilis and HPV, among others. Condoms and barriers apply to oral sex too."),
             ("Condoms protect against pregnancy and most STIs, but not all of them equally.", 1, "They greatly reduce the risk of HIV, gonorrhoea and chlamydia. HPV and herpes also pass through skin the condom does not cover."),
             ("The contraceptive pill protects against STIs.", 0, "The pill only prevents pregnancy. Against STIs, what protects is the condom."),
-            ("Using two condoms at once protects more.", 0, "The friction between them raises the chance of tearing. One, properly put on, is right."),
+            ("Any lubricant can be used with a condom.", 0, "Oil-based lubricants, such as petroleum jelly and massage oil, weaken latex. With a condom, use water-based or silicone-based ones."),
             ("A person with HIV who is on treatment and has an undetectable viral load does not transmit the virus through sex.", 1, "It is the consensus known as undetectable equals untransmittable, backed by large studies and adopted by the World Health Organization and UNAIDS."),
             ("There are medicines that prevent HIV infection, before and after exposure.", 1, "PrEP is taken before; PEP, after, and it has to start within 72 hours. Ask a health service where to get them in your country."),
             ("The morning-after pill causes an abortion.", 0, "It works by delaying ovulation. According to the World Health Organization, it does not interrupt a pregnancy that has already begun."),
-            ("There is a vaccine against HPV, and it is for any gender.", 1, "The vaccine prevents the HPV types linked to genital warts and to cancers of the cervix, penis, anus and throat."),
+            ("There is a vaccine against HPV, and it is for any gender.", 1, "The vaccine prevents the main HPV types linked to genital warts and to cancers of the cervix, penis, anus and throat."),
             ("Only people with many partners get STIs.", 0, "One unprotected encounter with one person who has the infection, often without knowing, is enough."),
             ("Getting tested for STIs from time to time and telling your partner the result is part of having sex responsibly.", 1, "Up-to-date tests and a frank conversation protect both. Having an STI is no shame; hiding it is what takes away the other's chance to choose."),
             ("You can tell from appearance whether someone has an STI.", 0, "You cannot. Most infections do not show on the body, and healthy, good-looking people transmit them like anyone else."),
@@ -1957,7 +1957,7 @@ MYTHS = dict(
             ("Being a virgin after 25 or 30 is a sign that something is wrong with the person.", 0, "There is no right age. Some start early, late or never, by choice, circumstance or orientation, and none of that is a defect."),
             ("Virginity is a social idea, not a medical fact.", 1, "There is no test that proves it and no single definition: each culture decides what counts as the first time."),
             ("Someone who has had many partners is worth less as a person or as a partner.", 0, "The number of partners measures neither character nor the capacity to love or be faithful. What measures it is how the person treats whoever is with them."),
-            ("Having a fetish lived with consent and without harming anyone is not an illness.", 1, "Current medical classifications only speak of a disorder when there is distress for the person or involvement of someone who did not consent."),
+            ("Having a fetish lived with consent and without harming anyone is not an illness.", 1, "Current medical classifications only speak of a disorder when there is distress or impairment for the person, serious risk of injury or involvement of someone who did not consent."),
             ("A man who likes being penetrated is gay.", 0, "A practice does not define orientation. Orientation is about who the person is attracted to, not what they like to do."),
             ("Bisexual people are undecided or going through a phase.", 0, "Bisexuality is a stable orientation, recognised by research. It is not a stage on the way to something else."),
             ("A woman who takes the initiative or likes casual sex has no self-respect.", 0, "It is the double standard: the same behaviour praised in a man becomes grounds for judging a woman."),
@@ -1989,7 +1989,7 @@ MYTHS = dict(
         ]),
         dict(id="conversa", title="Conversation and emotional intelligence", lead="What is said before, during and after.", items=[
             ("When there is love, the other knows what I like without my having to say it.", 0, "Nobody reads minds. Expecting guesswork is the shortest road to frustration for both."),
-            ("Couples who talk about sex outside the bedroom tend to have more sexual satisfaction.", 1, "It is one of the most repeated associations in studies of couples: talking about what you like and do not like goes together with more satisfaction."),
+            ("Couples who talk about sex outside the bedroom tend to have more sexual satisfaction.", 1, "A 2022 review pooling 93 studies found this association: talking about what you like and do not like goes together with more sexual and relationship satisfaction."),
             ("Saying I don't like that during sex is offensive and should be avoided.", 0, "It is the most useful information anyone can receive. It can be said kindly, and preferably along with what you do like."),
             ("Asking afterwards whether it was good and whether anything bothered them is care, not insecurity.", 1, "The question opens room for what the person did not have the courage to say at the time."),
             ("Seeing the other only as a means of getting pleasure, without caring what they feel, is objectifying.", 1, "Objectifying is treating a person as a thing: using the body and ignoring the will, the pleasure and the feelings of whoever is there."),
@@ -2010,7 +2010,7 @@ MYTHS = dict(
             ("Asking insistently for nudes after a no is harassment.", 1, "The same rule as in the physical world applies: after a no, insisting is pressure."),
             ("Sexual montages and deepfakes with the faces of real people are a form of violence, even though they are fake.", 1, "The harm to the person is real: exposure, humiliation and blackmail. Several countries already treat it as a crime."),
             ("Using an artificial intelligence app to undress someone in a photo is harmless, as long as the image stays with you.", 0, "It is creating a sexual image of a real person without their consent, and the violation lies in making it, not only in sharing it. Some countries already punish the creation itself."),
-            ("Keeping or sharing a sexual image of someone under 18 is a crime, even if the teenager sent it themselves.", 1, "It is a crime in the vast majority of countries. Whoever receives one must not pass it on: the right thing is to report it and delete it."),
+            ("Keeping or sharing a sexual image of someone under 18 is a crime in most countries, even if the teenager sent it themselves.", 1, "Most countries punish even simple possession. Whoever receives one must not pass it on: the right thing is to report it and delete it."),
             ("Matching on a dating app means consenting to sex on the date.", 0, "A match is interest in talking. Consent is given in person, at the time, and it may not come."),
             ("Threatening to release intimate images to get something is a crime, and the way forward is to keep the evidence and report it.", 1, "It is known as sextortion. Giving in tends to increase the demands; keeping the messages and going to the police is what protects you."),
         ]),
@@ -2027,7 +2027,7 @@ MYTHS = dict(
             ("When someone tells you they suffered sexual violence, it helps to ask what they were wearing or why they went there.", 0, "Those questions put the blame on the person who suffered. What helps is believing, listening without hurry and asking what they need."),
             ("Spreading that someone is easy, has been around or is a virgin is harmless gossip.", 0, "It is exposing someone's intimacy in order to diminish them. A person's sex life is not a public matter, whether it is a lot, a little or none."),
             ("After a breakup, an ex's intimacy is still theirs: telling secrets or showing photos is still wrong.", 1, "The end of the relationship does not cancel the trust with which those things were shared. Exposing an ex out of anger is one of the most common forms of leak."),
-            ("A joke about forcing someone is just humour and changes nothing.", 0, "Jokes like that treat violence as a small thing. Research on sexist humour indicates that it raises tolerance of prejudice in those who already hold it."),
+            ("A joke about forcing someone is just humour and changes nothing.", 0, "Jokes like that treat violence as a small thing. Research on sexist humour indicates that it raises tolerance of discrimination in those who are already prejudiced."),
         ]),
     ],
     t=dict(
@@ -2055,7 +2055,7 @@ GLOSSARY += [
     ("sexualidade", "Sexual coercion", "Getting sex through insistence, blackmail, threat or guilt. There is no physical force, and still the yes is not free.", "myths"),
     ("sexualidade", "Stealthing", "Secretly removing the condom during sex. It violates consent, which was for protected sex.", "myths"),
     ("sexualidade", "Arousal non-concordance", "The body can respond (erection, lubrication) without the person desiring or consenting. A body response is not consent.", "myths"),
-    ("sexualidade", "Orgasm gap", "In sex between a man and a woman, women have orgasms less often than men. The cause is the script centred on penetration, not the body.", "myths"),
+    ("sexualidade", "Orgasm gap", "In sex between a man and a woman, women have orgasms less often than men. Studies point to the script centred on penetration, not the body.", "myths"),
     ("sexualidade", "Responsive desire", "Desire that appears after stimulation instead of out of nowhere. As normal as spontaneous desire.", "myths"),
     ("sexualidade", "Undetectable = untransmittable", "Someone living with HIV who is on treatment and keeps an undetectable viral load does not transmit the virus through sex.", "myths"),
     ("sexualidade", "PrEP and PEP", "Medicines that prevent HIV infection: PrEP is taken before exposure; PEP, after, within 72 hours.", "myths"),
