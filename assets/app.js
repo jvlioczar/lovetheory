@@ -972,25 +972,35 @@
   }
 
   /* ---------- Mitologia Sexual: mito ou verdade, com a explicação na hora ----------
-     Item = [afirmação, 1 verdade / 0 mito, explicação, links opcionais [[rótulo, url]]]. Resposta: 0 mito, 1 verdade, 2 não sei, -1 sem resposta. */
+     Item = [afirmação, 1 verdade / 0 mito, explicação, links opcionais [[rótulo, url]]].
+     Resposta: 0 mito, 1 verdade, 2 não sei, -1 sem resposta. Duas versões: curta (th.short, índices
+     das afirmações essenciais de cada tema, definidos no build) e completa (tudo, por tema). */
   function myths(root) {
     var M = D.myths, X = M.t, flat = [], TH = [];
-    M.themes.forEach(function (th, ti) { var idx = th.items.map(function (it) { flat.push(it); return flat.length - 1; }); TH.push({ ti: ti, th: th, idx: idx }); });
-    var N = flat.length, NT = TH.length;
-    var saved = store.get("myths"); if (saved && (saved.v !== M.v || !saved.ans || saved.ans.length !== N || !saved.parts || saved.parts.length !== NT)) saved = null;
+    M.themes.forEach(function (th, ti) {
+      var idx = th.items.map(function (it) { flat.push(it); return flat.length - 1; });
+      TH.push({ ti: ti, th: th, idx: idx, sidx: (th.short || []).map(function (k) { return idx[k]; }) });
+    });
+    var N = flat.length, NT = TH.length, NS = TH.reduce(function (a, x) { return a + x.sidx.length; }, 0);
+    var mins = function (n) { return Math.max(1, Math.round(n * M.secs / 60)); };
+    var sizeOf = function (n) { return fmt(esc(X.count), { n: n }) + ' · ' + fmt(esc(X.time), { m: mins(n) }); };
+    var saved = store.get("myths"); if (saved && (saved.v !== M.v || !saved.ans || saved.ans.length !== N || !saved.parts || saved.parts.length !== NT || (saved.mode !== "short" && saved.mode !== "full"))) saved = null;
     var blank = function () { var a = []; for (var i = 0; i < N; i++) a.push(-1); return a; };
-    var st = { step: 0, ans: blank(), parts: TH.map(function () { return true; }) }, first = true;
-    var active = function (parts) { return TH.filter(function (x) { return parts[x.ti]; }); };
+    var allParts = function () { return TH.map(function () { return true; }); };
+    var st = { step: 0, mode: saved ? saved.mode : "short", ans: blank(), parts: saved ? saved.parts.slice() : allParts() }, first = true;
+    var ids = function (x, mode) { return mode === "short" ? x.sidx : x.idx; };
+    var active = function (parts, mode) { return TH.filter(function (x) { return (mode === "short" || parts[x.ti]) && ids(x, mode).length; }); };
     function fb(i) {
       var a = st.ans[i], it = flat[i]; if (a < 0) return "";
       var ok = a === it[1];
-      return '<div class="fb ' + (ok ? "ok" : a === 2 ? "dk" : "no") + '"><b>' + esc(ok ? X.right : a === 2 ? X.dunno : X.wrong) + ' ' + esc(it[1] ? X.is_true : X.is_myth) + '</b> ' + esc(it[2]) + (it[3] ? ' ' + it[3].map(function (l) { return '<a href="' + esc(l[1]) + '" target="_blank" rel="noopener">' + esc(l[0]) + ' ↗</a>'; }).join(" · ") : "") + '</div>';
+      return '<div class="fb ' + (ok ? "ok" : a === 2 ? "dk" : "no") + '"><b>' + esc(ok ? X.right : a === 2 ? X.dunno : X.wrong) + ' ' + esc(it[1] ? X.is_true : X.is_myth) + '</b> ' + esc(it[2]) +
+        (it[3] ? ' ' + it[3].map(function (l) { return '<a href="' + esc(l[1]) + '" target="_blank" rel="noopener">' + esc(l[0]) + ' ↗</a>'; }).join(" · ") : "") + '</div>';
     }
-    function score(ans, parts) {
+    function score(ans, parts, mode) {
       var rows = [], c = 0, a = 0, n = 0, bel = [], dou = [], unk = [];
-      active(parts).forEach(function (x) {
+      active(parts, mode).forEach(function (x) {
         var ca = 0, aa = 0;
-        x.idx.forEach(function (i) { n++; var v = ans[i]; if (v < 0) return; aa++; if (v === flat[i][1]) ca++; else if (v === 2) unk.push(i); else if (flat[i][1]) dou.push(i); else bel.push(i); });
+        ids(x, mode).forEach(function (i) { n++; var v = ans[i]; if (v < 0) return; aa++; if (v === flat[i][1]) ca++; else if (v === 2) unk.push(i); else if (flat[i][1]) dou.push(i); else bel.push(i); });
         c += ca; a += aa; if (aa) rows.push({ name: x.th.title, pct: Math.round(ca / aa * 100), label: ca + "/" + aa });
       });
       return { rows: rows, c: c, a: a, n: n, bel: bel, dou: dou, unk: unk, pct: a ? Math.round(c / a * 100) : 0 };
@@ -1001,17 +1011,20 @@
         idxs.map(function (i) { return '<div class="rv"><p class="q">' + esc(flat[i][0]) + '</p>' + fb(i) + '</div>'; }).join("") + '</details>';
     }
     function render() {
-      var h = "", ag = active(st.parts);
+      var h = "", ag = active(st.parts, st.mode);
       if (st.step === 0) {
-        var sv = saved ? score(saved.ans, saved.parts) : null;
+        var sv = saved ? score(saved.ans, saved.parts, saved.mode) : null;
+        var modeOpt = function (m, name, n, text) { return '<div class="bl-part"><label class="opt"><input type="radio" name="mode" value="' + m + '"' + (st.mode === m ? " checked" : "") + '> ' + esc(name) + ' <span class="muted">· ' + sizeOf(n) + '</span></label><p class="small muted">' + esc(text) + '</p></div>'; };
         h = '<form class="step">' + (saved ? '<div class="note"><p>' + fmt(esc(X.saved), { date: esc(fmtDate(saved.date)), c: sv.c, n: sv.a }) + '</p><div class="actions"><button class="btn ghost" type="button" data-view>' + esc(X.view) + '</button></div></div>' : "") +
-          '<h2>' + esc(X.start_title) + '</h2><div class="note"><ul>' + M.notes.map(function (t) { return "<li>" + esc(t) + "</li>"; }).join("") + '</ul></div><h3>' + esc(X.parts) + '</h3><div class="bl-parts">' +
-          TH.map(function (x) { return '<div class="bl-part"><label class="opt"><input type="checkbox" name="part" value="' + x.ti + '"' + (st.parts[x.ti] ? " checked" : "") + '> ' + esc(x.th.title) + ' <span class="muted">· ' + fmt(esc(X.count), { n: x.idx.length }) + '</span></label><p class="small muted">' + esc(x.th.lead) + '</p></div>'; }).join("") +
-          '</div><div class="actions"><button class="btn" type="submit">' + esc(saved ? X.again : X.start) + '</button></div></form>';
+          '<h2>' + esc(X.start_title) + '</h2><div class="note"><ul>' + M.notes.map(function (t) { return "<li>" + esc(t) + "</li>"; }).join("") + '</ul></div>' +
+          '<h3>' + esc(X.mode_title) + '</h3><div class="bl-parts">' + modeOpt("short", X.short_name, NS, X.short_text) + modeOpt("full", X.full_name, N, X.full_text) + '</div>' +
+          '<div class="my-themes' + (st.mode === "full" ? "" : " hidden") + '"><h3>' + esc(X.parts) + '</h3><div class="bl-parts">' +
+          TH.map(function (x) { return '<div class="bl-part"><label class="opt"><input type="checkbox" name="part" value="' + x.ti + '"' + (st.parts[x.ti] ? " checked" : "") + '> ' + esc(x.th.title) + ' <span class="muted">· ' + sizeOf(x.idx.length) + '</span></label><p class="small muted">' + esc(x.th.lead) + '</p></div>'; }).join("") +
+          '</div></div><div class="actions"><button class="btn" type="submit">' + esc(saved ? X.again : X.start) + '</button></div></form>';
       } else if (st.step <= ag.length) {
         var x = ag[st.step - 1];
         h = '<div class="progress"><i style="width:' + Math.round((st.step - 1) / ag.length * 100) + '%"></i></div><form class="step"><p class="eyebrow">' + fmt(esc(X.group_of), { i: st.step, n: ag.length }) + '</p><h2>' + esc(x.th.title) + '</h2><p>' + esc(x.th.lead) + '</p>' +
-          x.idx.map(function (i) {
+          ids(x, st.mode).map(function (i) {
             var done = st.ans[i] >= 0;
             return '<div class="item lm-item"><p class="q">' + esc(flat[i][0]) + '</p><div class="opts">' + [1, 0, 2].map(function (k) { return '<label class="opt"><input type="radio" name="q' + i + '" value="' + k + '"' + (st.ans[i] === k ? " checked" : "") + (done ? " disabled" : "") + '> ' + esc(M.options[k]) + '</label>'; }).join("") + '</div><div class="fb-slot" aria-live="polite">' + fb(i) + '</div></div>';
           }).join("") +
@@ -1020,14 +1033,17 @@
       root.innerHTML = h;
       var f = root.querySelector("form");
       if (f && st.step === 0) {
-        var boxes = Array.prototype.slice.call(f.querySelectorAll("[name=part]"));
+        var boxes = Array.prototype.slice.call(f.querySelectorAll("[name=part]")), themes = f.querySelector(".my-themes");
+        var modeNow = function () { return readRadio(f, "mode") || "short"; };
+        Array.prototype.forEach.call(f.querySelectorAll("[name=mode]"), function (r) { r.addEventListener("change", function () { themes.classList.toggle("hidden", modeNow() !== "full"); boxes[0].setCustomValidity(""); }); });
         boxes.forEach(function (b) { b.addEventListener("change", function () { boxes[0].setCustomValidity(""); }); });
         f.addEventListener("submit", function (e) {
           e.preventDefault();
-          var p = boxes.map(function (b) { return b.checked; }); if (!p.some(Boolean)) { boxes[0].setCustomValidity(X.parts); boxes[0].reportValidity(); return; }
-          st = { step: 1, ans: blank(), parts: p }; render();
+          var m = modeNow(), p = m === "full" ? boxes.map(function (b) { return b.checked; }) : allParts();
+          if (!p.some(Boolean)) { boxes[0].setCustomValidity(X.parts); boxes[0].reportValidity(); return; }
+          st = { step: 1, mode: m, ans: blank(), parts: p }; render();
         });
-        var v = f.querySelector("[data-view]"); if (v) v.addEventListener("click", function () { st = { step: active(saved.parts).length + 1, ans: saved.ans.slice(), parts: saved.parts.slice(), keep: true }; render(); });
+        var v = f.querySelector("[data-view]"); if (v) v.addEventListener("click", function () { st = { step: active(saved.parts, saved.mode).length + 1, mode: saved.mode, ans: saved.ans.slice(), parts: saved.parts.slice(), keep: true }; render(); });
       } else if (f) {
         f.addEventListener("change", function (e) {
           var r = e.target; if (!r || r.type !== "radio") return;
@@ -1042,19 +1058,21 @@
       first = false;
     }
     function result() {
-      if (!st.keep) { saved = { v: M.v, date: new Date().toISOString(), ans: st.ans, parts: st.parts }; store.set("myths", saved); st.keep = true; }
-      var s = score(st.ans, st.parts), lv = !s.a ? null : X.levels[s.pct < 50 ? 0 : s.pct < 70 ? 1 : s.pct < 90 ? 2 : 3];
-      var h = '<div class="step result"><p class="eyebrow">' + esc(M.kicker) + ' · ' + esc(fmtDate(saved.date)) + '</p><h2>' + fmt(esc(X.result_title), { c: s.c, n: s.a }) + '</h2><p class="muted">' + fmt(esc(X.answered), { a: s.a, n: s.n }) + '</p>' +
+      if (!st.keep) { saved = { v: M.v, date: new Date().toISOString(), mode: st.mode, ans: st.ans, parts: st.parts }; store.set("myths", saved); st.keep = true; }
+      var s = score(st.ans, st.parts, st.mode), lv = !s.a ? null : X.levels[s.pct < 50 ? 0 : s.pct < 70 ? 1 : s.pct < 90 ? 2 : 3];
+      var h = '<div class="step result"><p class="eyebrow">' + esc(M.kicker) + ' · ' + esc(st.mode === "short" ? X.short_name : X.full_name) + ' · ' + esc(fmtDate(saved.date)) + '</p><h2>' + fmt(esc(X.result_title), { c: s.c, n: s.a }) + '</h2><p class="muted">' + fmt(esc(X.answered), { a: s.a, n: s.n }) + '</p>' +
         (lv ? '<p>' + esc(lv) + '</p><h4>' + esc(X.bar_title) + '</h4><div class="bars">' + s.rows.map(function (r) { return '<div class="bar"><span>' + esc(r.name) + '</span><i><b style="width:' + r.pct + '%"></b></i><span class="v">' + esc(r.label) + '</span></div>'; }).join("") + '</div>' : '<div class="note">' + esc(X.empty) + '</div>') + '</div>';
       if (s.a) h += '<div class="step">' + (s.bel.length + s.dou.length + s.unk.length ? review(X.believed, s.bel, true) + review(X.doubted, s.dou, !s.bel.length) + review(X.unknown, s.unk, !s.bel.length && !s.dou.length) : '<div class="note">' + esc(X.none_wrong) + '</div>') + '</div>';
-      h += '<div class="step"><h3>' + esc(X.next_title) + '</h3><ul>' + X.next.map(function (k) { return '<li><a href="' + esc(P[k[0]]) + '">' + esc(k[1]) + '</a>: ' + esc(k[2]) + '</li>'; }).join("") + '</ul><div class="actions">' + (s.a ? shareBtn(X.share_btn) : "") + '<button class="btn ghost" type="button" data-again>' + esc(X.again) + '</button></div></div>';
+      h += '<div class="step">' + (st.mode === "short" ? '<h3>' + esc(X.full_name) + ' <span class="muted">· ' + sizeOf(N - s.a) + '</span></h3><p class="muted">' + esc(X.to_full_text) + '</p><div class="actions"><button class="btn" type="button" data-full>' + esc(X.to_full) + '</button></div>' : "") +
+        '<h3>' + esc(X.next_title) + '</h3><ul>' + X.next.map(function (k) { return '<li><a href="' + esc(P[k[0]]) + '">' + esc(k[1]) + '</a>: ' + esc(k[2]) + '</li>'; }).join("") + '</ul><div class="actions">' + (s.a ? shareBtn(X.share_btn) : "") + '<button class="btn ghost" type="button" data-again>' + esc(X.again) + '</button></div></div>';
       return h;
     }
     function wire() {
-      var a = root.querySelector("[data-again]"); if (a) a.addEventListener("click", function () { st = { step: 0, ans: blank(), parts: st.parts }; render(); });
+      var a = root.querySelector("[data-again]"); if (a) a.addEventListener("click", function () { st = { step: 0, mode: st.mode, ans: blank(), parts: st.parts }; render(); });
+      var fu = root.querySelector("[data-full]"); if (fu) fu.addEventListener("click", function () { st = { step: 1, mode: "full", ans: st.ans, parts: allParts() }; render(); });
       var sh = root.querySelector("[data-share]"); if (!sh) return;
       sh.addEventListener("click", function () {
-        var s = score(st.ans, st.parts), by = s.rows.slice().sort(function (p, q) { return q.pct - p.pct; }), t = fmt(X.share_title, { p: s.pct });
+        var s = score(st.ans, st.parts, st.mode), by = s.rows.slice().sort(function (p, q) { return q.pct - p.pct; }), t = fmt(X.share_title, { p: s.pct });
         shareDialog({ file: "myths", kicker: M.kicker, title: t, shortTitle: t, rows: s.rows.map(function (r) { return { name: r.name, pos: r.label, x: r.pct / 25, presumed: null, poles: ["", ""] }; }),
           lines: [fmt(X.line, { c: s.c, n: s.a, best: by[0].name, worst: by[by.length - 1].name })] });
       });

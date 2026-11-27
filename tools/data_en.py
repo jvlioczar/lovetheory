@@ -1840,7 +1840,7 @@ GLOSSARY += [
 PATHS["myths"] = "sexual-mythology.html"
 NAV.insert(8, ("myths", "Myths"))
 TOOLS.insert(7, dict(key="myths", name="Sexual Mythology", kicker="Myth or truth",
-                     text="How much you know about sex: consent, harassment, pressure, pleasure, the body, prevention, judgement, agreements and what to do when it is about others. Every answer comes with the explanation."))
+                     text="How much you know about sex: consent, harassment, pressure, pleasure, the body, prevention, judgement and agreements. Every answer comes with the explanation. Short and full versions."))
 # Menu in three groups (2026-11-27): Home and Theory stay loose; the rest opens by category, with each tool's full name
 NAV_GROUPS = [("For me", ["selflove", "selfdiscover", "myths", "lovelist", "sexlist"]), ("About someone", ["scale", "stay", "portraits"]), ("For two", ["couple", "limits", "spark"])]
 PAGES["theory_group"] = "The theory"
@@ -1848,7 +1848,7 @@ PAGES["tools_title"] = "Eleven tools"
 PAGES["tools"]["myths"] = ("Sexual Mythology", "A sex education test: myth or truth about consent, harassment, pressure, pleasure, the body, prevention and cheating. Every answer comes with the explanation.", "Sexual Mythology: a sex education test", None)
 
 MYTHS = dict(
-    v=6, kicker="Sexual Mythology", title="What do you actually know about sex?",
+    v=7, kicker="Sexual Mythology", title="What do you actually know about sex?",
     lead=("Hardly anyone had real sex education. We learned from friends, from porn and by improvising, and what is left is a mythology: ideas everyone repeats and that are wrong. "
           "Here are {n} statements across twelve themes. For each one, you say whether it is a myth or the truth, and the explanation appears right away. "
           "The point of view is declared: sexual freedom, yes, and with responsibility. Without consent, without talking and without caring for whoever is with you, it is not freedom."),
@@ -2053,7 +2053,12 @@ MYTHS = dict(
         ]),
     ],
     t=dict(
-        start_title="Before you start", parts="Which themes do you want to open?", count="{n} statements", start="Start", group_of="Theme {i} of {n}",
+        start_title="Before you start", parts="Which themes do you want to open?", count="{n} statements", time="about {m} min",
+        mode_title="Which version do you want to take?", short_name="Short version", full_name="Full version",
+        short_text="The most important statements in each theme: the essentials on consent, respect, pleasure, the body and prevention.",
+        full_text="Every statement. You choose the themes and can take it bit by bit, one theme at a time.",
+        to_full="Continue in the full version", to_full_text="What you have already answered is kept: only the other statements are left.",
+        versions="There are two versions: the short one, with the {s} most important statements, takes about {sm} minutes; the full one, with all {n}, about {fm} minutes.", start="Start", group_of="Theme {i} of {n}",
         right="Correct.", wrong="Wrong.", dunno="Now you know.", is_true="It is true.", is_myth="It is a myth.", see="See the result",
         saved="You took this test on {date}: {c} of {n} correct.", view="See the result", again="Retake the test",
         result_title="{c} of {n} correct", answered="You answered {a} of {n} statements.", bar_title="Correct answers by theme",

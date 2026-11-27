@@ -2008,7 +2008,7 @@ GLOSSARY += [
 PATHS["myths"] = "mitologia-sexual.html"
 NAV.insert(8, ("myths", "Mitos"))
 TOOLS.insert(7, dict(key="myths", name="Mitologia Sexual", kicker="Mito ou verdade",
-                     text="O quanto você sabe sobre sexo: consentimento, assédio, pressão, prazer, corpo, prevenção, julgamento, acordos e o que fazer quando é com os outros. Cada resposta vem com a explicação."))
+                     text="O quanto você sabe sobre sexo: consentimento, assédio, pressão, prazer, corpo, prevenção, julgamento e acordos. Cada resposta vem com a explicação. Tem versão curta e versão completa."))
 # Menu em três grupos (2026-11-27): Início e Teoria ficam soltos; o resto abre por categoria, com o nome completo de cada ferramenta
 NAV_GROUPS = [("Para mim", ["selflove", "selfdiscover", "myths", "lovelist", "sexlist"]), ("Sobre alguém", ["scale", "stay", "portraits"]), ("A dois", ["couple", "limits", "spark"])]
 PAGES["theory_group"] = "A teoria"
@@ -2016,7 +2016,7 @@ PAGES["tools_title"] = "Onze ferramentas"
 PAGES["tools"]["myths"] = ("Mitologia Sexual", "Teste de educação sexual: mito ou verdade sobre consentimento, assédio, pressão, prazer, corpo, prevenção e traição. Cada resposta vem com a explicação.", "Mitologia Sexual: teste de educação sexual", None)
 
 MYTHS = dict(
-    v=6, kicker="Mitologia Sexual", title="O que você sabe mesmo sobre sexo?",
+    v=7, kicker="Mitologia Sexual", title="O que você sabe mesmo sobre sexo?",
     lead=("Quase ninguém teve educação sexual de verdade. Aprendemos com amigos, com o pornô e com o improviso, e o que sobra é uma mitologia: ideias que todo mundo repete e que estão erradas. "
           "Aqui estão {n} afirmações em doze temas. Para cada uma, você diz se é mito ou verdade, e a explicação aparece na hora. "
           "O ponto de vista é declarado: liberdade sexual, sim, e com responsabilidade. Sem consentimento, sem conversa e sem cuidar de quem está com você, não é liberdade."),
@@ -2221,7 +2221,12 @@ MYTHS = dict(
         ]),
     ],
     t=dict(
-        start_title="Antes de começar", parts="Quais temas você quer abrir?", count="{n} afirmações", start="Começar", group_of="Tema {i} de {n}",
+        start_title="Antes de começar", parts="Quais temas você quer abrir?", count="{n} afirmações", time="cerca de {m} min",
+        mode_title="Qual versão você quer fazer?", short_name="Versão curta", full_name="Versão completa",
+        short_text="As afirmações mais importantes de cada tema: o essencial sobre consentimento, respeito, prazer, corpo e prevenção.",
+        full_text="Todas as afirmações. Você escolhe os temas e pode fazer aos poucos, um tema de cada vez.",
+        to_full="Continuar na versão completa", to_full_text="O que você já respondeu fica guardado: faltam só as outras afirmações.",
+        versions="São duas versões: a curta, com as {s} afirmações mais importantes, leva cerca de {sm} minutos; a completa, com as {n}, cerca de {fm} minutos.", start="Começar", group_of="Tema {i} de {n}",
         right="Certo.", wrong="Errado.", dunno="Agora você sabe.", is_true="É verdade.", is_myth="É mito.", see="Ver o resultado",
         saved="Você fez este teste em {date}: {c} de {n} certas.", view="Ver o resultado", again="Refazer o teste",
         result_title="{c} de {n} certas", answered="Você respondeu {a} de {n} afirmações.", bar_title="Acertos por tema",

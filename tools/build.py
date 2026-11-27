@@ -19,6 +19,33 @@ LANGS = [("en", data_en, ""), ("pt", data_pt, "pt/")]
 # fecha o grupo aberto do menu ao clicar fora ou apertar Esc (o menu existe em todas as páginas, com ou sem app.js)
 NAV_JS = ('<script>(function(){function c(t){document.querySelectorAll(".menu details[open]").forEach(function(d){if(!t||!d.contains(t))d.open=false})}'
           'document.addEventListener("click",function(e){c(e.target)});document.addEventListener("keydown",function(e){if(e.key==="Escape")c()})})();</script>\n')
+# Versão curta da Mitologia Sexual: (número de afirmações do tema quando a escolha foi feita, índices das essenciais).
+# Se o tema ganhar ou perder afirmações, o build para: os índices precisam ser revistos.
+MYTHS_SHORT = {
+    "consentimento": (16, [0, 1, 5, 6, 12]), "importunacao": (12, [0, 2, 9]), "pressao": (12, [0, 1, 4, 7]), "prazer": (18, [0, 3, 11, 16]),
+    "corpo": (12, [1, 3, 6]), "corpos": (13, [0, 4, 10]), "prevencao": (16, [0, 3, 4, 13]), "julgamento": (17, [0, 3, 13, 15]),
+    "acordos": (13, [0, 2, 9]), "conversa": (14, [0, 4, 12]), "digital": (9, [0, 1, 5]), "outros": (13, [0, 4, 7]),
+}
+MYTH_SECS = 20   # tempo médio por afirmação: ler, responder e ler a explicação
+
+
+def prepare_myths(D):
+    """Marca as afirmações da versão curta e calcula o tempo aproximado das duas versões."""
+    M = D.MYTHS
+    if "ns" in M:
+        return
+    assert set(MYTHS_SHORT) == {t["id"] for t in M["themes"]}, "MYTHS_SHORT precisa cobrir todos os temas"
+    for t in M["themes"]:
+        n, idx = MYTHS_SHORT[t["id"]]
+        assert len(t["items"]) == n, f'tema {t["id"]}: {len(t["items"])} afirmações, a versão curta foi escolhida com {n}; revise MYTHS_SHORT'
+        t["short"] = idx
+    M["secs"] = MYTH_SECS
+    M["ns"] = sum(len(v[1]) for v in MYTHS_SHORT.values())
+    mins = lambda n: max(1, int(n * MYTH_SECS / 60 + 0.5))
+    M["versions"] = (M["t"]["versions"].replace("{s}", str(M["ns"])).replace("{sm}", str(mins(M["ns"])))
+                     .replace("{n}", str(M["n"])).replace("{fm}", str(mins(M["n"]))))
+
+
 LIST_KEYS = ("spark", "lovelist", "sexlist")   # as três ferramentas de lista (app.js: lists)
 
 try:
@@ -347,7 +374,7 @@ class Site:
         how = self.section(PG["lists_how"], self.cards([(f"{i+1}.", a, t) for i, (a, t) in enumerate(M["how"])], "g3"))
         cards = "".join(f'<div class="card"><p class="num">{e(M["t"]["count"].replace("{n}", str(len(t["items"]))))}</p><h3>{e(t["title"])}</h3><p class="small">{e(t["lead"])}</p></div>' for t in M["themes"])
         notes = '<div class="card big soft" style="margin-top:18px"><ul style="margin:0">' + "".join(f"<li>{e(t)}</li>" for t in M["notes"]) + "</ul></div>"
-        body = self.page_hero(M["kicker"], M["title"], M["lead"]) + self.tool_shell("myths") + how + self.section(PG["lists_inside"], f'<div class="grid g3">{cards}</div>' + notes)
+        body = self.page_hero(M["kicker"], M["title"], M["lead"] + " " + M["versions"]) + self.tool_shell("myths") + how + self.section(PG["lists_inside"], f'<div class="grid g3">{cards}</div>' + notes)
         self.out(P["myths"], self.page(P["myths"], seo, desc, body, "myths", ld_extra=self.app_ld("myths", name, desc, features=[t["title"] for t in M["themes"]])))
         for key in LIST_KEYS:
             name, desc, seo, _ = TL[key]
@@ -462,7 +489,7 @@ class Site:
                 L += [f"#### {s['title']}", "", s["lead"], ""]
                 L += [f"- {g['title']} ({len(g['items'])})" + ("" if s["adult"] else ": " + " ".join(g["items"])) for g in s["groups"]] + [""]
         M = D.MYTHS
-        L += [f"## {M['kicker']}", "", M["lead"], ""] + [f"- {t}" for t in M["notes"]] + [""]
+        L += [f"## {M['kicker']}", "", M["lead"] + " " + M["versions"], ""] + [f"- {t}" for t in M["notes"]] + [""]
         for th in M["themes"]:
             L += [f"### {th['title']}", "", th["lead"], ""] + [f"- {it[0]} {M['t']['is_true'] if it[1] else M['t']['is_myth']} {it[2]}" + "".join(f" [{l}]({u})" for l, u in (it[3] if len(it) > 3 else [])) for it in th["items"]] + [""]
         L += [f"## {PG['glossary']['title']}", ""] + [f"- {t}: {d}" for _, t, d, _ in D.GLOSSARY] + [""]
@@ -522,6 +549,8 @@ def build_sitemap(sites):
 
 def main():
     build_assets()
+    for _, D, _ in LANGS:
+        prepare_myths(D)
     sites = [Site(code, D, prefix) for code, D, prefix in LANGS]
     for s in sites:
         s.build()
