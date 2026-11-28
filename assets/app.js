@@ -1216,6 +1216,20 @@
   document.addEventListener("click", function (ev) { var c = ev.target.closest && ev.target.closest(".chip"); if (c) setTimeout(function () { c.setAttribute("aria-pressed", c.classList.contains("on") ? "true" : "false"); }, 0); });
 
   document.addEventListener("DOMContentLoaded", function () {
+    /* bloco "mande para alguém fazer": copiar o endereço da página e, onde existe, o compartilhar do sistema */
+    document.querySelectorAll("[data-sh-copy]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var u = b.getAttribute("data-sh-copy"), label = b.getAttribute("data-label") || b.textContent;
+        var done = function () { b.setAttribute("data-label", label); b.textContent = T.copied; setTimeout(function () { b.textContent = label; }, 1800); };
+        var manual = function () { window.prompt(T.copy_link, u); };
+        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(u).then(done, manual); else manual();
+      });
+    });
+    document.querySelectorAll("[data-sh-more]").forEach(function (b) {
+      if (!navigator.share) return;
+      b.classList.remove("hidden");
+      b.addEventListener("click", function () { navigator.share({ title: b.getAttribute("data-title"), text: b.getAttribute("data-text"), url: b.getAttribute("data-url") }).catch(function () { }); });
+    });
     var app = $("#app"); if (!app) return;
     if (window.MutationObserver) new MutationObserver(function () { a11y(app); }).observe(app, { childList: true, subtree: true });
     var tool = app.getAttribute("data-tool");

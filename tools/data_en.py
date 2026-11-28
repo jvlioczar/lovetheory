@@ -2121,3 +2121,16 @@ UI.update(presumed_mark="presumed")
 _T = {k: lst for k, _, lst in TASTES}
 _T["cultura"] += ["ethics", "philosophy"]
 _T["filme"] += ["crime and mafia"]
+
+# ---------------------------------------------------------------------------
+# "Send it to someone" block under each test (2026-11-28)
+# ---------------------------------------------------------------------------
+PAGES["share_tool"] = dict(
+    title="Send it to someone",
+    text="Choose where to send it. Only this page's address goes: your answers stay on your device and are not included.",
+    pair="To compare answers as a pair, use the link the test itself creates at the end.",
+    email="Email", more="More options")
+PRIVACY["sections"].insert(2, ("The share buttons", [
+    "Under each test there are buttons to send the page to someone else by WhatsApp, Telegram, Facebook, X or email. They are plain links: nothing is loaded from those companies when the page opens and nothing is sent until you click.",
+    "When you click, the app or network you chose receives the page address and an introductory text, never your answers. From then on, each service's own privacy policy applies."], []))
+PRIVACY["updated"] = "Updated on 28 November 2026."

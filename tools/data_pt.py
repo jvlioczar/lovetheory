@@ -2289,3 +2289,16 @@ UI.update(presumed_mark="presumido")
 _T = {k: lst for k, _, lst in TASTES}
 _T["cultura"] += ["ética", "filosofia"]
 _T["filme"] += ["crime e máfia"]
+
+# ---------------------------------------------------------------------------
+# Bloco "mande para alguém fazer" abaixo de cada teste (2026-11-28)
+# ---------------------------------------------------------------------------
+PAGES["share_tool"] = dict(
+    title="Mande para alguém fazer também",
+    text="Escolha por onde enviar. Vai só o endereço desta página: as suas respostas ficam no seu aparelho e não vão junto.",
+    pair="Para comparar respostas a dois, use o link que o próprio teste gera no final.",
+    email="E-mail", more="Mais opções")
+PRIVACY["sections"].insert(2, ("Os botões de compartilhar", [
+    "Abaixo de cada teste há botões para mandar a página a outra pessoa por WhatsApp, Telegram, Facebook, X ou e-mail. São links comuns: nada é carregado dessas empresas ao abrir a página e nada é enviado até você clicar.",
+    "Ao clicar, o aplicativo ou a rede que você escolheu recebe o endereço da página e um texto de apresentação, nunca as suas respostas. A partir daí vale a política de privacidade de cada serviço."], []))
+PRIVACY["updated"] = "Atualizada em 28 de novembro de 2026."

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Gera o site The Love Theory nas duas línguas: EN na raiz, PT em /pt/. Rode: python tools/build.py"""
-import os, sys, json, html, datetime
+import os, sys, json, html, datetime, urllib.parse
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -95,7 +95,10 @@ def prepare_myths(D):
 
 # Endereços antigos que continuam funcionando: (caminho antigo, caminho novo). Página mínima com redirecionamento.
 REDIRECTS = [("pt/bucket-list-do-amor.html", "pt/antes-de-partir-amor.html"), ("pt/bucket-list-sexual.html", "pt/antes-de-partir-sexo.html")]
-LIST_KEYS = ("spark", "lovelist", "sexlist")   # as três ferramentas de lista (app.js: lists)
+LIST_KEYS = ("spark", "lovelist", "sexlist")
+# Testes com o bloco "mande para alguém fazer" (Meus retratos e Minhas flags são páginas pessoais, ficam de fora).
+SHARE_KEYS = ("scale", "couple", "selflove", "selfdiscover", "stay", "limits", "myths", "spark", "lovelist", "sexlist")
+SHARE_PAIR = ("couple", "limits", "spark", "lovelist", "sexlist")   # têm link próprio para comparar respostas a dois   # as três ferramentas de lista (app.js: lists)
 
 try:
     import rcssmin, rjsmin
@@ -261,7 +264,29 @@ class Site:
 
     def tool_shell(self, tool):
         PG = self.D.PAGES
-        return f'<div class="wrap tool"><div id="app" data-tool="{tool}"><noscript><div class="note">{e(PG["noscript"])}</div></noscript><p class="muted">{e(PG["loading"])}</p></div></div>'
+        return f'<div class="wrap tool"><div id="app" data-tool="{tool}"><noscript><div class="note">{e(PG["noscript"])}</div></noscript><p class="muted">{e(PG["loading"])}</p></div></div>' + self.share_block(tool)
+
+    def share_block(self, key):
+        """Convite para outra pessoa fazer o teste. Links comuns, sem script de terceiros, sempre com o endereço
+        limpo da página: o que vem depois do # (as respostas dos testes a dois) nunca entra."""
+        D, S = self.D, self.D.PAGES["share_tool"]
+        if key not in SHARE_KEYS:
+            return ""
+        name, desc = D.PAGES["tools"][key][0], D.PAGES["tools"][key][1]
+        url, q = self.url(self.P[key]), (lambda s: urllib.parse.quote(s, safe=""))
+        text = f"{name}\n{desc}"   # nome numa linha, descrição na outra (o nome pode terminar em ":" ou "?")
+        links = [("WhatsApp", "https://wa.me/?text=" + q(text + "\n" + url)),
+                 ("Telegram", "https://t.me/share/url?url=" + q(url) + "&text=" + q(text)),
+                 ("Facebook", "https://www.facebook.com/sharer/sharer.php?u=" + q(url)),
+                 ("X", "https://x.com/intent/tweet?text=" + q(text) + "&url=" + q(url)),
+                 (S["email"], "mailto:?subject=" + q(f"{name} · {D.SITE_NAME}") + "&body=" + q(text + "\n\n" + url))]
+        ext = ' target="_blank" rel="noopener noreferrer"'
+        items = "".join(f'<a class="sh" href="{e(h)}"{"" if h.startswith("mailto:") else ext}>{e(t)}</a>' for t, h in links)
+        items += f'<button type="button" class="sh" data-sh-copy="{e(url)}" aria-live="polite">{e(D.UI["copy_link"])}</button>'
+        items += f'<button type="button" class="sh hidden" data-sh-more data-title="{e(name)}" data-text="{e(text)}" data-url="{e(url)}">{e(S["more"])}</button>'
+        pair = f' {e(S["pair"])}' if key in SHARE_PAIR else ""
+        return (f'<div class="wrap tool"><aside class="share-bar" aria-labelledby="sh-t"><h2 id="sh-t">{e(S["title"])}</h2>'
+                f'<p class="muted">{e(S["text"])}{pair}</p><div class="sh-list">{items}</div></aside></div>')
 
     def table(self, headers, rows):
         th = "".join(f"<th>{e(h)}</th>" for h in headers)
