@@ -141,8 +141,14 @@
       var lSize = Math.round(W * (sq ? .025 : .029)), lLH = Math.round(lSize * 1.4), fSize = Math.round(W * .036);
       x.font = "400 " + lSize + "px 'DM Sans', sans-serif";
       var maxItems = groups ? 0 : rows ? (sq ? 0 : (H < 1600 ? 1 : 2)) : (sq ? 2 : 3);
-      var items = (spec.lines || []).slice(0, maxItems).map(function (l) { return wrapText(x, l, tw, 2); });
-      var linesH = items.reduce(function (acc, ls) { return acc + ls.length * lLH + Math.round(lLH * .35); }, 0);
+      /* a leitura do Ficar ou ir? (imagem só com as duas barras) vai inteira; nas imagens com gráfico, o resumo tem até duas linhas */
+      var lineCap = spec.bars ? 8 : 2;
+      var items = (spec.lines || []).slice(0, maxItems).map(function (l) { return wrapText(x, l, tw, lineCap); });
+      var hOf = function (its) { return its.reduce(function (acc, ls) { return acc + ls.length * lLH + Math.round(lLH * .35); }, 0); };
+      /* se o texto inteiro não deixa espaço para as barras, saem as linhas do fim; a primeira (a leitura) fica sempre */
+      var needChart = spec.bars ? Math.round(W * (.07 + spec.bars.length * .135)) : 0;
+      while (needChart && items.length > 1 && bottom - (hOf(items) + Math.round(fSize * 1.3) + Math.round(W * .03)) - y < needChart) items.pop();
+      var linesH = hOf(items);
       var footH = linesH + Math.round(fSize * 1.3) + Math.round(W * .03);
       var avail = bottom - footH - y;
       if (vals) {
@@ -733,7 +739,7 @@
       root.querySelector("[data-share]").addEventListener("click", function () {
         var c = calc();
         shareDialog({ file: "stay-or-go", kicker: S.kicker, title: fmt(T.st_share_title, { nome: st.nome }), bars: [{ label: T.st_for, pct: c.pros }, { label: T.st_against, pct: c.cons }],
-          lines: [c.topPros.length ? T.st_weighs_for + " " + c.topPros.join("; ") + "." : T.st_few_for, c.topCons.length ? T.st_weighs_against + " " + c.topCons.join("; ") + "." : T.st_few_against, reading(c)[0]] });
+          lines: [reading(c)[0], c.topPros.length ? T.st_weighs_for + " " + c.topPros.join("; ") + "." : T.st_few_for, c.topCons.length ? T.st_weighs_against + " " + c.topCons.join("; ") + "." : T.st_few_against] });
       });
     }
     render();
