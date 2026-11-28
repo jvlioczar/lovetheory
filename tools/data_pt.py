@@ -844,13 +844,13 @@ ABOUT = dict(
         "The Love Theory é um mapa de como amamos. Parte de uma ideia simples: 'amor' é uma palavra só para uma mistura de coisas diferentes, e cada pessoa mistura de um jeito.",
         "O site não é diagnóstico, não é terapia e não substitui conversa. Os testes são um começo de conversa, consigo mesmo e com o outro; nunca um veredito.",
         "As teorias de referência estão citadas na página de teorias. Onde a evidência é fraca ou contestada, o site diz.",
-        "Por onde começar: a Escala do Amor para uma pessoa de cada vez; a Autodescoberta para você; o Teste de Casal, os Limites e o Manter a Chama a dois; as duas bucket lists, do amor e sexual, para o que você quer viver; a Mitologia Sexual para testar o que você sabe sobre sexo; o Ficar ou ir? quando a dúvida é essa. Refaça depois de alguns meses: a comparação no tempo é parte do método.",
+        "Por onde começar: a Escala do Amor para uma pessoa de cada vez; a Autodescoberta para você; o Teste de Casal, os Limites e o Manter a Chama a dois; as duas listas Antes de Partir, a do amor e a do sexo, para o que você quer viver; a Mitologia Sexual para testar o que você sabe sobre sexo; o Ficar ou ir? quando a dúvida é essa. Refaça depois de alguns meses: a comparação no tempo é parte do método.",
     ],
     privacy_title="Privacidade",
     privacy=[
         "Nada do que você responde sai do seu aparelho. Não há conta, não há servidor que receba respostas, não há envio.",
         "Os retratos, o mapa de si e as respostas do Teste de Casal ficam guardados no armazenamento local do seu navegador. Limpar os dados do navegador apaga tudo.",
-        "No Teste de Casal, nos Limites, no Manter a Chama e nas bucket lists, as respostas viajam dentro do link que você manda para a outra pessoa. Quem tem o link tem as respostas; mande só para quem deve ver.",
+        "No Teste de Casal, nos Limites, no Manter a Chama e nas listas Antes de Partir, as respostas viajam dentro do link que você manda para a outra pessoa. Quem tem o link tem as respostas; mande só para quem deve ver.",
         "O site usa a Cloudflare Web Analytics, que conta visitas sem cookies e sem identificar pessoas.",
     ],
 )
@@ -1610,7 +1610,7 @@ PRIVACY = dict(
     kicker="Privacidade", title="Política de privacidade",
     lead="The Love Theory não coleta, não guarda e não recebe as suas respostas. Esta página diz, com precisão, o que acontece com cada dado.",
     sections=[
-        ("O que você responde", ["Tudo o que você responde nas ferramentas (Escala do Amor, retratos, Teste de Casal, Limites, Manter a Chama, Bucket List do Amor, Bucket List Sexual, Mitologia Sexual, Autoamor, Autodescoberta, Ficar ou ir?, Minhas flags) é processado no seu navegador e guardado no armazenamento local do seu aparelho. Nada disso é enviado a um servidor nosso, porque não temos servidor que receba respostas.",
+        ("O que você responde", ["Tudo o que você responde nas ferramentas (Escala do Amor, retratos, Teste de Casal, Limites, Manter a Chama, Antes de Partir: Amor, Antes de Partir: Sexo, Mitologia Sexual, Autoamor, Autodescoberta, Ficar ou ir?, Minhas flags) é processado no seu navegador e guardado no armazenamento local do seu aparelho. Nada disso é enviado a um servidor nosso, porque não temos servidor que receba respostas.",
                                  "Essas respostas podem incluir dados sensíveis, como orientação sexual, vida sexual e detalhes de relacionamentos. Justamente por isso, o site foi construído para nunca recebê-los."], []),
         ("Os links do Teste de Casal e dos Limites", ["Para comparar respostas a dois, o site coloca as respostas dentro do próprio link, depois do sinal #. Essa parte do endereço não é enviada ao servidor quando a página abre.",
                                                      "Quem tem o link tem as respostas. Mande só para a pessoa certa, e lembre que aplicativos de mensagem guardam os links enviados."], []),
@@ -1646,27 +1646,27 @@ PAGES["theory"]["intro"] = [
 ]
 
 # ---------------------------------------------------------------------------
-# Listas (2026-11-27): Manter a Chama, Bucket List do Amor, Bucket List Sexual.
+# Listas (2026-11-27): Manter a Chama, Antes de Partir: Amor, Antes de Partir: Sexo (as duas bucket lists; nome PT desde 2026-11-28).
 # Três ferramentas com o mesmo motor (app.js: lists). A ORDEM dos itens é o formato do link e do que fica salvo:
 # item novo entra no FIM do grupo... e mesmo assim muda o comprimento, então subir "v" ao mexer nos itens.
 # Respostas: índice 0 = não, 1 = talvez, 2 = quero, 3 = já faço / já vivi.
 # ---------------------------------------------------------------------------
 PATHS["spark"] = "manter-a-chama.html"
-PATHS["lovelist"] = "bucket-list-do-amor.html"
-PATHS["sexlist"] = "bucket-list-sexual.html"
+PATHS["lovelist"] = "antes-de-partir-amor.html"
+PATHS["sexlist"] = "antes-de-partir-sexo.html"
 NAV = [("home", "Início"), ("theory", "Teoria"), ("scale", "Escala"), ("couple", "Casal"), ("limits", "Limites"), ("spark", "Chama"),
-       ("lovelist", "Lista do Amor"), ("sexlist", "Lista Sexual"), ("selflove", "Autoamor"), ("selfdiscover", "Descoberta"),
+       ("lovelist", "Antes de Partir: Amor"), ("sexlist", "Antes de Partir: Sexo"), ("selflove", "Autoamor"), ("selfdiscover", "Descoberta"),
        ("stay", "Ficar ou ir?"), ("portraits", "Retratos")]
 TOOLS.insert(4, dict(key="spark", name="Manter a Chama", kicker="Keep the Spark",
                      text="Propostas para o amor continuar bom e quente: coisas para fazer juntos, novidades na cama e experiências além do casal. O cruzamento mostra só o que os dois querem."))
-TOOLS.insert(5, dict(key="lovelist", name="Bucket List do Amor", kicker="Love Bucketlist",
+TOOLS.insert(5, dict(key="lovelist", name="Antes de Partir: Amor", kicker="Lista de desejos",
                      text="O amor que você quer viver e as coisas para viver a dois: o que já viveu, o que quer, o que não é para você."))
-TOOLS.insert(6, dict(key="sexlist", name="Bucket List Sexual", kicker="Sexual Bucketlist · 18+",
+TOOLS.insert(6, dict(key="sexlist", name="Antes de Partir: Sexo", kicker="Lista de desejos · 18+",
                      text="Práticas, posições, ocasiões e lugares: o que você já viveu, o que quer viver e o que não é para você. Sozinho ou cruzado com o par."))
 PAGES["tools_title"] = "Dez ferramentas"
 PAGES["tools"]["spark"] = ("Manter a Chama", "Teste para casais manterem o amor bom e quente: atividades, novidades na cama e além do casal. Cada um responde sozinho e só aparece o que os dois querem.", "Manter a Chama: teste para casais", None)
-PAGES["tools"]["lovelist"] = ("Bucket List do Amor", "A lista do amor que você quer viver: o relacionamento que busca e as experiências a dois, dos gestos aos grandes marcos. Marque o que já viveu e o que quer viver.", "Bucket List do Amor: 93 coisas para viver", None)
-PAGES["tools"]["sexlist"] = ("Bucket List Sexual", "Bucket list sexual para adultos: práticas, posições, ocasiões e lugares. Marque o que já viveu, o que quer viver e o que não é para você, sozinho ou com o par.", "Bucket List Sexual: 165 itens (18+)", None)
+PAGES["tools"]["lovelist"] = ("Antes de Partir: Amor", "A lista do amor que você quer viver antes de partir: o relacionamento que busca e as experiências a dois, dos gestos aos grandes marcos.", "Antes de Partir: Amor, 93 coisas para viver", None)
+PAGES["tools"]["sexlist"] = ("Antes de Partir: Sexo", "A lista do sexo que você quer viver antes de partir, para adultos: práticas, posições, ocasiões e lugares. O que já viveu, o que quer e o que não é para você.", "Antes de Partir: Sexo, 165 itens (18+)", None)
 PAGES["lists_how"] = "Como funciona"
 PAGES["lists_inside"] = "O que tem dentro"
 PAGES["lists_items"] = "{n} itens"
@@ -1793,11 +1793,11 @@ LISTS = dict(
             share_btn="Baixar imagem", share_solo="Minhas vontades para manter a chama", share_pair="{x} e {y}: o que os dois querem", line_solo="Quero: {q}. Já fazemos: {d}. Talvez: {t}.",
         ),
     ),
-    # ------------------------------------------------------------------ Bucket List do Amor
+    # ------------------------------------------------------------------ Antes de Partir: Amor
     lovelist=dict(
         v=2, adult=False, bar="done", pick=False,
-        kicker="Bucket List do Amor", title="O amor que eu quero viver",
-        lead=("Uma bucket list é a lista do que se quer viver antes que a vida passe. Esta é a do amor, em duas partes: o relacionamento que você quer ter, "
+        kicker="Antes de Partir: Amor", title="O amor que eu quero viver",
+        lead=("Antes de partir é a lista do que se quer viver antes que a vida passe. Esta é a do amor, em duas partes: o relacionamento que você quer ter, "
               "com aquilo que você quer encontrar em alguém e oferecer de volta, e as coisas para viver a dois, dos gestos pequenos aos grandes marcos. "
               "São {n} itens. Marque o que já viveu, o que quer viver e o que não é para você. O que sobra marcado como quero é a sua lista."),
         options=[("N", "Não é para mim"), ("T", "Talvez"), ("Q", "Quero viver"), ("V", "Já vivo ou já vivi")],
@@ -1859,24 +1859,24 @@ LISTS = dict(
             ]),
         ],
         t=dict(
-            see="Ver a minha lista", solo_title="A sua bucket list do amor", bar_title="Quanto você já viveu, por grupo",
+            see="Ver a minha lista", solo_title="A sua lista do amor", bar_title="Quanto você já viveu, por grupo",
             want_title="O que você quer viver", maybe_title="Os seus talvez", done_title="O que você já vive ou já viveu",
             want_empty="Você não marcou nenhum quero viver. Ou já viveu muito, ou vale olhar os talvez.",
             link_title="Compare com o par", link_text="Mande este link. Quem abrir responde sem ver as suas respostas, e o cruzamento mostra o que os dois querem viver.",
             pair_title="A lista de vocês dois", pair_sum="{go} coisas que os dois querem viver, {keep} que os dois já viveram e {talk} para conversar.",
-            go_title="Os dois querem viver", go_text="A bucket list do casal. Quando um já viveu, pode mostrar o caminho.",
+            go_title="Os dois querem viver", go_text="A lista do casal. Quando um já viveu, pode mostrar o caminho.",
             keep_title="Os dois já viveram", keep_text="O que os dois já viveram, juntos ou cada um na sua história.",
             talk_title="Para conversar", talk_text="Pelo menos um marcou talvez, e ninguém recusou.",
             hidden="{n} itens ficaram de fora porque pelo menos um dos dois marcou que não é para si.",
             none_go="Nenhum quero viver coincidiu ainda. Olhem os itens para conversar.",
-            tag3="{n} já viveu", share_btn="Baixar imagem", share_solo="Minha bucket list do amor", share_pair="{x} e {y}: a bucket list do casal", line_solo="Já vivi {d} de {a}. Quero viver {q}.",
+            tag3="{n} já viveu", share_btn="Baixar imagem", share_solo="Antes de partir: o amor que eu quero viver", share_pair="{x} e {y}: a lista do casal", line_solo="Já vivi {d} de {a}. Quero viver {q}.",
         ),
     ),
-    # ------------------------------------------------------------------ Bucket List Sexual
+    # ------------------------------------------------------------------ Antes de Partir: Sexo
     sexlist=dict(
         v=4, adult=True, bar="done", pick=False,
-        kicker="Bucket List Sexual", title="O que eu já vivi e o que eu quero viver",
-        lead=("A bucket list do sexo: {n} itens entre práticas, posições, ritmos, papéis, ocasiões e lugares. Marque o que já viveu, o que quer viver e o que não é para você. "
+        kicker="Antes de Partir: Sexo", title="O que eu já vivi e o que eu quero viver",
+        lead=("A lista do que viver no sexo antes de partir: {n} itens entre práticas, posições, ritmos, papéis, ocasiões e lugares. Marque o que já viveu, o que quer viver e o que não é para você. "
               "Serve para se conhecer, para ter assunto e, a dois, para descobrir o que os dois querem sem ninguém precisar propor primeiro. "
               "Tudo aqui pressupõe adultos e o consentimento de todos os envolvidos."),
         options=_OPT_BUCKET,
@@ -1945,7 +1945,7 @@ LISTS = dict(
             ]),
         ],
         t=dict(
-            see="Ver a minha lista", solo_title="A sua bucket list sexual", bar_title="Quanto você já viveu, por grupo",
+            see="Ver a minha lista", solo_title="A sua lista do sexo", bar_title="Quanto você já viveu, por grupo",
             want_title="O que você quer viver", maybe_title="Os seus talvez", done_title="O que você já viveu",
             want_empty="Você não marcou nenhum quero viver. Tudo bem: a lista serve para se conhecer, não para se cobrar.",
             link_title="Compare com o par", link_text="Mande este link. Quem abrir responde sem ver as suas respostas, e o cruzamento mostra só o que os dois querem.",
@@ -1955,7 +1955,7 @@ LISTS = dict(
             talk_title="Para conversar", talk_text="Pelo menos um marcou talvez, e ninguém recusou. Talvez não é sim: conversem sem pressão.",
             hidden="{n} itens ficaram de fora porque pelo menos um dos dois marcou que não é para si. Eles não aparecem, e ninguém precisa se explicar.",
             none_go="Nenhum quero viver coincidiu ainda. Olhem os itens para conversar.",
-            tag3="{n} já viveu", share_btn="Baixar imagem", share_solo="Minha bucket list sexual", share_pair="{x} e {y}: o que os dois querem viver", line_solo="Já vivi {d} de {a}. Quero viver {q}.",
+            tag3="{n} já viveu", share_btn="Baixar imagem", share_solo="Antes de partir: o sexo que eu quero viver", share_pair="{x} e {y}: o que os dois querem viver", line_solo="Já vivi {d} de {a}. Quero viver {q}.",
         ),
     ),
 )
@@ -1989,8 +1989,8 @@ GLOSSARY += [
     ("sexualidade", "Educação sexual", "O que se sabe, de fonte confiável, sobre corpo, prazer, consentimento, contracepção e infecções sexualmente transmissíveis. Régua extra da Autodescoberta: não mede experiência.", "selfdiscover"),
     ("sexualidade", "Consentimento", "O sim livre, informado e específico, dado antes e que pode ser retirado a qualquer momento. Um sim para agradar ou por insistência não é consentimento.", "sexlist"),
     ("sexualidade", "Palavra de segurança", "A palavra combinada antes que interrompe na hora qualquer prática, sem discussão. Indispensável em jogos de poder.", "spark"),
-    ("sexualidade", "Lista de sim, não e talvez", "Cada um marca sozinho o que quer, o que não quer e o que talvez queira; o cruzamento mostra só as coincidências. É o formato do Manter a Chama e da Bucket List Sexual.", "spark"),
-    ("sexualidade", "Bucket list", "A lista do que se quer viver. No site há duas: a do amor e a sexual.", "lovelist"),
+    ("sexualidade", "Lista de sim, não e talvez", "Cada um marca sozinho o que quer, o que não quer e o que talvez queira; o cruzamento mostra só as coincidências. É o formato do Manter a Chama e do Antes de Partir: Sexo.", "spark"),
+    ("sexualidade", "Antes de partir (bucket list)", "A lista do que se quer viver antes que a vida passe; em inglês, bucket list. No site há duas: Antes de Partir: Amor e Antes de Partir: Sexo.", "lovelist"),
     ("sexualidade", "Swing", "Troca de casais. No soft swing a troca fica em beijos e toques; na troca completa inclui sexo. Sempre com o acordo dos quatro.", "spark"),
     ("sexualidade", "Ménage", "Sexo a três. Só funciona quando os três querem e o casal combinou antes o que pode e o que não pode.", "spark"),
     ("sexualidade", "Passe livre", "A permissão combinada para ficar com outra pessoa numa ocasião definida, sem que a relação deixe de ser exclusiva no resto do tempo.", "spark"),

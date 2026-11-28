@@ -421,8 +421,8 @@ Um tipo é uma região do espaço de retratos: um padrão reconhecível de propr
 - Teste de Casal: O que cada um sente, acha que o outro sente, combinou e supõe ter combinado. E onde essas quatro camadas não batem.
 - Limites: Cem situações, treze grupos, cinco respostas. Descubra os seus limites e, com o par, onde as regras não ditas divergem.
 - Manter a Chama: Propostas para o amor continuar bom e quente: coisas para fazer juntos, novidades na cama e experiências além do casal. O cruzamento mostra só o que os dois querem.
-- Bucket List do Amor: O amor que você quer viver e as coisas para viver a dois: o que já viveu, o que quer, o que não é para você.
-- Bucket List Sexual: Práticas, posições, ocasiões e lugares: o que você já viveu, o que quer viver e o que não é para você. Sozinho ou cruzado com o par.
+- Antes de Partir: Amor: O amor que você quer viver e as coisas para viver a dois: o que já viveu, o que quer, o que não é para você.
+- Antes de Partir: Sexo: Práticas, posições, ocasiões e lugares: o que você já viveu, o que quer viver e o que não é para você. Sozinho ou cruzado com o par.
 - Mitologia Sexual: O quanto você sabe sobre sexo: consentimento, assédio, pressão, prazer, corpo, prevenção, julgamento e acordos. Cada resposta vem com a explicação. Tem versão curta e versão completa.
 - Autoamor: A mesma régua apontada para mim. Sem confundir amor-próprio com narcisismo.
 - Autodescoberta: Quem eu sou como pessoa que ama e deseja, em réguas deslizantes, com a posição que a sociedade presume marcada em cada uma.
@@ -478,9 +478,9 @@ Experiências que envolvem outras pessoas ou outros ambientes. Para alguns casai
 - Com mais gente (8)
 - Acordos abertos (9)
 
-### Bucket List do Amor
+### Antes de Partir: Amor
 
-Uma bucket list é a lista do que se quer viver antes que a vida passe. Esta é a do amor, em duas partes: o relacionamento que você quer ter, com aquilo que você quer encontrar em alguém e oferecer de volta, e as coisas para viver a dois, dos gestos pequenos aos grandes marcos. São 93 itens. Marque o que já viveu, o que quer viver e o que não é para você. O que sobra marcado como quero é a sua lista. São duas versões: a curta, com os 33 itens essenciais (cerca de 6 minutos), e a completa, com os 93 (cerca de 16 minutos).
+Antes de partir é a lista do que se quer viver antes que a vida passe. Esta é a do amor, em duas partes: o relacionamento que você quer ter, com aquilo que você quer encontrar em alguém e oferecer de volta, e as coisas para viver a dois, dos gestos pequenos aos grandes marcos. São 93 itens. Marque o que já viveu, o que quer viver e o que não é para você. O que sobra marcado como quero é a sua lista. São duas versões: a curta, com os 33 itens essenciais (cerca de 6 minutos), e a completa, com os 93 (cerca de 16 minutos).
 
 - Você marca item por item: Não é para mim, talvez, quero viver, ou já vivo ou já vivi. Não existe resposta certa, e a lista de ninguém precisa ser igual à sua.
 - A sua lista fica guardada: As respostas ficam só no seu aparelho. Volte quando quiser para riscar o que viveu e acrescentar o que passou a querer.
@@ -510,9 +510,9 @@ Gestos, memórias, aventuras, marcos e o dia a dia.
 - Marcos (12): Apresentar à família e conhecer a família. Morar juntos. Adotar um animal juntos, para a vida toda dele. Pedir ou ser pedido em casamento. Casar, ou celebrar a união do nosso jeito. Viver uma lua de mel. Ter ou criar filhos. Comprar ou montar uma casa. Abrir um projeto ou um negócio juntos. Comemorar um ano, dez anos, vinte e cinco anos. Renovar os votos. Envelhecer juntos.
 - Dia a dia (10): Ter rituais só nossos, como o café de domingo. Cuidar de quem eu amo na doença, e ser cuidado. Atravessar uma crise juntos e sair mais fortes. Pedir desculpa de verdade e perdoar de verdade. Passar um dia inteiro na cama. Cozinhar juntos como hábito. Ter apelidos e piadas internas. Viver um silêncio confortável. Aprender algo novo juntos. Ficar amigo dos amigos um do outro.
 
-### Bucket List Sexual
+### Antes de Partir: Sexo
 
-A bucket list do sexo: 165 itens entre práticas, posições, ritmos, papéis, ocasiões e lugares. Marque o que já viveu, o que quer viver e o que não é para você. Serve para se conhecer, para ter assunto e, a dois, para descobrir o que os dois querem sem ninguém precisar propor primeiro. Tudo aqui pressupõe adultos e o consentimento de todos os envolvidos. São duas versões: a curta, com os 44 itens essenciais (cerca de 7 minutos), e a completa, com os 165 (cerca de 28 minutos).
+A lista do que viver no sexo antes de partir: 165 itens entre práticas, posições, ritmos, papéis, ocasiões e lugares. Marque o que já viveu, o que quer viver e o que não é para você. Serve para se conhecer, para ter assunto e, a dois, para descobrir o que os dois querem sem ninguém precisar propor primeiro. Tudo aqui pressupõe adultos e o consentimento de todos os envolvidos. São duas versões: a curta, com os 44 itens essenciais (cerca de 7 minutos), e a completa, com os 165 (cerca de 28 minutos).
 
 - Você marca item por item: Não é para mim, talvez, quero viver, ou já vivi. Não é competição: a lista serve para se conhecer, não para pontuar.
 - Fica só no seu aparelho: As respostas ficam guardadas no seu navegador, sem conta e sem servidor. Volte para atualizar quando quiser.
@@ -954,8 +954,8 @@ O que você faz quando não é com você: falam mal do seu par, expõem alguém,
 - Educação sexual: O que se sabe, de fonte confiável, sobre corpo, prazer, consentimento, contracepção e infecções sexualmente transmissíveis. Régua extra da Autodescoberta: não mede experiência.
 - Consentimento: O sim livre, informado e específico, dado antes e que pode ser retirado a qualquer momento. Um sim para agradar ou por insistência não é consentimento.
 - Palavra de segurança: A palavra combinada antes que interrompe na hora qualquer prática, sem discussão. Indispensável em jogos de poder.
-- Lista de sim, não e talvez: Cada um marca sozinho o que quer, o que não quer e o que talvez queira; o cruzamento mostra só as coincidências. É o formato do Manter a Chama e da Bucket List Sexual.
-- Bucket list: A lista do que se quer viver. No site há duas: a do amor e a sexual.
+- Lista de sim, não e talvez: Cada um marca sozinho o que quer, o que não quer e o que talvez queira; o cruzamento mostra só as coincidências. É o formato do Manter a Chama e do Antes de Partir: Sexo.
+- Antes de partir (bucket list): A lista do que se quer viver antes que a vida passe; em inglês, bucket list. No site há duas: Antes de Partir: Amor e Antes de Partir: Sexo.
 - Swing: Troca de casais. No soft swing a troca fica em beijos e toques; na troca completa inclui sexo. Sempre com o acordo dos quatro.
 - Ménage: Sexo a três. Só funciona quando os três querem e o casal combinou antes o que pode e o que não pode.
 - Passe livre: A permissão combinada para ficar com outra pessoa numa ocasião definida, sem que a relação deixe de ser exclusiva no resto do tempo.

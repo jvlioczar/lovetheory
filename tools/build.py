@@ -93,6 +93,8 @@ def prepare_myths(D):
         L["versions"] = versions(L["ns"], L["n"])
 
 
+# Endereços antigos que continuam funcionando: (caminho antigo, caminho novo). Página mínima com redirecionamento.
+REDIRECTS = [("pt/bucket-list-do-amor.html", "pt/antes-de-partir-amor.html"), ("pt/bucket-list-sexual.html", "pt/antes-de-partir-sexo.html")]
 LIST_KEYS = ("spark", "lovelist", "sexlist")   # as três ferramentas de lista (app.js: lists)
 
 try:
@@ -564,6 +566,13 @@ def build_root():
 <p class="row"><a class="btn" href="/">{e(nf_en["cta"])}</a> <a class="btn ghost" href="/pt/" lang="pt-BR">{e(nf_pt["cta"])}</a> <a class="btn ghost" href="/glossary.html">{e(data_en.PAGES["glossary_link"])}</a> <a class="btn ghost" href="/pt/glossario.html" lang="pt-BR">{e(data_pt.PAGES["glossary_link"])}</a></p></main>{CF_SNIPPET}</body></html>
 """)
     write("favicon.svg", '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#d8408f"/><path fill="#fff" d="M32 50.8l-3.5-3.2C19.4 39.4 13.3 33.9 13.3 27.2c0-5.5 4.3-9.8 9.8-9.8 3.1 0 6.1 1.4 8.9 4.3 2.8-2.9 5.8-4.3 8.9-4.3 5.5 0 9.8 4.3 9.8 9.8 0 6.7-6.1 12.2-15.2 20.4L32 50.8z"/></svg>')
+    for old, new in REDIRECTS:
+        write(old, f'''<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>The Love Theory</title>
+<meta name="robots" content="noindex"><link rel="canonical" href="{SITE}/{new}"><meta http-equiv="refresh" content="0; url=/{new}">
+<script>location.replace("/{new}" + location.hash);</script></head>
+<body><p><a href="/{new}">The Love Theory</a></p></body></html>
+''')
     write("CNAME", HOST + "\n")
     write("robots.txt", f"User-agent: *\nAllow: /\n\n# Conteúdo em texto para modelos de linguagem / plain-text content for language models\n# {SITE}/llms.txt\n# {SITE}/pt/llms.txt\n\nSitemap: {SITE}/sitemap.xml\n")
     try:

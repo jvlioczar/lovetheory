@@ -868,7 +868,7 @@
     render();
   }
 
-  /* ---------- Listas: Manter a Chama, Bucket List do Amor, Bucket List Sexual ----------
+  /* ---------- Listas: Manter a Chama e as duas bucket lists (em PT, Antes de Partir: Amor e Antes de Partir: Sexo) ----------
      Respostas por item: 0 não, 1 talvez, 2 quero, 3 já faço / já vivi; -1 sem resposta.
      No cruzamento, qualquer item com um "não" fica de fora e nunca é mostrado.
      Duas versões: curta (g.short, índices dos itens essenciais de cada grupo, definidos no build) e completa. */
