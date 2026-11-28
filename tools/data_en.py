@@ -2115,3 +2115,9 @@ _T["lazer"] += ["reading", "crafts", "gardening", "films and series", "shopping"
 _T["ambiente"] += ["mild weather", "sunshine", "rain", "snow", "breeze", "outdoors", "indoors", "forest", "by the water", "crowded places", "empty places", "tidy spaces", "cosiness", "background music"]
 UI.update(chart_sliders="Sliders", chart_prefs="Preferences", sd_prefs_title="What I like",
           sd_legend="The dark mark is where society presumes; the pink dot is where I am; the light band is the variability.")
+
+# Autodescoberta (2026-11-28): rótulo da marca na régua e mais três gostos (sempre no FIM de cada lista).
+UI.update(presumed_mark="presumed")
+_T = {k: lst for k, _, lst in TASTES}
+_T["cultura"] += ["ethics", "philosophy"]
+_T["filme"] += ["crime and mafia"]

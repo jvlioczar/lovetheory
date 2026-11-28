@@ -560,10 +560,12 @@
       var v = saved.values[s.key] != null ? saved.values[s.key] : (s.presumed != null ? s.presumed : 2), va = saved.vari[s.key] || 0;
       return '<div class="slider-card" data-slug="' + s.key + '"><h4>' + esc(s.name) + '</h4><p class="small muted">' + esc(s.measures) + '</p>' +
         '<div class="poles"><span>' + esc(s.poles[0]) + '</span><span>' + esc(s.poles[1]) + '</span></div>' +
-        '<div class="track">' + (s.presumed != null ? '<span class="presumed" style="left:calc(' + (s.presumed * 25) + '% + ' + (8 - s.presumed * 4) + 'px)"></span>' : "") + '<span class="band"></span>' +
+        '<div class="track">' + (s.presumed != null ? '<span class="presumed" data-label="' + esc(T.presumed_mark) + '" style="left:calc(' + (s.presumed * 25) + '% + ' + (8 - s.presumed * 4) + 'px)"></span>' : "") + '<span class="band"></span>' +
         '<input type="range" min="0" max="4" step="1" name="v-' + s.key + '" value="' + v + '"></div>' +
         '<div class="pos-label" data-pos>' + esc(s.pos[v]) + '</div><p class="small" data-pos-text>' + esc(s.pos_text[v]) + '</p>' +
-        '<div class="vari"><span>' + esc(T.variability) + '</span><input type="range" min="0" max="5" step="1" name="x-' + s.key + '" value="' + va + '"><span data-vari>' + esc(variLabel(va)) + '</span></div>' +
+        '<div class="vari"><div class="vari-h"><span>' + esc(T.variability) + '</span><b data-vari>' + esc(variLabel(va)) + '</b></div>' +
+        '<div class="poles"><span>' + esc(variLabel(0)) + '</span><span>' + esc(variLabel(5)) + '</span></div>' +
+        '<input type="range" min="0" max="5" step="1" name="x-' + s.key + '" value="' + va + '"></div>' +
         (s.extra ? '<label class="opt" style="margin-top:10px"><input type="checkbox" name="e-' + s.key + '" value="' + esc(s.extra[0]) + '"' + (saved.extras && saved.extras[s.key] ? " checked" : "") + '> ' + esc(s.extra[1]) + '</label>' : "") +
         '<details><summary>' + esc(T.sheet) + '</summary><dl class="sheet"><dt>' + esc(T.sheet_why0) + '</dt><dd>' + esc(s.why0) + '</dd><dt>' + esc(T.sheet_not) + '</dt><dd>' + esc(s.not_) + '</dd><dt>' + esc(T.sheet_links) + '</dt><dd>' + esc(s.links) + '</dd><dt>' + esc(T.sheet_pos) + '</dt><dd>' + s.pos.map(function (p, i) { return "<b>" + esc(p) + "</b>: " + esc(s.pos_text[i]); }).join("<br>") + '</dd></dl></details></div>';
     };

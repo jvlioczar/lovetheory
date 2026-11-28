@@ -2283,3 +2283,9 @@ _T["lazer"] += ["ler", "artesanato", "jardinagem", "filmes e séries", "compras"
 _T["ambiente"] += ["clima ameno", "sol", "chuva", "neve", "brisa", "ar livre", "dentro de casa", "floresta", "beira d'água", "lugares cheios", "lugares vazios", "tudo arrumado", "aconchego", "música ao fundo"]
 UI.update(chart_sliders="Réguas", chart_prefs="Preferências", sd_prefs_title="Do que eu gosto",
           sd_legend="A marca escura é onde a sociedade presume; o ponto rosa é onde eu estou; a faixa clara é a variabilidade.")
+
+# Autodescoberta (2026-11-28): rótulo da marca na régua e mais três gostos (sempre no FIM de cada lista).
+UI.update(presumed_mark="presumido")
+_T = {k: lst for k, _, lst in TASTES}
+_T["cultura"] += ["ética", "filosofia"]
+_T["filme"] += ["crime e máfia"]

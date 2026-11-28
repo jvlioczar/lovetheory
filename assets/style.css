@@ -254,12 +254,16 @@ input[type=range]::-moz-range-thumb { width: 26px; height: 18px; border-radius: 
 .slider-card .poles { display: flex; justify-content: space-between; font-size: 13px; color: var(--ink-3); font-weight: 600; }
 .track { position: relative; height: 58px; }
 .track .presumed { position: absolute; top: 34px; width: 2px; height: 12px; background: var(--ink); }
-.track .presumed::after { content: "presumido"; position: absolute; top: 9px; left: -30px; color: var(--ink-3); white-space: nowrap; font-family: var(--script); font-size: 15px; font-weight: 700; }
+.track .presumed::after { content: attr(data-label); position: absolute; top: 9px; left: 1px; transform: translateX(-50%); color: var(--ink-3); white-space: nowrap; font-family: var(--script); font-size: 15px; font-weight: 700; }
 .track .band { position: absolute; top: 19px; height: 10px; background: rgba(216, 64, 143, .22); border-radius: 999px; pointer-events: none; }
 .track input[type=range] { position: absolute; left: 0; right: 0; top: 8px; margin: 0; }
 .pos-label { font-family: var(--script); font-weight: 700; color: var(--magenta); font-size: 24px; margin: 4px 0; }
-.vari { display: grid; grid-template-columns: auto 1fr auto; gap: 10px; align-items: center; font-size: 13px; color: var(--ink-3); margin-top: 6px; }
-.vari input { height: 24px; }
+/* variabilidade: título e valor, polos, e a linha de deslizar, cada um na sua linha (a largura do controle não muda ao deslizar) */
+.vari { margin-top: 12px; padding-top: 10px; border-top: 1px dashed #c9b9c3; }
+.vari-h { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; font-size: 13px; font-weight: 700; color: var(--ink-2); }
+.vari-h b { font-family: var(--script); font-size: 19px; line-height: 1.1; color: var(--magenta); text-align: right; }
+.vari .poles { font-size: 12px; margin-top: 2px; }
+.vari input { display: block; }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .chip { padding: 7px 13px; border-radius: 999px; border: 1.5px solid var(--ink); background: #fff; cursor: pointer; font: inherit; font-size: 14px; font-weight: 600; box-shadow: 2px 2px 0 var(--ink); }
 .chip.on { background: var(--pink-deep); color: #fff; }
