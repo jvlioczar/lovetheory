@@ -2102,3 +2102,16 @@ UI.update(
 )
 PAGES["versions_items"] = "There are two versions: the short one, with the {s} essential items (about {sm} minutes), and the full one, with all {n} (about {fm} minutes)."
 UI.update(chart_radar="Circular chart", chart_bars="Bar chart", sl_levels="Each property goes from 1 to 5. In the circular chart, each ring is one level.")
+
+# ---------------------------------------------------------------------------
+# More tastes (2026-11-28). Always at the END of each list: saved choices and the Couple Test link use the position.
+# ---------------------------------------------------------------------------
+_T = {k: lst for k, _, lst in TASTES}
+_T["viagem"] += ["historic sites", "wine tourism", "astrotourism", "pilgrimage", "ecotourism", "cruise", "volunteering", "exchange", "luxury", "low-cost", "staycation", "day trip", "solo", "in a group"]
+_T["comida"] += ["fast food", "slow food", "cafés", "fine dining", "snacks", "buffet", "delivery", "latin", "arabic", "indian", "asian", "french", "comfort food"]
+_T["cultura"] += ["series and TV", "dance", "comics", "stand-up", "spirituality"]
+_T["filme"] += ["fantasy", "musical", "historical", "war", "western", "anime", "romantic comedy", "biopic"]
+_T["lazer"] += ["reading", "crafts", "gardening", "films and series", "shopping", "gatherings", "walking", "meditation", "yoga", "camping"]
+_T["ambiente"] += ["mild weather", "sunshine", "rain", "snow", "breeze", "outdoors", "indoors", "forest", "by the water", "crowded places", "empty places", "tidy spaces", "cosiness", "background music"]
+UI.update(chart_sliders="Sliders", chart_prefs="Preferences", sd_prefs_title="What I like",
+          sd_legend="The dark mark is where society presumes; the pink dot is where I am; the light band is the variability.")

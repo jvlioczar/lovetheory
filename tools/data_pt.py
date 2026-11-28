@@ -2270,3 +2270,16 @@ UI.update(
 )
 PAGES["versions_items"] = "São duas versões: a curta, com os {s} itens essenciais (cerca de {sm} minutos), e a completa, com os {n} (cerca de {fm} minutos)."
 UI.update(chart_radar="Gráfico circular", chart_bars="Gráfico em barras", sl_levels="Cada propriedade vai de 1 a 5. No gráfico circular, cada anel é um nível.")
+
+# ---------------------------------------------------------------------------
+# Mais gostos (2026-11-28). Sempre no FIM de cada lista: as escolhas guardadas e o link do Teste de Casal usam a posição.
+# ---------------------------------------------------------------------------
+_T = {k: lst for k, _, lst in TASTES}
+_T["viagem"] += ["locais históricos", "enoturismo", "astroturismo", "peregrinação", "ecoturismo", "cruzeiro", "voluntariado", "intercâmbio", "luxo", "econômica", "staycation", "bate-volta", "solo", "em grupo"]
+_T["comida"] += ["fast-food", "slow food", "cafés", "alta gastronomia", "petiscos", "bufê", "delivery", "latina", "árabe", "indiana", "asiática", "francesa", "comida afetiva"]
+_T["cultura"] += ["séries e TV", "dança", "quadrinhos", "stand-up", "espiritualidade"]
+_T["filme"] += ["fantasia", "musical", "histórico", "guerra", "faroeste", "anime", "comédia romântica", "biografia"]
+_T["lazer"] += ["ler", "artesanato", "jardinagem", "filmes e séries", "compras", "encontros com amigos", "caminhada", "meditação", "yoga", "acampar"]
+_T["ambiente"] += ["clima ameno", "sol", "chuva", "neve", "brisa", "ar livre", "dentro de casa", "floresta", "beira d'água", "lugares cheios", "lugares vazios", "tudo arrumado", "aconchego", "música ao fundo"]
+UI.update(chart_sliders="Réguas", chart_prefs="Preferências", sd_prefs_title="Do que eu gosto",
+          sd_legend="A marca escura é onde a sociedade presume; o ponto rosa é onde eu estou; a faixa clara é a variabilidade.")

@@ -111,14 +111,15 @@
   function shareDialog(spec) {
     var dlg = $("dialog.share");
     if (!dlg) { dlg = document.createElement("dialog"); dlg.className = "share"; document.body.appendChild(dlg); dlg.addEventListener("click", function (ev) { if (ev.target === dlg) dlg.close(); }); }
+    var kinds = []; if (spec.values) kinds.push(["radar", T.chart_radar]); if (spec.rows) kinds.push(["bars", spec.rowsLabel || T.chart_bars]); if (spec.groups) kinds.push(["groups", spec.groupsLabel || T.chart_prefs]);
     dlg.innerHTML = '<div class="share-in"><button type="button" class="share-x" aria-label="' + esc(T.close) + '">×</button><h3>' + esc(T.share_title) + '</h3><p class="muted">' + esc(T.share_text) + '</p><div class="opts">' +
       FMTS.map(function (f, i) { return '<label class="opt"><input type="radio" name="fmt" value="' + f.k + '"' + (i === 0 ? " checked" : "") + '> ' + esc(T.fmt[f.k]) + '</label>'; }).join("") +
-      '</div>' + (spec.values && spec.rows ? '<div class="opts">' + [["radar", T.chart_radar], ["bars", T.chart_bars]].map(function (c, i) { return '<label class="opt"><input type="radio" name="chart" value="' + c[0] + '"' + (i === 0 ? " checked" : "") + '> ' + esc(c[1]) + '</label>'; }).join("") + '</div>' : "") + '<canvas width="1080" height="1350" aria-label="' + esc(T.share_preview) + '"></canvas><div class="actions"><button type="button" class="btn" data-dl>' + esc(T.download_png) + '</button></div></div>';
-    var cv = $("canvas", dlg), fmtc = FMTS[0], chart = "radar";
+      '</div>' + (kinds.length > 1 ? '<div class="opts">' + kinds.map(function (c, i) { return '<label class="opt"><input type="radio" name="chart" value="' + c[0] + '"' + (i === 0 ? " checked" : "") + '> ' + esc(c[1]) + '</label>'; }).join("") + '</div>' : "") + '<canvas width="1080" height="1350" aria-label="' + esc(T.share_preview) + '"></canvas><div class="actions"><button type="button" class="btn" data-dl>' + esc(T.download_png) + '</button></div></div>';
+    var cv = $("canvas", dlg), fmtc = FMTS[0], chart = kinds.length ? kinds[0][0] : "";
     function draw() {
       var W = fmtc.w, H = fmtc.h, sq = fmtc.k === "square"; cv.width = W; cv.height = H; var x = cv.getContext("2d");
       /* quando a ferramenta manda os dois gráficos, a pessoa escolhe um */
-      var both = spec.values && spec.rows, vals = both && chart === "bars" ? null : spec.values, rows = both && chart === "radar" ? null : spec.rows;
+      var vals = chart === "radar" ? spec.values : null, rows = chart === "bars" ? spec.rows : null, groups = chart === "groups" ? spec.groups : null, gOver = false;
       x.fillStyle = "#f7efe7"; x.fillRect(0, 0, W, H);
       x.fillStyle = "#e6d9d0"; for (var i = 20; i < W; i += 24) for (var j = 20; j < H; j += 24) { x.beginPath(); x.arc(i, j, 1.6, 0, 7); x.fill(); }
       var m = Math.round(W * .06), bar = Math.round(W * .05), pad = Math.round(W * .05);
@@ -132,14 +133,14 @@
       x.fillStyle = "#2a1d2c"; x.font = "600 " + Math.round(W * .02) + "px 'DM Sans', sans-serif"; x.textAlign = "right"; x.fillText("THE LOVE THEORY", W - m - bar * .5, m + bar * .64); x.textAlign = "left";
       var y = m + bar + Math.round(W * (sq ? .045 : .06));
       var kSize = Math.round(W * (sq ? .042 : .05)), tSize = Math.round(W * (sq ? .044 : .056)), tLH = Math.round(tSize * 1.12);
-      var titleTxt = rows && H < 1600 && spec.shortTitle ? spec.shortTitle : spec.title;
+      var titleTxt = groups && spec.groupsTitle ? spec.groupsTitle : (rows && H < 1600 && spec.shortTitle ? spec.shortTitle : spec.title);
       x.font = "700 " + tSize + "px DynaPuff, cursive"; var tLines = wrapText(x, titleTxt, tw, 2);
       x.fillStyle = "#b8236f"; x.font = "700 " + kSize + "px Caveat, cursive"; x.fillText(spec.kicker, px, y); y += Math.round(kSize * .55);
       x.fillStyle = "#2a1d2c"; x.font = "700 " + tSize + "px DynaPuff, cursive"; tLines.forEach(function (l) { y += tLH; x.fillText(l, px, y); });
       y += Math.round(W * .035);
       var lSize = Math.round(W * (sq ? .025 : .029)), lLH = Math.round(lSize * 1.4), fSize = Math.round(W * .036);
       x.font = "400 " + lSize + "px 'DM Sans', sans-serif";
-      var maxItems = rows ? (sq ? 0 : (H < 1600 ? 1 : 2)) : (sq ? 2 : 3);
+      var maxItems = groups ? 0 : rows ? (sq ? 0 : (H < 1600 ? 1 : 2)) : (sq ? 2 : 3);
       var items = (spec.lines || []).slice(0, maxItems).map(function (l) { return wrapText(x, l, tw, 2); });
       var linesH = items.reduce(function (acc, ls) { return acc + ls.length * lLH + Math.round(lLH * .35); }, 0);
       var footH = linesH + Math.round(fSize * 1.3) + Math.round(W * .03);
@@ -162,12 +163,41 @@
           x.fillText(nm, cx0, ry + rowH * .28);
           var by = ry + rowH * .42, bh = Math.round(rowH * .2);
           rr(x, cx0, by, cw, bh, 99); x.fillStyle = "#fff"; x.fill(); x.lineWidth = 2; x.strokeStyle = "#2a1d2c"; x.stroke();
+          if (r.vari) { var b0 = Math.max(0, r.x / 4 - r.vari * .1), b1 = Math.min(1, r.x / 4 + r.vari * .1); x.save(); rr(x, cx0, by, cw, bh, 99); x.clip(); x.fillStyle = "rgba(216,64,143,.34)"; x.fillRect(cx0 + cw * b0, by, cw * (b1 - b0), bh); x.restore(); rr(x, cx0, by, cw, bh, 99); x.stroke(); }
           if (r.presumed != null) { x.fillStyle = "#2a1d2c"; x.fillRect(cx0 + cw * r.presumed / 4 - 1.5, by - bh * .3, 3, bh * 1.6); }
           x.beginPath(); x.arc(cx0 + cw * r.x / 4, by + bh / 2, bh * .5, 0, 7); x.fillStyle = "#d8408f"; x.fill(); x.stroke();
           x.fillStyle = "#8c7a8f"; x.font = "600 " + Math.round(rowH * .19) + "px 'DM Sans', sans-serif";
           x.textAlign = "left"; x.fillText(r.poles[0], cx0, by + bh + rowH * .22); x.textAlign = "right"; x.fillText(r.poles[1], cx0 + cw, by + bh + rowH * .22);
         });
         x.textAlign = "left"; y = y0 + perCol * rowH;
+      } else if (groups) {
+        /* etiquetas por grupo; a letra diminui até caber na altura disponível */
+        var gsz = Math.round(W * .03), lay;
+        var layout = function (fs, cap) {
+          x.font = "600 " + fs + "px 'DM Sans', sans-serif";
+          var ch = Math.round(fs * 1.75), gap = Math.round(fs * .42), th = Math.round(fs * 1.55), yy = 0, out = [];
+          groups.forEach(function (g) {
+            var cx0 = 0, line = 0, chips = [];
+            var items = cap && g.items.length > cap ? g.items.slice(0, cap).concat(["+" + (g.items.length - cap)]) : g.items;
+            items.forEach(function (t) { var w = Math.min(tw, x.measureText(t).width + fs * 1.3); if (cx0 + w > tw && cx0 > 0) { cx0 = 0; line++; } chips.push({ t: t, x: cx0, l: line, w: w }); cx0 += w + gap; });
+            out.push({ title: g.title, y: yy, chips: chips }); yy += th + (line + 1) * (ch + gap) + Math.round(fs * .55);
+          });
+          return { fs: fs, ch: ch, gap: gap, th: th, h: yy, out: out };
+        };
+        do { lay = layout(gsz); gsz -= 2; } while (lay.h > avail && gsz >= 14);
+        /* ainda não coube: mostra menos etiquetas por grupo, com "+N" no fim */
+        for (var cap = 12; lay.h > avail && cap >= 2; cap--) lay = layout(lay.fs, cap);
+        gOver = lay.h > avail;
+        var fills = ["#fff", "#e4d8f2", "#c7d2e8", "#fff7ee"];
+        lay.out.forEach(function (g, gi) {
+          x.textAlign = "left"; x.fillStyle = "#9c1c5e"; x.font = "700 " + Math.round(lay.fs * 1.05) + "px 'DM Sans', sans-serif"; x.fillText(g.title, px, y + g.y + lay.fs);
+          g.chips.forEach(function (c) {
+            var cy0 = y + g.y + lay.th + c.l * (lay.ch + lay.gap);
+            rr(x, px + c.x, cy0, c.w, lay.ch, lay.ch / 2); x.fillStyle = fills[gi % 4]; x.fill(); x.lineWidth = 2; x.strokeStyle = "#2a1d2c"; x.stroke();
+            x.fillStyle = "#2a1d2c"; x.font = "600 " + lay.fs + "px 'DM Sans', sans-serif"; x.textBaseline = "middle"; x.fillText(c.t, px + c.x + lay.fs * .65, cy0 + lay.ch / 2 + 1); x.textBaseline = "alphabetic";
+          });
+        });
+        y += lay.h;
       } else if (spec.bars) {
         var bH = Math.round(W * .075), bGap = Math.round(W * .06); y += Math.round(W * .05);
         spec.bars.forEach(function (b, i) {
@@ -185,7 +215,7 @@
       items.forEach(function (ls) { ls.forEach(function (ln) { x.fillText(ln, px, ly); lastY = ly; ly += lLH; }); ly += Math.round(lLH * .35); });
       x.font = "700 " + fSize + "px Caveat, cursive"; x.fillStyle = "#b8236f"; x.fillText(location.host.replace(/^www\./, "") || D.host, px, fy);
       x.restore();
-      cv.dataset.fit = (lastY <= fy - Math.round(fSize * 1.05)) ? "ok" : "overflow";
+      cv.dataset.fit = (!gOver && lastY <= fy - Math.round(fSize * 1.05)) ? "ok" : "overflow";
     }
     var ready = document.fonts && document.fonts.load ? Promise.all([document.fonts.load("700 40px Caveat"), document.fonts.load("700 40px DynaPuff"), document.fonts.load("600 20px 'DM Sans'")]) : Promise.resolve();
     ready.then(draw, draw);
@@ -193,7 +223,7 @@
     dlg.querySelectorAll("[name=fmt]").forEach(function (r) { r.addEventListener("change", function () { fmtc = FMTS.filter(function (f) { return f.k === r.value; })[0]; draw(); }); });
     $(".share-x", dlg).addEventListener("click", function () { dlg.close(); });
     $("[data-dl]", dlg).addEventListener("click", function () {
-      cv.toBlob(function (blob) { var a = document.createElement("a"), u = URL.createObjectURL(blob); a.href = u; a.download = spec.file + (spec.values && spec.rows ? "-" + chart : "") + "-" + fmtc.k + ".png"; document.body.appendChild(a); a.click(); setTimeout(function () { URL.revokeObjectURL(u); a.remove(); }, 1000); }, "image/png");
+      cv.toBlob(function (blob) { var a = document.createElement("a"), u = URL.createObjectURL(blob); a.href = u; a.download = spec.file + (kinds.length > 1 ? "-" + chart : "") + "-" + fmtc.k + ".png"; document.body.appendChild(a); a.click(); setTimeout(function () { URL.revokeObjectURL(u); a.remove(); }, 1000); }, "image/png");
     });
     if (dlg.showModal) dlg.showModal(); else dlg.setAttribute("open", "");
   }
@@ -584,8 +614,13 @@
       out += '<p class="muted">' + esc(T.sd_local) + '</p><div class="actions">' + shareBtn(T.sd_share_btn) + '</div></div>';
       $("#selfmap").innerHTML = out; $("#selfmap").scrollIntoView({ behavior: "smooth" });
       $("#selfmap [data-share]").addEventListener("click", function () {
-        var rows = sl.filter(function (s) { return !s.more; }).map(function (s) { return { name: s.name, pos: posLabel(s), x: v[s.key], presumed: s.presumed, poles: s.poles }; });
-        shareDialog({ file: "self-discover", kicker: T.selfdiscover_name, title: T.map_title, shortTitle: T.map_short, rows: rows,
+        var rows = sl.filter(function (s) { return !s.more; }).map(function (s) { return { name: s.name, pos: posLabel(s), x: v[s.key], vari: va[s.key] || 0, presumed: s.presumed, poles: s.poles }; });
+        var prefs = [], named = function (ix, list) { return (ix || []).map(function (i) { return list[i]; }).filter(Boolean); };
+        if ((lg.give || []).length) prefs.push({ title: T.langs_give, items: named(lg.give, LL) });
+        if ((lg.receive || []).length) prefs.push({ title: T.langs_receive, items: named(lg.receive, LL) });
+        D.tastes.forEach(function (c) { var it = named((saved.tastes || {})[c[0]], c[2]); if (it.length) prefs.push({ title: c[1], items: it }); });
+        shareDialog({ file: "self-discover", kicker: T.selfdiscover_name, title: T.map_title, shortTitle: T.map_short, rows: rows, rowsLabel: T.chart_sliders,
+          groups: prefs.length ? prefs : null, groupsLabel: T.chart_prefs, groupsTitle: T.sd_prefs_title,
           lines: [far.length ? fmt(T.sd_far_short, { list: nm(far.slice(0, 4)) }) : T.sd_near_short, T.sd_legend] });
       });
     }
